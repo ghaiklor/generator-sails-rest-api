@@ -1,0 +1,51 @@
+{
+    "name": "generator-sails-rest-api",
+    "version": "0.1.0",
+    "description": "Yeoman generator for scaffolding Sails REST API with predefined features",
+    "keywords": [
+        "yeoman-generator",
+        "yeoman",
+        "generator",
+        "boilerplate",
+        "sails",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
+    "bugs": {
+        "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues",
+        "email": "ghaiklor@gmail.com"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Eugene Obrezkov",
+        "email": "ghaiklor@gmail.com",
+        "url": "https://www.facebook.com/ghaiklor"
+    },
+    "contributors": [],
+    "files": [
+        "app"
+    ],
+    "main": "app/index.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
+    },
+    "dependencies": {
+        "yeoman-generator": "^0.18.0",
+        "chalk": "^0.5.0",
+        "yosay": "^0.3.0"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "peerDependencies": {
+        "yo": ">=1.0.0"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
+}
