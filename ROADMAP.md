@@ -4,15 +4,17 @@
 
 - Think about package.json and unused dependencies;
 - Think about copying only files that need for project;
+- Write test for each service in sails;
+- Make mocha tests as part of Sails generator;
 
 ## Version 0.2.0 (in progress)
 
-- Write test for each service in sails;
-- Make mocha tests as part of Sails generator;
 - Add **apn** and **gcm** push notifications;
 - Add social service **Twitter** and **Google+**;
 - Add service **mailer**;
 - Add support for **Amazon** mailer and **sendmail**;
+- Rethink about Cipher service;
+- Make swagger documentation for endpoints;
 
 ## Version 0.1.0 (released)
 - ~~Make auto generating of all crypto tokens~~;
