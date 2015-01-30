@@ -2,6 +2,9 @@
 
 ## Edge version
 
+- Questions divided by groups;
+- Small fixes;
+
 ## Version 0.1.0
 
 - Rethink about structure;
