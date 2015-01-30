@@ -10,12 +10,12 @@ var yeoman = require('yeoman-generator'),
  */
 var QUESTIONS_LIST = [{
     type: 'input',
-    name: 'projectName',
+    name: 'project:name',
     message: 'Type your project name',
     default: 'sails-rest-api'
 }, {
     type: 'list',
-    name: 'databaseAdapter',
+    name: 'database:adapter',
     message: 'Choose database adapter',
     choices: [
         'MySQL',
@@ -26,32 +26,32 @@ var QUESTIONS_LIST = [{
     default: 1
 }, {
     type: 'input',
-    name: 'databaseHost',
-    message: 'Type your database host',
-    default: 'localhost'
-}, {
-    type: 'input',
-    name: 'databaseName',
-    message: 'Type your database name',
-    default: 'sails-rest-api'
-}, {
-    type: 'input',
-    name: 'databaseUser',
+    name: 'database:user',
     message: 'Type database username (if need)',
     default: ''
 }, {
     type: 'password',
-    name: 'databasePassword',
+    name: 'database:password',
     message: 'Type database password (if need)',
     default: ''
 }, {
     type: 'input',
-    name: 'applicationHeaderToken',
+    name: 'database:host',
+    message: 'Type your database host',
+    default: 'localhost'
+}, {
+    type: 'input',
+    name: 'database:name',
+    message: 'Type your database name',
+    default: 'sails-rest-api'
+}, {
+    type: 'input',
+    name: 'application:app-secret-token',
     message: 'Type application token (checking for isOurApp policy)',
     default: crypto.randomBytes(32).toString('hex')
 }, {
     type: 'input',
-    name: 'jwtSecret',
+    name: 'application:jwt-secret-token',
     message: 'Type JWT secret (overrides)',
     default: crypto.randomBytes(32).toString('hex')
 }];
