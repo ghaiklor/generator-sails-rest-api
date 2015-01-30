@@ -16,7 +16,7 @@
         "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues",
         "email": "ghaiklor@gmail.com"
     },
-    "license": "MIT",
+    "license": "Apache-2.0",
     "author": {
         "name": "Eugene Obrezkov",
         "email": "ghaiklor@gmail.com",
