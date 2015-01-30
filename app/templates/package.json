@@ -22,6 +22,7 @@
         "sails-mysql": "^0.10.8",
         "sails-postgresql": "^0.10.9",
         "sails-redis": "^0.10.3",
+        "stripe": "^3.1.0",
         "twilio": "^1.10.0"
     },
     "scripts": {
