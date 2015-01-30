@@ -1,3 +1,3 @@
-var SocialFactory = require('./social/socialFactory');
+var SocialFactory = require('./social/SocialFactory');
 
 module.exports = new SocialFactory();
