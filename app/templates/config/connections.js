@@ -17,11 +17,11 @@ module.exports.connections = {
      */
     mysql: {
         adapter: 'sails-mysql',
-        host: '<%= answers.databaseHost %>',
+        host: "<%= answers['database:host'] %>",
         port: 3306,
-        user: '<%= answers.databaseUser %>',
-        password: '<%= answers.databasePassword %>',
-        database: '<%= answers.databaseName %>',
+        user: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>",
+        database: "<%= answers['database:name'] %>",
         charset: 'utf8',
         collation: 'utf8_swedish_ci'
     },
@@ -32,11 +32,11 @@ module.exports.connections = {
      */
     mongo: {
         adapter: 'sails-mongo',
-        host: '<%= answers.databaseHost %>',
+        host: "<%= answers['database:host'] %>",
         port: 27017,
-        user: '<%= answers.databaseUser %>',
-        password: '<%= answers.databasePassword %>',
-        database: '<%= answers.databaseName %>'
+        user: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>",
+        database: "<%= answers['database:name'] %>"
         //replSet: {
         //    servers: [
         //        {
@@ -54,11 +54,11 @@ module.exports.connections = {
      */
     postgresql: {
         adapter: 'sails-postgresql',
-        host: '<%= answers.databaseHost %>',
+        host: "<%= answers['database:host'] %>",
         port: 5432,
-        user: '<%= answers.databaseUser %>',
-        password: '<%= answers.databasePassword %>',
-        database: '<%= answers.databaseName %>',
+        user: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>",
+        database: "<%= answers['database:name'] %>",
         pool: false,
         ssl: false
     },
@@ -69,10 +69,10 @@ module.exports.connections = {
      */
     redis: {
         adapter: 'sails-redis',
-        host: '<%= answers.databaseHost %>',
+        host: "<%= answers['database:host'] %>",
         port: 6379,
-        password: '<%= answers.databasePassword %>',
-        database: '<%= answers.databaseName %>',
+        password: "<%= answers['database:password'] %>",
+        database: "<%= answers['database:name'] %>",
         options: {
             parser: 'hiredis',
             return_buffers: false,
