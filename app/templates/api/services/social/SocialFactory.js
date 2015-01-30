@@ -35,4 +35,4 @@ SocialFactory.prototype = Object.create({
     }
 });
 
-module.exports = Facebook;
+module.exports = SocialFactory;
