@@ -10,6 +10,8 @@
 ## Version 0.2.0 (in progress)
 
 - Add **apn** and **gcm** push notifications;
+- Add **payment** services;
+- Implement **stripe** payment service;
 - Add social service **Twitter** and **Google+**;
 - Add service **mailer**;
 - Add support for **Amazon** mailer and **sendmail**;
