@@ -88,18 +88,14 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.spawnCommand('npm', ['install']).on('close', function () {
-            this.spawnCommand('node', ['app.js']).on('close', function () {
-                this.log(
-                    '\n\n' +
-                    chalk.yellow("NOTE: Don't forgot configure your app in") +
-                    chalk.red(" config/**/*.js ") +
-                    chalk.yellow("and") +
-                    chalk.red(" api/services/*.js") +
-                    '\n\n'
-                );
-            }.bind(this));
-        }.bind(this));
+        this.log(
+            '\n\n' +
+            chalk.yellow("NOTE: Don't forgot configure your app in") +
+            chalk.red(" config/**/*.js ") +
+            chalk.yellow("and") +
+            chalk.red(" api/services/*.js") +
+            '\n\n'
+        );
     },
 
     end: function () {
