@@ -6,7 +6,8 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     JwtStrategy = require('passport-jwt').Strategy,
-    FacebookTokenStrategy = require('passport-facebook-token').Strategy;
+    FacebookTokenStrategy = require('passport-facebook-token').Strategy,
+    TwitterTokenStrategy = require('passport-twitter-token').Strategy;
 
 passport.use(new LocalStrategy({
     usernameField: 'username',
@@ -88,6 +89,41 @@ passport.use(new FacebookTokenStrategy({
             });
     } else {
         req.user.facebook = profile._json;
+        req.user.save(next);
+    }
+}));
+
+passport.use(new TwitterTokenStrategy({
+    consumerKey: '-',
+    consumerSecret: '-',
+    passReqToCallback: true
+}, function (req, accessToken, tokenSecret, profile, next) {
+    if (!req.user) {
+        User
+            .findOrCreate({
+                'twitter.id': profile.id
+            }, {
+                username: req.param('username') || profile.username || profile.displayName,
+                email: req.param('email') || (profile.emails && profile.emails[0].value),
+                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
+                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
+                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
+                twitter: profile._json
+            })
+            .exec(function (error, user) {
+                if (error) {
+                    next(error, false);
+                } else if (!user) {
+                    next(null, false, {
+                        status: "E_AUTH_FAILED",
+                        error: "Twitter auth failed"
+                    });
+                } else {
+                    next(null, user);
+                }
+            });
+    } else {
+        req.user.twitter = profile._json;
         req.user.save(next);
     }
 }));

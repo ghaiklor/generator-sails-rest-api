@@ -54,6 +54,10 @@ module.exports = {
             type: 'object'
         },
 
+        twitter: {
+            type: 'object'
+        },
+
         toJSON: function () {
             var obj = this.toObject();
             delete obj.password;
