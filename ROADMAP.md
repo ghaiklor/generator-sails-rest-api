@@ -12,7 +12,7 @@
 - Add **apn** and **gcm** push notifications;
 - ~~Add **payment** services~~;
 - ~~Implement **stripe** payment service~~;
-- Add social service **Twitter** and **Google+**;
+- Add social service **Twitter**;
 - Add service **mailer**;
 - Add support for **Amazon** mailer and **sendmail**;
 - Rethink about Cipher service;

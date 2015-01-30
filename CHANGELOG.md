@@ -3,6 +3,7 @@
 ## Edge version
 
 - Add **stripe** payment system;
+- Add passport twitter authorization;
 - Questions divided by groups;
 - Small fixes;
 
