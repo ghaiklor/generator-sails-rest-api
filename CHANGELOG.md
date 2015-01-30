@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Add **stripe** payment system;
 - Questions divided by groups;
 - Small fixes;
 
