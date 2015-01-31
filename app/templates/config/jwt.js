@@ -10,7 +10,7 @@ module.exports.jwt = {
      * Secret phrase for symmetric encoding
      * @type {String}
      */
-    secret: "<%= answers.jwtSecret %>",
+    secret: "<%= answers['application:jwt-secret-token'] %>",
 
     /**
      * Algorithm that uses for signing JWT
