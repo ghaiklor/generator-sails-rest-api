@@ -9,7 +9,7 @@ module.exports.models = {
      * Your app's default connection
      * @type {String}
      */
-    connection: '<%= answers.databaseAdapter.toLowerCase() %>',
+    connection: "<%= answers['database:adapter'].toLowerCase() %>",
 
     /**
      * How and whether Sails will attempt to automatically rebuild the tables/collections/etc. in your schema
