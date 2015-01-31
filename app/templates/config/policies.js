@@ -10,8 +10,9 @@
  */
 
 module.exports.policies = {
-    /**
-     * Default policy for all controllers and actions
-     */
-    '*': ['isOurApp', 'isUser']
+    '*': ['isOurApp', 'isUser'],
+
+    AuthController: {
+        '*': 'isOurApp'
+    }
 };
