@@ -25,6 +25,7 @@ passport.use(new LocalStrategy({
                     status: "E_USER_NOT_FOUND",
                     error: ['Username', username, 'is not found'].join(' ')
                 });
+                // TODO: think about cipher services
             } else if (CipherService.create('bcrypt', {content: user.password}).compareHashSync(password)) {
                 next(null, false, {
                     status: "E_WRONG_PASSWORD",
@@ -36,7 +37,7 @@ passport.use(new LocalStrategy({
         });
 }));
 
-passport.use(new JwtStrategy('<%= answers.jwtSecret %>', {
+passport.use(new JwtStrategy("<%= answers['application:jwt-secret-token'] %>", {
     tokenBodyField: 'jwt-token',
     tokenHeader: 'JWT'
 }, function (payload, next) {
