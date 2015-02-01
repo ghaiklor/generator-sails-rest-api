@@ -3,6 +3,7 @@
  * @description :: Configuration file where you configure your passport authentication
  */
 
+// TODO: add more strategies
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     JwtStrategy = require('passport-jwt').Strategy,
