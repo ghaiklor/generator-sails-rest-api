@@ -37,7 +37,7 @@ module.exports = {
 
         gender: {
             type: 'string',
-            enum: ['female', 'male']
+            enum: ['MALE', 'FEMALE']
         },
 
         photo: {
@@ -60,13 +60,16 @@ module.exports = {
 
         toJSON: function () {
             var obj = this.toObject();
+
             delete obj.password;
+
             return obj;
         }
     },
 
     beforeUpdate: function (values, next) {
         if (values.password) {
+            // TODO: make with new cipher
             values.password = CipherService.create('bcrypt', {content: values.password}).hashSync();
         }
 
