@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
             sails.log.error(error);
             res.serverError(error);
         } else if (info) {
-            res.forbidden(null, null, info);
+            res.forbidden(null, info.status, info.message);
         } else {
             req.user = user;
             next();
