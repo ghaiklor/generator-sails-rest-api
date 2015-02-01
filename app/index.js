@@ -88,17 +88,25 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
+        // TODO: implement npm install
+    },
+
+    end: function () {
         this.log(
             '\n\n' +
-            chalk.yellow("NOTE: Don't forgot configure your app in") +
+            chalk.red("1) ") +
+            chalk.yellow("Install dependencies via") +
+            chalk.red(" npm install") +
+            '\n'
+        );
+
+        this.log(
+            chalk.red("2) ") +
+            chalk.yellow("Configure you app in") +
             chalk.red(" config/**/*.js ") +
             chalk.yellow("and") +
             chalk.red(" api/services/*.js") +
             '\n\n'
         );
-    },
-
-    end: function () {
-        // TODO: maybe implement
     }
 });
