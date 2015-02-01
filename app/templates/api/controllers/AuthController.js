@@ -15,9 +15,10 @@ module.exports = {
                 sails.log.error(error);
                 res.serverError(error);
             } else if (info) {
-                res.forbidden(null, null, info);
+                res.forbidden(null, info.status, info.message);
             } else {
                 res.ok({
+                    // TODO: think about jwt as cipher
                     token: JwtService.signSync({id: user.id}),
                     user: user
                 });
@@ -56,7 +57,30 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else if (info) {
-                    res.forbidden(null, null, info);
+                    res.forbidden(null, info.status, info.message);
+                } else {
+                    res.ok({
+                        token: JwtService.signSync({id: user.id}),
+                        user: user
+                    });
+                }
+            })(req, res);
+        })(req, res);
+    },
+
+    /**
+     * Twitter authorization\linking
+     */
+    twitter: function (req, res) {
+        passport.authenticate('jwt', function (error, user) {
+            req.user = user;
+
+            passport.authenticate('twitter-token', function (error, user, info) {
+                if (error) {
+                    sails.log.error(error);
+                    res.serverError(error);
+                } else if (info) {
+                    res.forbidden(null, info.status, info.message);
                 } else {
                     res.ok({
                         token: JwtService.signSync({id: user.id}),
