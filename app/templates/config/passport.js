@@ -23,13 +23,13 @@ passport.use(new LocalStrategy({
             } else if (!user) {
                 next(null, false, {
                     status: "E_USER_NOT_FOUND",
-                    error: ['Username', username, 'is not found'].join(' ')
+                    message: ['User', username, 'is not found'].join(' ')
                 });
                 // TODO: think about cipher services
             } else if (CipherService.create('bcrypt', {content: user.password}).compareHashSync(password)) {
                 next(null, false, {
                     status: "E_WRONG_PASSWORD",
-                    error: 'Password is wrong'
+                    message: 'Password is wrong'
                 });
             } else {
                 next(null, user);
@@ -51,7 +51,7 @@ passport.use(new JwtStrategy("<%= answers['application:jwt-secret-token'] %>", {
             } else if (!user) {
                 next(null, false, {
                     status: "E_USER_NOT_FOUND",
-                    error: "User with that JWT not found"
+                    message: "User with that JWT not found"
                 });
             } else {
                 next(null, user);
@@ -78,11 +78,11 @@ passport.use(new FacebookTokenStrategy({
             })
             .exec(function (error, user) {
                 if (error) {
-                    next(error, false);
+                    next(error);
                 } else if (!user) {
                     next(null, false, {
                         status: "E_AUTH_FAILED",
-                        error: "Facebook auth failed"
+                        message: "Facebook auth failed"
                     });
                 } else {
                     next(null, user);
@@ -113,11 +113,11 @@ passport.use(new TwitterTokenStrategy({
             })
             .exec(function (error, user) {
                 if (error) {
-                    next(error, false);
+                    next(error);
                 } else if (!user) {
                     next(null, false, {
                         status: "E_AUTH_FAILED",
-                        error: "Twitter auth failed"
+                        message: "Twitter auth failed"
                     });
                 } else {
                     next(null, user);
