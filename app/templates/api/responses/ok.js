@@ -8,6 +8,6 @@ module.exports = function (data, status, message) {
     this.res.jsonx({
         status: status || "OK",
         message: message || "Requested operation is successfully executed",
-        response: data
+        response: data || {}
     });
 };

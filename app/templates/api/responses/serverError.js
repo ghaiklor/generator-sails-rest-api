@@ -4,11 +4,10 @@
  */
 
 module.exports = function (data, status, message) {
-    data = data || {};
-
-    data.status = status || "E_SERVER_ERROR";
-    data.message = message || "Internal server error";
-
     this.res.status(500);
-    this.res.jsonx(data);
+    this.res.jsonx({
+        status: status || "E_SERVER_ERROR",
+        message: message || "Internal server error",
+        response: data || {}
+    });
 };
