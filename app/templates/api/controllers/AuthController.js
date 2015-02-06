@@ -15,7 +15,7 @@ module.exports = {
                 sails.log.error(error);
                 res.serverError(error);
             } else if (info) {
-                res.forbidden(null, info.status, info.message);
+                res.ok(null, info.status, info.message);
             } else {
                 res.ok({
                     // TODO: think about jwt as cipher
@@ -30,6 +30,8 @@ module.exports = {
      * Sign up in system
      */
     signup: function (req, res) {
+        // TODO: think about model duplicate
+
         User
             .create(req.allParams())
             .exec(function (error, user) {
@@ -38,6 +40,7 @@ module.exports = {
                     res.serverError(error);
                 } else {
                     res.ok({
+                        // TODO: think about jwt as cipher
                         token: JwtService.signSync({id: user.id}),
                         user: user
                     });
@@ -57,9 +60,10 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else if (info) {
-                    res.forbidden(null, info.status, info.message);
+                    res.ok(null, info.status, info.message);
                 } else {
                     res.ok({
+                        // TODO: think about jwt as cipher
                         token: JwtService.signSync({id: user.id}),
                         user: user
                     });
@@ -80,9 +84,10 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else if (info) {
-                    res.forbidden(null, info.status, info.message);
+                    res.ok(null, info.status, info.message);
                 } else {
                     res.ok({
+                        // TODO: think about jwt as cipher
                         token: JwtService.signSync({id: user.id}),
                         user: user
                     });
