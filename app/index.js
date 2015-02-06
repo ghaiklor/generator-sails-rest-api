@@ -47,13 +47,13 @@ var QUESTIONS_LIST = [{
 }, {
     type: 'input',
     name: 'application:app-secret-token',
-    message: 'Type application token (checking for isOurApp policy)',
-    default: crypto.randomBytes(32).toString('hex')
+    message: 'Type private application token',
+    default: crypto.randomBytes(16).toString('hex')
 }, {
     type: 'input',
     name: 'application:jwt-secret-token',
-    message: 'Type JWT secret (overrides)',
-    default: crypto.randomBytes(32).toString('hex')
+    message: 'Type private token for JSON Web Token',
+    default: crypto.randomBytes(16).toString('hex')
 }];
 
 module.exports = yeoman.generators.Base.extend({
