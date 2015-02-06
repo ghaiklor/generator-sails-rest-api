@@ -16,7 +16,11 @@ passport.use(new LocalStrategy({
 }, function (username, password, next) {
     User
         .findOne({
-            username: username
+            or: [{
+                username: username
+            }, {
+                email: username
+            }]
         })
         .exec(function (error, user) {
             if (error) {
