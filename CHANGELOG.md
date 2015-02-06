@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Add Mailer service and mandrill mailer;
 - Add **stripe** payment system;
 - Add passport twitter authorization;
 - Questions divided by groups;

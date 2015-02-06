@@ -10,13 +10,13 @@
 ## Version 0.2.0 (in progress)
 
 - Add **apn** and **gcm** push notifications;
-- ~~Add **payment** services~~;
-- ~~Implement **stripe** payment service~~;
 - Add social service **Twitter**;
-- Add service **mailer**;
-- Add support for **Amazon** mailer and **sendmail**;
+- Add support for **Amazon** mailer, **sendmail** and **mandrill** mailer;
 - Rethink about Cipher service;
 - Make swagger documentation for endpoints;
+- ~~Add **payment** services~~;
+- ~~Implement **stripe** payment service~~;
+- ~~Add service **mailer**~~;
 
 ## Version 0.1.0 (released)
 - ~~Make auto generating of all crypto tokens~~;
