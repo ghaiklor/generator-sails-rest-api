@@ -67,6 +67,10 @@ module.exports = {
         }
     },
 
+    beforeValidate: function (values, next) {
+        // TODO: maybe here we need put duplicate checking
+    },
+
     beforeUpdate: function (values, next) {
         if (values.password) {
             // TODO: make with new cipher
@@ -78,6 +82,7 @@ module.exports = {
 
     beforeCreate: function (values, next) {
         if (values.password) {
+            // TODO: make with new cipher
             values.password = CipherService.create('bcrypt', {content: values.password}).hashSync();
         }
 
