@@ -6,6 +6,8 @@
  */
 
 module.exports.jwt = {
+    // TODO: maybe move to cipher section
+
     /**
      * Secret phrase for symmetric encoding
      * @type {String}
