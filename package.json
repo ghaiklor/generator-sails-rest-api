@@ -1,6 +1,6 @@
 {
     "name": "generator-sails-rest-api",
-    "version": "0.1.1",
+    "version": "0.2.1",
     "description": "Yeoman generator for scaffolding Sails REST API with predefined features",
     "keywords": [
         "yeoman-generator",
