@@ -12,10 +12,10 @@
 - Add support for **Amazon** mailer, **sendmail** mailer;
 - Write test for each service in sails;
 - Make mocha tests as part of Sails generator;
+- Make swagger documentation for endpoints;
 
 ## Version 0.2.0 (released)
 
-- Make swagger documentation for endpoints;
 - ~~Add support for **mandrill** mailer~~;
 - ~~Rethink about Cipher service~~;
 - ~~Add **payment** services~~;
