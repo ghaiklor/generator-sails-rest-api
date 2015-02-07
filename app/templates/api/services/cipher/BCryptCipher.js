@@ -1,6 +1,6 @@
-var Q = require('q'),
+var util = require('util'),
+    Q = require('q'),
     bcrypt = require('bcrypt'),
-    util = require('util'),
     BaseCipher = require('./BaseCipher');
 
 /**
@@ -16,7 +16,7 @@ util.inherits(BCryptCipher, BaseCipher);
  * Create new bcrypt cipher instance
  * @constructor
  */
-function BCryptCipher(options) {
+function BCryptCipher(content) {
     BaseCipher.apply(this, arguments);
 }
 
@@ -53,7 +53,7 @@ BCryptCipher.prototype.hashSync = function (salt) {
  * @param {String} data Plain data
  * @returns {Promise}
  */
-BCryptCipher.prototype.compareHash = function (data) {
+BCryptCipher.prototype.compare = function (data) {
     var defer = Q.defer();
 
     bcrypt.compare(data, this.getContent(), function (error, equal) {
@@ -72,7 +72,7 @@ BCryptCipher.prototype.compareHash = function (data) {
  * @param {String} data Plain data
  * @returns {Boolean} Returns true if equal
  */
-BCryptCipher.prototype.compareHashSync = function (data) {
+BCryptCipher.prototype.compareSync = function (data) {
     return bcrypt.compareSync(data, this.getContent());
 };
 

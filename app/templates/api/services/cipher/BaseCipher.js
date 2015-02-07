@@ -2,18 +2,18 @@
  * Message for implement method
  * @type {String}
  */
-var IMPLEMENT_MESSAGE = 'Not implemented';
+var IMPLEMENT_MESSAGE = "Not implemented";
 
 /**
  * BaseCipher class
  * @constructor
  */
-function BaseCipher(options) {
-    if (!(options || options.content)) {
-        throw new Error('You must provide content');
+function BaseCipher(content) {
+    if (!content) {
+        throw new Error("You must provide plain data or hash");
     }
 
-    this.setContent(options.content);
+    this.setContent(content);
 }
 
 BaseCipher.prototype = Object.create({
@@ -24,7 +24,7 @@ BaseCipher.prototype = Object.create({
      * @returns {*}
      */
     getContent: function () {
-        return this.content;
+        return this._content;
     },
 
     /**
@@ -33,23 +33,35 @@ BaseCipher.prototype = Object.create({
      * @returns {BaseCipher}
      */
     setContent: function (content) {
-        this.content = content;
+        this._content = content;
         return this;
     },
 
+    /**
+     * Hash plain data
+     */
     hash: function () {
         throw new Error(IMPLEMENT_MESSAGE);
     },
 
+    /**
+     * Hash plain data in sync mode
+     */
     hashSync: function () {
         throw new Error(IMPLEMENT_MESSAGE);
     },
 
-    compareHash: function () {
+    /**
+     * Compare hash to plain data
+     */
+    compare: function () {
         throw new Error(IMPLEMENT_MESSAGE);
     },
 
-    compareHashSync: function () {
+    /**
+     * Compare hash to plain data in sync mode
+     */
+    compareSync: function () {
         throw new Error(IMPLEMENT_MESSAGE);
     }
 });
