@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
+
 ## Version 0.2.0
 
 - Improvement: Working with Cipher more comfortable;
