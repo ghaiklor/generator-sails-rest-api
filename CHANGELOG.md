@@ -4,12 +4,10 @@
 
 - Improvement: Working with Cipher more comfortable;
 - Improvement: Question is divided by groups;
-
 - Add: `.tmp` folder added to `.gitignore` list;
 - Add: `MailerService` and **Mandrill** provider;
 - Add: `PaymentService` and **Stripe** provider;
 - Add: **Twitter** authorization in **passport**;
-
 - Fix: twilio module in package.json;
 - Fix: `SocialFactory` is undefined;
 - Fix: calling Facebook social service in any case;
