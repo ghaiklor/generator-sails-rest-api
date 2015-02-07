@@ -1,7 +1,7 @@
 var MandrillMailer = require('./MandrillMailer');
 
 /**
- * Create factory for Payment System
+ * Create factory for Mailer
  * @constructor
  */
 function MailerFactory() {
@@ -21,7 +21,7 @@ MailerFactory.prototype = Object.create({
             case 'mandrill':
                 return this.createMandrill(options);
             default:
-                throw new Error('Unrecognized type');
+                throw new Error('Unrecognized type -> ' + type);
         }
     },
 
