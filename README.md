@@ -2,41 +2,45 @@
 
 > [Yeoman](http://yeoman.io) generator
 
-## What is Yeoman?
+Yeoman generator that provides already configured and optimized Sails REST API.
 
-Trick question. It's not a thing. It's this guy:
+## Features
 
-![](http://i.imgur.com/JHaAlBJ.png)
+- Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *sockets*, *views*;
+- All configuration files cleaned up and optimised for REST API;
+- Integrated Passport with Facebook, Twitter and Local authorizations strategies and implemented routes to them;
+- Already declared `User` model with most used fields;
+- Implemented 2 policies: `isOurApp` which checks if request is going from our applications, and `isUser` which checks if user is authorized by JSON Web Token;
+- Custom responses which respond with `status` (Status Code), `message` (Status Message) and `response` (Response Data) fields;
+- Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
 
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
+## Getting Started
 
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
+First of all, you need install yeoman and generator:
 
 ```bash
-npm install -g yo
+npm install -g yo generator-sails-rest-api
 ```
 
-## Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
-
-To install generator-sails-rest-api from npm, run:
+Finally, create project directory and initiate the generator:
 
 ```bash
-npm install -g generator-sails-rest-api
-```
-
-Finally, initiate the generator:
-
-```bash
+mkdir my-project
+cd my-project
 yo sails-rest-api
 ```
 
-## Getting To Know Yeoman
+## Table of ready-2-use services
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+|  Service Name  |               Implemented providers              |
+|:--------------:|:------------------------------------------------:|
+|  CipherService | bcrypt                                           |
+|  MailerService | Mandrill                                         |
+| PaymentService | Stripe                                           |
+|  PusherService | Apple Push Notifications, Google Cloud Messaging |
+|   SmsService   | Twilio                                           |
+|  SocialService | Facebook                                         |
+| StorageService | Amazon Google Cloud                              |
 
 ## License
 
