@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.2.0
+
 - Improvement: Working with Cipher more comfortable;
 - Improvement: Question is divided by groups;
 - Add: `.tmp` folder added to `.gitignore` list;
