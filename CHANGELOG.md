@@ -2,12 +2,18 @@
 
 ## Edge version
 
-- Rewrite Cipher service;
-- Add Mailer service and mandrill mailer;
-- Add **stripe** payment system;
-- Add passport twitter authorization;
-- Questions divided by groups;
-- Small fixes;
+- Improvement: Working with Cipher more comfortable;
+- Improvement: Question is divided by groups;
+
+- Add: `.tmp` folder added to `.gitignore` list;
+- Add: `MailerService` and **Mandrill** provider;
+- Add: `PaymentService` and **Stripe** provider;
+- Add: **Twitter** authorization in **passport**;
+
+- Fix: twilio module in package.json;
+- Fix: `SocialFactory` is undefined;
+- Fix: calling Facebook social service in any case;
+- Fix: wrong comparing password with hash in database;
 
 ## Version 0.1.0
 
