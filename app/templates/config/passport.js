@@ -30,8 +30,7 @@ passport.use(new LocalStrategy({
                     status: "E_USER_NOT_FOUND",
                     message: ['User', username, 'is not found'].join(' ')
                 });
-                // TODO: think about cipher services
-            } else if (CipherService.create('bcrypt', {content: user.password}).compareHashSync(password)) {
+            } else if (!CipherService.create('bcrypt', user.password).compareSync(password)) {
                 next(null, false, {
                     status: "E_WRONG_PASSWORD",
                     message: 'Password is wrong'
