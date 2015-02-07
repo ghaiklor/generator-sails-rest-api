@@ -12,8 +12,8 @@
 - Add **apn** and **gcm** push notifications;
 - Add social service **Twitter**;
 - Add support for **Amazon** mailer, **sendmail** and **mandrill** mailer;
-- Rethink about Cipher service;
 - Make swagger documentation for endpoints;
+- ~~Rethink about Cipher service~~;
 - ~~Add **payment** services~~;
 - ~~Implement **stripe** payment service~~;
 - ~~Add service **mailer**~~;

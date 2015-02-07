@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Rewrite Cipher service;
 - Add Mailer service and mandrill mailer;
 - Add **stripe** payment system;
 - Add passport twitter authorization;
