@@ -73,8 +73,7 @@ module.exports = {
 
     beforeUpdate: function (values, next) {
         if (values.password) {
-            // TODO: make with new cipher
-            values.password = CipherService.create('bcrypt', {content: values.password}).hashSync();
+            values.password = CipherService.create('bcrypt', values.password).hashSync();
         }
 
         next();
@@ -82,8 +81,7 @@ module.exports = {
 
     beforeCreate: function (values, next) {
         if (values.password) {
-            // TODO: make with new cipher
-            values.password = CipherService.create('bcrypt', {content: values.password}).hashSync();
+            values.password = CipherService.create('bcrypt', values.password).hashSync();
         }
 
         next();
