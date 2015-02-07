@@ -28,7 +28,6 @@ function GCMPushNotification(options) {
 
     this.devices = options.devices;
 
-    // TODO: add API key here
     this.sender = new gcm.Sender();
     this.message = new gcm.Message(options.message);
 }
