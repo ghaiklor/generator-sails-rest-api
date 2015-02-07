@@ -73,7 +73,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     configuring: function () {
-        // TODO: maybe implement
     },
 
     writing: function () {
@@ -84,7 +83,6 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     conflicts: function () {
-        // TODO: maybe implement
     },
 
     install: function () {
