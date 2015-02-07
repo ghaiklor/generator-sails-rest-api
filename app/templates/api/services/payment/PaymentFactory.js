@@ -1,7 +1,7 @@
 var StripePayment = require('./StripePayment');
 
 /**
- * Create factory for Payment System
+ * Create factory for Payment
  * @constructor
  */
 function PaymentFactory() {
@@ -21,13 +21,13 @@ PaymentFactory.prototype = Object.create({
             case 'stripe':
                 return this.createStripe(options);
             default:
-                throw new Error('Unrecognized type');
+                throw new Error('Unrecognized type -> ' + type);
         }
     },
 
     /**
-     * Create Payment System
-     * @param {Object} options Options for Payment System
+     * Create Stripe instance
+     * @param {Object} options Configuration object for Stripe
      * @returns {StripePayment}
      */
     createStripe: function (options) {
