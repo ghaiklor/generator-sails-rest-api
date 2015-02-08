@@ -27,8 +27,12 @@
         "stripe": "^3.1.0",
         "twilio": "^1.10.0"
     },
+    "devDependencies": {
+        "mocha": "^2.1.0"
+    },
     "scripts": {
         "start": "node app.js",
-        "debug": "node debug app.js"
+        "debug": "node debug app.js",
+        "test": "mocha --recursive"
     }
 }
