@@ -3,6 +3,8 @@
 ## Edge version
 
 - Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
+- Fix: `passport-twitter-token` is not found;
+- Upgrade: `yosay` upgraded to 1.0.2;
 
 ## Version 0.2.0
 
