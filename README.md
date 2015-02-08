@@ -1,6 +1,8 @@
 # generator-sails-rest-api [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> [Yeoman](http://yeoman.io) generator
+**Under heavy development**
+
+> Stability: 1 - Experimental
 
 Yeoman generator that provides already configured and optimized Sails REST API.
 
