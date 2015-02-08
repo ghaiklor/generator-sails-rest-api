@@ -4,15 +4,15 @@
 
 - Think about package.json and unused dependencies;
 - Think about copying only files that need for project;
-
-## Version 0.3.0 (in progress)
-
 - Add **apn** and **gcm** push notifications;
 - Add social service **Twitter**;
 - Add support for **Amazon** mailer, **sendmail** mailer;
-- Write test for each service in sails;
-- Make mocha tests as part of Sails generator;
+
+## Version 0.3.0 (in progress)
+
 - Make swagger documentation for endpoints;
+- Make mocha tests as part of Sails generator;
+- Write test for each service in Sails;
 
 ## Version 0.2.0 (released)
 
