@@ -16,6 +16,7 @@
         "passport-facebook-token": "^0.4.0",
         "passport-jwt": "^0.1.0",
         "passport-local": "^1.0.0",
+        "passport-twitter-token": "^0.1.5",
         "q": "^1.1.2",
         "rc": "~0.5.0",
         "sails": "~0.10.5",
