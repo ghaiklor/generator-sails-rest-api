@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '0.10'
+  - '0.12'
 before_install:
   - currentfolder="${PWD##*/}"
   - if [ "$currentfolder" != 'generator-sails-rest-api' ]; then cd .. && eval "mv $currentfolder generator-sails-rest-api" && cd generator-sails-rest-api; fi
