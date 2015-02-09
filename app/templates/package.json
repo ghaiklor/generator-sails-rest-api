@@ -9,6 +9,7 @@
         "bcrypt": "^0.8.0",
         "fb": "^0.7.0",
         "gcloud": "^0.12.0",
+        "jsonwebtoken": "^3.2.2",
         "mandrill-api": "^1.0.41",
         "node-gcm": "^0.9.12",
         "node.extend": "^1.1.3",
