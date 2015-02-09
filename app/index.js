@@ -86,7 +86,9 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall();
+        if (!this.options.skipInstall) {
+            this.npmInstall();
+        }
     },
 
     end: function () {
@@ -102,5 +104,13 @@ module.exports = yeoman.generators.Base.extend({
             chalk.red(" Join to us :) ") +
             '\n\n'
         );
+
+        if (this.options.skipInstall) {
+            this.log(
+                chalk.yellow(" NOTE: You have skipped installing npm modules \n") +
+                chalk.yellow(" Install them manually via ") +
+                chalk.red.bgWhite(" npm install ")
+            )
+        }
     }
 });
