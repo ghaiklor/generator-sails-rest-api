@@ -36,12 +36,12 @@ yo sails-rest-api
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
-|  CipherService | bcrypt                                           |
-|  MailerService | Mandrill                                         |
+| CipherService  | bcrypt                                           |
+| MailerService  | Mandrill                                         |
 | PaymentService | Stripe                                           |
-|  PusherService | Apple Push Notifications, Google Cloud Messaging |
-|   SmsService   | Twilio                                           |
-|  SocialService | Facebook                                         |
+| PusherService  | Apple Push Notifications, Google Cloud Messaging |
+| SmsService     | Twilio                                           |
+| SocialService  | Facebook                                         |
 | StorageService | Amazon Google Cloud                              |
 
 ## License
