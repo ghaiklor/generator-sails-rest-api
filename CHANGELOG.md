@@ -4,6 +4,7 @@
 
 - Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
 - Improvement: Add blank tests for each `controllers`, `models`, `policies`, `responses`, `services`;
+- Improvement: Each test case include `assert(false)` as reminder that they should be written;
 - Improvement: Add JSON Web Token as part of `CipherService`;
 - Improvement: Support for `skip-install` flag. You can skip `npm install` executing;
 - Improvement: Add log notification that generator under heavy development;
