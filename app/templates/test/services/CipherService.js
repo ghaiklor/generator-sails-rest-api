@@ -1,8 +1,7 @@
-var assert = require('assert'),
-    CipherService = require('../../api/services/CipherService');
+var assert = require('assert');
 
-describe('Services:CipherService', function () {
-    it('Should be factory function', function () {
-        assert(typeof CipherService.create === 'function');
+describe("services:CipherService", function () {
+    it("TODO: write this test", function () {
+        assert(false);
     });
 });

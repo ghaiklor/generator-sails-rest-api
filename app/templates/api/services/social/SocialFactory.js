@@ -1,4 +1,4 @@
-var Facebook = require('./Facebook');
+var Facebook = require('./FacebookSocial');
 
 /**
  * SocialFactory class

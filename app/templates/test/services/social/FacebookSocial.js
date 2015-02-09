@@ -1,6 +1,6 @@
 var assert = require('assert');
 
-describe("cipher:JwtCipher", function () {
+describe("social:FacebookSocial", function () {
     it("TODO: write this test", function () {
         assert(false);
     });
