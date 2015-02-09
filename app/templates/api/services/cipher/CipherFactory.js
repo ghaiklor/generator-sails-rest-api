@@ -1,4 +1,5 @@
-var BCryptCipher = require('./BCryptCipher');
+var BCryptCipher = require('./BCryptCipher'),
+    JwtCipher = require('./JwtCipher');
 
 /**
  * Create new factory for Cipher services
@@ -20,6 +21,8 @@ CipherFactory.prototype = Object.create({
         switch (type) {
             case 'bcrypt':
                 return this.createBCryptCipher(options);
+            case 'jwt':
+                return this.createJwtCipher(options);
             default:
                 throw new Error('Unrecognized type -> ' + type);
         }
@@ -32,6 +35,15 @@ CipherFactory.prototype = Object.create({
      */
     createBCryptCipher: function (options) {
         return new BCryptCipher(options);
+    },
+
+    /**
+     * Create JWT
+     * @param {Object} options
+     * @returns {JwtCipher}
+     */
+    createJwtCipher: function (options) {
+        return new JwtCipher(options);
     }
 });
 
