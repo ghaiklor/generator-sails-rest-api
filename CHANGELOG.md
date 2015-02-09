@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
+- Improvement: Add JSON Web Token as part of `CipherService`;
 - Improvement: Support for `skip-install` flag. You can skip `npm install` executing;
 - Improvement: Add log notification that generator under heavy development;
 - Improvement: Add log notification that `npm install` skipped if you call with `skip-install` flag;
