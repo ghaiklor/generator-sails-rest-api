@@ -5,6 +5,7 @@
 - Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
 - Fix: `passport-twitter-token` is not found;
 - Upgrade: `yosay` upgraded to 1.0.2;
+- Upgrade: License has changed to GPL 3.0. For me important that this will be open-source and only open-source;
 
 ## Version 0.2.0
 

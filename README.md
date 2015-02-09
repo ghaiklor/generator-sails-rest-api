@@ -1,6 +1,6 @@
 # generator-sails-rest-api [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Under heavy development**
+**UNDER HEAVY DEVELOPMENT**
 
 > Stability: 1 - Experimental
 
@@ -46,6 +46,17 @@ yo sails-rest-api
 
 ## License
 
-The Apache License 2.0 (Apache-2.0)
+Copyright © 2015 Eugene Obrezkov
 
-Copyright (c) 2015 Eugene Obrezkov
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
