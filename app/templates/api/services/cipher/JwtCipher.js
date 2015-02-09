@@ -10,6 +10,7 @@ util.inherits(JwtCipher, BaseCipher);
  * @constructor
  */
 function JwtCipher() {
+    // TODO: think about token and payload attributes in object
     BaseCipher.apply(this, arguments);
 }
 

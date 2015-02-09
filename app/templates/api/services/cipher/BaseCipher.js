@@ -9,6 +9,8 @@ var IMPLEMENT_MESSAGE = "Not implemented";
  * @constructor
  */
 function BaseCipher(content) {
+    // TODO: think about typeof content == object
+
     if (!content) {
         throw new Error("You must provide plain data or hash");
     }
