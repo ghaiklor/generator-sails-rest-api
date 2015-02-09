@@ -86,22 +86,20 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        // TODO: implement npm install
+        this.npmInstall();
     },
 
     end: function () {
         this.log(
             '\n\n' +
-            chalk.yellow("1) Install dependencies via ") +
-            chalk.red.bgWhite(" npm install ") +
-            '\n'
-        );
-
-        this.log(
-            chalk.yellow("2) Configure you app in ") +
-            chalk.red.bgWhite(" config/**/*.js ") +
-            chalk.yellow(" and ") +
-            chalk.red.bgWhite(" api/services/*.js ") +
+            chalk.red(" This generator under heavy development \n\n") +
+            chalk.red(" If you found any bugs or have proposals, feel free to create issue \n") +
+            chalk.red(" " + this.pkg.bugs.url + " ") +
+            '\n\n' +
+            chalk.red(" Or you can write me the letter \n") +
+            chalk.red(" " + this.pkg.bugs.email + " ") +
+            '\n\n' +
+            chalk.red(" Join to us :) ") +
             '\n\n'
         );
     }
