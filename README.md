@@ -15,6 +15,7 @@ Yeoman generator that provides already configured and optimized Sails REST API.
 - Implemented 2 policies: `isOurApp` which checks if request is going from our applications, and `isUser` which checks if user is authorized by JSON Web Token;
 - Custom responses which respond with `status` (Status Code), `message` (Status Message) and `response` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
+- Integrated Mocha tests for all `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
 
 ## Getting Started
 
