@@ -23,8 +23,9 @@ module.exports.http = {
          * @type {Array}
          */
         order: [
-            '$custom',
             'bodyParser',
+            'compress',
+            '$custom',
             'router',
             '404',
             '500'
