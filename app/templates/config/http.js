@@ -6,6 +6,14 @@
 
 module.exports.http = {
     /**
+     * You can define own custom middleware here
+     * @param app Express application
+     */
+    customMiddleware: function (app) {
+
+    },
+
+    /**
      * Express middleware to use for every Sails request
      * @type {Object}
      */
@@ -15,6 +23,7 @@ module.exports.http = {
          * @type {Array}
          */
         order: [
+            '$custom',
             'bodyParser',
             'router',
             '404',
