@@ -10,10 +10,9 @@
 
 ## Version 0.3.0 (in progress)
 
-- Implement JWT cipher;
-- Make swagger documentation for endpoints;
-- Make mocha tests as part of Sails generator;
-- Write test for each service in Sails;
+- Make swagger documentation as part of Sails generator;
+- ~~Implement JWT cipher~~;
+- ~~Make mocha tests as part of Sails generator~~;
 
 ## Version 0.2.0 (released)
 
