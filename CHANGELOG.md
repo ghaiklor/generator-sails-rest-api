@@ -7,6 +7,7 @@
 - Improvement: Each test case include `assert(false)` as reminder that they should be written;
 - Improvement: Add JSON Web Token as part of `CipherService`;
 - Improvement: Support for `skip-install` flag. You can skip `npm install` executing;
+- Improvement: Add `customMiddleware` support in `config/http.js`;
 - Improvement: Add log notification that generator under heavy development;
 - Improvement: Add log notification that `npm install` skipped if you call with `skip-install` flag;
 - Improvement: License has changed to GPL 3.0. For me important that this will be open-source and only open-source;
