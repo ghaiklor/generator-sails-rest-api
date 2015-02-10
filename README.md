@@ -45,6 +45,20 @@ yo sails-rest-api
 | SocialService  | Facebook                                         |
 | StorageService | Amazon Google Cloud                              |
 
+## How can I get latest dev version of generator?
+
+Right now this generator is extremely under development, so each day our `dev` branch has new updates and fixes.
+
+If you want get the latest updates, you should do this:
+
+```bash
+git clone https://github.com/ghaiklor/generator-sails-rest-api.git # Clone the repository
+cd generator-sails-rest-api # Change directory
+npm link # Link current directory to global module
+```
+
+After that our git repository will be linked to your global npm module and you can use it as described above.
+
 ## License
 
 Copyright © 2015 Eugene Obrezkov
