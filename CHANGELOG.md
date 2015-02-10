@@ -2,7 +2,7 @@
 
 ## Edge version
 
-- Improvement: Frozen stability of the whole project, so work is going only in `services` folder;
+- Improvement: Frozen stability of the whole project, so work is going only in `services`, `test` and `doc` folder;
 - Improvement: Add blank tests for each `controllers`, `models`, `policies`, `responses`, `services`;
 - Improvement: Each test case include `assert(false)` as reminder that they should be written;
 - Improvement: Add JSON Web Token as part of `CipherService`;
