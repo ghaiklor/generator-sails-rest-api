@@ -2,16 +2,16 @@
 
 ## Faraway
 
-- [] Think about package.json and unused dependencies;
-- [] Think about copying only files that need for project;
-- [] Add **apn** and **gcm** push notifications;
-- [] Add social service **Twitter**;
-- [] Add support for **Amazon** mailer, **sendmail** mailer;
-- [] Test coverage for all `api` files;
+- [ ] Think about package.json and unused dependencies;
+- [ ] Think about copying only files that need for project;
+- [ ] Add **apn** and **gcm** push notifications;
+- [ ] Add social service **Twitter**;
+- [ ] Add support for **Amazon** mailer, **sendmail** mailer;
+- [ ] Test coverage for all `api` files;
 
 ## Version 0.3.0 (in progress)
 
-- [] Make swagger documentation as part of Sails generator;
+- [ ] Make swagger documentation as part of Sails generator;
 - [x] Implement JWT cipher;
 - [x] Make mocha tests as part of Sails generator;
 
