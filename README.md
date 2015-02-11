@@ -33,7 +33,22 @@ cd my-project
 yo sails-rest-api
 ```
 
-## Table of ready-2-use services
+## Project structure
+
+Here some changes what I've done to Sails application.
+
+- `api/controllers/AuthController.js` - Implemented `signin`, `signup`, `facebook` and `twitter` routes for user signin\signup;
+- `api/models/User.js` - Implemented default `User` model which fits to you in most cases;
+- `api/policies/isOurApp.js` - Checks for `Application-Token` in headers to prevent requests from non-allowed clients;
+- `api/policies/isUser.js` - Authorizes user via JSON Web Token and inject authorized user into `req.user`;
+- `api/responses/*.js` - Each response modified to return `status`, `message` and `response` data;
+- `api/services/**/*.js` - Additional features like send push notification implemented like service for Sails;
+- `config/**/*.js` - Optimized all configuration files to work only with REST API and added `passport.js` config file;
+- `doc/**/*.json` - Folder where all documentation for yours REST API. Documentation generating executing from this sources;
+- `test/**/*.js` - All tests for project;
+- `.sailsrc` - Predefined list of hooks which we don't need for clear REST API backend;
+
+## Ready-2-use services
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
