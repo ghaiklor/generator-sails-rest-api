@@ -69,6 +69,7 @@ module.exports = {
 
     beforeValidate: function (values, next) {
         // TODO: maybe here we need put duplicate checking
+        next();
     },
 
     beforeUpdate: function (values, next) {
