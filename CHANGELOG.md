@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.3.0
+
 - Improvement: Frozen stability of the whole project, so work is going only in `services`, `test` and `doc` folder;
 - Improvement: Add blank tests for each `controllers`, `models`, `policies`, `responses`, `services`;
 - Improvement: Each test case named **TODO: write this test** as reminder and include `assert(true)`;
