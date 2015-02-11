@@ -12,6 +12,7 @@
 - Improvement: Add log notification that `npm install` skipped if you call with `skip-install` flag;
 - Improvement: License has changed to GPL 3.0. For me important that this will be open-source and only open-source;
 - Improvement: `yosay` upgraded to 1.0.2;
+- Fix: Fix bug with `JWTService` in `AuthController.js`;
 - Fix: `jsonwebtoken` package not declared in `package.json`;
 - Fix: Fix bug when `npm test` also start installing npm modules;
 - Fix: `passport-twitter-token` is not found;
