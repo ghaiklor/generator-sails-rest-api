@@ -48,11 +48,73 @@ Here some changes what I've done to Sails application.
 - `test/**/*.js` - All tests for project;
 - `.sailsrc` - Predefined list of hooks which we don't need for clear REST API backend;
 
+## How to use
+
+### Policies
+
+#### isOurApp.js
+
+File `api/policies/isOurApp.js` contains secret token which you should give to your frontend developers.
+
+So each request which doesn't include `Application-Token` will be rejected.
+
+It's kinda of private API and only allowed users can make requests.
+
+### Responses
+
+Each response in Sails is customized to fit this requirement: response should contains `status`, `message` and `response`.
+
+It's the best workflow for mobile developers, who can assign `status` to their constants in code and see what happens in their request.
+
+```javascript
+res.badRequest(data, status, message);
+res.forbidden(data, status, message);
+res.notFound(data, status, message);
+res.ok(data, status, message);
+res.serverError(data, status, message);
+```
+
+`data` - this is response object, `status` - status code in response and `message` - custom message with more detailed description.
+
+So, for example, you want to return forbidden with custom status and message, you can do this like:
+
+```javascript
+res.forbidden(null, "E_CUSTOM_FORBIDDEN", "My custom forbidden");
+```
+
+And this code will returns this response:
+
+```json
+{
+    "status": "E_CUSTOM_FORBIDDEN",
+    "message": "My custom forbidden",
+    "response": "{}"
+}
+```
+
+### Services
+
+Each service has factory class and service which proxies to that factory class.
+
+For example, you want to create JWT token with some payload inside. You can do this in this way:
+
+```javascript
+var payload = {
+    id: someUserId
+};
+
+var jwt = CipherService.create('jwt', payload).hashSync();
+
+console.log(jwt); // Prints out JWT token with payload
+```
+
+Each service is done in this way. You just call `.create()` with type of service and options object.
+
 ## Ready-2-use services
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
-| CipherService  | bcrypt                                           |
+| CipherService  | bcrypt, JWT                                      |
 | MailerService  | Mandrill                                         |
 | PaymentService | Stripe                                           |
 | PusherService  | Apple Push Notifications, Google Cloud Messaging |
@@ -73,6 +135,14 @@ npm link # Link current directory to global module
 ```
 
 After that our git repository will be linked to your global npm module and you can use it as described above.
+
+If any updates will come you can just pull the last changes and call generator again:
+
+```bash
+cd generator-sails-rest-api
+git pull
+yo sails-rest-api
+```
 
 ## License
 
