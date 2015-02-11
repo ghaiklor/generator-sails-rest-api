@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Move to Sails v0.11;
+
 ## Version 0.3.0
 
 - Improvement: Frozen stability of the whole project, so work is going only in `services`, `test` and `doc` folder;
