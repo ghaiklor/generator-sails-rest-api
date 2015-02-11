@@ -18,8 +18,7 @@ module.exports = {
                 res.ok(null, info.status, info.message);
             } else {
                 res.ok({
-                    // TODO: think about jwt as cipher
-                    token: JwtService.signSync({id: user.id}),
+                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
                     user: user
                 });
             }
@@ -40,8 +39,7 @@ module.exports = {
                     res.serverError(error);
                 } else {
                     res.ok({
-                        // TODO: think about jwt as cipher
-                        token: JwtService.signSync({id: user.id}),
+                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
                         user: user
                     });
                 }
@@ -63,8 +61,7 @@ module.exports = {
                     res.ok(null, info.status, info.message);
                 } else {
                     res.ok({
-                        // TODO: think about jwt as cipher
-                        token: JwtService.signSync({id: user.id}),
+                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
                         user: user
                     });
                 }
@@ -87,8 +84,7 @@ module.exports = {
                     res.ok(null, info.status, info.message);
                 } else {
                     res.ok({
-                        // TODO: think about jwt as cipher
-                        token: JwtService.signSync({id: user.id}),
+                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
                         user: user
                     });
                 }

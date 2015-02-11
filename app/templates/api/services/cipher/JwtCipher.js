@@ -16,11 +16,10 @@ function JwtCipher() {
 
 /**
  * Sign payload with JSON Web Token
- * @param {Object} payload Payload that need to sign
  * @returns {String} Returns JSON Web Token in string format
  */
 JwtCipher.prototype.hashSync = function () {
-    return jwt.sign(payload, sails.config.jwt.secret, {
+    return jwt.sign(this.getContent(), sails.config.jwt.secret, {
         algorithm: sails.config.jwt.algorithm,
         expiresInMinutes: sails.config.jwt.expires
     });
@@ -28,13 +27,12 @@ JwtCipher.prototype.hashSync = function () {
 
 /**
  * Verify token and returns decoded payload
- * @param {String} token JSON Web Token string
  * @returns {Promise}
  */
 JwtCipher.prototype.verify = function () {
     var defer = Q.defer();
 
-    jwt.verify(token, sails.config.jwt.secret, function (error, decoded) {
+    jwt.verify(this.getContent(), sails.config.jwt.secret, function (error, decoded) {
         if (error) {
             defer.reject(error);
         } else {
@@ -47,11 +45,10 @@ JwtCipher.prototype.verify = function () {
 
 /**
  * Decode token without verification
- * @param {String} token JSON Web Token string
  * @returns {Object}
  */
 JwtCipher.prototype.decodeSync = function () {
-    return jwt.decode(token);
+    return jwt.decode(this.getContent());
 };
 
 module.exports = JwtCipher;
