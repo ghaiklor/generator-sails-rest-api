@@ -3,6 +3,27 @@ var util = require('util'),
     jwt = require('jsonwebtoken'),
     BaseCipher = require('./BaseCipher');
 
+/**
+ * Secret key for symmetric encoding
+ * @type {String}
+ * @private
+ */
+var SECRET_KEY = "<%= answers['application:jwt-secret-token'] %>";
+
+/**
+ * Algorithm that using for signing JWT
+ * @type {String}
+ * @private
+ */
+var ALGORITHM = "HS256";
+
+/**
+ * Time interval in minutes when token will be expired or false if not expires
+ * @type {Number}
+ * @private
+ */
+var EXPIRES = 60 * 24;
+
 util.inherits(JwtCipher, BaseCipher);
 
 /**
@@ -19,9 +40,9 @@ function JwtCipher() {
  * @returns {String} Returns JSON Web Token in string format
  */
 JwtCipher.prototype.hashSync = function () {
-    return jwt.sign(this.getContent(), sails.config.jwt.secret, {
-        algorithm: sails.config.jwt.algorithm,
-        expiresInMinutes: sails.config.jwt.expires
+    return jwt.sign(this.getContent(), SECRET_KEY, {
+        algorithm: ALGORITHM,
+        expiresInMinutes: EXPIRES
     });
 };
 
@@ -32,7 +53,7 @@ JwtCipher.prototype.hashSync = function () {
 JwtCipher.prototype.verify = function () {
     var defer = Q.defer();
 
-    jwt.verify(this.getContent(), sails.config.jwt.secret, function (error, decoded) {
+    jwt.verify(this.getContent(), SECRET_KEY, function (error, decoded) {
         if (error) {
             defer.reject(error);
         } else {
