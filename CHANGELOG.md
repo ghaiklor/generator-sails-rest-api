@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Move to Sails v0.11;
+- Improvement: Move `jwt` config to `JwtCipher` service;
 
 ## Version 0.3.0
 
