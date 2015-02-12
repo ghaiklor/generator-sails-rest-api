@@ -27,6 +27,7 @@ passport.use(new LocalStrategy({
                 next(error);
             } else if (!user) {
                 next(null, false, {
+                    //TODO: rewrite passport config with new responses type
                     status: "E_USER_NOT_FOUND",
                     message: ['User', username, 'is not found'].join(' ')
                 });
