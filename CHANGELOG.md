@@ -4,6 +4,7 @@
 
 - Improvement: Move to Sails v0.11;
 - Improvement: Move `jwt` config to `JwtCipher` service;
+- Improvement: Add more custom responses `Bad Request`, `Conflict`, `Created`, `Forbidden`, `No Content`, `Not Found`, `OK`, `Server Error`, `Unauthorized`;
 
 ## Version 0.3.0
 
