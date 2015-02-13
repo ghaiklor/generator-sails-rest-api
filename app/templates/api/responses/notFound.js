@@ -1,6 +1,8 @@
 /**
  * 404 (Not Found) Handler
- * @description :: Handler for error code 404
+ *
+ * The requested resource could not be found but may be available again in the future.
+ * Subsequent requests by the client are permissible.
  */
 
 module.exports = function (data, status, message) {

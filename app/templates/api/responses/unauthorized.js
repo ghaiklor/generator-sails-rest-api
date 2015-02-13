@@ -1,6 +1,8 @@
 /**
- * 401 (Unauthorized) Response
- * @description :: Handler for code 401
+ * 401 (Unauthorized) Handler
+ *
+ * Similar to 403 Forbidden.
+ * Specifically for use when authentication is possible but has failed or not yet been provided.
  */
 
 module.exports = function () {

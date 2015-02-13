@@ -1,6 +1,7 @@
 /**
- * 201 (Created) Response
- * @description :: Handler for code 201
+ * 201 (Created) Handler
+ *
+ * The request has been fulfilled and resulted in a new resource being created.
  */
 
 module.exports = function () {

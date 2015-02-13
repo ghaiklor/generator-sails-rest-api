@@ -1,6 +1,7 @@
 /**
  * 400 (Bad Request) Handler
- * @description :: Handler for error code 400
+ *
+ * The request cannot be fulfilled due to bad syntax.
  */
 
 module.exports = function (data, status, message) {

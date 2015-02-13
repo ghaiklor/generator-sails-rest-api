@@ -1,6 +1,7 @@
 /**
- * 204 (No Content) Response
- * @description :: Handler for code 204
+ * 204 (No Content) Handler
+ *
+ * The server successfully processed the request, but is not returning any content.
  */
 
 module.exports = function () {

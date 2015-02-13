@@ -1,6 +1,8 @@
 /**
  * 403 (Forbidden) Handler
- * @description :: Handler for error code 403
+ *
+ * The request was a legal request, but the server is refusing to respond to it.
+ * Unlike a 401 Unauthorized response, authenticating will make no difference.
  */
 
 module.exports = function (data, status, message) {

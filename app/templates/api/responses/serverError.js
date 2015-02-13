@@ -1,6 +1,7 @@
 /**
- * 500 (Server Error) Response
- * @description :: Handler for error code 500
+ * 500 (Server Error) Handler
+ *
+ * A generic error message, given when no more specific message is suitable.
  */
 
 module.exports = function (data, status, message) {
