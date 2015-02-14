@@ -7,6 +7,11 @@
  * Response body content may or may not be present.
  */
 
-module.exports = function () {
+module.exports = function (data, code, message, root) {
     this.res.status(201);
+    this.res.jsonx(_.assign({
+        code: code || "CREATED",
+        message: message || "The request has been fulfilled and resulted in a new resource being created",
+        response: data || {}
+    }, root));
 };

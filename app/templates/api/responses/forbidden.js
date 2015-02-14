@@ -6,11 +6,11 @@
  * Error code for user not authorized to perform the operation or the resource is unavailable for some reason.
  */
 
-module.exports = function (data, status, message) {
+module.exports = function (data, code, message, root) {
     this.res.status(403);
-    this.res.jsonx({
-        status: status || "E_FORBIDDEN",
-        message: message || "You don't have access to this resource",
+    this.res.jsonx(_.assign({
+        code: code || "E_FORBIDDEN",
+        message: message || "User not authorized to perform the operation",
         response: data || {}
-    });
+    }, root));
 };

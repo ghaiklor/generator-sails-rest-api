@@ -6,11 +6,11 @@
  * Domain validation errors, missing data, etc.
  */
 
-module.exports = function (data, status, message) {
+module.exports = function (data, code, message, root) {
     this.res.status(400);
-    this.res.jsonx({
-        status: status || "E_BAD_REQUEST",
-        message: message || "Request has invalid data",
+    this.res.jsonx(_.assign({
+        code: code || "E_BAD_REQUEST",
+        message: message || "The request cannot be fulfilled due to bad syntax",
         response: data || {}
-    });
+    }, root));
 };

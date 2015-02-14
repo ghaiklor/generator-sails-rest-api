@@ -7,11 +7,11 @@
  * In a POST request the response will contain an entity describing or containing the result of the action.
  */
 
-module.exports = function (data, status, message) {
+module.exports = function (data, code, message, root) {
     this.res.status(200);
-    this.res.jsonx({
-        status: status || "OK",
-        message: message || "Requested operation is successfully executed",
+    this.res.jsonx(_.assign({
+        code: code || "OK",
+        message: message || "Operation is successfully executed",
         response: data || {}
-    });
+    }, root));
 };
