@@ -6,6 +6,7 @@
 - Improvement: Move `jwt` config to `JwtCipher` service;
 - Improvement: Add more custom responses `Bad Request`, `Created`, `Forbidden`, `Not Found`, `OK`, `Server Error`, `Unauthorized`;
 - Improvement: You can override root object in response;
+- Improvement: Add default blueprints where you can override them, if you need;
 
 ## Version 0.3.0
 
