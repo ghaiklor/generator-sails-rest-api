@@ -2,7 +2,7 @@
 
 **UNDER HEAVY DEVELOPMENT**
 
-> Stability: 1 - Experimental
+> Stability: 2 - Unstable
 
 Yeoman generator that provides already configured and optimized Sails REST API.
 
@@ -37,6 +37,7 @@ yo sails-rest-api
 
 Here some changes what I've done to Sails application.
 
+- `api/blueprints/*.js` - Override default blueprints with more RESTful principles. You can override here and write your own;
 - `api/controllers/AuthController.js` - Implemented `signin`, `signup`, `facebook` and `twitter` routes for user signin\signup;
 - `api/models/User.js` - Implemented default `User` model which fits to you in most cases;
 - `api/policies/isOurApp.js` - Checks for `Application-Token` in headers to prevent requests from non-allowed clients;
@@ -62,32 +63,37 @@ It's kinda of private API and only allowed users can make requests.
 
 ### Responses
 
-Each response in Sails is customized to fit this requirement: response should contains `status`, `message` and `response`.
+Each response in Sails is customized to fit this requirement: response should contains `code`, `message` and `response`.
 
-It's the best workflow for mobile developers, who can assign `status` to their constants in code and see what happens in their request.
+It's the best workflow for mobile developers, who can assign `code` to their constants in code and see what happens in their request.
 
 ```javascript
-res.badRequest(data, status, message);
-res.forbidden(data, status, message);
-res.notFound(data, status, message);
-res.ok(data, status, message);
-res.serverError(data, status, message);
+res.badRequest(data, code, message, root);
+res.created(data, code, message, root);
+res.forbidden(data, code, message, root);
+res.notFound(data, code, message, root);
+res.ok(data, code, message, root);
+res.serverError(data, code, message, root);
+res.unauthorized(data, code, message, root);
 ```
 
-`data` - this is response object, `status` - status code in response and `message` - custom message with more detailed description.
+`data` - this is response object, `code` - status code in response, `message` - custom message with more detailed description and `root` - here you can override root object with your own.
 
 So, for example, you want to return forbidden with custom status and message, you can do this like:
 
 ```javascript
-res.forbidden(null, "E_CUSTOM_FORBIDDEN", "My custom forbidden");
+res.forbidden(null, "E_CUSTOM_FORBIDDEN", "My custom forbidden", {
+    foo: "bar"
+});
 ```
 
 And this code will returns this response:
 
 ```json
 {
-    "status": "E_CUSTOM_FORBIDDEN",
+    "code": "E_CUSTOM_FORBIDDEN",
     "message": "My custom forbidden",
+    "foo": "bar",
     "response": "{}"
 }
 ```
