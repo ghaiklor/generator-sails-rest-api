@@ -17,6 +17,12 @@ module.exports.blueprints = {
     actions: true,
 
     /**
+     * When enabled, `index` action will be default action
+     * @type {Boolean}
+     */
+    index: true,
+
+    /**
      * REST blueprints are the automatically generated routes Sails uses to expose a conventional REST API
      * on top of a controller's `find`, `findOne`, `create`, `update`, and `destroy` actions
      * @type {Boolean}
