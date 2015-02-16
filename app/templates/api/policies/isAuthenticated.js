@@ -1,6 +1,6 @@
 /**
- * isUser
- * @description :: Policy that identify user by JSON Web Token
+ * isAuthenticated
+ * @description :: Policy that inject user in `req` via JSON Web Token
  */
 
 var passport = require('passport');
@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
             sails.log.error(error);
             res.serverError(error);
         } else if (info) {
-            res.forbidden(null, info.status, info.message);
+            res.unauthorized(null, info.code, info.message);
         } else {
             req.user = user;
             next();

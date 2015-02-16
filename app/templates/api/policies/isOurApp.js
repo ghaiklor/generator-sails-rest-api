@@ -9,6 +9,6 @@ module.exports = function (req, res, next) {
     if (token && token === "<%= answers['application:app-secret-token'] %>") {
         next();
     } else {
-        res.forbidden(null, null, "You must provide application token");
+        res.unauthorized(null, null, "You must provide application token");
     }
 };
