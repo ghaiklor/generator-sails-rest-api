@@ -12,7 +12,8 @@
 ## Version 0.4.0 (in progress)
 
 - [x] Upgrade to Sails 0.11;
-- [ ] Add more custom responses;
+- [x] Add more custom responses;
+- [x] Override and simplify default blueprints;
 - [ ] Freeze boilerplate structure (so any serious changes in future);
 - [ ] Test coverage for all `api` files;
 - [ ] Make swagger documentation as part of Sails generator;
