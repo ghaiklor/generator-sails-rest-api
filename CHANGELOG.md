@@ -8,6 +8,7 @@
 - Improvement: You can override root object in response;
 - Improvement: Include all default blueprints to `api/blueprints` folder;
 - Improvement: Rewrite default blueprints for CRUD and simplify them;
+- Improvement: Returns meta information for `GET /v1/:model` in body and `Content-Range` in headers;
 
 ## Version 0.3.0
 
