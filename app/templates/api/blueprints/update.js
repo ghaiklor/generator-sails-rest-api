@@ -11,8 +11,7 @@ module.exports = function (req, res) {
         pk = actionUtil.requirePk(req),
         values = actionUtil.parseValues(req);
 
-    var idParamExplicitlyIncluded = ((req.body && req.body.id) || req.query.id);
-    if (!idParamExplicitlyIncluded) delete values.id;
+    if (!((req.body && req.body.id) || req.query.id)) delete values.id;
 
     Model
         .findOne(pk)
@@ -33,7 +32,7 @@ module.exports = function (req, res) {
                         if (error) return res.serverError(error);
                         if (!populatedRecord) return res.serverError(null, null, "Could not find record after updating");
 
-                        res.ok(populatedRecord);
+                        return res.ok(populatedRecord);
                     });
                 });
         });
