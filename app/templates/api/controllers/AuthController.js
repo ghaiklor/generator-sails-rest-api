@@ -15,7 +15,7 @@ module.exports = {
                 sails.log.error(error);
                 res.serverError(error);
             } else if (info) {
-                res.ok(null, info.code, info.message);
+                res.unauthorized(null, info.code, info.message);
             } else {
                 res.ok({
                     token: CipherService.create('jwt', {id: user.id}).hashSync(),
@@ -58,7 +58,7 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else if (info) {
-                    res.ok(null, info.code, info.message);
+                    res.unauthorized(null, info.code, info.message);
                 } else {
                     res.ok({
                         token: CipherService.create('jwt', {id: user.id}).hashSync(),
@@ -81,7 +81,7 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else if (info) {
-                    res.ok(null, info.code, info.message);
+                    res.unauthorized(null, info.code, info.message);
                 } else {
                     res.ok({
                         token: CipherService.create('jwt', {id: user.id}).hashSync(),
