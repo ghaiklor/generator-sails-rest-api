@@ -58,8 +58,8 @@ passport.use(new JwtStrategy("<%= answers['application:jwt-secret-token'] %>", {
 }));
 
 passport.use(new FacebookTokenStrategy({
-    clientID: '-',
-    clientSecret: '-',
+    clientID: "<%= answers['application:facebook-client-id'] %>",
+    clientSecret: "<%= answers['application:facebook-client-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
@@ -90,8 +90,8 @@ passport.use(new FacebookTokenStrategy({
 }));
 
 passport.use(new TwitterTokenStrategy({
-    consumerKey: '-',
-    consumerSecret: '-',
+    consumerKey: "<%= answers['application:twitter-consumer-key'] %>",
+    consumerSecret: "<%= answers['application:twitter-consumer-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, tokenSecret, profile, next) {
     if (!req.user) {

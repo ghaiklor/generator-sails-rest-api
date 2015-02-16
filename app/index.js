@@ -54,6 +54,26 @@ var QUESTIONS_LIST = [{
     name: 'application:jwt-secret-token',
     message: 'Type private token for JSON Web Token',
     default: crypto.randomBytes(16).toString('hex')
+}, {
+    type: 'input',
+    name: 'application:facebook-client-id',
+    message: 'Type Facebook Client ID',
+    default: '-'
+}, {
+    type: 'input',
+    name: 'application:facebook-client-secret',
+    message: 'Type Facebook Client Secret',
+    default: '-'
+}, {
+    type: 'input',
+    name: 'application:twitter-consumer-key',
+    message: 'Type Twitter Consumer Key',
+    default: '-'
+}, {
+    type: 'input',
+    name: 'application:twitter-consumer-secret',
+    message: 'Type Twitter Consumer Secret',
+    default: '-'
 }];
 
 module.exports = yeoman.generators.Base.extend({
