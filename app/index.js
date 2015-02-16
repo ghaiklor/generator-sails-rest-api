@@ -27,22 +27,22 @@ var QUESTIONS_LIST = [{
 }, {
     type: 'input',
     name: 'database:user',
-    message: 'Type database username (if need)',
+    message: 'Type database username',
     default: ''
 }, {
     type: 'password',
     name: 'database:password',
-    message: 'Type database password (if need)',
+    message: 'Type database password',
     default: ''
 }, {
     type: 'input',
     name: 'database:host',
-    message: 'Type your database host',
+    message: 'Type database host',
     default: 'localhost'
 }, {
     type: 'input',
     name: 'database:name',
-    message: 'Type your database name',
+    message: 'Type database name',
     default: 'sails-rest-api'
 }, {
     type: 'input',
