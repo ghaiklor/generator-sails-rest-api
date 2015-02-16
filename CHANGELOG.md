@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.4.0
+
 - Improvement: Move to Sails v0.11;
 - Improvement: Move to Unstable stability level;
 - Improvement: Move `jwt` config to `JwtCipher` service;

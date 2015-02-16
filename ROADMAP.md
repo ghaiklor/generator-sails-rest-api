@@ -5,13 +5,16 @@
 - [ ] Add **apn** and **gcm** push notifications;
 - [ ] Add social service **Twitter**;
 - [ ] Add support for **Amazon** mailer, **sendmail** mailer;
-- [ ] Add questions list where you can choose which service need to include and copy only needed;
 - [ ] Think about package.json and unused dependencies;
 - [ ] Sub generators for each service;
 - [ ] Test coverage for all `api` files;
-- [ ] Make swagger documentation as part of Sails generator;
 
-## Version 0.4.0 (in progress)
+## Version 0.5.0 (in progress)
+
+- [ ] Make swagger documentation as part of Sails generator;
+- [ ] Add questions list where you can choose which service need to include and copy only needed;
+
+## Version 0.4.0 (released)
 
 - [x] Upgrade to Sails 0.11;
 - [x] Add more custom responses;
