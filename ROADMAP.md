@@ -8,15 +8,15 @@
 - [ ] Add questions list where you can choose which service need to include and copy only needed;
 - [ ] Think about package.json and unused dependencies;
 - [ ] Sub generators for each service;
+- [ ] Test coverage for all `api` files;
+- [ ] Make swagger documentation as part of Sails generator;
 
 ## Version 0.4.0 (in progress)
 
 - [x] Upgrade to Sails 0.11;
 - [x] Add more custom responses;
 - [x] Override and simplify default blueprints;
-- [ ] Freeze boilerplate structure (so any serious changes in future);
-- [ ] Test coverage for all `api` files;
-- [ ] Make swagger documentation as part of Sails generator;
+- [x] Freeze boilerplate structure (so any serious changes in future);
 
 ## Version 0.3.0 (released)
 
