@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Return `methodOverride` middleware to http config;
+
 ## Version 0.4.0
 
 - Improvement: Move to Sails v0.11;

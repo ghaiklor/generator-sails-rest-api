@@ -25,6 +25,7 @@ module.exports.http = {
         order: [
             'bodyParser',
             'compress',
+            'methodOverride',
             '$custom',
             'router',
             '404',
