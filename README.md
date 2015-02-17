@@ -1,122 +1,29 @@
-# generator-sails-rest-api [![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# generator-sails-rest-api
 
-**UNDER HEAVY DEVELOPMENT**
+[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > Stability: 2 - Unstable
 
-Yeoman generator that provides already configured and optimized Sails REST API.
+> The project is in the process of settling, but has not yet had sufficient real-world testing to be considered stable.
+
+> Backwards-compatibility will be maintained if reasonable.
+
+Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.
 
 ## Features
 
-- Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *sockets*, *views*;
-- All configuration files cleaned up and optimised for REST API;
-- Integrated Passport with Facebook, Twitter and Local authorizations strategies and implemented routes to them;
+- Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
+- Overrides default `blueprints` which simplify CRUD operation in REST API;
+- Integrated Passport with Facebook, Twitter and Local authorization strategies;
 - Already declared `User` model with most used fields;
-- Implemented 2 policies: `isOurApp` which checks if request is going from our applications, and `isUser` which checks if user is authorized by JSON Web Token;
-- Custom responses which respond with `status` (Status Code), `message` (Status Message) and `response` (Response Data) fields;
+- Implemented 2 policies: `isOurApp` which checks if request is going from our applications, and `isAuthenticated` which inject user in `req` via JSON Web Token;
+- Custom responses which respond with `code` (Status Code), `message` (Status Message) and `response` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
-- Integrated Mocha tests for all `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
+- All configuration files cleaned up and optimized for REST API;
+- Integrated Swagger doc specification in `doc` folder;
+- Integrated Mocha tests for all `blueprints`, `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
 
-## Getting Started
-
-First of all, you need install yeoman and generator:
-
-```bash
-npm install -g yo generator-sails-rest-api
-```
-
-Finally, create project directory and initiate the generator:
-
-```bash
-mkdir my-project
-cd my-project
-yo sails-rest-api
-```
-
-## Project structure
-
-Here some changes what I've done to Sails application.
-
-- `api/blueprints/*.js` - Override default blueprints with more RESTful principles. You can override here and write your own;
-- `api/controllers/AuthController.js` - Implemented `signin`, `signup`, `facebook` and `twitter` routes for user signin\signup;
-- `api/models/User.js` - Implemented default `User` model which fits to you in most cases;
-- `api/policies/isOurApp.js` - Checks for `Application-Token` in headers to prevent requests from non-allowed clients;
-- `api/policies/isAuthenticated.js` - Authorizes user via JSON Web Token and inject authorized user into `req.user`;
-- `api/responses/*.js` - Each response modified to return `status`, `message` and `response` data;
-- `api/services/**/*.js` - Additional features like send push notification implemented like service for Sails;
-- `config/**/*.js` - Optimized all configuration files to work only with REST API and added `passport.js` config file;
-- `doc/**/*.json` - Folder where all documentation for yours REST API. Documentation generating executing from this sources;
-- `test/**/*.js` - All tests for project;
-- `.sailsrc` - Predefined list of hooks which we don't need for clear REST API backend;
-
-## How to use
-
-### Policies
-
-#### isOurApp.js
-
-File `api/policies/isOurApp.js` contains secret token which you should give to your frontend developers.
-
-So each request which doesn't include `Application-Token` will be rejected.
-
-It's kinda of private API and only allowed users can make requests.
-
-### Responses
-
-Each response in Sails is customized to fit this requirement: response should contains `code`, `message` and `response`.
-
-It's the best workflow for mobile developers, who can assign `code` to their constants in code and see what happens in their request.
-
-```javascript
-res.badRequest(data, code, message, root);
-res.created(data, code, message, root);
-res.forbidden(data, code, message, root);
-res.notFound(data, code, message, root);
-res.ok(data, code, message, root);
-res.serverError(data, code, message, root);
-res.unauthorized(data, code, message, root);
-```
-
-`data` - this is response object, `code` - status code in response, `message` - custom message with more detailed description and `root` - here you can override root object with your own.
-
-So, for example, you want to return forbidden with custom status and message, you can do this like:
-
-```javascript
-res.forbidden(null, "E_CUSTOM_FORBIDDEN", "My custom forbidden", {
-    foo: "bar"
-});
-```
-
-And this code will returns this response:
-
-```json
-{
-    "code": "E_CUSTOM_FORBIDDEN",
-    "message": "My custom forbidden",
-    "foo": "bar",
-    "response": "{}"
-}
-```
-
-### Services
-
-Each service has factory class and service which proxies to that factory class.
-
-For example, you want to create JWT token with some payload inside. You can do this in this way:
-
-```javascript
-var payload = {
-    id: someUserId
-};
-
-var jwt = CipherService.create('jwt', payload).hashSync();
-
-console.log(jwt); // Prints out JWT token with payload
-```
-
-Each service is done in this way. You just call `.create()` with type of service and options object.
-
-## Ready-2-use services
+## ready-2-use services
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
@@ -126,7 +33,7 @@ Each service is done in this way. You just call `.create()` with type of service
 | PusherService  | Apple Push Notifications, Google Cloud Messaging |
 | SmsService     | Twilio                                           |
 | SocialService  | Facebook                                         |
-| StorageService | Amazon Google Cloud                              |
+| StorageService | Amazon S3, Google Cloud                          |
 
 ## How can I get latest dev version of generator?
 
