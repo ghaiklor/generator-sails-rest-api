@@ -8,6 +8,7 @@
 - Improvement: Add `.gitkeep` files to each `api` folder;
 - Improvement: Extend `api` folder with other directories which loads with Sails by default;
 - Improvement: Optimizing and improvement yeoman `index.js` file structure;
+- Improvement: Automatically creates `.yo-rc.json` file where generator's configuration is storing;
 - Fix: Add `skip-install` to yeoman as it should be declared (before it was wrong);
 
 ## Version 0.4.0

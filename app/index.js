@@ -91,6 +91,8 @@ module.exports = yeoman.generators.Base.extend({
             defaults: false,
             hide: false
         });
+
+        this.config.save();
     },
 
     /**
