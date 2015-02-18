@@ -9,7 +9,9 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  * If an id was specified, just the instance with that unique id will be returned.
  */
 module.exports = function (req, res) {
-    if (actionUtil.parsePk(req)) return require('./findOne')(req, res);
+    if (actionUtil.parsePk(req)) {
+        return require('./findOne')(req, res);
+    }
 
     var Model = actionUtil.parseModel(req),
         where = actionUtil.parseCriteria(req),
@@ -20,12 +22,16 @@ module.exports = function (req, res) {
 
     query = actionUtil.populateEach(query, req);
     query.exec(function (error, records) {
-        if (error) return res.serverError(error);
+        if (error) {
+            return res.serverError(error);
+        }
 
         Model
             .count()
             .exec(function (error, count) {
-                if (error) return res.serverError(error);
+                if (error) {
+                    return res.serverError(error);
+                }
 
                 var metaInfo = {
                     start: skip,
