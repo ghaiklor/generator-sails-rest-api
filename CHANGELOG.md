@@ -3,7 +3,8 @@
 ## Edge version
 
 - Improvement: Return `methodOverride` middleware to http config;
-- Improvement: Optimizing and improvement yeoman `index.js` file;
+- Improvement: Add hidden `restPrefix` config to `blueprints` configuration file;
+- Improvement: Optimizing and improvement yeoman `index.js` file structure;
 
 ## Version 0.4.0
 

@@ -42,6 +42,12 @@ module.exports.blueprints = {
     prefix: '/v1',
 
     /**
+     * An optional mount path for all blueprint routes on a controller, including only `rest`
+     * @type {String}
+     */
+    restPrefix: '',
+
+    /**
      * Whether to pluralize controller names in blueprint routes
      * @type {Boolean}
      */
