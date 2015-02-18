@@ -84,6 +84,13 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
         // TODO: maybe implement support of CLI options
+
+        this.option("skip-install", {
+            desc: "Skip installing npm dependencies",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
     },
 
     /**
@@ -152,7 +159,7 @@ module.exports = yeoman.generators.Base.extend({
      */
     install: {
         installNpmDeps: function () {
-            if (!this.options.skipInstall) {
+            if (!this.options['skip-install']) {
                 this.npmInstall();
             }
         }
@@ -179,7 +186,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayNotInstalledNpmDepsWarning: function () {
-            if (this.options.skipInstall) {
+            if (this.options['skip-install']) {
                 this.log(
                     chalk.yellow(" NOTE: You have skipped installing npm modules \n") +
                     chalk.yellow(" Install them manually via ") +
