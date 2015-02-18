@@ -210,27 +210,23 @@ module.exports = yeoman.generators.Base.extend({
      */
     end: {
         sayUnderDevelopmentWarning: function () {
-            this.log(
-                '\n\n' +
-                chalk.red(" This generator under heavy development \n\n") +
-                chalk.red(" If you found any bugs or have proposals, feel free to create issue \n") +
-                chalk.red(" " + this.pkg.bugs.url + " ") +
-                '\n\n' +
-                chalk.red(" Or you can write me the letter \n") +
-                chalk.red(" " + this.pkg.bugs.email + " ") +
-                '\n\n' +
-                chalk.red(" Join to us :) ") +
-                '\n\n'
-            );
+            printMessage([
+                "This generator under heavy development",
+                "If you found any bugs or have proposals, feel free to create issue",
+                chalk.red(this.pkg.bugs.url),
+                "Or you can write me the letter",
+                chalk.red(this.pkg.bugs.email)
+            ], {
+                borderColor: 'red'
+            });
         },
 
         sayNotInstalledNpmDepsWarning: function () {
             if (this.options['skip-install']) {
-                this.log(
-                    chalk.yellow(" NOTE: You have skipped installing npm modules \n") +
-                    chalk.yellow(" Install them manually via ") +
-                    chalk.red.bgWhite(" npm install ")
-                );
+                printMessage([
+                    "You have skipped installing npm modules",
+                    "Install them manually via " + chalk.blue("npm install")
+                ]);
             }
         }
     }
