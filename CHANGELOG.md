@@ -4,6 +4,7 @@
 
 - Improvement: Return `methodOverride` middleware to http config;
 - Improvement: Add hidden `restPrefix` config to `blueprints` configuration file;
+- Improvement: Add hidden `serverOptions` and `bodyParser` configurations to `http` configuration file;
 - Improvement: Optimizing and improvement yeoman `index.js` file structure;
 
 ## Version 0.4.0

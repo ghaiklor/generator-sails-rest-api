@@ -6,12 +6,31 @@
 
 module.exports.http = {
     /**
+     * This is the options object for the `createServer` method, as discussed here:
+     * http://nodejs.org/api/https.html#https_class_https_server
+     *
+     * @type {Object|Boolean}
+     */
+    serverOptions: false,
+
+    /**
      * You can define own custom middleware here
      * @param app Express application
      */
     customMiddleware: function (app) {
 
     },
+
+    /**
+     * Configures the middleware function used for parsing the HTTP request body
+     * Defaults to the Formidable-based version built into Express/Connect
+     *
+     * To enable streaming file uploads (to disk or somewhere else)
+     * you'll want to set this option to `false` to disable the body parser
+     *
+     * @type {Function|Boolean}
+     */
+    bodyParser: false,
 
     /**
      * Express middleware to use for every Sails request
