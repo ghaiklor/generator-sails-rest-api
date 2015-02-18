@@ -1,5 +1,6 @@
 var yeoman = require('yeoman-generator'),
     updateNotifier = require('update-notifier'),
+    stringLength = require('update-notifier/node_modules/string-length'),
     chalk = require('chalk'),
     yosay = require('yosay'),
     crypto = require('crypto');
@@ -77,6 +78,17 @@ var QUESTIONS_LIST = [{
     default: '-'
 }];
 
+/**
+ * Fill string with symbols
+ * @param {String} symbol Symbol that will be filled in string
+ * @param {Number} count Number of symbols
+ * @returns {String}
+ * @private
+ */
+function _fillString(symbol, count) {
+    return new Array(count + 1).join(symbol);
+}
+
 module.exports = yeoman.generators.Base.extend({
     /**
      * Special methods may do things like set up important state controls and may not function outside of the constructor
@@ -116,7 +128,7 @@ module.exports = yeoman.generators.Base.extend({
             this.pkg = require('../package.json');
         },
 
-        checkForGeneratorUpdate: function () {
+        notifyAboutGeneratorUpdate: function () {
             if (!this.options['skip-update']) {
                 var self = this,
                     done = this.async();
@@ -126,16 +138,39 @@ module.exports = yeoman.generators.Base.extend({
                 updateNotifier({
                     pkg: this.pkg,
                     callback: function (error, update) {
-                        if (update.type && update.type !== 'latest') {
-                            var line1 = 'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
-                                line2 = 'Run ' + chalk.blue('npm update -g ' + update.name) + ' to update.';
+                        // TODO: replace with npm module which prints in border
+                        var line1,
+                            line2;
 
-                            self.log('\n\n' + line1 + '\n' + line2 + '\n');
+                        if (update && update.type && update.type !== 'latest') {
+                            line1 = " Update available: " + chalk.green.bold(update.latest) + chalk.dim(" (current: " + update.current + ")") + ' ';
+                            line2 = " Run " + chalk.blue("npm update -g " + update.name) + " to update. ";
                         } else {
-                            self.log("You're using latest version of generator-sails-rest-api");
+                            line1 = " You're using the latest version ";
+                            line2 = chalk.dim(" v" + update.current);
                         }
 
-                        done();
+                        var contentWidth = Math.max(stringLength(line1), stringLength(line2)),
+                            line1rest = contentWidth - stringLength(line1),
+                            line2rest = contentWidth - stringLength(line2),
+                            top = chalk.yellow('┌' + _fillString('─', contentWidth) + '┐'),
+                            bottom = chalk.yellow('└' + _fillString('─', contentWidth) + '┘'),
+                            side = chalk.yellow('│');
+
+                        self.log(
+                            '\n' +
+                            top + '\n' +
+                            side + line1 + _fillString(' ', line1rest) + side + '\n' +
+                            side + line2 + _fillString(' ', line2rest) + side + '\n' +
+                            bottom +
+                            '\n'
+                        );
+
+                        if (update.type !== 'latest') {
+                            process.exit(0);
+                        } else {
+                            done();
+                        }
                     }
                 });
             }
