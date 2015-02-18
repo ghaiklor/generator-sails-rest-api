@@ -77,64 +77,115 @@ var QUESTIONS_LIST = [{
 }];
 
 module.exports = yeoman.generators.Base.extend({
+    /**
+     * Special methods may do things like set up important state controls and may not function outside of the constructor
+     * @type {Function}
+     */
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
+        // TODO: maybe implement support of CLI options
     },
 
-    initializing: function () {
-        this.pkg = require('../package.json');
-    },
+    /**
+     * Step 1
+     * Your initialization methods (checking current project state, getting configs, etc)
+     * @type {Object}
+     */
+    initializing: {
+        sayHello: function () {
+            this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
+        },
 
-    prompting: function () {
-        var done = this.async();
-
-        this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
-
-        this.prompt(QUESTIONS_LIST, function (answers) {
-            this.answers = answers;
-            done();
-        }.bind(this));
-    },
-
-    configuring: function () {
-    },
-
-    writing: function () {
-        this.directory(
-            this.sourceRoot(),
-            this.destinationRoot()
-        )
-    },
-
-    conflicts: function () {
-    },
-
-    install: function () {
-        if (!this.options.skipInstall) {
-            this.npmInstall();
+        loadPackageInfo: function () {
+            this.pkg = require('../package.json');
         }
     },
 
-    end: function () {
-        this.log(
-            '\n\n' +
-            chalk.red(" This generator under heavy development \n\n") +
-            chalk.red(" If you found any bugs or have proposals, feel free to create issue \n") +
-            chalk.red(" " + this.pkg.bugs.url + " ") +
-            '\n\n' +
-            chalk.red(" Or you can write me the letter \n") +
-            chalk.red(" " + this.pkg.bugs.email + " ") +
-            '\n\n' +
-            chalk.red(" Join to us :) ") +
-            '\n\n'
-        );
+    /**
+     * Step 2
+     * Where you prompt users for options (where you'd call this.prompt())
+     */
+    prompting: {
+        askBaseQuestions: function () {
+            var done = this.async();
 
-        if (this.options.skipInstall) {
+            this.prompt(QUESTIONS_LIST, function (answers) {
+                this.answers = answers;
+                done();
+            }.bind(this));
+        }
+    },
+
+    /**
+     * Step 3
+     * Saving configurations and configure the project (creating .editorconfig files and other metadata files)
+     */
+    configuring: {},
+
+    /**
+     * Step 4
+     * Default priority
+     */
+
+    /**
+     * Step 5
+     * Where you write the generator specific files (routes, controllers, etc)
+     */
+    writing: {
+        copyDirectory: function () {
+            this.directory(
+                this.sourceRoot(),
+                this.destinationRoot()
+            );
+        }
+    },
+
+    /**
+     * Step 6
+     * Where conflicts are handled (used internally)
+     */
+    conflicts: {},
+
+    /**
+     * Step 7
+     * Where installation are run (npm, bower)
+     */
+    install: {
+        installNpmDeps: function () {
+            if (!this.options.skipInstall) {
+                this.npmInstall();
+            }
+        }
+    },
+
+    /**
+     * Step 8
+     * Called last, cleanup, say good bye, etc
+     */
+    end: {
+        sayUnderDevelopmentWarning: function () {
             this.log(
-                chalk.yellow(" NOTE: You have skipped installing npm modules \n") +
-                chalk.yellow(" Install them manually via ") +
-                chalk.red.bgWhite(" npm install ")
-            )
+                '\n\n' +
+                chalk.red(" This generator under heavy development \n\n") +
+                chalk.red(" If you found any bugs or have proposals, feel free to create issue \n") +
+                chalk.red(" " + this.pkg.bugs.url + " ") +
+                '\n\n' +
+                chalk.red(" Or you can write me the letter \n") +
+                chalk.red(" " + this.pkg.bugs.email + " ") +
+                '\n\n' +
+                chalk.red(" Join to us :) ") +
+                '\n\n'
+            );
+        },
+
+        sayNotInstalledNpmDepsWarning: function () {
+            if (this.options.skipInstall) {
+                this.log(
+                    chalk.yellow(" NOTE: You have skipped installing npm modules \n") +
+                    chalk.yellow(" Install them manually via ") +
+                    chalk.red.bgWhite(" npm install ")
+                );
+            }
         }
     }
 });

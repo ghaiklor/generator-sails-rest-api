@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Return `methodOverride` middleware to http config;
+- Improvement: Optimizing and improvement yeoman `index.js` file;
 
 ## Version 0.4.0
 
