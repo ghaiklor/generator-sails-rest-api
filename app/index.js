@@ -1,4 +1,5 @@
 var yeoman = require('yeoman-generator'),
+    updateNotifier = require('update-notifier'),
     chalk = require('chalk'),
     yosay = require('yosay'),
     crypto = require('crypto');
@@ -83,10 +84,16 @@ module.exports = yeoman.generators.Base.extend({
      */
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
-        // TODO: maybe implement support of CLI options
 
         this.option("skip-install", {
-            desc: "Skip installing npm dependencies",
+            desc: "Skip installing npm dependencies in project",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
+        this.option("skip-update", {
+            desc: "Skip checking for generator and project updates",
             type: "Boolean",
             defaults: false,
             hide: false
@@ -107,6 +114,31 @@ module.exports = yeoman.generators.Base.extend({
 
         loadPackageInfo: function () {
             this.pkg = require('../package.json');
+        },
+
+        checkForGeneratorUpdate: function () {
+            if (!this.options['skip-update']) {
+                var self = this,
+                    done = this.async();
+
+                this.log(chalk.yellow("Checking for updates..."));
+
+                updateNotifier({
+                    pkg: this.pkg,
+                    callback: function (error, update) {
+                        if (update.type && update.type !== 'latest') {
+                            var line1 = 'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
+                                line2 = 'Run ' + chalk.blue('npm update -g ' + update.name) + ' to update.';
+
+                            self.log('\n\n' + line1 + '\n' + line2 + '\n');
+                        } else {
+                            self.log("You're using latest version of generator-sails-rest-api");
+                        }
+
+                        done();
+                    }
+                });
+            }
         }
     },
 
