@@ -86,6 +86,13 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
+        this.option("skip-hello", {
+            desc: "Skip saying welcome",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
         this.option("skip-install", {
             desc: "Skip installing npm dependencies",
             type: "Boolean",
@@ -143,7 +150,9 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayHello: function () {
-            this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
+            if (!this.options["skip-hello"]) {
+                this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
+            }
         }
     },
 
