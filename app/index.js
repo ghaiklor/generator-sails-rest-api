@@ -222,6 +222,7 @@ module.exports = yeoman.generators.Base.extend({
     install: {
         installNpmDeps: function () {
             if (!(this.options['skip-project-install'] || this.options["skip-all"])) {
+                this.log(chalk.yellow("\nStart installing npm dependencies, please wait...\n"));
                 this.npmInstall();
             }
         }
@@ -232,6 +233,18 @@ module.exports = yeoman.generators.Base.extend({
      * Called last, cleanup, say good bye, etc
      */
     end: {
+        runDiagnostic: function () {
+            var done = this.async();
+
+            if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
+                this.log(chalk.yellow("\nStarting diagnostic, please wait...\n"));
+
+                this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
+                    this.spawnCommand('node', ['tools/update-deps.js']).on('close', done);
+                }.bind(this));
+            }
+        },
+
         sayUnderDevelopmentWarning: function () {
             printMessage([
                 "This generator under heavy development",
@@ -252,14 +265,6 @@ module.exports = yeoman.generators.Base.extend({
                 ], {
                     printFn: this.log
                 });
-            }
-        },
-
-        runDiagnostic: function () {
-            if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
-                this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
-                    this.spawnCommand('node', ['tools/update-deps.js']);
-                }.bind(this));
             }
         }
     }
