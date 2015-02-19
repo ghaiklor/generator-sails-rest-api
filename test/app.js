@@ -7,11 +7,7 @@ describe('sails-rest-api:app', function () {
     before(function (done) {
         helpers.run(path.join(__dirname, '../app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withOptions({
-                skipHello: true,
-                skipInstall: true,
-                skipGeneratorUpdate: true
-            })
+            .withOptions({skipAll: true})
             .on('end', done);
     });
 
