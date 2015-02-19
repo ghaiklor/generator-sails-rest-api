@@ -10,6 +10,8 @@
 - Improvement: Implement checking for `generator-sails-rest-api` updates in CLI;
 - Improvement: Optimizing and improvement yeoman `index.js` file structure;
 - Improvement: Automatically creates `.yo-rc.json` file where generator's configuration is storing;
+- Improvement: Add `skip-hello` option which skips yeoman's welcome;
+- Improvement: Add `skip-generator-update` options which skips checking for generator updates;
 - Fix: Add `skip-install` to yeoman as it should be declared (before it was wrong);
 
 ## Version 0.4.0
