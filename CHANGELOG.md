@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Add `tools` folder where useful tools is located;
+- Improvement: Implement `check-deps` tool which checking for missing or unused dependencies in the project;
 - Improvement: Return `methodOverride` middleware to http config;
 - Improvement: Add hidden `restPrefix` config to `blueprints` configuration file;
 - Improvement: Add hidden `serverOptions` and `bodyParser` configurations to `http` configuration file;
