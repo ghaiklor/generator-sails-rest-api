@@ -61,7 +61,7 @@ recursive('./', ['node_modules'], function (error, files) {
                 marginBottom: 0
             });
 
-            var npmInstall = spawn('npm', ['install', '--save', '--verbose'].concat(missingDependencies));
+            var npmInstall = spawn('npm', ['install', '--save'].concat(missingDependencies));
             npmInstall.stdout.pipe(process.stdout);
             npmInstall.stderr.pipe(process.stderr);
             npmInstall.on('close', process.exit);
