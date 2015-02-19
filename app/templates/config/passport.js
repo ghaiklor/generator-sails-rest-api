@@ -23,16 +23,23 @@ passport.use(new LocalStrategy({
             }]
         })
         .exec(function (error, user) {
-            if (error) return next(error);
-            if (!user) return next(null, false, {
-                code: "E_USER_NOT_FOUND",
-                message: username + " is not found"
-            });
+            if (error) {
+                return next(error);
+            }
 
-            if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
-                code: "E_WRONG_PASSWORD",
-                message: "Password is wrong"
-            });
+            if (!user) {
+                return next(null, false, {
+                    code: "E_USER_NOT_FOUND",
+                    message: username + " is not found"
+                });
+            }
+
+            if (!CipherService.create('bcrypt', user.password).compareSync(password)) {
+                return next(null, false, {
+                    code: "E_WRONG_PASSWORD",
+                    message: "Password is wrong"
+                });
+            }
 
             return next(null, user);
         });
@@ -47,14 +54,19 @@ passport.use(new JwtStrategy("<%= answers['application:jwt-secret-token'] %>", {
             id: payload.id
         })
         .exec(function (error, user) {
-            if (error) return next(error);
-            if (!user) return next(null, false, {
-                code: "E_USER_NOT_FOUND",
-                message: "User with that JWT not found"
-            });
+            if (error) {
+                return next(error);
+            }
+
+            if (!user) {
+                return next(null, false, {
+                    code: "E_USER_NOT_FOUND",
+                    message: "User with that JWT not found"
+                });
+            }
 
             return next(null, user);
-        })
+        });
 }));
 
 passport.use(new FacebookTokenStrategy({
@@ -75,11 +87,16 @@ passport.use(new FacebookTokenStrategy({
                 facebook: profile._json
             })
             .exec(function (error, user) {
-                if (error) return next(error);
-                if (!user) return next(null, false, {
-                    code: "E_AUTH_FAILED",
-                    message: "Facebook auth failed"
-                });
+                if (error) {
+                    return next(error);
+                }
+
+                if (!user) {
+                    return next(null, false, {
+                        code: "E_AUTH_FAILED",
+                        message: "Facebook auth failed"
+                    });
+                }
 
                 return next(null, user);
             });
@@ -107,11 +124,16 @@ passport.use(new TwitterTokenStrategy({
                 twitter: profile._json
             })
             .exec(function (error, user) {
-                if (error) return next(error);
-                if (!user) return next(null, false, {
-                    code: "E_AUTH_FAILED",
-                    message: "Twitter auth failed"
-                });
+                if (error) {
+                    return next(error);
+                }
+
+                if (!user) {
+                    return next(null, false, {
+                        code: "E_AUTH_FAILED",
+                        message: "Twitter auth failed"
+                    });
+                }
 
                 return next(null, user);
             });
