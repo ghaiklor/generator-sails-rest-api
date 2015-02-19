@@ -148,7 +148,7 @@ module.exports = yeoman.generators.Base.extend({
                                 "Update available: " + chalk.green.bold(update.latest) + chalk.dim(" (current: " + update.current + ")"),
                                 "Run " + chalk.blue("npm update -g " + update.name) + " to update."
                             ], {
-                                marginTop: 1,
+                                marginTop: 0,
                                 marginBottom: 0,
                                 printFn: this.log
                             });
@@ -253,6 +253,8 @@ module.exports = yeoman.generators.Base.extend({
                 "Or you can write me the letter",
                 chalk.red(this.pkg.bugs.email)
             ], {
+                marginTop: 0,
+                marginBottom: 0,
                 printFn: this.log
             });
         },
@@ -263,6 +265,8 @@ module.exports = yeoman.generators.Base.extend({
                     "You have skipped installing npm modules",
                     "Install them manually via " + chalk.blue("npm install")
                 ], {
+                    marginTop: 0,
+                    marginBottom: 0,
                     printFn: this.log
                 });
             }
