@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 var npmCheck = require('npm-check'),
-    update = require('npm-check/lib/update');
+    update = require('npm-check/lib/update'),
+    chalk = require('chalk');
 
 console.log(chalk.yellow("\nStart checking package.json for updates, please wait...\n"));
 
