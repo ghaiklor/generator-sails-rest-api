@@ -115,8 +115,7 @@ module.exports = yeoman.generators.Base.extend({
 
         notifyAboutGeneratorUpdate: function () {
             if (!this.options['skip-update']) {
-                var self = this,
-                    done = this.async();
+                var done = this.async();
 
                 this.log(chalk.yellow("Checking for updates..."));
 
@@ -130,15 +129,15 @@ module.exports = yeoman.generators.Base.extend({
                             ], {
                                 marginTop: 1,
                                 marginBottom: 0,
-                                printFn: self.log
+                                printFn: this.log
                             });
 
                             process.exit(0);
                         } else {
-                            self.log(chalk.yellow("OK... You're using the latest version " + chalk.green.bold(update.current)));
+                            this.log(chalk.yellow("OK... You're using the latest version " + chalk.green.bold(update.current)));
                             done();
                         }
-                    }
+                    }.bind(this)
                 });
             }
         },
@@ -211,8 +210,6 @@ module.exports = yeoman.generators.Base.extend({
      */
     end: {
         sayUnderDevelopmentWarning: function () {
-            var self = this;
-
             printMessage([
                 "This generator under heavy development",
                 "If you found any bugs or have proposals, feel free to create issue",
@@ -220,19 +217,17 @@ module.exports = yeoman.generators.Base.extend({
                 "Or you can write me the letter",
                 chalk.red(this.pkg.bugs.email)
             ], {
-                printFn: self.log
+                printFn: this.log
             });
         },
 
         sayNotInstalledNpmDepsWarning: function () {
-            var self = this;
-
             if (this.options['skip-install']) {
                 printMessage([
                     "You have skipped installing npm modules",
                     "Install them manually via " + chalk.blue("npm install")
                 ], {
-                    printFn: self.log
+                    printFn: this.log
                 });
             }
         }
