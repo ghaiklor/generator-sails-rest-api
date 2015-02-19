@@ -4,6 +4,7 @@
 
 - Improvement: Add `tools` folder where useful tools is located;
 - Improvement: Implement `fix-deps` tool which checks for missing or unused dependencies in the project and install or remove them;
+- Improvement: Implement `update-deps` tool which checks all modules for new versions and provides interactive menu for updating;
 - Improvement: Return `methodOverride` middleware to http config;
 - Improvement: Add hidden `restPrefix` config to `blueprints` configuration file;
 - Improvement: Add hidden `serverOptions` and `bodyParser` configurations to `http` configuration file;
