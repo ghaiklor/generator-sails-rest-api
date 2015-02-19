@@ -5,14 +5,17 @@
 - [ ] Add **apn** and **gcm** push notifications;
 - [ ] Add social service **Twitter**;
 - [ ] Add support for **Amazon** mailer, **sendmail** mailer;
-- [ ] Think about package.json and unused dependencies;
 - [ ] Sub generators for each service;
 - [ ] Test coverage for all `api` files;
+- [ ] Add questions list where you can choose which service need to include and copy only needed;
+- [ ] Make swagger documentation as part of Sails generator;
 
 ## Version 0.5.0 (in progress)
 
-- [ ] Make swagger documentation as part of Sails generator;
-- [ ] Add questions list where you can choose which service need to include and copy only needed;
+- [x] Think about package.json and unused dependencies;
+- [x] Many improvements in UI;
+- [x] Checking for updates of generator-sails-rest-api;
+- [x] Write diagnostic scripts in `tools` folder;
 
 ## Version 0.4.0 (released)
 
