@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.5.1
+
+- Hotfix: Bug when with `skip-all` generator is freeze up;
+
 ## Version 0.5.0
 
 - Improvement: Add `tools` folder where useful tools is located;

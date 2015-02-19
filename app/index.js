@@ -88,35 +88,35 @@ module.exports = yeoman.generators.Base.extend({
 
         this.option("skip-generator-update", {
             desc: "Skip checking for generator updates on running",
-            type: "Boolean",
+            type: Boolean,
             defaults: false,
             hide: false
         });
 
         this.option("skip-generator-welcome", {
             desc: "Skip saying welcome when generator is running",
-            type: "Boolean",
+            type: Boolean,
             defaults: false,
             hide: false
         });
 
         this.option("skip-project-install", {
             desc: "Skip installing npm dependencies in project",
-            type: "Boolean",
+            type: Boolean,
             defaults: false,
             hide: false
         });
 
         this.option("skip-project-diagnostic", {
             desc: "Skip running diagnostic tools in project",
-            type: "Boolean",
+            type: Boolean,
             defaults: false,
             hide: false
         });
 
         this.option("skip-all", {
             desc: "Skip everything, just project scaffolding",
-            type: "Boolean",
+            type: Boolean,
             defaults: false,
             hide: false
         });
@@ -234,9 +234,9 @@ module.exports = yeoman.generators.Base.extend({
      */
     end: {
         runDiagnostic: function () {
-            var done = this.async();
-
             if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
+                var done = this.async();
+
                 this.log(chalk.yellow("\nStarting diagnostic, please wait...\n"));
 
                 this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
