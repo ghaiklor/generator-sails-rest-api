@@ -101,7 +101,7 @@ module.exports = yeoman.generators.Base.extend({
         });
 
         this.option("skip-project-install", {
-            desc: "Skip installing npm dev dependencies in project",
+            desc: "Skip installing npm dependencies in project",
             type: "Boolean",
             defaults: false,
             hide: false
@@ -114,7 +114,7 @@ module.exports = yeoman.generators.Base.extend({
             hide: false
         });
 
-        this.options("skip-all", {
+        this.option("skip-all", {
             desc: "Skip everything, just project scaffolding",
             type: "Boolean",
             defaults: false,
@@ -135,7 +135,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         notifyAboutGeneratorUpdate: function () {
-            if (!this.options['skip-generator-update']) {
+            if (!(this.options['skip-generator-update'] || this.options['skip-all'])) {
                 var done = this.async();
 
                 this.log(chalk.yellow("Checking for updates..."));
@@ -164,7 +164,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayHello: function () {
-            if (!this.options["skip-generator-welcome"]) {
+            if (!(this.options["skip-generator-welcome"] || this.options["skip-all"])) {
                 this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
             }
         }
@@ -221,7 +221,7 @@ module.exports = yeoman.generators.Base.extend({
      */
     install: {
         installNpmDeps: function () {
-            if (!this.options['skip-project-install']) {
+            if (!(this.options['skip-project-install'] || this.options["skip-all"])) {
                 this.npmInstall();
             }
         }
@@ -245,7 +245,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayNotInstalledNpmDepsWarning: function () {
-            if (this.options['skip-project-install']) {
+            if (this.options['skip-project-install'] || this.options["skip-all"]) {
                 printMessage([
                     "You have skipped installing npm modules",
                     "Install them manually via " + chalk.blue("npm install")
@@ -256,7 +256,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         runDiagnostic: function () {
-            if (!this.options["skip-project-diagnostic"]) {
+            if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
                 this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
                     this.spawnCommand('node', ['tools/update-deps.js']);
                 }.bind(this));
