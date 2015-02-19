@@ -87,14 +87,14 @@ module.exports = yeoman.generators.Base.extend({
         yeoman.generators.Base.apply(this, arguments);
 
         this.option("skip-install", {
-            desc: "Skip installing npm dependencies in project",
+            desc: "Skip installing npm dependencies",
             type: "Boolean",
             defaults: false,
             hide: false
         });
 
-        this.option("skip-update", {
-            desc: "Skip checking for generator and project updates",
+        this.option("skip-generator-update", {
+            desc: "Skip checking for generator updates",
             type: "Boolean",
             defaults: false,
             hide: false
@@ -114,7 +114,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         notifyAboutGeneratorUpdate: function () {
-            if (!this.options['skip-update']) {
+            if (!this.options['skip-generator-update']) {
                 var done = this.async();
 
                 this.log(chalk.yellow("Checking for updates..."));
