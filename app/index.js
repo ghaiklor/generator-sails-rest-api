@@ -86,29 +86,36 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
-        this.option("skip-hello", {
-            desc: "Skip saying welcome",
-            type: "Boolean",
-            defaults: false,
-            hide: false
-        });
-
-        this.option("skip-install", {
-            desc: "Skip installing npm dependencies",
-            type: "Boolean",
-            defaults: false,
-            hide: false
-        });
-
         this.option("skip-generator-update", {
-            desc: "Skip checking for generator updates",
+            desc: "Skip checking for generator updates on running",
             type: "Boolean",
             defaults: false,
             hide: false
         });
 
-        this.option("skip-diagnostic", {
-            desc: "Skip diagnostic after project setup",
+        this.option("skip-generator-welcome", {
+            desc: "Skip saying welcome when generator is running",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
+        this.option("skip-project-install", {
+            desc: "Skip installing npm dev dependencies in project",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
+        this.option("skip-project-diagnostic", {
+            desc: "Skip running diagnostic tools in project",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
+        this.options("skip-all", {
+            desc: "Skip everything, just project scaffolding",
             type: "Boolean",
             defaults: false,
             hide: false
@@ -157,7 +164,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayHello: function () {
-            if (!this.options["skip-hello"]) {
+            if (!this.options["skip-generator-welcome"]) {
                 this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
             }
         }
@@ -214,7 +221,7 @@ module.exports = yeoman.generators.Base.extend({
      */
     install: {
         installNpmDeps: function () {
-            if (!this.options['skip-install']) {
+            if (!this.options['skip-project-install']) {
                 this.npmInstall();
             }
         }
@@ -238,7 +245,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         sayNotInstalledNpmDepsWarning: function () {
-            if (this.options['skip-install']) {
+            if (this.options['skip-project-install']) {
                 printMessage([
                     "You have skipped installing npm modules",
                     "Install them manually via " + chalk.blue("npm install")
@@ -249,7 +256,7 @@ module.exports = yeoman.generators.Base.extend({
         },
 
         runDiagnostic: function () {
-            if (!this.options["skip-diagnostic"]) {
+            if (!this.options["skip-project-diagnostic"]) {
                 this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
                     this.spawnCommand('node', ['tools/update-deps.js']);
                 }.bind(this));

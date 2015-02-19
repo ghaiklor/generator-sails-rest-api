@@ -2,8 +2,10 @@
 
 ## Edge version
 
+## Version 0.5.0
+
 - Improvement: Add `tools` folder where useful tools is located;
-- Improvement: Implement `fix-deps` tool which checks for missing or unused dependencies in the project and install or remove them;
+- Improvement: Implement `fix-deps` tool which checks for missing or unused dependencies in the project and fix that;
 - Improvement: Implement `update-deps` tool which checks all modules for new versions and provides interactive menu for updating;
 - Improvement: Return `methodOverride` middleware to http config;
 - Improvement: Add hidden `restPrefix` config to `blueprints` configuration file;
@@ -13,9 +15,13 @@
 - Improvement: Implement checking for `generator-sails-rest-api` updates in CLI;
 - Improvement: Optimizing and improvement yeoman `index.js` file structure;
 - Improvement: Automatically creates `.yo-rc.json` file where generator's configuration is storing;
-- Improvement: Add `skip-hello` option which skips yeoman's welcome;
-- Improvement: Add `skip-generator-update` options which skips checking for generator updates;
+- Improvement: Add `skip-generator-update` option which skips checking for generator updates on running;
+- Improvement: Add `skip-generator-welcome` option which skips yeoman's welcome when generator is running;
+- Improvement: Add `skip-project-install` option which skips running `npm install` in project root;
+- Improvement: Add `skip-project-diagnostic` option which skips running diagnostic tools after project initialized;
+- Improvement: Add `skip-all` option which skips everything and just scaffolds project;
 - Fix: Add `skip-install` to yeoman as it should be declared (before it was wrong);
+- Fix: Bunch of small improvements and fixes;
 
 ## Version 0.4.0
 
