@@ -109,17 +109,14 @@ module.exports = yeoman.generators.Base.extend({
      * @type {Object}
      */
     initializing: {
-        sayHello: function () {
-            this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
-        },
-
         loadPackageInfo: function () {
             this.pkg = require('../package.json');
         },
 
         notifyAboutGeneratorUpdate: function () {
             if (!this.options['skip-update']) {
-                var done = this.async();
+                var self = this,
+                    done = this.async();
 
                 this.log(chalk.yellow("Checking for updates..."));
 
@@ -130,20 +127,24 @@ module.exports = yeoman.generators.Base.extend({
                             printMessage([
                                 "Update available: " + chalk.green.bold(update.latest) + chalk.dim(" (current: " + update.current + ")"),
                                 "Run " + chalk.blue("npm update -g " + update.name) + " to update."
-                            ]);
+                            ], {
+                                marginTop: 1,
+                                marginBottom: 0,
+                                printFn: self.log
+                            });
 
                             process.exit(0);
                         } else {
-                            printMessage([
-                                "You're using the latest version",
-                                chalk.dim("v" + update.current)
-                            ]);
-
+                            self.log(chalk.yellow("OK... You're using the latest version " + chalk.green.bold(update.current)));
                             done();
                         }
                     }
                 });
             }
+        },
+
+        sayHello: function () {
+            this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
         }
     },
 
@@ -210,6 +211,8 @@ module.exports = yeoman.generators.Base.extend({
      */
     end: {
         sayUnderDevelopmentWarning: function () {
+            var self = this;
+
             printMessage([
                 "This generator under heavy development",
                 "If you found any bugs or have proposals, feel free to create issue",
@@ -217,16 +220,20 @@ module.exports = yeoman.generators.Base.extend({
                 "Or you can write me the letter",
                 chalk.red(this.pkg.bugs.email)
             ], {
-                borderColor: 'red'
+                printFn: self.log
             });
         },
 
         sayNotInstalledNpmDepsWarning: function () {
+            var self = this;
+
             if (this.options['skip-install']) {
                 printMessage([
                     "You have skipped installing npm modules",
                     "Install them manually via " + chalk.blue("npm install")
-                ]);
+                ], {
+                    printFn: self.log
+                });
             }
         }
     }
