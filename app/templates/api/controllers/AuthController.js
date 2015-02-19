@@ -38,7 +38,7 @@ module.exports = {
                     sails.log.error(error);
                     res.serverError(error);
                 } else {
-                    res.ok({
+                    res.created({
                         token: CipherService.create('jwt', {id: user.id}).hashSync(),
                         user: user
                     });
