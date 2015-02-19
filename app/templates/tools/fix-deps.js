@@ -34,6 +34,7 @@ recursive('./', ['node_modules'], function (error, files) {
         if (unusedDependencies.length === 0 && missingDependencies.length === 0) {
             printMessage([
                 "Checking dependencies successfully done",
+                "---",
                 "Unused dependencies - " + chalk.green("Not Found"),
                 "Missing dependencies - " + chalk.green("Not Found")
             ], {
@@ -51,17 +52,21 @@ recursive('./', ['node_modules'], function (error, files) {
                 marginTop: 0,
                 marginBottom: 0
             });
+
             // TODO: cleaning up in package.json
+
         }
 
         if (missingDependencies.length !== 0) {
-            printMessage([chalk.yellow("Missing dependencies"), chalk.yellow("---")].concat(missingDependencies).concat([chalk.yellow("---"), chalk.yellow("Starting installing...")]), {
+            printMessage([chalk.yellow("Missing dependencies"), chalk.yellow("---")].concat(missingDependencies).concat([chalk.yellow("---"), chalk.yellow("Start installing, please wait...")]), {
                 borderColor: 'red',
                 marginTop: 0,
                 marginBottom: 0
             });
 
             var npmInstall = spawn('npm', ['install', '--save'].concat(missingDependencies));
+
+            // TODO: make colorful piping
             npmInstall.stdout.pipe(process.stdout);
             npmInstall.stderr.pipe(process.stderr);
             npmInstall.on('close', process.exit);
