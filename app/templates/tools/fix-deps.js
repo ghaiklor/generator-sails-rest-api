@@ -7,6 +7,8 @@ var path = require('path'),
     checkDependencies = require('dependency-check'),
     recursive = require('recursive-readdir');
 
+console.log(chalk.yellow("\nStart fixing package.json, please wait...\n"));
+
 recursive('./', ['node_modules'], function (error, files) {
     if (error) {
         console.error(error);
