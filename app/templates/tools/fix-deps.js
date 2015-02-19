@@ -52,6 +52,8 @@ recursive('./', ['node_modules'], function (error, files) {
                 marginTop: 0,
                 marginBottom: 0
             });
+
+            // TODO: cleaning up in package.json
         }
 
         if (missingDependencies.length !== 0) {
@@ -62,6 +64,9 @@ recursive('./', ['node_modules'], function (error, files) {
                 marginTop: 0,
                 marginBottom: 0
             });
+
+            // TODO: auto installing
+
         }
 
         process.exit(1);
