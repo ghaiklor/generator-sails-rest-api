@@ -1,9 +1,9 @@
-var yeoman = require('yeoman-generator'),
-    updateNotifier = require('update-notifier'),
-    printMessage = require('print-message'),
+var crypto = require('crypto'),
     chalk = require('chalk'),
-    yosay = require('yosay'),
-    crypto = require('crypto');
+    printMessage = require('print-message'),
+    updateNotifier = require('update-notifier'),
+    yeoman = require('yeoman-generator'),
+    yosay = require('yosay');
 
 /**
  * List of questions
