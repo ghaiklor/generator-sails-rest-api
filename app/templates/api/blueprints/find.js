@@ -41,6 +41,7 @@ module.exports = function (req, res) {
                     criteria: where
                 };
 
+                // TODO: improve with more data in headers and more correct metainfo
                 res.set('Content-Range', metaInfo.start + '-' + metaInfo.end + '/' + metaInfo.total);
                 return res.ok(records, null, null, metaInfo);
             });
