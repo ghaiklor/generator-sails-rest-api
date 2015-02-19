@@ -107,6 +107,13 @@ module.exports = yeoman.generators.Base.extend({
             hide: false
         });
 
+        this.option("skip-diagnostic", {
+            desc: "Skip diagnostic after project setup",
+            type: "Boolean",
+            defaults: false,
+            hide: false
+        });
+
         this.config.save();
     },
 
@@ -238,6 +245,12 @@ module.exports = yeoman.generators.Base.extend({
                 ], {
                     printFn: this.log
                 });
+            }
+        },
+
+        runDiagnostic: function () {
+            if (!this.options["skip-diagnostic"]) {
+                this.spawnCommand('node', ['tools/fix-deps.js']);
             }
         }
     }
