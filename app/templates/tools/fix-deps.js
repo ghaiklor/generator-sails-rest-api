@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var path = require('path'),
+    spawn = require('child_process').spawn,
     chalk = require('chalk'),
     printMessage = require('print-message'),
     checkDependencies = require('dependency-check'),
@@ -21,7 +22,7 @@ recursive('./', ['node_modules'], function (error, files) {
         entries: files
     }, function (error, data) {
         if (error) {
-            console.error(error.message);
+            console.error(error);
             return process.exit(1);
         }
 
@@ -45,30 +46,25 @@ recursive('./', ['node_modules'], function (error, files) {
         }
 
         if (unusedDependencies.length !== 0) {
-            printMessage([
-                "Unused dependencies - " + unusedDependencies.join(', ')
-            ], {
+            printMessage([chalk.yellow("Unused dependencies"), chalk.yellow("---")].concat(unusedDependencies).concat([chalk.yellow("---"), chalk.yellow("Starting cleaning up...")]), {
                 borderColor: 'red',
                 marginTop: 0,
                 marginBottom: 0
             });
-
             // TODO: cleaning up in package.json
         }
 
         if (missingDependencies.length !== 0) {
-            printMessage([
-                "Missing dependencies - " + missingDependencies.join(', ')
-            ], {
+            printMessage([chalk.yellow("Missing dependencies"), chalk.yellow("---")].concat(missingDependencies).concat([chalk.yellow("---"), chalk.yellow("Starting installing...")]), {
                 borderColor: 'red',
                 marginTop: 0,
                 marginBottom: 0
             });
 
-            // TODO: auto installing
-
+            var npmInstall = spawn('npm', ['install', '--save', '--verbose'].concat(missingDependencies));
+            npmInstall.stdout.pipe(process.stdout);
+            npmInstall.stderr.pipe(process.stderr);
+            npmInstall.on('close', process.exit);
         }
-
-        process.exit(1);
     });
 });
