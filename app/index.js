@@ -250,7 +250,9 @@ module.exports = yeoman.generators.Base.extend({
 
         runDiagnostic: function () {
             if (!this.options["skip-diagnostic"]) {
-                this.spawnCommand('node', ['tools/fix-deps.js']);
+                this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
+                    this.spawnCommand('node', ['tools/update-deps.js']);
+                }.bind(this));
             }
         }
     }
