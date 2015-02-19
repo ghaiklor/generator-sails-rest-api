@@ -13,6 +13,7 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 ## Features
 
 - Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
+- Implemented tools `fix-deps` and `update-deps` which checks `package.json` for unused and missing dependencies and fix errors;
 - Overrides default `blueprints` which simplify CRUD operation in REST API;
 - Integrated Passport with Facebook, Twitter and Local authorization strategies;
 - Already declared `User` model with most used fields;
