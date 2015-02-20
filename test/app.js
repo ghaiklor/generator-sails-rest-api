@@ -11,6 +11,8 @@ describe('sails-rest-api:app', function () {
             .on('end', done);
     });
 
+    // TODO: write normal tests for generator
+
     it('Should properly create root files', function () {
         assert.file([
             '.editorconfig',
