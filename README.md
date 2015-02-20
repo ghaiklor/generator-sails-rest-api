@@ -1,6 +1,6 @@
 # generator-sails-rest-api
 
-[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) ![Dependencies is up to date](https://david-dm.org/ghaiklor/generator-sails-rest-api.svg) [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Documentation](https://github.com/ghaiklor/generator-sails-rest-api/wiki)
+[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) ![Dependencies is up to date](https://david-dm.org/ghaiklor/generator-sails-rest-api.svg) [![Build Status](https://travis-ci.org/ghaiklor/generator-sails-rest-api.svg?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Documentation](https://github.com/ghaiklor/generator-sails-rest-api/wiki)
 
 > Stability: 2 - Unstable
 
