@@ -11,71 +11,145 @@ var crypto = require('crypto'),
  * @private
  */
 var QUESTIONS_LIST = [{
-    type: 'input',
-    name: 'project:name',
-    message: 'Type your project name',
-    default: 'sails-rest-api'
+    type: "input",
+    name: "application:name",
+    message: "Type your application name",
+    default: "sails-rest-api"
 }, {
-    type: 'list',
-    name: 'database:adapter',
-    message: 'Choose database adapter',
+    type: "list",
+    name: "database:adapter",
+    message: "Choose database adapter",
+    default: 1,
     choices: [
-        'MySQL',
-        'Mongo',
-        'PostgreSQL',
-        'Redis'
-    ],
-    default: 1
+        "MySQL",
+        "Mongo",
+        "PostgreSQL",
+        "Redis"
+    ]
 }, {
-    type: 'input',
-    name: 'database:user',
-    message: 'Type database username',
-    default: ''
+    type: "input",
+    name: "database:user",
+    message: "Type database username",
+    default: ""
 }, {
-    type: 'password',
-    name: 'database:password',
-    message: 'Type database password',
-    default: ''
+    type: "password",
+    name: "database:password",
+    message: "Type database password",
+    default: ""
 }, {
-    type: 'input',
-    name: 'database:host',
-    message: 'Type database host',
-    default: 'localhost'
+    type: "input",
+    name: "database:host",
+    message: "Type database host",
+    default: "localhost"
 }, {
-    type: 'input',
-    name: 'database:name',
-    message: 'Type database name',
-    default: 'sails-rest-api'
+    type: "input",
+    name: "database:name",
+    message: "Type database name",
+    default: "sails-rest-api"
 }, {
-    type: 'input',
-    name: 'application:app-secret-token',
-    message: 'Type private application token',
+    type: "input",
+    name: "application:app-secret-token",
+    message: "Type private application token",
     default: crypto.randomBytes(16).toString('hex')
 }, {
-    type: 'input',
-    name: 'application:jwt-secret-token',
-    message: 'Type private token for JSON Web Token',
+    type: "input",
+    name: "application:jwt-secret-token",
+    message: "Type private token for JSON Web Token",
     default: crypto.randomBytes(16).toString('hex')
 }, {
-    type: 'input',
-    name: 'application:facebook-client-id',
-    message: 'Type Facebook Client ID',
-    default: '-'
+    type: "input",
+    name: "application:facebook-client-id",
+    message: "Type Facebook Client ID",
+    default: "-"
 }, {
-    type: 'input',
-    name: 'application:facebook-client-secret',
-    message: 'Type Facebook Client Secret',
-    default: '-'
+    type: "input",
+    name: "application:facebook-client-secret",
+    message: "Type Facebook Client Secret",
+    default: "-"
 }, {
-    type: 'input',
-    name: 'application:twitter-consumer-key',
-    message: 'Type Twitter Consumer Key',
-    default: '-'
+    type: "input",
+    name: "application:twitter-consumer-key",
+    message: "Type Twitter Consumer Key",
+    default: "-"
 }, {
-    type: 'input',
-    name: 'application:twitter-consumer-secret',
-    message: 'Type Twitter Consumer Secret',
-    default: '-'
+    type: "input",
+    name: "application:twitter-consumer-secret",
+    message: "Type Twitter Consumer Secret",
+    default: "-"
+}, {
+    type: "checkbox",
+    name: "services:cipher",
+    message: "Choose which Cipher services you want to include",
+    default: ["bcrypt", "jwt"],
+    choices: [
+        "bcrypt",
+        "jwt"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:mailer",
+    message: "Choose which Mailer services you want to include",
+    default: [],
+    choices: [
+        "Mandrill"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:payment",
+    message: "Choose which Payment services you want to include",
+    default: [],
+    choices: [
+        "Stripe"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:pusher",
+    message: "Choose which Pusher services you want to include",
+    default: ["Apple Push Notification", "Google Cloud Messaging"],
+    choices: [
+        "Apple Push Notification",
+        "Google Cloud Messaging"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:sms",
+    message: "Choose which SMS services you want to include",
+    default: [],
+    choices: [
+        "Twilio"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:social",
+    message: "Choose which Social services you want to include",
+    default: [],
+    choices: [
+        "Facebook"
+    ]
+}, {
+    type: "checkbox",
+    name: "services:storage",
+    message: "Choose which Storage services you want to include",
+    default: [],
+    choices: [
+        "Amazon S3",
+        "Google Cloud Storage"
+    ]
+}, {
+    type: "confirm",
+    name: "application:include-doc",
+    message: "Include Swagger documentation to project?",
+    default: true
+}, {
+    type: "confirm",
+    name: "application:include-tests",
+    message: "Include tests to project?",
+    default: true
+}, {
+    type: "confirm",
+    name: "application:include-tools",
+    message: "Include diagnostic tools to project?",
+    default: true
 }];
 
 module.exports = yeoman.generators.Base.extend({
