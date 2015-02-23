@@ -2,9 +2,12 @@
 
 ## Faraway
 
-- [ ] Add **apn** and **gcm** push notifications;
-- [ ] Add social service **Twitter**;
-- [ ] Add support for **Amazon** mailer, **sendmail** mailer;
+- [ ] Add `md5`, `crc` Ciphers;
+- [ ] Add `sendmail`, `Amazon` Mailer;
+- [ ] Add `braintreepayments`, `PayPal` Payment;
+- [ ] Add `Windows Phone` Pusher;
+- [ ] Add `Twitter`, `VK`, `Google +` Social;
+- [ ] Add `Local` Storage;
 - [ ] Test coverage for all `api` files;
 
 ## Next minor version
