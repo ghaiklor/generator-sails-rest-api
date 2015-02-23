@@ -70,8 +70,8 @@ passport.use(new JwtStrategy("<%= answers['application:jwt-secret'] %>", {
 }));
 
 passport.use(new FacebookTokenStrategy({
-    clientID: "<%= answers['application:facebook-client-id'] %>",
-    clientSecret: "<%= answers['application:facebook-client-secret'] %>",
+    clientID: "<%= answers['application:facebook-app-id'] %>",
+    clientSecret: "<%= answers['application:facebook-app-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
