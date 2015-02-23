@@ -1,7 +1,7 @@
 var assert = require('assert'),
-    isOurApp = require('../../api/policies/isOurApp');
+    isAllowed = require('../../api/policies/isAllowed');
 
-describe("policies:isOurApp", function () {
+describe("policies:isAllowed", function () {
     it("TODO: write this test", function () {
         assert(true);
     });
