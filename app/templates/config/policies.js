@@ -10,9 +10,9 @@
  */
 
 module.exports.policies = {
-    '*': ['isOurApp', 'isAuthenticated'],
+    '*': ['isAllowed', 'isAuthenticated'],
 
     AuthController: {
-        '*': 'isOurApp'
+        '*': 'isAllowed'
     }
 };
