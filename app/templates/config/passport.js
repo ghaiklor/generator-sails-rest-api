@@ -45,7 +45,7 @@ passport.use(new LocalStrategy({
         });
 }));
 
-passport.use(new JwtStrategy("<%= answers['application:jwt-secret-token'] %>", {
+passport.use(new JwtStrategy("<%= answers['application:jwt-secret'] %>", {
     tokenBodyField: 'jwt-token',
     tokenHeader: 'JWT'
 }, function (payload, next) {

@@ -11,11 +11,6 @@ var crypto = require('crypto'),
  * @private
  */
 var QUESTIONS_LIST = [{
-    type: "input",
-    name: "application:name",
-    message: "Type your application name",
-    default: "sails-rest-api"
-}, {
     type: "list",
     name: "database:adapter",
     message: "Choose database adapter",
@@ -28,58 +23,63 @@ var QUESTIONS_LIST = [{
     ]
 }, {
     type: "input",
-    name: "database:user",
-    message: "Type database username",
-    default: ""
-}, {
-    type: "password",
-    name: "database:password",
-    message: "Type database password",
-    default: ""
-}, {
-    type: "input",
     name: "database:host",
-    message: "Type database host",
+    message: "Type your database host",
     default: "localhost"
 }, {
     type: "input",
     name: "database:name",
-    message: "Type database name",
+    message: "Type your database name",
     default: "sails-rest-api"
 }, {
     type: "input",
-    name: "application:app-secret-token",
-    message: "Type private application token",
-    default: crypto.randomBytes(16).toString('hex')
+    name: "database:user",
+    message: "Type your database username",
+    default: ""
+}, {
+    type: "password",
+    name: "database:password",
+    message: "Type your database password",
+    default: ""
 }, {
     type: "input",
-    name: "application:jwt-secret-token",
-    message: "Type private token for JSON Web Token",
-    default: crypto.randomBytes(16).toString('hex')
+    name: "application:name",
+    message: "Type your application name",
+    default: "sails-rest-api"
 }, {
     type: "input",
-    name: "application:facebook-client-id",
-    message: "Type Facebook Client ID",
+    name: "application:api-secret-key",
+    message: "Type your private API key",
+    default: crypto.randomBytes(32).toString("hex")
+}, {
+    type: "input",
+    name: "application:jwt-secret",
+    message: "Type your private key for JSON Web Token",
+    default: crypto.randomBytes(32).toString("hex")
+}, {
+    type: "input",
+    name: "application:facebook-app-id",
+    message: "Type your Facebook App ID",
     default: "-"
 }, {
     type: "input",
-    name: "application:facebook-client-secret",
-    message: "Type Facebook Client Secret",
+    name: "application:facebook-app-secret",
+    message: "Type your Facebook App Secret",
     default: "-"
 }, {
     type: "input",
     name: "application:twitter-consumer-key",
-    message: "Type Twitter Consumer Key",
+    message: "Type your Twitter Consumer Key",
     default: "-"
 }, {
     type: "input",
     name: "application:twitter-consumer-secret",
-    message: "Type Twitter Consumer Secret",
+    message: "Type your Twitter Consumer Secret",
     default: "-"
 }, {
     type: "checkbox",
     name: "services:cipher",
-    message: "Choose which Cipher services you want to include",
+    message: "Choose which Cipher services you want",
     default: ["bcrypt", "jwt"],
     choices: [
         "bcrypt",
@@ -88,7 +88,7 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:mailer",
-    message: "Choose which Mailer services you want to include",
+    message: "Choose which Mailer services you want",
     default: [],
     choices: [
         "Mandrill"
@@ -96,7 +96,7 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:payment",
-    message: "Choose which Payment services you want to include",
+    message: "Choose which Payment services you want",
     default: [],
     choices: [
         "Stripe"
@@ -104,8 +104,8 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:pusher",
-    message: "Choose which Pusher services you want to include",
-    default: ["Apple Push Notification", "Google Cloud Messaging"],
+    message: "Choose which Pusher services you want",
+    default: [],
     choices: [
         "Apple Push Notification",
         "Google Cloud Messaging"
@@ -113,7 +113,7 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:sms",
-    message: "Choose which SMS services you want to include",
+    message: "Choose which SMS services you want",
     default: [],
     choices: [
         "Twilio"
@@ -121,7 +121,7 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:social",
-    message: "Choose which Social services you want to include",
+    message: "Choose which Social services you want",
     default: [],
     choices: [
         "Facebook"
@@ -129,7 +129,7 @@ var QUESTIONS_LIST = [{
 }, {
     type: "checkbox",
     name: "services:storage",
-    message: "Choose which Storage services you want to include",
+    message: "Choose which Storage services you want",
     default: [],
     choices: [
         "Amazon S3",
@@ -137,18 +137,18 @@ var QUESTIONS_LIST = [{
     ]
 }, {
     type: "confirm",
-    name: "application:include-doc",
-    message: "Include Swagger documentation to project?",
+    name: "docs:include",
+    message: "Is Swagger documentation needed for project?",
     default: true
 }, {
     type: "confirm",
-    name: "application:include-tests",
-    message: "Include tests to project?",
+    name: "tests:include",
+    message: "Is Mocha tests needed for project?",
     default: true
 }, {
     type: "confirm",
-    name: "application:include-tools",
-    message: "Include diagnostic tools to project?",
+    name: "tools:include",
+    message: "Is diagnostic tools needed for project?",
     default: true
 }];
 

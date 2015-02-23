@@ -8,7 +8,7 @@ var util = require('util'),
  * @type {String}
  * @private
  */
-var SECRET_KEY = "<%= answers['application:jwt-secret-token'] %>";
+var SECRET_KEY = "<%= answers['application:jwt-secret'] %>";
 
 /**
  * Algorithm that using for signing JWT
