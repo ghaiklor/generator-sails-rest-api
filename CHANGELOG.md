@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Cleaning up in questions;
+
 ## Version 0.5.1
 
 - Hotfix: Bug when with `skip-all` generator is freeze up;
