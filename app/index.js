@@ -7,11 +7,11 @@ var crypto = require('crypto'),
     inquirer = require('yo/node_modules/inquirer');
 
 /**
- * List of questions
+ * Questions for database section
  * @type {Array}
  * @private
  */
-var QUESTIONS_LIST = [{
+var DATABASE_QUESTIONS = [{
     type: "list",
     name: "database:adapter",
     message: "Choose database adapter",
@@ -42,7 +42,14 @@ var QUESTIONS_LIST = [{
     name: "database:password",
     message: "Type your database password",
     default: ""
-}, {
+}];
+
+/**
+ * Questions for application section
+ * @type {Array}
+ * @private
+ */
+var APPLICATION_QUESTIONS = [{
     type: "input",
     name: "application:name",
     message: "Type your application name",
@@ -77,7 +84,14 @@ var QUESTIONS_LIST = [{
     name: "application:twitter-consumer-secret",
     message: "Type your Twitter Consumer Secret",
     default: "-"
-}, {
+}];
+
+/**
+ * Questions for services section
+ * @type {Array}
+ * @private
+ */
+var SERVICES_QUESTIONS = [{
     type: "checkbox",
     name: "services:cipher",
     message: "Choose which Cipher services you want",
@@ -163,7 +177,14 @@ var QUESTIONS_LIST = [{
         name: "More Storage is coming",
         disabled: "Wait for it..."
     }]
-}, {
+}];
+
+/**
+ * Questions for miscellaneous section
+ * @type {Array}
+ * @private
+ */
+var MISCELLANEOUS_QUESTIONS = [{
     type: "confirm",
     name: "docs:include",
     message: "Is Swagger documentation needed for project?",
@@ -179,6 +200,25 @@ var QUESTIONS_LIST = [{
     message: "Is diagnostic tools needed for project?",
     default: true
 }];
+
+/**
+ * Extend target object with source object
+ * @param {Object} _target Target object
+ * @param {Object} _source Source object
+ * @returns {Object}
+ * @private
+ */
+function _extend(_target, _source) {
+    var target = _target || {},
+        source = _source || {},
+        keys = Object.keys(source);
+
+    for (var i = 0; i < keys.length; i++) {
+        target[keys[i]] = source[keys[i]];
+    }
+
+    return target;
+}
 
 module.exports = yeoman.generators.Base.extend({
     /**
@@ -287,17 +327,59 @@ module.exports = yeoman.generators.Base.extend({
      */
     prompting: {
         /**
-         * Ask base questions
+         * Ask database questions
          */
-        askBaseQuestions: function () {
+        askDatabaseQuestions: function () {
             var done = this.async();
 
-            // TODO: split into separate functions
+            this.log(chalk.yellow("\nDatabase questions:"));
 
-            this.prompt(QUESTIONS_LIST, function (answers) {
-                this.answers = answers;
+            this.prompt(DATABASE_QUESTIONS, function (answers) {
+                this.answers = _extend(this.answers, answers);
                 done();
-            }.bind(this));
+            });
+        },
+
+        /**
+         * Ask application questions
+         */
+        askApplicationQuestions: function () {
+            var done = this.async();
+
+            this.log(chalk.yellow("\nApplication questions:"));
+
+            this.prompt(APPLICATION_QUESTIONS, function (answers) {
+                this.answers = _extend(this.answers, answers);
+                done();
+            });
+        },
+
+        /**
+         * Ask services questions
+         */
+        askServiceQuestions: function () {
+            var done = this.async();
+
+            this.log(chalk.yellow("\nService questions:"));
+
+            this.prompt(SERVICES_QUESTIONS, function (answers) {
+                this.answers = _extend(this.answers, answers);
+                done();
+            });
+        },
+
+        /**
+         * Ask miscellaneous questions
+         */
+        askMiscellaneousSections: function () {
+            var done = this.async();
+
+            this.log(chalk.yellow("\nMiscellaneous questions:"));
+
+            this.prompt(MISCELLANEOUS_QUESTIONS, function (answers) {
+                this.answers = _extend(this.answers, answers);
+                done();
+            });
         }
     },
 
