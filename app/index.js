@@ -427,7 +427,7 @@ module.exports = yeoman.generators.Base.extend({
          */
         installNpmDependencies: function () {
             if (!(this.options['skip-project-install'] || this.options["skip-all"])) {
-                this.log(chalk.yellow("\nStart installing npm dependencies, please wait...\n"));
+                this.log(chalk.yellow("Start installing npm dependencies, please wait..."));
                 this.npmInstall();
             }
         }
@@ -445,7 +445,7 @@ module.exports = yeoman.generators.Base.extend({
             if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
                 var done = this.async();
 
-                this.log(chalk.yellow("\nStarting diagnostic, please wait...\n"));
+                this.log(chalk.yellow("Starting diagnostic, please wait..."));
 
                 this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
                     this.spawnCommand('node', ['tools/update-deps.js']).on('close', done);
