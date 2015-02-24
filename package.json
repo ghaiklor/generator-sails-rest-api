@@ -36,7 +36,7 @@
         "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
     },
     "dependencies": {
-        "chalk": "^0.5.1",
+        "chalk": "^1.0.0",
         "print-message": "^1.1.0",
         "update-notifier": "^0.3.0",
         "yeoman-generator": "^0.18.9",
