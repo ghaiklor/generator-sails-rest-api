@@ -24,6 +24,34 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 - Integrated Swagger doc specification in `doc` folder;
 - Integrated Mocha tests for all `blueprints`, `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
 
+## Getting Started
+
+Start using generator is very simple.
+
+First of all, you need install **yeoman** and **generator-sails-rest-api**:
+
+```bash
+npm install -g yo generator-sails-rest-api
+```
+
+Then create project directory and initiate the generator under the project directory:
+
+```bash
+mkdir my-project
+cd my-project
+yo sails-rest-api
+```
+
+You will be prompted for questions. Answer to those questions that generator is asks and you will get configured Sails project.
+
+After scaffolding the project you can use this project as before. Just run the `app.js` file and all.
+
+```bash
+node app.js
+```
+
+Congratulations, you just have setup your first Sails REST API :+1:
+
 ## ready-2-use services
 
 |  Service Name  |               Implemented providers              |
