@@ -232,10 +232,16 @@ module.exports = yeoman.generators.Base.extend({
      * @type {Object}
      */
     initializing: {
+        /**
+         * Load package.json
+         */
         loadPackageInfo: function () {
             this.pkg = require('../package.json');
         },
 
+        /**
+         * Notify about updates of generator-sails-rest-api
+         */
         notifyAboutGeneratorUpdate: function () {
             if (!(this.options['skip-generator-update'] || this.options['skip-all'])) {
                 var done = this.async();
@@ -265,6 +271,9 @@ module.exports = yeoman.generators.Base.extend({
             }
         },
 
+        /**
+         * Say yeoman hello
+         */
         sayHello: function () {
             if (!(this.options["skip-generator-welcome"] || this.options["skip-all"])) {
                 this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
@@ -277,8 +286,13 @@ module.exports = yeoman.generators.Base.extend({
      * Where you prompt users for options (where you'd call this.prompt())
      */
     prompting: {
+        /**
+         * Ask base questions
+         */
         askBaseQuestions: function () {
             var done = this.async();
+
+            // TODO: split into separate functions
 
             this.prompt(QUESTIONS_LIST, function (answers) {
                 this.answers = answers;
@@ -303,7 +317,11 @@ module.exports = yeoman.generators.Base.extend({
      * Where you write the generator specific files (routes, controllers, etc)
      */
     writing: {
+        /**
+         * Copy template directory to source root
+         */
         copyDirectory: function () {
+            // TODO: split into separate functions
             this.directory(
                 this.sourceRoot(),
                 this.destinationRoot()
@@ -322,7 +340,10 @@ module.exports = yeoman.generators.Base.extend({
      * Where installation are run (npm, bower)
      */
     install: {
-        installNpmDeps: function () {
+        /**
+         * Install npm dependencies
+         */
+        installNpmDependencies: function () {
             if (!(this.options['skip-project-install'] || this.options["skip-all"])) {
                 this.log(chalk.yellow("\nStart installing npm dependencies, please wait...\n"));
                 this.npmInstall();
@@ -335,6 +356,9 @@ module.exports = yeoman.generators.Base.extend({
      * Called last, cleanup, say good bye, etc
      */
     end: {
+        /**
+         * Run diagnostic tools
+         */
         runDiagnostic: function () {
             if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
                 var done = this.async();
@@ -347,6 +371,9 @@ module.exports = yeoman.generators.Base.extend({
             }
         },
 
+        /**
+         * Say warning that this generator is under development
+         */
         sayUnderDevelopmentWarning: function () {
             printMessage([
                 "This generator under heavy development",
@@ -361,6 +388,9 @@ module.exports = yeoman.generators.Base.extend({
             });
         },
 
+        /**
+         * Warn user if he skip installing dependencies
+         */
         sayNotInstalledNpmDepsWarning: function () {
             if (this.options['skip-project-install'] || this.options["skip-all"]) {
                 printMessage([
