@@ -2,7 +2,7 @@
 
 ## Edge version
 
-- Improvement: Cleaning up in questions;
+- Improvement: Cleaning up in questions and split out them to sections;
 
 ## Version 0.5.1
 
