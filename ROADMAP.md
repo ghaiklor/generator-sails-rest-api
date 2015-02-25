@@ -12,8 +12,8 @@
 
 ## Next minor version
 
+- [x] Freeze architecture (only bug-fixes and adding new features);
 - [ ] Improve stability (too much new features is appears in previous version);
-- [ ] Freeze architecture (only bug-fixes and adding new features);
 - [ ] Make swagger documentation as part of Sails generator;
 - [ ] Add questions list where you can choose which service need to include and copy only needed;
 
