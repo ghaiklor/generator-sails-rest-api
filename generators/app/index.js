@@ -276,7 +276,7 @@ module.exports = yeoman.generators.Base.extend({
          * Load package.json
          */
         loadPackageInfo: function () {
-            this.pkg = require('../package.json');
+            this.pkg = require('../../package.json');
         },
 
         /**
