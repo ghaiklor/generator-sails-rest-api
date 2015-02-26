@@ -33,6 +33,13 @@ var MISCELLANEOUS_QUESTIONS = require('./questions/miscellaneous');
 var SERVICES_QUESTIONS = require('./questions/services.js');
 
 /**
+ * CLI options for generator
+ * @type {Object}
+ * @private
+ */
+var GENERATOR_OPTIONS = require('./options/index.json');
+
+/**
  * Extend target object with source object
  * @param {Object} _target Target object
  * @param {Object} _source Source object
@@ -59,40 +66,9 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
-        this.option("skip-generator-update", {
-            desc: "Skip checking for generator updates on running",
-            type: Boolean,
-            defaults: false,
-            hide: false
-        });
-
-        this.option("skip-generator-welcome", {
-            desc: "Skip saying welcome when generator is running",
-            type: Boolean,
-            defaults: false,
-            hide: false
-        });
-
-        this.option("skip-project-install", {
-            desc: "Skip installing npm dependencies in project",
-            type: Boolean,
-            defaults: false,
-            hide: false
-        });
-
-        this.option("skip-project-diagnostic", {
-            desc: "Skip running diagnostic tools in project",
-            type: Boolean,
-            defaults: false,
-            hide: false
-        });
-
-        this.option("skip-all", {
-            desc: "Skip everything, just project scaffolding",
-            type: Boolean,
-            defaults: false,
-            hide: false
-        });
+        Object.keys(GENERATOR_OPTIONS).forEach(function (optionName) {
+            this.option(optionName, GENERATOR_OPTIONS[optionName]);
+        }.bind(this));
 
         this.config.save();
     },

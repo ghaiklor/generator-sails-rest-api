@@ -1,0 +1,32 @@
+{
+    "skip-generator-update": {
+        "desc": "Skip checking for generator updates on running",
+        "type": "Boolean",
+        "defaults": false,
+        "hide": false
+    },
+    "skip-generator-welcome": {
+        "desc": "Skip saying welcome when generator is running",
+        "type": "Boolean",
+        "defaults": false,
+        "hide": false
+    },
+    "skip-project-install": {
+        "desc": "Skip installing npm dependencies in project",
+        "type": "Boolean",
+        "defaults": false,
+        "hide": false
+    },
+    "skip-project-diagnostic": {
+        "desc": "Skip running diagnostic tools in project",
+        "type": "Boolean",
+        "defaults": false,
+        "hide": false
+    },
+    "skip-all": {
+        "desc": "Skip everything, just project scaffolding",
+        "type": "Boolean",
+        "defaults": false,
+        "hide": false
+    }
+}
