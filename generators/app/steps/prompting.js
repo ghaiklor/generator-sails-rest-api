@@ -4,10 +4,10 @@
  */
 
 var chalk = require('chalk'),
-    APPLICATION_QUESTIONS = require('../yo-questions/application.js'),
-    DATABASE_QUESTIONS = require('../yo-questions/database.js'),
-    MISCELLANEOUS_QUESTIONS = require('../yo-questions/miscellaneous'),
-    SERVICES_QUESTIONS = require('../yo-questions/services.js');
+    APPLICATION_QUESTIONS = require('../questions/application.js'),
+    DATABASE_QUESTIONS = require('../questions/database.js'),
+    MISCELLANEOUS_QUESTIONS = require('../questions/miscellaneous'),
+    SERVICES_QUESTIONS = require('../questions/services.js');
 
 /**
  * Extend target object with source object
