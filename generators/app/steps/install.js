@@ -3,6 +3,8 @@
  * Where installation are run (npm, bower)
  */
 
+var chalk = require('chalk');
+
 module.exports = {
     /**
      * Install npm dependencies
