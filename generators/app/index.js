@@ -1,205 +1,36 @@
-var crypto = require('crypto'),
-    chalk = require('chalk'),
+var chalk = require('chalk'),
     printMessage = require('print-message'),
     updateNotifier = require('update-notifier'),
     yeoman = require('yeoman-generator'),
-    yosay = require('yosay'),
-    inquirer = require('yo/node_modules/inquirer');
-
-/**
- * Questions for database section
- * @type {Array}
- * @private
- */
-var DATABASE_QUESTIONS = [{
-    type: "list",
-    name: "database:adapter",
-    message: "Choose database adapter",
-    default: 1,
-    choices: [
-        "MySQL",
-        "Mongo",
-        "PostgreSQL",
-        "Redis"
-    ]
-}, {
-    type: "input",
-    name: "database:host",
-    message: "Type your database host",
-    default: "localhost"
-}, {
-    type: "input",
-    name: "database:name",
-    message: "Type your database name",
-    default: "sails-rest-api"
-}, {
-    type: "input",
-    name: "database:user",
-    message: "Type your database username",
-    default: ""
-}, {
-    type: "password",
-    name: "database:password",
-    message: "Type your database password",
-    default: ""
-}];
+    yosay = require('yosay');
 
 /**
  * Questions for application section
  * @type {Array}
  * @private
  */
-var APPLICATION_QUESTIONS = [{
-    type: "input",
-    name: "application:name",
-    message: "Type your application name",
-    default: "sails-rest-api"
-}, {
-    type: "input",
-    name: "application:api-secret-key",
-    message: "Type your private API key",
-    default: crypto.randomBytes(32).toString("hex")
-}, {
-    type: "input",
-    name: "application:jwt-secret",
-    message: "Type your private key for JSON Web Token",
-    default: crypto.randomBytes(32).toString("hex")
-}, {
-    type: "input",
-    name: "application:facebook-app-id",
-    message: "Type your Facebook App ID",
-    default: "-"
-}, {
-    type: "input",
-    name: "application:facebook-app-secret",
-    message: "Type your Facebook App Secret",
-    default: "-"
-}, {
-    type: "input",
-    name: "application:twitter-consumer-key",
-    message: "Type your Twitter Consumer Key",
-    default: "-"
-}, {
-    type: "input",
-    name: "application:twitter-consumer-secret",
-    message: "Type your Twitter Consumer Secret",
-    default: "-"
-}];
+var APPLICATION_QUESTIONS = require('./questions/application.js');
 
 /**
- * Questions for services section
+ * Questions for database section
  * @type {Array}
  * @private
  */
-var SERVICES_QUESTIONS = [{
-    type: "checkbox",
-    name: "services:cipher",
-    message: "Choose which Cipher services you want",
-    choices: [{
-        name: "bcrypt",
-        checked: true
-    }, {
-        name: "jwt",
-        checked: true
-    }, new inquirer.Separator(), {
-        name: "More Cipher is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:mailer",
-    message: "Choose which Mailer services you want",
-    choices: [{
-        name: "Mandrill",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More Mailer is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:payment",
-    message: "Choose which Payment services you want",
-    choices: [{
-        name: "Stripe",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More Payment is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:pusher",
-    message: "Choose which Pusher services you want",
-    choices: [{
-        name: "Apple Push Notification",
-        checked: false
-    }, {
-        name: "Google Cloud Messaging",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More Pusher is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:sms",
-    message: "Choose which SMS services you want",
-    choices: [{
-        name: "Twilio",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More SMS is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:social",
-    message: "Choose which Social services you want",
-    choices: [{
-        name: "Facebook",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More Social is coming",
-        disabled: "Wait for it..."
-    }]
-}, {
-    type: "checkbox",
-    name: "services:storage",
-    message: "Choose which Storage services you want",
-    choices: [{
-        name: "Amazon S3",
-        checked: false
-    }, {
-        name: "Google Cloud Storage",
-        checked: false
-    }, new inquirer.Separator(), {
-        name: "More Storage is coming",
-        disabled: "Wait for it..."
-    }]
-}];
+var DATABASE_QUESTIONS = require('./questions/database.js');
 
 /**
  * Questions for miscellaneous section
  * @type {Array}
  * @private
  */
-var MISCELLANEOUS_QUESTIONS = [{
-    type: "confirm",
-    name: "docs:include",
-    message: "Is Swagger documentation needed for project?",
-    default: true
-}, {
-    type: "confirm",
-    name: "tests:include",
-    message: "Is Mocha tests needed for project?",
-    default: true
-}, {
-    type: "confirm",
-    name: "tools:include",
-    message: "Is diagnostic tools needed for project?",
-    default: true
-}];
+var MISCELLANEOUS_QUESTIONS = require('./questions/miscellaneous');
+
+/**
+ * Questions for services section
+ * @type {Array}
+ * @private
+ */
+var SERVICES_QUESTIONS = require('./questions/services.js');
 
 /**
  * Extend target object with source object
