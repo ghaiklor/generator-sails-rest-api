@@ -9,35 +9,35 @@ var chalk = require('chalk'),
  * @type {Array}
  * @private
  */
-var APPLICATION_QUESTIONS = require('./questions/application.js');
+var APPLICATION_QUESTIONS = require('./cli-questions/application.js');
 
 /**
  * Questions for database section
  * @type {Array}
  * @private
  */
-var DATABASE_QUESTIONS = require('./questions/database.js');
+var DATABASE_QUESTIONS = require('./cli-questions/database.js');
 
 /**
  * Questions for miscellaneous section
  * @type {Array}
  * @private
  */
-var MISCELLANEOUS_QUESTIONS = require('./questions/miscellaneous');
+var MISCELLANEOUS_QUESTIONS = require('./cli-questions/miscellaneous');
 
 /**
  * Questions for services section
  * @type {Array}
  * @private
  */
-var SERVICES_QUESTIONS = require('./questions/services.js');
+var SERVICES_QUESTIONS = require('./cli-questions/services.js');
 
 /**
  * CLI options for generator
  * @type {Object}
  * @private
  */
-var GENERATOR_OPTIONS = require('./options/index.json');
+var GENERATOR_OPTIONS = require('./cli-options/index.json');
 
 /**
  * Extend target object with source object
