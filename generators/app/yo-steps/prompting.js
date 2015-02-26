@@ -40,7 +40,7 @@ module.exports = {
         this.prompt(DATABASE_QUESTIONS, function (answers) {
             this.answers = _extend(this.answers, answers);
             done();
-        });
+        }.bind(this));
     },
 
     /**
@@ -54,7 +54,7 @@ module.exports = {
         this.prompt(APPLICATION_QUESTIONS, function (answers) {
             this.answers = _extend(this.answers, answers);
             done();
-        });
+        }.bind(this));
     },
 
     /**
@@ -68,7 +68,7 @@ module.exports = {
         this.prompt(SERVICES_QUESTIONS, function (answers) {
             this.answers = _extend(this.answers, answers);
             done();
-        });
+        }.bind(this));
     },
 
     /**
@@ -82,6 +82,6 @@ module.exports = {
         this.prompt(MISCELLANEOUS_QUESTIONS, function (answers) {
             this.answers = _extend(this.answers, answers);
             done();
-        });
+        }.bind(this));
     }
 };
