@@ -6,18 +6,18 @@ module.exports = yeoman.generators.Base.extend({
 
         yeoman.generators.Base.apply(this, arguments);
 
-        Object.keys(options).forEach(function (optionName) {
-            this.option(optionName, options[optionName]);
+        Object.keys(options).forEach(function (name) {
+            this.option(name, options[name]);
         }.bind(this));
 
         this.config.save();
     },
 
     initializing: require('./yo-steps/initializing'),
-    prompting: require('./yo-steps/prompting.js'),
-    configuring: require('./yo-steps/configuring.js'),
-    writing: require('./yo-steps/writing.js'),
-    conflicts: require('./yo-steps/conflicts.js'),
-    install: require('./yo-steps/install.js'),
-    end: require('./yo-steps/end.js')
+    prompting: require('./yo-steps/prompting'),
+    configuring: require('./yo-steps/configuring'),
+    writing: require('./yo-steps/writing'),
+    conflicts: require('./yo-steps/conflicts'),
+    install: require('./yo-steps/install'),
+    end: require('./yo-steps/end')
 });
