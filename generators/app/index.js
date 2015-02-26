@@ -2,7 +2,7 @@ var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({
     constructor: function () {
-        var options = require('./cli-options/index');
+        var options = require('./yo-options/index');
 
         yeoman.generators.Base.apply(this, arguments);
 
@@ -13,11 +13,11 @@ module.exports = yeoman.generators.Base.extend({
         this.config.save();
     },
 
-    initializing: require('./run-steps/initializing'),
-    prompting: require('./run-steps/prompting.js'),
-    configuring: require('./run-steps/configuring.js'),
-    writing: require('./run-steps/writing.js'),
-    conflicts: require('./run-steps/conflicts.js'),
-    install: require('./run-steps/install.js'),
-    end: require('./run-steps/end.js')
+    initializing: require('./yo-steps/initializing'),
+    prompting: require('./yo-steps/prompting.js'),
+    configuring: require('./yo-steps/configuring.js'),
+    writing: require('./yo-steps/writing.js'),
+    conflicts: require('./yo-steps/conflicts.js'),
+    install: require('./yo-steps/install.js'),
+    end: require('./yo-steps/end.js')
 });
