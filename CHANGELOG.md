@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Frozen structure of generator and project. Any serious changes in project structure;
+- Improvement: Split CLI options, questions and steps to separate modules, so generator is more maintainable;
 - Improvement: Cleaning up in questions and split out them to sections;
 
 ## Version 0.5.1
