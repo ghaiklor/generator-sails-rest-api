@@ -1,12 +1,17 @@
 var fs = require('fs');
 
-module.exports = function requireFolder(dirname) {
-    var files = fs.readdirSync(dirname),
+/**
+ * Require all files within folder
+ * @param {String} dirName Directory name
+ * @returns {Object}
+ */
+module.exports = function requireFolder(dirName) {
+    var files = fs.readdirSync(dirName),
         modules = {};
 
-    files.forEach(function (file) {
-        modules[file.replace('.js', '')] = require(dirname + '/' + file);
-    });
+    for (var i = 0; i < files.length; i++) {
+        modules[files[i].replace('.js', '')] = require(dirName + '/' + files[i]);
+    }
 
     return modules;
 };
