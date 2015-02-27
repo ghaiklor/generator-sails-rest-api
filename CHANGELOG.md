@@ -6,6 +6,8 @@
 - Improvement: Split CLI options, questions and steps to separate modules, so generator is more maintainable;
 - Improvement: Cleaning up in questions and split out them to sections;
 - Improvement: Add options to `check-updates.js` tool;
+- Improvement: Add tools to npm scripts, so you can call `npm run-script check-updates` now;
+- Fix: Bug with no colorful print in `fix-deps.js`;
 
 ## Version 0.5.1
 
