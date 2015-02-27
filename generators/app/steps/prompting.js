@@ -10,7 +10,6 @@ var path = require('path'),
     questions = requireFolder(path.resolve(__dirname, '../questions'));
 
 module.exports = {
-    // TODO: write auto loading of questions
     /**
      * Ask database questions
      */
