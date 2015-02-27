@@ -3,7 +3,8 @@
  * Your initialization methods (checking current project state, getting configs, etc)
  */
 
-var chalk = require('chalk'),
+var path = require('path'),
+    chalk = require('chalk'),
     updateNotifier = require('update-notifier'),
     printMessage = require('print-message'),
     yosay = require('yosay');
@@ -13,7 +14,7 @@ module.exports = {
      * Load package.json
      */
     loadPackageInfo: function () {
-        this.pkg = require('../../../package.json');
+        this.pkg = require(path.resolve(__dirname, '../../../package.json'));
     },
 
     /**
