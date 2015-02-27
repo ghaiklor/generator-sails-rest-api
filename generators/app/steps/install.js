@@ -12,7 +12,9 @@ module.exports = {
     installNpmDependencies: function () {
         if (!(this.options['skip-project-install'] || this.options["skip-all"])) {
             this.log(chalk.yellow("Start installing npm dependencies, please wait..."));
-            this.npmInstall();
+            this.npmInstall([], {
+                color: "always"
+            });
         }
     }
 };
