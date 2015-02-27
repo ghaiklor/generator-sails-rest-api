@@ -7,11 +7,11 @@ var path = require('path'),
     checkDependencies = require('dependency-check'),
     recursive = require('recursive-readdir');
 
-console.log(chalk.yellow("\nStart fixing package.json, please wait...\n"));
+console.log(chalk.yellow("Start fixing package.json, please wait..."));
 
 recursive('./', ['node_modules'], function (error, files) {
     if (error) {
-        console.error(error);
+        console.error(error.stack || error);
         return process.exit(1);
     }
 
@@ -24,7 +24,7 @@ recursive('./', ['node_modules'], function (error, files) {
         entries: files
     }, function (error, data) {
         if (error) {
-            console.error(error);
+            console.error(error.stack || error);
             return process.exit(1);
         }
 
@@ -66,9 +66,7 @@ recursive('./', ['node_modules'], function (error, files) {
                 marginBottom: 0
             });
 
-            var npmInstall = spawn('npm', ['install', '--save'].concat(missingDependencies));
-
-            // TODO: make colorful piping
+            var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(missingDependencies));
             npmInstall.stdout.pipe(process.stdout);
             npmInstall.stderr.pipe(process.stderr);
             npmInstall.on('close', process.exit);
