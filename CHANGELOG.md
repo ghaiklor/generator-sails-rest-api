@@ -5,6 +5,7 @@
 - Improvement: Frozen structure of generator and project. Any serious changes in project structure;
 - Improvement: Split CLI options, questions and steps to separate modules, so generator is more maintainable;
 - Improvement: Cleaning up in questions and split out them to sections;
+- Improvement: Add options to `update-deps.js` tool;
 
 ## Version 0.5.1
 
