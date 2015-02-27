@@ -15,6 +15,8 @@
     "scripts": {
         "start": "node app.js",
         "debug": "node debug app.js",
-        "test": "mocha --recursive"
+        "test": "mocha --recursive",
+        "check-updates": "node ./tools/check-updates.js",
+        "fix-deps": "node ./tools/fix-deps.js"
     }
 }
