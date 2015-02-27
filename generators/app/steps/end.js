@@ -17,7 +17,7 @@ module.exports = {
             this.log(chalk.yellow("Starting diagnostic, please wait..."));
 
             this.spawnCommand('node', ['tools/fix-deps.js']).on('close', function () {
-                this.spawnCommand('node', ['tools/update-deps.js']).on('close', done);
+                this.spawnCommand('node', ['tools/check-updates.js']).on('close', done);
             }.bind(this));
         }
     },
