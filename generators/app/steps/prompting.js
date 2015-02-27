@@ -5,7 +5,7 @@
 
 var path = require('path'),
     chalk = require('chalk'),
-    extend = require('../util/extend'),
+    assign = require('../util/assign'),
     requireFolder = require('../util/require-folder'),
     questions = requireFolder(path.resolve(__dirname, '../questions'));
 
@@ -20,7 +20,7 @@ module.exports = {
         this.log(chalk.yellow("\nDatabase questions:"));
 
         this.prompt(questions.database, function (answers) {
-            this.answers = extend(this.answers, answers);
+            this.answers = assign(this.answers, answers);
             done();
         }.bind(this));
     },
@@ -34,7 +34,7 @@ module.exports = {
         this.log(chalk.yellow("\nApplication questions:"));
 
         this.prompt(questions.application, function (answers) {
-            this.answers = extend(this.answers, answers);
+            this.answers = assign(this.answers, answers);
             done();
         }.bind(this));
     },
@@ -48,7 +48,7 @@ module.exports = {
         this.log(chalk.yellow("\nService questions:"));
 
         this.prompt(questions.services, function (answers) {
-            this.answers = extend(this.answers, answers);
+            this.answers = assign(this.answers, answers);
             done();
         }.bind(this));
     },
@@ -62,7 +62,7 @@ module.exports = {
         this.log(chalk.yellow("\nMiscellaneous questions:"));
 
         this.prompt(questions.miscellaneous, function (answers) {
-            this.answers = extend(this.answers, answers);
+            this.answers = assign(this.answers, answers);
             done();
         }.bind(this));
     }

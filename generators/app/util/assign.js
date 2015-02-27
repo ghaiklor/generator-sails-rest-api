@@ -4,7 +4,7 @@
  * @param {Object} _source Source object
  * @returns {Object}
  */
-module.exports = function extend(_target, _source) {
+module.exports = function assign(_target, _source) {
     var target = _target || {},
         source = _source || {},
         keys = Object.keys(source);
