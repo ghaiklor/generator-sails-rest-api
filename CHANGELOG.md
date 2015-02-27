@@ -10,6 +10,7 @@
 - Fix: Bug with no colorful print in `fix-deps.js`;
 - Fix: Bug with no colorful print in installing step in generator;
 - Fix: Bug when returns total count of records even with `where` criteria;
+- Fix: Change log level info to `info` in production mode;
 
 ## Version 0.5.1
 
