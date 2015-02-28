@@ -52,7 +52,11 @@ node app.js
 
 Congratulations, you just have setup your first Sails REST API :+1:
 
-## ready-2-use services
+## How to use project code?
+
+_TODO:_ Fill with information. But you can read more at our [wiki page](https://github.com/ghaiklor/generator-sails-rest-api/wiki/How-to-use)
+
+## Bundled Sails services
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
