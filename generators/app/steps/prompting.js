@@ -65,5 +65,15 @@ module.exports = {
             this.answers = assign(this.answers, answers);
             done();
         }.bind(this));
+    },
+
+    /**
+     * Print generated answers object if in verbose mode
+     */
+    printAnswersObject: function () {
+        if (this.options.verbose) {
+            this.log(chalk.yellow('\nAnswers to your questions:'));
+            this.log(this.answers);
+        }
     }
 };
