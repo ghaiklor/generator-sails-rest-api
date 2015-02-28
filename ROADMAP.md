@@ -9,12 +9,17 @@
 - [ ] Add `Twitter`, `VK`, `Google +` Social;
 - [ ] Add `Local` Storage;
 - [ ] Test coverage for all `api` files;
+- [ ] Implement search on top of `find` blueprint;
+- [ ] Implement pluralized form only for REST models;
 
 ## Next minor version
 
+- [ ] Improve stability (too much new features is appears in previous version);
+- [ ] Implement converting camelCase attributes to snake_case in HTTP response;
+- [ ] Make global error codes for API with description and how fix it;
+- [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Freeze architecture (only bug-fixes and adding new features);
 - [x] Add questions list where you can choose which service need to include;
-- [ ] Improve stability (too much new features is appears in previous version);
 
 ## Version 0.5.0 (released)
 
