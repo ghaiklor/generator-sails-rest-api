@@ -12,4 +12,4 @@ We don't have contributors yet...
 
 ## Special Thanks
 
-+ @rizr - for participating in testing and proposals to make it better;
++ [@rizr](https://github.com/rizr) - for participating in testing and proposals to make it better;
