@@ -5,8 +5,6 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
-        // TODO: make debug option
-
         var args = require('./arguments'),
             options = require('./options');
 

@@ -18,6 +18,7 @@ module.exports = {
 
             this.spawnCommand('npm', ['run-script', 'fix-deps']).on('close', function () {
                 // TODO: parse code and if !== 0 then process.exit()
+                // TODO: implement verbose flag for both scripts
                 this.spawnCommand('npm', ['run-script', 'check-updates']).on('close', done);
             }.bind(this));
         }

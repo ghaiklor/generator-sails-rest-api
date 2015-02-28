@@ -38,6 +38,7 @@ module.exports = {
                 pkg: this.pkg,
                 callback: function (error, update) {
                     // TODO: print out error and process.exit()
+                    // TODO: enable verbose mode if exists
                     if (update && update.type !== 'latest') {
                         printMessage([
                             'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
