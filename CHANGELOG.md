@@ -3,10 +3,16 @@
 ## Edge version
 
 - Improvement: Frozen structure of generator and project. Any serious changes in project structure;
-- Improvement: Split CLI options, questions and steps to separate modules, so generator is more maintainable;
-- Improvement: Cleaning up in questions and split out them to sections;
+- Improvement: Split generator arguments declaration to separate folder;
+- Improvement: Split generator options declaration to separate folder;
+- Improvement: Split generator questions declaration to separate folder;
+- Improvement: Answers to questions is dynamically assign to existing `this.answers` object in `RunContext`;
+- Improvement: Split each generator step to separate folder and modules;
+- Improvement: Implement util `assign()` method which is using in `prompting` step for extend answers object;
+- Improvement: Redesign of generator structure;
 - Improvement: Add options to `check-updates.js` tool;
-- Improvement: Add tools to npm scripts, so you can call `npm run-script check-updates` now;
+- Improvement: Add tools to npm scripts, so you can call `npm run-script <tool-name>` now;
+- Improvement: Add `verbose` flag, so you can see everything what going on in `RunContext`;
 - Fix: Bug with no colorful print in `fix-deps.js`;
 - Fix: Bug with no colorful print in installing step in generator;
 - Fix: Bug when returns total count of records even with `where` criteria;
