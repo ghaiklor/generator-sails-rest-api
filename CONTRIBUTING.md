@@ -2,28 +2,10 @@
 
 At this page we explain how you can contribute to our project.
 
-## Branch explanation
+## Creating issue
 
-Our repository has two main branches:
-
-1. [master](https://github.com/ghaiklor/generator-sails-rest-api/tree/master "Master Branch")
-2. [dev](https://github.com/ghaiklor/generator-sails-rest-api/tree/dev "Development Branch")
-
-All stable releases will merge into `master` branch.
-So if you want get and use last stable release ready for production - use `master` branch.
-
-But, of course, you can use edge version and check out our latest features.
-They are may be unstable and not tested, so they are not ready for production.
-All those changes and features will merge into `dev` branch.
-
-Other branches it's only helper branches which can close at any time.
-In general we have 3 types of branches:
-
-+ Feature branches;
-+ Release branches;
-+ Hotfix branches;
-
-Advanced description you will read below in "Git workflow" section.
+If you have any proposal or want to report about bug, feel free to create issue.
+We don't moderate issues and will answer you as soon as possible.
 
 ## Get the project
 
@@ -60,17 +42,28 @@ sudo npm link
 yo sails-rest-api
 ```
 
-## Tests
+## Branch explanation
 
-We are using Mocha for testing.
-All test cases located into `test` folder and split like source files split.
-For every file in `api/` folder we create appropriate in `test/` folder.
+Our repository has two main branches:
 
-When you create new feature or fix some bug, you **MUST** write test case for it in `test` folder.
-For example, you add new feature to `api/services/cipher/BCryptCipher.js`.
-After that you need modify `test/services/cipher/BCryptCipher.js` for corresponds to new feature.
+1. [master](https://github.com/ghaiklor/generator-sails-rest-api/tree/master "Master Branch")
+2. [dev](https://github.com/ghaiklor/generator-sails-rest-api/tree/dev "Development Branch")
 
-For run tests just call `npm test`.
+All stable releases will merge into `master` branch.
+So if you want get and use last stable release ready for production - use `master` branch.
+
+But, of course, you can use edge version and check out our latest features.
+They are may be unstable and not tested, so they are not ready for production.
+All those changes and features will merge into `dev` branch.
+
+Other branches it's only helper branches which can close at any time.
+In general we have 3 types of branches:
+
++ Feature branches;
++ Release branches;
++ Hotfix branches;
+
+Advanced description you will read below in "Git workflow" section.
 
 ## Git workflow
 
@@ -159,6 +152,18 @@ git branch -d hotfix-1.2.1 # Remove hotfix branch
 git push -u origin --all # Push all changes to origin server
 git push -u origin --tags # And push tags to origin server
 ```
+
+## Tests
+
+We are using Mocha for testing.
+All test cases located into `test` folder and split like source files split.
+For every file in `api/` folder we create appropriate in `test/` folder.
+
+When you create new feature or fix some bug, you **MUST** write test case for it in `test` folder.
+For example, you add new feature to `api/services/cipher/BCryptCipher.js`.
+After that you need modify `test/services/cipher/BCryptCipher.js` for corresponds to new feature.
+
+For run tests just call `npm test`.
 
 ## Versions
 
