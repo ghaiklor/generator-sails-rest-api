@@ -1,30 +1,30 @@
 {
     "skip-generator-update": {
-        "desc": "Skip checking for generator updates on running",
+        "desc": "Do not check for generator updates",
         "type": "Boolean",
         "defaults": false,
         "hide": false
     },
     "skip-generator-welcome": {
-        "desc": "Skip saying welcome when generator is running",
+        "desc": "Do not welcome at start",
         "type": "Boolean",
         "defaults": false,
         "hide": false
     },
     "skip-project-install": {
-        "desc": "Skip installing npm dependencies in project",
+        "desc": "Do not install npm dependencies",
         "type": "Boolean",
         "defaults": false,
         "hide": false
     },
     "skip-project-diagnostic": {
-        "desc": "Skip running diagnostic tools in project",
+        "desc": "Do not run diagnostic tools",
         "type": "Boolean",
         "defaults": false,
         "hide": false
     },
     "skip-all": {
-        "desc": "Skip everything, just project scaffolding",
+        "desc": "Do nothing, just project scaffolding",
         "type": "Boolean",
         "defaults": false,
         "hide": false
