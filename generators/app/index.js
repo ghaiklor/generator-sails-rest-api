@@ -1,31 +1,30 @@
 var yeoman = require('yeoman-generator'),
-    runSteps = require('./steps');
+    steps = require('./steps');
 
 module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
-        var options = require('./options'),
-            args = require('./arguments');
+        var args = require('./arguments'),
+            options = require('./options');
+
+        Object.keys(args).forEach(function (argName) {
+            this.argument(argName, args[argName]);
+        }.bind(this));
+
+        Object.keys(options).forEach(function (optionName) {
+            this.option(optionName, options[optionName]);
+        }.bind(this));
 
         this.description = "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features";
-
-        Object.keys(options).forEach(function (name) {
-            this.option(name, options[name]);
-        }.bind(this));
-
-        Object.keys(args).forEach(function (name) {
-            this.argument(name, args[name]);
-        }.bind(this));
-
         this.config.save();
     },
 
-    initializing: runSteps.initializing,
-    prompting: runSteps.prompting,
-    configuring: runSteps.configuring,
-    writing: runSteps.writing,
-    conflicts: runSteps.conflicts,
-    install: runSteps.install,
-    end: runSteps.end
+    initializing: steps.initializing,
+    prompting: steps.prompting,
+    configuring: steps.configuring,
+    writing: steps.writing,
+    conflicts: steps.conflicts,
+    install: steps.install,
+    end: steps.end
 });
