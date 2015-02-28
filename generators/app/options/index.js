@@ -13,6 +13,12 @@
  */
 
 module.exports = {
+    'verbose': {
+        desc: 'Print all information to console',
+        type: Boolean,
+        defaults: false,
+        hide: false
+    },
     'skip-generator-update': {
         desc: 'Do not check for generator updates',
         type: Boolean,
