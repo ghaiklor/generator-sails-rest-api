@@ -14,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
         }.bind(this));
 
         Object.keys(args).forEach(function (name) {
-            this.argument(name, options[name]);
+            this.argument(name, args[name]);
         }.bind(this));
 
         this.config.save();
