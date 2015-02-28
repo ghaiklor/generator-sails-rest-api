@@ -6,8 +6,7 @@
 var path = require('path'),
     chalk = require('chalk'),
     assign = require('../util/assign'),
-    requireFolder = require('../util/require-folder'),
-    questions = requireFolder(path.resolve(__dirname, '../questions'));
+    questions = require('../questions');
 
 module.exports = {
     /**
