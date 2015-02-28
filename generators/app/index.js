@@ -1,4 +1,5 @@
-var yeoman = require('yeoman-generator');
+var yeoman = require('yeoman-generator'),
+    runSteps = require('./steps');
 
 module.exports = yeoman.generators.Base.extend({
     constructor: function () {
@@ -20,11 +21,11 @@ module.exports = yeoman.generators.Base.extend({
         this.config.save();
     },
 
-    initializing: require('./steps/initializing'),
-    prompting: require('./steps/prompting'),
-    configuring: require('./steps/configuring'),
-    writing: require('./steps/writing'),
-    conflicts: require('./steps/conflicts'),
-    install: require('./steps/install'),
-    end: require('./steps/end')
+    initializing: runSteps.initializing,
+    prompting: runSteps.prompting,
+    configuring: runSteps.configuring,
+    writing: runSteps.writing,
+    conflicts: runSteps.conflicts,
+    install: runSteps.install,
+    end: runSteps.end
 });
