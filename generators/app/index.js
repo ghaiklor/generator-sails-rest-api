@@ -4,8 +4,8 @@ module.exports = yeoman.generators.Base.extend({
     constructor: function () {
         yeoman.generators.Base.apply(this, arguments);
 
-        var options = require('./options/index'),
-            args = require('./arguments/index');
+        var options = require('./options'),
+            args = require('./arguments');
 
         this.description = "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features";
 
