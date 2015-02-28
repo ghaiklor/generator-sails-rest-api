@@ -11,12 +11,13 @@ module.exports = {
      * Run diagnostic tools
      */
     runDiagnostic: function () {
-        if (!(this.options["skip-project-diagnostic"] || this.options["skip-all"])) {
+        if (!(this.options['skip-project-diagnostic'] || this.options['skip-all'])) {
             var done = this.async();
 
-            this.log(chalk.yellow("Starting diagnostic, please wait..."));
+            this.log(chalk.yellow('Starting diagnostic, please wait...'));
 
             this.spawnCommand('npm', ['run-script', 'fix-deps']).on('close', function () {
+                // TODO: parse code and if !== 0 then process.exit()
                 this.spawnCommand('npm', ['run-script', 'check-updates']).on('close', done);
             }.bind(this));
         }
@@ -26,11 +27,12 @@ module.exports = {
      * Say warning that this generator is under development
      */
     sayUnderDevelopmentWarning: function () {
+        // TODO: remove when will be stable version
         printMessage([
-            "This generator under heavy development",
-            "If you found any bugs or have proposals, feel free to create issue",
+            'This generator under heavy development',
+            'If you found any bugs or have proposals, feel free to create issue',
             chalk.red(this.pkg.bugs.url),
-            "Or you can write me the letter",
+            'Or you can write me the letter',
             chalk.red(this.pkg.bugs.email)
         ], {
             marginTop: 0,
@@ -43,10 +45,11 @@ module.exports = {
      * Warn user if he skip installing dependencies
      */
     sayNotInstalledNpmDepsWarning: function () {
-        if (this.options['skip-project-install'] || this.options["skip-all"]) {
+        // TODO: remove this message when installing step will be more stable
+        if (this.options['skip-project-install'] || this.options['skip-all']) {
             printMessage([
-                "You have skipped installing npm modules",
-                "Install them manually via " + chalk.blue("npm install")
+                'You have skipped installing npm modules',
+                'Install them manually via ' + chalk.blue('npm install')
             ], {
                 marginTop: 0,
                 marginBottom: 0,

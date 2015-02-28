@@ -4,11 +4,11 @@
  * @example
  * module.exports = {
  *   argName: {
- *       desc: "Argument description",
+ *       desc: 'Argument description',
  *       required: false,
  *       optional: true,
  *       type: String || Number || Array || Object,
- *       defaults: "test"
+ *       defaults: 'test'
  *   }
  * };
  */

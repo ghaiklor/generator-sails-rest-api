@@ -3,8 +3,7 @@
  * Where you prompt users for options (where you'd call this.prompt())
  */
 
-var path = require('path'),
-    chalk = require('chalk'),
+var chalk = require('chalk'),
     assign = require('../util').assign,
     questions = require('../questions');
 
@@ -15,7 +14,7 @@ module.exports = {
     askDatabaseQuestions: function () {
         var done = this.async();
 
-        this.log(chalk.yellow("\nDatabase questions:"));
+        this.log(chalk.yellow('\nDatabase questions:'));
 
         this.prompt(questions.database, function (answers) {
             this.answers = assign(this.answers, answers);
@@ -29,7 +28,7 @@ module.exports = {
     askApplicationQuestions: function () {
         var done = this.async();
 
-        this.log(chalk.yellow("\nApplication questions:"));
+        this.log(chalk.yellow('\nApplication questions:'));
 
         this.prompt(questions.application, function (answers) {
             this.answers = assign(this.answers, answers);
@@ -43,7 +42,7 @@ module.exports = {
     askServiceQuestions: function () {
         var done = this.async();
 
-        this.log(chalk.yellow("\nService questions:"));
+        this.log(chalk.yellow('\nService questions:'));
 
         this.prompt(questions.services, function (answers) {
             this.answers = assign(this.answers, answers);
@@ -54,10 +53,10 @@ module.exports = {
     /**
      * Ask miscellaneous questions
      */
-    askMiscellaneousSections: function () {
+    askMiscellaneousQuestions: function () {
         var done = this.async();
 
-        this.log(chalk.yellow("\nMiscellaneous questions:"));
+        this.log(chalk.yellow('\nMiscellaneous questions:'));
 
         this.prompt(questions.miscellaneous, function (answers) {
             this.answers = assign(this.answers, answers);
