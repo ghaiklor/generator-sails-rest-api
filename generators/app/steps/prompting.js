@@ -5,7 +5,7 @@
 
 var path = require('path'),
     chalk = require('chalk'),
-    assign = require('../util/assign'),
+    assign = require('../util').assign,
     questions = require('../questions');
 
 module.exports = {
