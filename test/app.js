@@ -5,7 +5,8 @@ var path = require('path'),
 
 describe('sails-rest-api:app', function () {
     before(function (done) {
-        helpers.run(path.join(__dirname, '../generators/app'))
+        helpers
+            .run(path.join(__dirname, '../generators/app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
             .withOptions({"skip-all": true})
             .on('end', done);
