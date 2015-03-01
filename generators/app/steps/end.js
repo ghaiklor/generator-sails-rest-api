@@ -16,10 +16,28 @@ module.exports = {
 
             this.log(chalk.yellow('Starting diagnostic, please wait...'));
 
-            this.spawnCommand('npm', ['run-script', 'fix-deps']).on('close', function () {
-                // TODO: parse code and if !== 0 then process.exit()
-                // TODO: implement verbose flag for both scripts
-                this.spawnCommand('npm', ['run-script', 'check-updates']).on('close', done);
+            this.spawnCommand('npm', ['run-script', 'fix-deps', this.options.verbose ? '--verbose' : '']).on('close', function (code) {
+                if (code !== 0) {
+                    printMessage(['Some error was occurred'], {
+                        borderColor: 'red',
+                        printFn: this.log
+                    });
+
+                    return process.exit(code);
+                }
+
+                this.spawnCommand('npm', ['run-script', 'check-updates', this.options.verbose ? '--verbose' : '']).on('close', function (code) {
+                    if (code !== 0) {
+                        printMessage(['Some error was occurred'], {
+                            borderColor: 'red',
+                            printFn: this.log
+                        });
+
+                        return process.exit(code);
+                    }
+
+                    done();
+                }.bind(this));
             }.bind(this));
         }
     },
