@@ -6,39 +6,60 @@
 var chalk = require('chalk'),
     printMessage = require('print-message');
 
+/**
+ * Triggers when check-updates is finished
+ * @param {Function} done
+ * @param {Number} code
+ * @private
+ */
+function _onCheckUpdatesClose(done, code) {
+    if (code !== 0) {
+        printMessage(['Some error was occurred'], {
+            borderColor: 'red',
+            printFn: this.log
+        });
+
+        return process.exit(code);
+    }
+
+    done();
+}
+
+/**
+ * Triggers when fix-deps tools is finished
+ * @param {Function} done
+ * @param {Number} code
+ * @private
+ */
+function _onFixDepsClose(done, code) {
+    if (code !== 0) {
+        printMessage(['Some error was occurred'], {
+            borderColor: 'red',
+            printFn: this.log
+        });
+
+        return process.exit(code);
+    }
+
+    this.spawnCommand('npm', [
+        'run-script',
+        'check-updates',
+        this.options.verbose ? '--verbose' : ''
+    ]).on('close', _onCheckUpdatesClose.bind(this, done));
+}
+
 module.exports = {
     /**
      * Run diagnostic tools
      */
     runDiagnostic: function () {
         if (!(this.options['skip-project-diagnostic'] || this.options['skip-all'])) {
-            var done = this.async();
-
             this.log(chalk.yellow('Starting diagnostic, please wait...'));
-
-            this.spawnCommand('npm', ['run-script', 'fix-deps', this.options.verbose ? '--verbose' : '']).on('close', function (code) {
-                if (code !== 0) {
-                    printMessage(['Some error was occurred'], {
-                        borderColor: 'red',
-                        printFn: this.log
-                    });
-
-                    return process.exit(code);
-                }
-
-                this.spawnCommand('npm', ['run-script', 'check-updates', this.options.verbose ? '--verbose' : '']).on('close', function (code) {
-                    if (code !== 0) {
-                        printMessage(['Some error was occurred'], {
-                            borderColor: 'red',
-                            printFn: this.log
-                        });
-
-                        return process.exit(code);
-                    }
-
-                    done();
-                }.bind(this));
-            }.bind(this));
+            this.spawnCommand('npm', [
+                'run-script',
+                'fix-deps',
+                this.options.verbose ? '--verbose' : ''
+            ]).on('close', _onFixDepsClose.bind(this, this.async()));
         }
     },
 
