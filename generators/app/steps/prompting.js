@@ -10,61 +10,48 @@ var chalk = require('chalk'),
     assign = require('../util').assign,
     questions = require('../questions');
 
+/**
+ * Triggers when user finishes answering to questions from section
+ * @param {Function} done
+ * @param {Object} answers
+ * @private
+ */
+function _onDone(done, answers) {
+    this.answers = assign(this.answers, answers);
+    done();
+}
+
 module.exports = {
     /**
      * Ask database questions
      */
     askDatabaseQuestions: function () {
-        var done = this.async();
-
         this.log(chalk.yellow('\nDatabase questions:'));
-
-        this.prompt(questions.database, function (answers) {
-            this.answers = assign(this.answers, answers);
-            done();
-        }.bind(this));
+        this.prompt(questions.database, _onDone.bind(this, this.async()));
     },
 
     /**
      * Ask application questions
      */
     askApplicationQuestions: function () {
-        var done = this.async();
-
         this.log(chalk.yellow('\nApplication questions:'));
-
-        this.prompt(questions.application, function (answers) {
-            this.answers = assign(this.answers, answers);
-            done();
-        }.bind(this));
+        this.prompt(questions.application, _onDone.bind(this, this.async()));
     },
 
     /**
      * Ask services questions
      */
     askServiceQuestions: function () {
-        var done = this.async();
-
         this.log(chalk.yellow('\nService questions:'));
-
-        this.prompt(questions.services, function (answers) {
-            this.answers = assign(this.answers, answers);
-            done();
-        }.bind(this));
+        this.prompt(questions.services, _onDone.bind(this, this.async()));
     },
 
     /**
      * Ask miscellaneous questions
      */
     askMiscellaneousQuestions: function () {
-        var done = this.async();
-
         this.log(chalk.yellow('\nMiscellaneous questions:'));
-
-        this.prompt(questions.miscellaneous, function (answers) {
-            this.answers = assign(this.answers, answers);
-            done();
-        }.bind(this));
+        this.prompt(questions.miscellaneous, _onDone.bind(this, this.async()));
     },
 
     /**
