@@ -15,6 +15,11 @@ module.exports = {
             this.npmInstall([], {
                 color: 'always',
                 verbose: this.options.verbose
+            }, function (error) {
+                if (error) {
+                    console.error(error.stack || error);
+                    return process.exit(1);
+                }
             });
         }
     }
