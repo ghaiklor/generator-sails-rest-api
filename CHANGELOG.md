@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Improvement: Implemented parsing CommonJS modules from AST (Abstract Syntax Tree), so now generator is knows which modules you are really using;
 - Improvement: Frozen structure of generator and project. Any serious changes in project structure;
 - Improvement: Split generator arguments declaration to separate folder;
 - Improvement: Split generator options declaration to separate folder;
