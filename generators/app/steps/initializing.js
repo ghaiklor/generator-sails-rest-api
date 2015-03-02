@@ -8,6 +8,36 @@ var chalk = require('chalk'),
     printMessage = require('print-message'),
     yosay = require('yosay');
 
+/**
+ * Triggers when updateNotifier done checking updates
+ * @param {Function} done
+ * @param {Object} error
+ * @param {Object} update
+ * @private
+ */
+function _onUpdateNotifier(done, error, update) {
+    if (error) {
+        console.error(error.stack || error);
+        return process.exit(1);
+    }
+
+    if (update && update.type !== 'latest') {
+        printMessage([
+            'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
+            'Run ' + chalk.blue('npm update -g ' + update.name) + ' to update.'
+        ], {
+            marginTop: 0,
+            marginBottom: 0,
+            printFn: this.log
+        });
+
+        process.exit(0);
+    } else {
+        this.log(chalk.yellow('OK... You are using the latest version ' + chalk.green.bold(update.current)));
+        done();
+    }
+}
+
 module.exports = {
     /**
      * Load package.json
@@ -36,28 +66,7 @@ module.exports = {
 
             updateNotifier({
                 pkg: this.pkg,
-                callback: function (error, update) {
-                    if (error) {
-                        console.error(error.stack || error);
-                        return process.exit(1);
-                    }
-
-                    if (update && update.type !== 'latest') {
-                        printMessage([
-                            'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
-                            'Run ' + chalk.blue('npm update -g ' + update.name) + ' to update.'
-                        ], {
-                            marginTop: 0,
-                            marginBottom: 0,
-                            printFn: this.log
-                        });
-
-                        process.exit(0);
-                    } else {
-                        this.log(chalk.yellow('OK... You are using the latest version ' + chalk.green.bold(update.current)));
-                        done();
-                    }
-                }.bind(this)
+                callback: _onUpdateNotifier.bind(this, done)
             });
         }
     }
