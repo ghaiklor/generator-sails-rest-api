@@ -11,6 +11,8 @@
 - [ ] Test coverage for all `api` files;
 - [ ] Implement search on top of `find` blueprint;
 - [ ] Implement pluralized form only for REST models;
+- [ ] Think about questions "Which hook you want to leave enable?" and disable\enable hooks based on those answers;
+- [ ] Think about generating not only backend REST API, so user can still have clean Sails application (maybe call spawn `sails new <app-name>`;
 
 ## Next minor version
 
