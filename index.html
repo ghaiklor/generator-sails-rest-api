@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>generator-sails-rest-api by ghaiklor</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/ghaiklor/generator-sails-rest-api">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/ghaiklor/generator-sails-rest-api/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/ghaiklor/generator-sails-rest-api/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>generator-sails-rest-api</h1>
+          <p>Yeoman generator for scaffolding Sails REST API with predefined features</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/ghaiklor">ghaiklor</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="generator-sails-rest-api" class="anchor" href="#generator-sails-rest-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>generator-sails-rest-api</h1>
+
+<p><a href="http://badge.fury.io/js/generator-sails-rest-api"><img src="https://badge.fury.io/js/generator-sails-rest-api.svg" alt="npm version"></a> <img src="https://david-dm.org/ghaiklor/generator-sails-rest-api.svg" alt="Dependencies is up to date"> <a href="https://travis-ci.org/ghaiklor/generator-sails-rest-api"><img src="https://travis-ci.org/ghaiklor/generator-sails-rest-api.svg?branch=master" alt="Build Status"></a> <a href="https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a> <a href="https://github.com/ghaiklor/generator-sails-rest-api/wiki">Documentation</a></p>
+
+<blockquote>
+<p>Stability: 2 - Unstable</p>
+
+<p>The project is in the process of settling, but has not yet had sufficient real-world testing to be considered stable.</p>
+
+<p>Backwards-compatibility will be maintained if reasonable.</p>
+</blockquote>
+
+<p>Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Disabled hooks by default: <em>cors</em>, <em>csrf</em>, <em>grunt</em>, <em>i18n</em>, <em>pubsub</em>, <em>session</em>, <em>views</em>;</li>
+<li>Implemented tools <code>fix-deps</code> and <code>update-deps</code> which fix <code>package.json</code> from unused and missing dependencies and updates dependencies in interactive mode;</li>
+<li>Overrides default <code>blueprints</code> which simplify CRUD operation in REST API;</li>
+<li>Integrated Passport with Facebook, Twitter and Local authorization strategies;</li>
+<li>Already declared <code>User</code> model with most used fields;</li>
+<li>Implemented 2 policies: <code>isOurApp</code> which checks if request is going from our applications, and <code>isAuthenticated</code> which inject user in <code>req</code> via JSON Web Token;</li>
+<li>Custom responses which respond with <code>code</code> (Status Code), <code>message</code> (Status Message) and <code>response</code> (Response Data) fields;</li>
+<li>Bundle of ready-2-use services like <code>CipherService</code>, <code>PusherService</code> (Push Notifications), <code>SmsService</code> and so on... You can check table with detailed list of implemented services below;</li>
+<li>All configuration files cleaned up and optimized for REST API;</li>
+<li>Integrated Swagger doc specification in <code>doc</code> folder;</li>
+<li>Integrated Mocha tests for all <code>blueprints</code>, <code>controllers</code>, <code>models</code>, <code>policies</code>, <code>responses</code> and <code>services</code>. After generating you can execute <code>npm test</code>;</li>
+</ul>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>Start using generator is very simple.</p>
+
+<p>First of all, you need install <strong>yeoman</strong> and <strong>generator-sails-rest-api</strong>:</p>
+
+<div class="highlight highlight-bash"><pre>npm install -g yo generator-sails-rest-api</pre></div>
+
+<p>Then create project directory and initiate the generator under the project directory:</p>
+
+<div class="highlight highlight-bash"><pre>mkdir my-project
+<span class="pl-s3">cd</span> my-project
+yo sails-rest-api</pre></div>
+
+<p>You will be prompted for questions. Answer to those questions that generator is asks and you will get configured Sails project.</p>
+
+<p>After scaffolding the project you can use this project as before. Just run the <code>app.js</code> file and all.</p>
+
+<div class="highlight highlight-bash"><pre>node app.js</pre></div>
+
+<p>Congratulations, you just have setup your first Sails REST API <img class="emoji" title=":+1:" alt=":+1:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f44d.png" height="20" width="20" align="absmiddle"></p>
+
+<h2>
+<a id="how-to-use-project-code" class="anchor" href="#how-to-use-project-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use project code?</h2>
+
+<p><em>TODO:</em> Fill with information. But you can read more at our <a href="https://github.com/ghaiklor/generator-sails-rest-api/wiki/How-to-use">wiki page</a></p>
+
+<h2>
+<a id="bundled-sails-services" class="anchor" href="#bundled-sails-services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bundled Sails services</h2>
+
+<table>
+<thead>
+<tr>
+<th align="center">Service Name</th>
+<th align="center">Implemented providers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">CipherService</td>
+<td align="center">bcrypt, JWT</td>
+</tr>
+<tr>
+<td align="center">MailerService</td>
+<td align="center">Mandrill</td>
+</tr>
+<tr>
+<td align="center">PaymentService</td>
+<td align="center">Stripe</td>
+</tr>
+<tr>
+<td align="center">PusherService</td>
+<td align="center">Apple Push Notifications, Google Cloud Messaging</td>
+</tr>
+<tr>
+<td align="center">SmsService</td>
+<td align="center">Twilio</td>
+</tr>
+<tr>
+<td align="center">SocialService</td>
+<td align="center">Facebook</td>
+</tr>
+<tr>
+<td align="center">StorageService</td>
+<td align="center">Amazon S3, Google Cloud</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="how-can-i-get-latest-dev-version-of-generator" class="anchor" href="#how-can-i-get-latest-dev-version-of-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>How can I get latest dev version of generator?</h2>
+
+<p>Right now this generator is extremely under development, so each day our <code>dev</code> branch has new updates and fixes.</p>
+
+<p>If you want get the latest updates, you should do this:</p>
+
+<div class="highlight highlight-bash"><pre>git clone https://github.com/ghaiklor/generator-sails-rest-api.git <span class="pl-c"># Clone the repository</span>
+<span class="pl-s3">cd</span> generator-sails-rest-api <span class="pl-c"># Change directory</span>
+npm link <span class="pl-c"># Link current directory to global module</span></pre></div>
+
+<p>After that our git repository will be linked to your global npm module and you can use it as described above.</p>
+
+<p>If any updates will come you can just pull the last changes and call generator again:</p>
+
+<div class="highlight highlight-bash"><pre><span class="pl-s3">cd</span> generator-sails-rest-api
+git pull
+yo sails-rest-api</pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright © 2015 Eugene Obrezkov</p>
+
+<p>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.</p>
+
+<p>This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.</p>
+
+<p>You should have received a copy of the GNU General Public License
+along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
