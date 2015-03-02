@@ -14,11 +14,7 @@ var chalk = require('chalk'),
  */
 function _onCheckUpdatesClose(done, code) {
     if (code !== 0) {
-        printMessage(['Some error was occurred'], {
-            borderColor: 'red',
-            printFn: this.log
-        });
-
+        printMessage('Some error was occurred', {borderColor: 'red'});
         return process.exit(code);
     }
 
@@ -33,11 +29,7 @@ function _onCheckUpdatesClose(done, code) {
  */
 function _onFixDepsClose(done, code) {
     if (code !== 0) {
-        printMessage(['Some error was occurred'], {
-            borderColor: 'red',
-            printFn: this.log
-        });
-
+        printMessage('Some error was occurred', {borderColor: 'red'});
         return process.exit(code);
     }
 
@@ -74,11 +66,7 @@ module.exports = {
             chalk.red(this.pkg.bugs.url),
             'Or you can write me the letter',
             chalk.red(this.pkg.bugs.email)
-        ], {
-            marginTop: 0,
-            marginBottom: 0,
-            printFn: this.log
-        });
+        ]);
     },
 
     /**
@@ -90,11 +78,7 @@ module.exports = {
             printMessage([
                 'You have skipped installing npm modules',
                 'Install them manually via ' + chalk.blue('npm install')
-            ], {
-                marginTop: 0,
-                marginBottom: 0,
-                printFn: this.log
-            });
+            ]);
         }
     }
 };
