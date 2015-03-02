@@ -60,13 +60,10 @@ module.exports = {
      */
     notifyAboutGeneratorUpdate: function () {
         if (!(this.options['skip-generator-update'] || this.options['skip-all'])) {
-            var done = this.async();
-
             this.log(chalk.yellow('Checking for updates...'));
-
             updateNotifier({
                 pkg: this.pkg,
-                callback: _onUpdateNotifier.bind(this, done)
+                callback: _onUpdateNotifier.bind(this, this.async())
             });
         }
     }
