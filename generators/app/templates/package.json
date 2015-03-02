@@ -9,7 +9,7 @@
         "dependency-check": "^2.2.2",
         "mocha": "^2.1.0",
         "npm-check": "^3.2.7",
-        "print-message": "^1.2.0",
+        "print-message": "^1.2.1",
         "recursive-readdir": "^1.2.1"
     },
     "scripts": {
