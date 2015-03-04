@@ -11,13 +11,10 @@ var passport = require('passport');
  * @param {Object} res Response stream
  * @param {Object} error Error object
  * @param {Object} user User profile
- * @param {Object} _info Info if some error occurs
+ * @param {Object} info Info if some error occurs
  * @private
  */
-function _onPassportAuth(req, res, error, user, _info) {
-    // TODO: cleans up info
-    var info = _info || {};
-
+function _onPassportAuth(req, res, error, user, info) {
     if (error) return res.serverError(error);
     if (!user) return res.unauthorized(null, info.code, info.message);
 
