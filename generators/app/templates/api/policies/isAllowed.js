@@ -4,7 +4,7 @@
  */
 
 module.exports = function (req, res, next) {
-    var token = req.headers["application-token"];
+    var token = req.headers['application-token'];
 
     if (token && token === "<%= answers['application:api-secret-key'] %>") {
         next();

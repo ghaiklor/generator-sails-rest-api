@@ -6,15 +6,14 @@
 var passport = require('passport');
 
 module.exports = function (req, res, next) {
-    passport.authenticate('jwt', function (error, user, info) {
-        if (error) {
-            sails.log.error(error);
-            res.serverError(error);
-        } else if (info) {
-            res.unauthorized(null, info.code, info.message);
-        } else {
-            req.user = user;
-            next();
-        }
+    passport.authenticate('jwt', function (error, user, _info) {
+        // TODO: cleans up info
+        var info = _info || {};
+
+        if (error) return res.serverError(error);
+        if (!user) return res.unauthorized(null, info.code, info.message);
+
+        req.user = user;
+        next();
     })(req, res);
 };
