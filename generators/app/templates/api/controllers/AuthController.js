@@ -13,15 +13,17 @@ module.exports = {
         passport.authenticate('local', function (error, user, info) {
             if (error) {
                 sails.log.error(error);
-                res.serverError(error);
-            } else if (info) {
-                res.unauthorized(null, info.code, info.message);
-            } else {
-                res.ok({
-                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
-                    user: user
-                });
+                return res.serverError(error);
             }
+
+            if (info || !user) {
+                return res.unauthorized(null, info.code, info.message);
+            }
+
+            res.ok({
+                token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                user: user
+            });
         })(req, res);
     },
 
@@ -56,15 +58,17 @@ module.exports = {
             passport.authenticate('facebook-token', function (error, user, info) {
                 if (error) {
                     sails.log.error(error);
-                    res.serverError(error);
-                } else if (info) {
-                    res.unauthorized(null, info.code, info.message);
-                } else {
-                    res.ok({
-                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
-                        user: user
-                    });
+                    return res.serverError(error);
                 }
+
+                if (info || !user) {
+                    return res.unauthorized(null, info.code, info.message);
+                }
+
+                res.ok({
+                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                    user: user
+                });
             })(req, res);
         })(req, res);
     },
@@ -79,15 +83,17 @@ module.exports = {
             passport.authenticate('twitter-token', function (error, user, info) {
                 if (error) {
                     sails.log.error(error);
-                    res.serverError(error);
-                } else if (info) {
-                    res.unauthorized(null, info.code, info.message);
-                } else {
-                    res.ok({
-                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
-                        user: user
-                    });
+                    return res.serverError(error);
                 }
+
+                if (info) {
+                    return res.unauthorized(null, info.code, info.message);
+                }
+
+                res.ok({
+                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                    user: user
+                });
             })(req, res);
         })(req, res);
     },
@@ -102,15 +108,17 @@ module.exports = {
             passport.authenticate('yahoo-token', function (error, user, info) {
                 if (error) {
                     sails.log.error(error);
-                    res.serverError(error);
-                } else if (info) {
-                    res.unauthorized(null, info.code, info.message);
-                } else {
-                    res.ok({
-                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
-                        user: user
-                    });
+                    return res.serverError(error);
                 }
+
+                if (info) {
+                    return res.unauthorized(null, info.code, info.message);
+                }
+
+                res.ok({
+                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                    user: user
+                });
             })(req, res);
         })(req, res);
     }
