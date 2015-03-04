@@ -38,21 +38,22 @@ module.exports = {
         this.prompt(questions.application, _onDone.bind(this, this.async()));
     },
 
-    /**
-     * Ask services questions
-     */
-    askServiceQuestions: function () {
-        this.log(chalk.yellow('\nService questions:'));
-        this.prompt(questions.services, _onDone.bind(this, this.async()));
-    },
-
-    /**
-     * Ask miscellaneous questions
-     */
-    askMiscellaneousQuestions: function () {
-        this.log(chalk.yellow('\nMiscellaneous questions:'));
-        this.prompt(questions.miscellaneous, _onDone.bind(this, this.async()));
-    },
+    // TODO: uncomment this when will be done this feature
+    ///**
+    // * Ask services questions
+    // */
+    //askServiceQuestions: function () {
+    //    this.log(chalk.yellow('\nService questions:'));
+    //    this.prompt(questions.services, _onDone.bind(this, this.async()));
+    //},
+    //
+    ///**
+    // * Ask miscellaneous questions
+    // */
+    //askMiscellaneousQuestions: function () {
+    //    this.log(chalk.yellow('\nMiscellaneous questions:'));
+    //    this.prompt(questions.miscellaneous, _onDone.bind(this, this.async()));
+    //},
 
     /**
      * Print generated answers object if in verbose mode
