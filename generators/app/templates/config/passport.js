@@ -23,25 +23,19 @@ passport.use(new LocalStrategy({
             }]
         })
         .exec(function (error, user) {
-            if (error) {
-                return next(error);
-            }
+            if (error) return next(error, false, {});
 
-            if (!user) {
-                return next(null, false, {
-                    code: "E_USER_NOT_FOUND",
-                    message: username + " is not found"
-                });
-            }
+            if (!user) return next(null, false, {
+                code: "E_USER_NOT_FOUND",
+                message: username + " is not found"
+            });
 
-            if (!CipherService.create('bcrypt', user.password).compareSync(password)) {
-                return next(null, false, {
-                    code: "E_WRONG_PASSWORD",
-                    message: "Password is wrong"
-                });
-            }
+            if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
+                code: "E_WRONG_PASSWORD",
+                message: "Password is wrong"
+            });
 
-            return next(null, user);
+            return next(null, user, {});
         });
 }));
 
@@ -55,18 +49,13 @@ passport.use(new JwtStrategy({
             id: payload.id
         })
         .exec(function (error, user) {
-            if (error) {
-                return next(error);
-            }
+            if (error) return next(error, false, {});
+            if (!user) return next(null, false, {
+                code: "E_USER_NOT_FOUND",
+                message: "User with that JWT not found"
+            });
 
-            if (!user) {
-                return next(null, false, {
-                    code: "E_USER_NOT_FOUND",
-                    message: "User with that JWT not found"
-                });
-            }
-
-            return next(null, user);
+            return next(null, user, {});
         });
 }));
 
@@ -88,18 +77,13 @@ passport.use(new FacebookTokenStrategy({
                 facebook: profile._json
             })
             .exec(function (error, user) {
-                if (error) {
-                    return next(error);
-                }
+                if (error) return next(error, false, {});
+                if (!user) return next(null, false, {
+                    code: "E_AUTH_FAILED",
+                    message: "Facebook auth failed"
+                });
 
-                if (!user) {
-                    return next(null, false, {
-                        code: "E_AUTH_FAILED",
-                        message: "Facebook auth failed"
-                    });
-                }
-
-                return next(null, user);
+                return next(null, user, {});
             });
     } else {
         req.user.facebook = profile._json;
@@ -125,18 +109,13 @@ passport.use(new TwitterTokenStrategy({
                 twitter: profile._json
             })
             .exec(function (error, user) {
-                if (error) {
-                    return next(error);
-                }
+                if (error) return next(error, false, {});
+                if (!user) return next(null, false, {
+                    code: "E_AUTH_FAILED",
+                    message: "Twitter auth failed"
+                });
 
-                if (!user) {
-                    return next(null, false, {
-                        code: "E_AUTH_FAILED",
-                        message: "Twitter auth failed"
-                    });
-                }
-
-                return next(null, user);
+                return next(null, user, {});
             });
     } else {
         req.user.twitter = profile._json;
@@ -162,18 +141,13 @@ passport.use(new YahooTokenStrategy({
                 facebook: profile._json
             })
             .exec(function (error, user) {
-                if (error) {
-                    return next(error);
-                }
+                if (error) return next(error, false, {});
+                if (!user) return next(null, false, {
+                    code: "E_AUTH_FAILED",
+                    message: "Yahoo auth failed"
+                });
 
-                if (!user) {
-                    return next(null, false, {
-                        code: "E_AUTH_FAILED",
-                        message: "Yahoo auth failed"
-                    });
-                }
-
-                return next(null, user);
+                return next(null, user, {});
             });
     } else {
         req.user.yahoo = profile._json;
