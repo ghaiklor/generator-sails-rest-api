@@ -7,10 +7,14 @@
  */
 
 module.exports = function (data, code, message, root) {
-    this.res.status(403);
-    this.res.jsonx(_.assign({
+    var response = _.assign({
         code: code || "E_FORBIDDEN",
         message: message || "User not authorized to perform the operation",
         response: data || {}
-    }, root));
+    }, root);
+
+    this.req._sails.log.silly('Sent (403 FORBIDDEN)\n', response);
+
+    this.res.status(403);
+    this.res.jsonx(response);
 };

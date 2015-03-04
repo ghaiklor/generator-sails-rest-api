@@ -7,10 +7,14 @@
  */
 
 module.exports = function (data, code, message, root) {
-    this.res.status(400);
-    this.res.jsonx(_.assign({
+    var response = _.assign({
         code: code || "E_BAD_REQUEST",
         message: message || "The request cannot be fulfilled due to bad syntax",
         response: data || {}
-    }, root));
+    }, root);
+
+    this.req._sails.log.silly('Sent (400 BAD REQUEST)\n', response);
+
+    this.res.status(400);
+    this.res.jsonx(response);
 };
