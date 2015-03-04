@@ -7,11 +7,11 @@ var passport = require('passport');
 
 /**
  * Triggers when user authenticates via passport
- * @param {Object} req
- * @param {Object} res
- * @param {Object} error
- * @param {Object} user
- * @param {Object} info
+ * @param {Object} req Request stream
+ * @param {Object} res Response stream
+ * @param {Object} error Error object
+ * @param {Object} user User profile
+ * @param {Object} info Info if some error occurs
  * @private
  */
 function _onPassportAuth(req, res, error, user, info) {
