@@ -15,6 +15,7 @@
 - Improvement: Add options to `check-updates.js` tool;
 - Improvement: Add tools to npm scripts, so you can call `npm run-script <tool-name>` now;
 - Improvement: Add `verbose` flag, so you can see everything what going on in `RunContext`;
+- Fix: Bug with passport-jwt upgrade;
 - Fix: Bug with `bodyParser` is not parsing POST body;
 - Fix: Bug with no colorful print in `fix-deps.js`;
 - Fix: Bug with no colorful print in installing step in generator;
