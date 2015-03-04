@@ -6,6 +6,7 @@
  */
 
 module.exports = function (data, code, message, root) {
+    this.req._sails.log.error(data);
     this.res.status(500);
     this.res.jsonx(_.assign({
         code: code || "E_INTERNAL_SERVER_ERROR",

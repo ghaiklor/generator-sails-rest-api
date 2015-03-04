@@ -15,16 +15,10 @@ var passport = require('passport');
  * @private
  */
 function _onPassportAuth(req, res, error, user, info) {
-    if (error) {
-        sails.log.error(error);
-        return res.serverError(error);
-    }
+    if (error) return res.serverError(error);
+    if (!user) return res.unauthorized(null, info.code, info.message);
 
-    if (info || !user) {
-        return res.unauthorized(null, info.code, info.message);
-    }
-
-    res.ok({
+    return res.ok({
         token: CipherService.create('jwt', {id: user.id}).hashSync(),
         user: user
     });
@@ -47,15 +41,12 @@ module.exports = {
         User
             .create(req.allParams())
             .exec(function (error, user) {
-                if (error) {
-                    sails.log.error(error);
-                    res.serverError(error);
-                } else {
-                    res.created({
-                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
-                        user: user
-                    });
-                }
+                if (error) return res.serverError(error);
+
+                return res.created({
+                    token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                    user: user
+                });
             });
     },
 

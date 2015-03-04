@@ -15,6 +15,7 @@
 - Improvement: Add options to `check-updates.js` tool;
 - Improvement: Add tools to npm scripts, so you can call `npm run-script <tool-name>` now;
 - Improvement: Add `verbose` flag, so you can see everything what going on in `RunContext`;
+- Improvement: Add logging all `serverError` responses to log by default (you don't need call `sails.log.error()`);
 - Fix: Bug when JWT issued to user `false`;
 - Fix: Bug with passport-jwt upgrade;
 - Fix: Bug with `bodyParser` is not parsing POST body;
