@@ -11,7 +11,7 @@ module.exports.http = {
      *
      * @type {Object|Boolean}
      */
-    serverOptions: false,
+    serverOptions: undefined,
 
     /**
      * You can define own custom middleware here
@@ -30,7 +30,7 @@ module.exports.http = {
      *
      * @type {Function|Boolean}
      */
-    bodyParser: false,
+    bodyParser: undefined,
 
     /**
      * Express middleware to use for every Sails request
