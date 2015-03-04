@@ -13,9 +13,7 @@ module.exports = function (req, res) {
     Model
         .create(data)
         .exec(function (error, record) {
-            if (error) {
-                return res.serverError(error);
-            }
+            if (error) return res.serverError(error);
 
             return res.created(record);
         });

@@ -14,13 +14,8 @@ module.exports = function (req, res) {
 
     query = actionUtil.populateEach(query, req);
     query.exec(function (error, record) {
-        if (error) {
-            return res.serverError(error);
-        }
-
-        if (!record) {
-            return res.notFound();
-        }
+        if (error) return res.serverError(error);
+        if (!record) return res.notFound();
 
         return res.ok(record);
     });

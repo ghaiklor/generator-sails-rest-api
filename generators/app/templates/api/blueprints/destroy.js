@@ -13,20 +13,13 @@ module.exports = function (req, res) {
 
     query = actionUtil.populateEach(query, req);
     query.exec(function (error, record) {
-        if (error) {
-            return res.serverError(error);
-        }
-
-        if (!record) {
-            return res.notFound();
-        }
+        if (error) return res.serverError(error);
+        if (!record) return res.notFound();
 
         Model
             .destroy(pk)
             .exec(function (error) {
-                if (error) {
-                    return res.serverError(error);
-                }
+                if (error) return res.serverError(error);
 
                 return res.ok(record);
             });
