@@ -35,4 +35,14 @@ module.exports = [{
     name: 'application:twitter-consumer-secret',
     message: 'Type your Twitter Consumer Secret',
     default: '-'
+}, {
+    type: 'input',
+    name: 'application:yahoo-app-id',
+    message: 'Type your Yahoo App ID',
+    default: '-'
+}, {
+    type: 'input',
+    name: 'application:yahoo-app-secret',
+    message: 'Type your Yahoo App Secret',
+    default: '-'
 }];

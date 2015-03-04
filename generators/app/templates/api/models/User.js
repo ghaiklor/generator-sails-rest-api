@@ -58,6 +58,10 @@ module.exports = {
             type: 'object'
         },
 
+        yahoo: {
+            type: 'object'
+        },
+
         toJSON: function () {
             var obj = this.toObject();
 

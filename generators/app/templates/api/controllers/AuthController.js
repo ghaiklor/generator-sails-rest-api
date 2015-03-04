@@ -90,5 +90,28 @@ module.exports = {
                 }
             })(req, res);
         })(req, res);
+    },
+
+    /**
+     * Yahoo authorization\linking
+     */
+    yahoo: function (req, res) {
+        passport.authenticate('jwt', function (error, user) {
+            req.user = user;
+
+            passport.authenticate('yahoo-token', function (error, user, info) {
+                if (error) {
+                    sails.log.error(error);
+                    res.serverError(error);
+                } else if (info) {
+                    res.unauthorized(null, info.code, info.message);
+                } else {
+                    res.ok({
+                        token: CipherService.create('jwt', {id: user.id}).hashSync(),
+                        user: user
+                    });
+                }
+            })(req, res);
+        })(req, res);
     }
 };
