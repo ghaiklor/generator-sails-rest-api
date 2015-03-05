@@ -10,6 +10,8 @@ var passport = require('passport'),
     TwitterTokenStrategy = require('passport-twitter-token').Strategy,
     YahooTokenStrategy = require('passport-yahoo-token').Strategy;
 
+// TODO: make this more stable and properly parse profile data
+
 passport.use(new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
