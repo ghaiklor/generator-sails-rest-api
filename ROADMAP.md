@@ -16,10 +16,13 @@
 
 ## Next minor version
 
-- [ ] Improve stability (too much new features is appears in previous version);
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
+
+## Version 0.6.0 (released)
+
+- [x] Improve stability (too much new features is appears in previous version);
 - [x] Freeze architecture (only bug-fixes and adding new features);
 - [x] Add questions list where you can choose which service need to include;
 
