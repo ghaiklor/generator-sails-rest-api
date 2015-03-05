@@ -2,6 +2,32 @@
 
 ## Edge version
 
+## Version 0.6.0
+
+- Improvement: Implemented parsing CommonJS modules from AST (Abstract Syntax Tree), so now generator is knows which modules you are really using;
+- Improvement: Frozen structure of generator and project. Any serious changes in project structure;
+- Improvement: Add Yahoo authorization;
+- Improvement: Split generator arguments declaration to separate folder;
+- Improvement: Split generator options declaration to separate folder;
+- Improvement: Split generator questions declaration to separate folder;
+- Improvement: Answers to questions is dynamically assign to existing `this.answers` object in `RunContext`;
+- Improvement: Split each generator step to separate folder and modules;
+- Improvement: Implement util `assign()` method which is using in `prompting` step for extend answers object;
+- Improvement: Redesign of generator structure;
+- Improvement: Add options to `check-updates.js` tool;
+- Improvement: Add tools to npm scripts, so you can call `npm run-script <tool-name>` now;
+- Improvement: Add `verbose` flag, so you can see everything what going on in `RunContext`;
+- Improvement: Add logging all `serverError` responses to log by default (you don't need call `sails.log.error()`);
+- Improvement: Implement logging all responses in `silly` mode;
+- Improvement: Add `ping` route to `AuthController` which just respond with OK;
+- Fix: Bug when JWT issued to user `false`;
+- Fix: Bug with passport-jwt upgrade;
+- Fix: Bug with `bodyParser` is not parsing POST body;
+- Fix: Bug with no colorful print in `fix-deps.js`;
+- Fix: Bug with no colorful print in installing step in generator;
+- Fix: Bug when returns total count of records even with `where` criteria;
+- Fix: Change log level info to `info` in production mode;
+
 ## Version 0.5.1
 
 - Hotfix: Bug when with `skip-all` generator is freeze up;
@@ -45,7 +71,7 @@
 
 - Improvement: Frozen stability of the whole project, so work is going only in `services`, `test` and `doc` folder;
 - Improvement: Add blank tests for each `controllers`, `models`, `policies`, `responses`, `services`;
-- Improvement: Each test case named **TODO: write this test** as reminder and include `assert(true)`;
+- Improvement: Each test case named **write this test** as reminder and include `assert(true)`;
 - Improvement: Add JSON Web Token as part of `CipherService`;
 - Improvement: Support for `skip-install` flag. You can skip `npm install` executing;
 - Improvement: Add `customMiddleware` support in `config/http.js`;

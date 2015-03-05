@@ -2,15 +2,29 @@
 
 ## Faraway
 
-- [ ] Add **apn** and **gcm** push notifications;
-- [ ] Add social service **Twitter**;
-- [ ] Add support for **Amazon** mailer, **sendmail** mailer;
-- [ ] Sub generators for each service;
+- [ ] Add `md5`, `crc` Ciphers;
+- [ ] Add `sendmail`, `Amazon` Mailer;
+- [ ] Add `braintreepayments`, `PayPal` Payment;
+- [ ] Add `Windows Phone` Pusher;
+- [ ] Add `Twitter`, `VK`, `Google +` Social;
+- [ ] Add `Local` Storage;
 - [ ] Test coverage for all `api` files;
-- [ ] Add questions list where you can choose which service need to include and copy only needed;
-- [ ] Make swagger documentation as part of Sails generator;
+- [ ] Implement search on top of `find` blueprint;
+- [ ] Implement pluralized form only for REST models;
+- [ ] Think about questions "Which hook you want to leave enable?" and disable\enable hooks based on those answers;
+- [ ] Think about generating not only backend REST API, so user can still have clean Sails application (maybe call spawn `sails new <app-name>`;
 
-## Next version
+## Next minor version
+
+- [ ] Implement converting camelCase attributes to snake_case in HTTP response;
+- [ ] Make global error codes for API with description and how fix it;
+- [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
+
+## Version 0.6.0 (released)
+
+- [x] Improve stability (too much new features is appears in previous version);
+- [x] Freeze architecture (only bug-fixes and adding new features);
+- [x] Add questions list where you can choose which service need to include;
 
 ## Version 0.5.0 (released)
 

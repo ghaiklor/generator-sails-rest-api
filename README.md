@@ -1,6 +1,6 @@
 # generator-sails-rest-api
 
-[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) [![Build Status](https://secure.travis-ci.org/ghaiklor/generator-sails-rest-api.png?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Documentation](https://github.com/ghaiklor/generator-sails-rest-api/wiki)
+[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) ![Dependencies is up to date](https://david-dm.org/ghaiklor/generator-sails-rest-api.svg) [![Build Status](https://travis-ci.org/ghaiklor/generator-sails-rest-api.svg?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Documentation](https://github.com/ghaiklor/generator-sails-rest-api/wiki)
 
 > Stability: 2 - Unstable
 
@@ -24,7 +24,39 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 - Integrated Swagger doc specification in `doc` folder;
 - Integrated Mocha tests for all `blueprints`, `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
 
-## ready-2-use services
+## Getting Started
+
+Start using generator is very simple.
+
+First of all, you need install **yeoman** and **generator-sails-rest-api**:
+
+```bash
+npm install -g yo generator-sails-rest-api
+```
+
+Then create project directory and initiate the generator under the project directory:
+
+```bash
+mkdir my-project
+cd my-project
+yo sails-rest-api
+```
+
+You will be prompted for questions. Answer to those questions that generator is asks and you will get configured Sails project.
+
+After scaffolding the project you can use this project as before. Just run the `app.js` file and all.
+
+```bash
+node app.js
+```
+
+Congratulations, you just have setup your first Sails REST API :+1:
+
+## How to use project code?
+
+_TODO:_ Fill with information. But you can read more at our [wiki page](https://github.com/ghaiklor/generator-sails-rest-api/wiki/How-to-use)
+
+## Bundled Sails services
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
