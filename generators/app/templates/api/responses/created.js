@@ -9,8 +9,8 @@
 
 module.exports = function (data, code, message, root) {
     var response = _.assign({
-        code: code || "CREATED",
-        message: message || "The request has been fulfilled and resulted in a new resource being created",
+        code: code || 'CREATED',
+        message: message || 'The request has been fulfilled and resulted in a new resource being created',
         response: data || {}
     }, root);
 

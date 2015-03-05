@@ -7,8 +7,8 @@
 
 module.exports = function (data, code, message, root) {
     var response = _.assign({
-        code: code || "E_INTERNAL_SERVER_ERROR",
-        message: message || "Something bad happened on the server",
+        code: code || 'E_INTERNAL_SERVER_ERROR',
+        message: message || 'Something bad happened on the server',
         response: data || {}
     }, root);
 

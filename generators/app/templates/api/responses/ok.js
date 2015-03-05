@@ -9,8 +9,8 @@
 
 module.exports = function (data, code, message, root) {
     var response = _.assign({
-        code: code || "OK",
-        message: message || "Operation is successfully executed",
+        code: code || 'OK',
+        message: message || 'Operation is successfully executed',
         response: data || {}
     }, root);
 

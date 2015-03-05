@@ -8,8 +8,8 @@
 
 module.exports = function (data, code, message, root) {
     var response = _.assign({
-        code: code || "E_UNAUTHORIZED",
-        message: message || "Missing or invalid authentication token",
+        code: code || 'E_UNAUTHORIZED',
+        message: message || 'Missing or invalid authentication token',
         response: data || {}
     }, root);
 

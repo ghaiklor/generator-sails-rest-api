@@ -8,8 +8,8 @@
 
 module.exports = function (data, code, message, root) {
     var response = _.assign({
-        code: code || "E_FORBIDDEN",
-        message: message || "User not authorized to perform the operation",
+        code: code || 'E_FORBIDDEN',
+        message: message || 'User not authorized to perform the operation',
         response: data || {}
     }, root);
 
