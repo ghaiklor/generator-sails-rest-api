@@ -28,7 +28,7 @@ module.exports.http = {
      * To enable streaming file uploads (to disk or somewhere else)
      * you'll want to set this option to `false` to disable the body parser
      *
-     * @type {Function|Boolean}
+     * @type {Function|Boolean|Object}
      */
     bodyParser: undefined,
 

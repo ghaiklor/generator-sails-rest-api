@@ -26,13 +26,13 @@ passport.use(new LocalStrategy({
             if (error) return next(error, false, {});
 
             if (!user) return next(null, false, {
-                code: "E_USER_NOT_FOUND",
-                message: username + " is not found"
+                code: 'E_USER_NOT_FOUND',
+                message: username + ' is not found'
             });
 
             if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
-                code: "E_WRONG_PASSWORD",
-                message: "Password is wrong"
+                code: 'E_WRONG_PASSWORD',
+                message: 'Password is wrong'
             });
 
             return next(null, user, {});
@@ -51,8 +51,8 @@ passport.use(new JwtStrategy({
         .exec(function (error, user) {
             if (error) return next(error, false, {});
             if (!user) return next(null, false, {
-                code: "E_USER_NOT_FOUND",
-                message: "User with that JWT not found"
+                code: 'E_USER_NOT_FOUND',
+                message: 'User with that JWT not found'
             });
 
             return next(null, user, {});
@@ -79,8 +79,8 @@ passport.use(new FacebookTokenStrategy({
             .exec(function (error, user) {
                 if (error) return next(error, false, {});
                 if (!user) return next(null, false, {
-                    code: "E_AUTH_FAILED",
-                    message: "Facebook auth failed"
+                    code: 'E_AUTH_FAILED',
+                    message: 'Facebook auth failed'
                 });
 
                 return next(null, user, {});
@@ -111,8 +111,8 @@ passport.use(new TwitterTokenStrategy({
             .exec(function (error, user) {
                 if (error) return next(error, false, {});
                 if (!user) return next(null, false, {
-                    code: "E_AUTH_FAILED",
-                    message: "Twitter auth failed"
+                    code: 'E_AUTH_FAILED',
+                    message: 'Twitter auth failed'
                 });
 
                 return next(null, user, {});
@@ -137,14 +137,14 @@ passport.use(new YahooTokenStrategy({
                 email: req.param('email') || (profile.emails && profile.emails[0].value),
                 firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
                 lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || ['https://graph.facebook.com/', profile.id, '/picture?type=large'].join(''),
-                facebook: profile._json
+                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
+                yahoo: profile._json
             })
             .exec(function (error, user) {
                 if (error) return next(error, false, {});
                 if (!user) return next(null, false, {
-                    code: "E_AUTH_FAILED",
-                    message: "Yahoo auth failed"
+                    code: 'E_AUTH_FAILED',
+                    message: 'Yahoo auth failed'
                 });
 
                 return next(null, user, {});
