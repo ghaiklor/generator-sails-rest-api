@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.6.0
+
 - Improvement: Implemented parsing CommonJS modules from AST (Abstract Syntax Tree), so now generator is knows which modules you are really using;
 - Improvement: Frozen structure of generator and project. Any serious changes in project structure;
 - Improvement: Add Yahoo authorization;
