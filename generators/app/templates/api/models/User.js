@@ -62,6 +62,10 @@ module.exports = {
             type: 'object'
         },
 
+        google: {
+            type: 'object'
+        },
+
         toJSON: function () {
             var obj = this.toObject();
 

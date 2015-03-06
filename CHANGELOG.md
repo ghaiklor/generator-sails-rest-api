@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Add Google Plus authorization;
+
 ## Version 0.6.0
 
 - Improvement: Implemented parsing CommonJS modules from AST (Abstract Syntax Tree), so now generator is knows which modules you are really using;

@@ -45,4 +45,14 @@ module.exports = [{
     name: 'application:yahoo-app-secret',
     message: 'Type your Yahoo App Secret',
     default: '-'
+}, {
+    type: 'input',
+    name: 'application:google-app-id',
+    message: 'Type your Google App ID',
+    default: '-'
+}, {
+    type: 'input',
+    name: 'application:google-app-secret',
+    message: 'Type your Google App Secret',
+    default: '-'
 }];

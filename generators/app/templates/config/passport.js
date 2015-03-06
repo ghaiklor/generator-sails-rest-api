@@ -8,7 +8,8 @@ var passport = require('passport'),
     JwtStrategy = require('passport-jwt').Strategy,
     FacebookTokenStrategy = require('passport-facebook-token').Strategy,
     TwitterTokenStrategy = require('passport-twitter-token').Strategy,
-    YahooTokenStrategy = require('passport-yahoo-token').Strategy;
+    YahooTokenStrategy = require('passport-yahoo-token').Strategy,
+    GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
 
 // TODO: make this more stable and properly parse profile data
 
@@ -153,6 +154,38 @@ passport.use(new YahooTokenStrategy({
             });
     } else {
         req.user.yahoo = profile._json;
+        req.user.save(next);
+    }
+}));
+
+passport.use(new GooglePlusTokenStrategy({
+    clientID: "<%= answers['application:google-app-id'] %>",
+    clientSecret: "<%= answers['application:google-app-secret'] %>",
+    passReqToCallback: true
+}, function (req, accessToken, refreshToken, profile, next) {
+    if (!req.user) {
+        User
+            .findOrCreate({
+                'google.id': profile.id
+            }, {
+                username: req.param('username') || profile.username || profile.displayName,
+                email: req.param('email') || (profile.emails && profile.emails[0].value),
+                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
+                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
+                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
+                google: profile._json
+            })
+            .exec(function (error, user) {
+                if (error) return next(error, false, {});
+                if (!user) return next(null, false, {
+                    code: 'E_AUTH_FAILED',
+                    message: 'Google Plus auth failed'
+                });
+
+                return next(null, user, {});
+            });
+    } else {
+        req.user.google = profile._json;
         req.user.save(next);
     }
 }));
