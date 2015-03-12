@@ -29,7 +29,7 @@
     ],
     "main": "generators/app/index.js",
     "scripts": {
-        "test": "istanbul cover --report lcovonly _mocha -- --recursive --reporter spec"
+        "test": "istanbul cover _mocha -- --recursive --reporter spec"
     },
     "repository": {
         "type": "git",
