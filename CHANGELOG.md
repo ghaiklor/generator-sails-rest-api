@@ -5,6 +5,14 @@
 - Improvement: Add Google Plus authorization;
 - Improvement: Add test coverage tool;
 
+## Version 0.6.2
+
+- Fix critical bug with inquirer dependency;
+
+## Version 0.6.1
+
+- Fixed critical bug when yo is not see the generator;
+
 ## Version 0.6.0
 
 - Improvement: Implemented parsing CommonJS modules from AST (Abstract Syntax Tree), so now generator is knows which modules you are really using;
