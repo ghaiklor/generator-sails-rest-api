@@ -8,7 +8,6 @@
 - [ ] Add `Windows Phone` Pusher;
 - [ ] Add `Twitter`, `VK`, `Google +` Social;
 - [ ] Add `Local` Storage;
-- [ ] Test coverage for all `api` files;
 - [ ] Implement search on top of `find` blueprint;
 - [ ] Implement pluralized form only for REST models;
 - [ ] Think about questions "Which hook you want to leave enable?" and disable\enable hooks based on those answers;
@@ -16,6 +15,7 @@
 
 ## Next minor version
 
+- [ ] Test coverage for all `api` files;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;

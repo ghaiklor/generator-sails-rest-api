@@ -27,9 +27,9 @@
     "files": [
         "app"
     ],
-    "main": "app/index.js",
+    "main": "generators/app/index.js",
     "scripts": {
-        "test": "mocha"
+        "test": "istanbul cover --report lcovonly _mocha -- --recursive --reporter spec"
     },
     "repository": {
         "type": "git",
@@ -43,6 +43,7 @@
         "yosay": "^1.0.2"
     },
     "devDependencies": {
+        "istanbul": "^0.3.7",
         "mocha": "*"
     },
     "peerDependencies": {

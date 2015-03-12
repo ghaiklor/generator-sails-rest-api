@@ -1,6 +1,6 @@
 # generator-sails-rest-api
 
-[![npm version](https://badge.fury.io/js/generator-sails-rest-api.svg)](http://badge.fury.io/js/generator-sails-rest-api) ![Dependencies is up to date](https://david-dm.org/ghaiklor/generator-sails-rest-api.svg) [![Build Status](https://travis-ci.org/ghaiklor/generator-sails-rest-api.svg?branch=master)](https://travis-ci.org/ghaiklor/generator-sails-rest-api) [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [Documentation](https://github.com/ghaiklor/generator-sails-rest-api/wiki)
+![Build Status](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api.svg) ![Coverage](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api.svg) ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
 > Stability: 2 - Unstable
 

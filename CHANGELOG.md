@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Add Google Plus authorization;
+- Improvement: Add test coverage tool;
 
 ## Version 0.6.0
 
