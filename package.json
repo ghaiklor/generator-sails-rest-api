@@ -1,6 +1,6 @@
 {
     "name": "generator-sails-rest-api",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.",
     "keywords": [
         "yeoman-generator",
@@ -34,6 +34,7 @@
     },
     "dependencies": {
         "chalk": "^1.0.0",
+        "inquirer": "^0.8.0",
         "print-message": "^1.2.1",
         "update-notifier": "^0.3.0",
         "yeoman-generator": "^0.18.9",

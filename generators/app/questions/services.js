@@ -1,4 +1,4 @@
-var inquirer = require('yo/node_modules/inquirer');
+var inquirer = require('inquirer');
 
 module.exports = [{
     type: 'checkbox',
