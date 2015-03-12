@@ -1,6 +1,6 @@
 {
     "name": "generator-sails-rest-api",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.",
     "keywords": [
         "yeoman-generator",
@@ -24,10 +24,7 @@
         "url": "https://www.facebook.com/ghaiklor"
     },
     "contributors": [],
-    "files": [
-        "app"
-    ],
-    "main": "app/index.js",
+    "main": "generators/app/index.js",
     "scripts": {
         "test": "mocha"
     },
@@ -44,11 +41,5 @@
     },
     "devDependencies": {
         "mocha": "*"
-    },
-    "peerDependencies": {
-        "yo": ">=1.0.0"
-    },
-    "engines": {
-        "node": ">=0.10.0"
     }
 }
