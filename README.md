@@ -1,7 +1,5 @@
 # generator-sails-rest-api
 
-![Build Status](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api.svg) ![Coverage](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api.svg) ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
-
 > Stability: 2 - Unstable
 
 > The project is in the process of settling, but has not yet had sufficient real-world testing to be considered stable.
@@ -9,6 +7,15 @@
 > Backwards-compatibility will be maintained if reasonable.
 
 Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.
+
+## Build Status
+
+| Version | Build Status                                                                                  |
+|:-------:|:---------------------------------------------------------------------------------------------:|
+| Edge    | ![Edge version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/dev.svg)      |
+| Stable  | ![Stable version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/master.svg) |
+
+![Coverage](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api.svg) ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
 ## Features
 
