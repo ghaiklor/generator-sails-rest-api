@@ -64,6 +64,15 @@ module.exports.connections = {
     },
 
     /**
+     * Memory configuration
+     * ONLY FOR DEVELOPMENT
+     * @type {Object}
+     */
+    memory: {
+        adapter: 'sails-memory'
+    },
+
+    /**
      * Disk configuration
      * ONLY FOR DEVELOPMENT
      * @type {Object}
