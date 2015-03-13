@@ -16,6 +16,7 @@
 ## Next minor version
 
 - [ ] Test coverage for all `api` files;
+- [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
