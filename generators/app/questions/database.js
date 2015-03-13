@@ -4,9 +4,9 @@ module.exports = [{
     message: 'Choose database adapter',
     default: 1,
     choices: [
+        'PostgreSQL',
         'MySQL',
         'Mongo',
-        'PostgreSQL',
         'Memory',
         'Disk',
         'SQLServer',

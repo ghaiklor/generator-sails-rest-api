@@ -12,6 +12,21 @@
 
 module.exports.connections = {
     /**
+     * PostgreSQL configuration
+     * @type {Object}
+     */
+    postgresql: {
+        adapter: 'sails-postgresql',
+        host: "<%= answers['database:host'] %>",
+        port: 5432,
+        user: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>",
+        database: "<%= answers['database:name'] %>",
+        pool: false,
+        ssl: false
+    },
+
+    /**
      * MySQL configuration
      * @type {Object}
      */
@@ -46,21 +61,6 @@ module.exports.connections = {
         //    ],
         //    options: {} // http://mongodb.github.io/node-mongodb-native/api-generated/replset.html
         //}
-    },
-
-    /**
-     * PostgreSQL configuration
-     * @type {Object}
-     */
-    postgresql: {
-        adapter: 'sails-postgresql',
-        host: "<%= answers['database:host'] %>",
-        port: 5432,
-        user: "<%= answers['database:user'] %>",
-        password: "<%= answers['database:password'] %>",
-        database: "<%= answers['database:name'] %>",
-        pool: false,
-        ssl: false
     },
 
     /**
