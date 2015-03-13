@@ -1,5 +1,3 @@
-var inquirer = require('inquirer');
-
 module.exports = [{
     type: 'checkbox',
     name: 'services:cipher',
@@ -10,9 +8,6 @@ module.exports = [{
     }, {
         name: 'jwt',
         checked: true
-    }, new inquirer.Separator(), {
-        name: 'More Cipher is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -21,9 +16,6 @@ module.exports = [{
     choices: [{
         name: 'Mandrill',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More Mailer is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -32,9 +24,6 @@ module.exports = [{
     choices: [{
         name: 'Stripe',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More Payment is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -46,9 +35,6 @@ module.exports = [{
     }, {
         name: 'Google Cloud Messaging',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More Pusher is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -57,9 +43,6 @@ module.exports = [{
     choices: [{
         name: 'Twilio',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More SMS is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -68,9 +51,6 @@ module.exports = [{
     choices: [{
         name: 'Facebook',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More Social is coming',
-        disabled: 'Wait for it...'
     }]
 }, {
     type: 'checkbox',
@@ -82,8 +62,5 @@ module.exports = [{
     }, {
         name: 'Google Cloud Storage',
         checked: false
-    }, new inquirer.Separator(), {
-        name: 'More Storage is coming',
-        disabled: 'Wait for it...'
     }]
 }];
