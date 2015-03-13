@@ -64,6 +64,15 @@ module.exports.connections = {
     },
 
     /**
+     * Disk configuration
+     * ONLY FOR DEVELOPMENT
+     * @type {Object}
+     */
+    disk: {
+        adapter: 'sails-disk'
+    },
+
+    /**
      * Microsoft SQL Server configuration
      * @type {Object}
      */
