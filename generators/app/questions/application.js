@@ -17,42 +17,42 @@ module.exports = [{
     default: crypto.randomBytes(32).toString('hex')
 }, {
     type: 'input',
-    name: 'application:facebook-app-id',
-    message: 'Type your Facebook App ID',
+    name: 'application:facebook-client-id',
+    message: 'Type your Facebook Client ID',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:facebook-app-secret',
-    message: 'Type your Facebook App Secret',
+    name: 'application:facebook-client-secret',
+    message: 'Type your Facebook Client Secret',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:twitter-consumer-key',
-    message: 'Type your Twitter Consumer Key',
+    name: 'application:twitter-client-id',
+    message: 'Type your Twitter Client ID',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:twitter-consumer-secret',
-    message: 'Type your Twitter Consumer Secret',
+    name: 'application:twitter-client-secret',
+    message: 'Type your Twitter Client Secret',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:yahoo-app-id',
-    message: 'Type your Yahoo App ID',
+    name: 'application:yahoo-client-id',
+    message: 'Type your Yahoo Client ID',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:yahoo-app-secret',
-    message: 'Type your Yahoo App Secret',
+    name: 'application:yahoo-client-secret',
+    message: 'Type your Yahoo Client Secret',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:google-app-id',
-    message: 'Type your Google App ID',
+    name: 'application:google-client-id',
+    message: 'Type your Google Client ID',
     default: '-'
 }, {
     type: 'input',
-    name: 'application:google-app-secret',
-    message: 'Type your Google App Secret',
+    name: 'application:google-client-secret',
+    message: 'Type your Google Client Secret',
     default: '-'
 }];

@@ -63,8 +63,8 @@ passport.use(new JwtStrategy({
 }));
 
 passport.use(new FacebookTokenStrategy({
-    clientID: "<%= answers['application:facebook-app-id'] %>",
-    clientSecret: "<%= answers['application:facebook-app-secret'] %>",
+    clientID: "<%= answers['application:facebook-client-id'] %>",
+    clientSecret: "<%= answers['application:facebook-client-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
@@ -95,8 +95,8 @@ passport.use(new FacebookTokenStrategy({
 }));
 
 passport.use(new TwitterTokenStrategy({
-    consumerKey: "<%= answers['application:twitter-consumer-key'] %>",
-    consumerSecret: "<%= answers['application:twitter-consumer-secret'] %>",
+    consumerKey: "<%= answers['application:twitter-client-id'] %>",
+    consumerSecret: "<%= answers['application:twitter-client-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, tokenSecret, profile, next) {
     if (!req.user) {
@@ -127,8 +127,8 @@ passport.use(new TwitterTokenStrategy({
 }));
 
 passport.use(new YahooTokenStrategy({
-    clientID: "<%= answers['application:yahoo-app-id'] %>",
-    clientSecret: "<%= answers['application:yahoo-app-secret'] %>",
+    clientID: "<%= answers['application:yahoo-client-id'] %>",
+    clientSecret: "<%= answers['application:yahoo-client-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
@@ -159,8 +159,8 @@ passport.use(new YahooTokenStrategy({
 }));
 
 passport.use(new GooglePlusTokenStrategy({
-    clientID: "<%= answers['application:google-app-id'] %>",
-    clientSecret: "<%= answers['application:google-app-secret'] %>",
+    clientID: "<%= answers['application:google-client-id'] %>",
+    clientSecret: "<%= answers['application:google-client-secret'] %>",
     passReqToCallback: true
 }, function (req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
