@@ -7,7 +7,8 @@ module.exports = [{
         'MySQL',
         'Mongo',
         'PostgreSQL',
-        'Redis'
+        'Redis',
+        'OrientDB'
     ]
 }, {
     type: 'input',

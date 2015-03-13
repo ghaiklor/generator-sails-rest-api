@@ -81,5 +81,14 @@ module.exports.connections = {
             no_ready_check: false,
             enable_offline_queue: true
         }
+    },
+
+    orientdb: {
+        adapter: 'sails-orientdb',
+        database: {
+            name: "<%= answers['database:name'] %>"
+        },
+        username: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>"
     }
 };
