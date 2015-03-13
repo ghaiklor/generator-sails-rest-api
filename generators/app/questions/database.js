@@ -7,6 +7,7 @@ module.exports = [{
         'MySQL',
         'Mongo',
         'PostgreSQL',
+        'SQLServer',
         'Redis',
         'OrientDB'
     ]

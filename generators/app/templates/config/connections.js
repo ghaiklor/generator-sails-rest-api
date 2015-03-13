@@ -64,6 +64,21 @@ module.exports.connections = {
     },
 
     /**
+     * Microsoft SQL Server configuration
+     * @type {Object}
+     */
+    sqlserver: {
+        adapter: 'sails-sqlserver',
+        user: "<%= answers['database:user'] %>",
+        password: "<%= answers['database:password'] %>",
+        host: "<%= answers['database:host'] %>",
+        database: "<%= answers['database:name'] %>",
+        options: {
+            encrypt: false
+        }
+    },
+
+    /**
      * Redis configuration
      * @type {Object}
      */
@@ -83,6 +98,10 @@ module.exports.connections = {
         }
     },
 
+    /**
+     * OrientDB configuration
+     * @type {Object}
+     */
     orientdb: {
         adapter: 'sails-orientdb',
         database: {
