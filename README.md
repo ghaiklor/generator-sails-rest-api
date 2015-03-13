@@ -1,6 +1,6 @@
 # generator-sails-rest-api
 
-![Coverage](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api.svg) ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
+![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
 > Stability: 2 - Unstable
 
@@ -12,10 +12,10 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 
 ## Build Status
 
-| Version | Build Status                                                                                  |
-|:-------:|:---------------------------------------------------------------------------------------------:|
-| Edge    | ![Edge version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/dev.svg)      |
-| Stable  | ![Stable version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/master.svg) |
+| Version          | Build Status                                                                                  | Coverage Status                                                                                  |
+|:----------------:|:---------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+| Edge (dev)       | ![Edge Version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/dev.svg)      | ![Edge Version](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api/dev.svg)      |
+| Stable (master)  | ![Stable Version](https://img.shields.io/travis/ghaiklor/generator-sails-rest-api/master.svg) | ![Stable Version](https://img.shields.io/coveralls/ghaiklor/generator-sails-rest-api/master.svg) |
 
 ## Features
 
