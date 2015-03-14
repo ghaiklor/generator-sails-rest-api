@@ -16,7 +16,7 @@
     "scripts": {
         "start": "node app.js",
         "debug": "node debug app.js",
-        "test": "istanbul cover _mocha -- --recursive --reporter spec --require ./test/bootstrap ./test/*.test.js",
+        "test": "istanbul cover _mocha -- --recursive --reporter spec --require ./test/bootstrap ./test/**/*.test.js",
         "check-updates": "node ./tools/check-updates.js",
         "fix-deps": "node ./tools/fix-deps.js"
     }
