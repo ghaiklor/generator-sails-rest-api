@@ -4,6 +4,8 @@
 
 - Improvement: Add Google Plus authorization;
 - Improvement: Add test coverage tool;
+- Improvement: Add Memory, Disk, SQLServer and OrientDB connections;
+- Improvement: Add model connection by default to Disk in development environment;
 
 ## Version 0.6.2
 
