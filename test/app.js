@@ -8,7 +8,10 @@ describe('sails-rest-api:app', function () {
         helpers
             .run(path.join(__dirname, '../generators/app'))
             .inDir(path.join(os.tmpdir(), './temp-test'))
-            .withOptions({"skip-all": true})
+            .withOptions({
+                "skip-all": true,
+                "verbose": true
+            })
             .on('end', done);
     });
 
