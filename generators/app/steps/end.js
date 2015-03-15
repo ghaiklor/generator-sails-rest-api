@@ -67,18 +67,5 @@ module.exports = {
             'Or you can write me the letter',
             chalk.red(this.pkg.bugs.email)
         ]);
-    },
-
-    /**
-     * Warn user if he skip installing dependencies
-     */
-    sayNotInstalledNpmDepsWarning: function () {
-        // TODO: remove this message when installing step will be more stable
-        if (this.options['skip-project-install'] || this.options['skip-all']) {
-            printMessage([
-                'You have skipped installing npm modules',
-                'Install them manually via ' + chalk.blue('npm install')
-            ]);
-        }
     }
 };
