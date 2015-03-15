@@ -7,6 +7,8 @@
 - Improvement: Add model connection by default to Disk in development environment;
 - Improvement: Add questions kinda "Do you need Facebook authorization?";
 - Improvement: Add test coverage tool;
+- Improvement: Add bootstrap function and configure `npm test` command, so you have test coverage and running test cases;
+- Typo: Rename `fix-deps` script to `check-deps`;
 
 ## Version 0.6.2
 

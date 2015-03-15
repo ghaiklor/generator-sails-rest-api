@@ -27,14 +27,14 @@ function _onCheckUpdatesClose(done, code) {
  * @param {Number} code
  * @private
  */
-function _onFixDepsClose(done, code) {
+function _onCheckDepsClose(done, code) {
     if (code !== 0) {
         printMessage('Some error was occurred', {borderColor: 'red'});
         return process.exit(code);
     }
 
     this.spawnCommand('npm', [
-        'run-script',
+        'run',
         'check-updates',
         this.options.verbose ? '--verbose' : ''
     ]).on('close', _onCheckUpdatesClose.bind(this, done));
@@ -48,10 +48,10 @@ module.exports = {
         if (!(this.options['skip-project-diagnostic'] || this.options['skip-all'])) {
             this.log(chalk.yellow('Starting diagnostic, please wait...'));
             this.spawnCommand('npm', [
-                'run-script',
-                'fix-deps',
+                'run',
+                'check-deps',
                 this.options.verbose ? '--verbose' : ''
-            ]).on('close', _onFixDepsClose.bind(this, this.async()));
+            ]).on('close', _onCheckDepsClose.bind(this, this.async()));
         }
     },
 
