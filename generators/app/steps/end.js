@@ -7,37 +7,12 @@ var chalk = require('chalk'),
     printMessage = require('print-message');
 
 /**
- * Triggers when check-updates is finished
+ * Triggers when check-deps tools is finished
  * @param {Function} done
- * @param {Number} code
  * @private
  */
-function _onCheckUpdatesClose(done, code) {
-    if (code !== 0) {
-        printMessage('Some error was occurred', {borderColor: 'red'});
-        return process.exit(code);
-    }
-
-    done();
-}
-
-/**
- * Triggers when fix-deps tools is finished
- * @param {Function} done
- * @param {Number} code
- * @private
- */
-function _onCheckDepsClose(done, code) {
-    if (code !== 0) {
-        printMessage('Some error was occurred', {borderColor: 'red'});
-        return process.exit(code);
-    }
-
-    this.spawnCommand('npm', [
-        'run',
-        'check-updates',
-        this.options.verbose ? '--verbose' : ''
-    ]).on('close', _onCheckUpdatesClose.bind(this, done));
+function _onCheckDepsClose(done) {
+    this.spawnCommand('npm', ['run', 'check-updates', this.options.verbose ? '--verbose' : '']).on('close', done);
 }
 
 module.exports = {
@@ -47,11 +22,7 @@ module.exports = {
     runDiagnostic: function () {
         if (!(this.options['skip-project-diagnostic'] || this.options['skip-all'])) {
             this.log(chalk.yellow('Starting diagnostic, please wait...'));
-            this.spawnCommand('npm', [
-                'run',
-                'check-deps',
-                this.options.verbose ? '--verbose' : ''
-            ]).on('close', _onCheckDepsClose.bind(this, this.async()));
+            this.spawnCommand('npm', ['run', 'check-deps', this.options.verbose ? '--verbose' : '']).on('close', _onCheckDepsClose.bind(this, this.async()));
         }
     },
 

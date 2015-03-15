@@ -9,6 +9,8 @@
 - Improvement: Add test coverage tool;
 - Improvement: Add bootstrap function and configure `npm test` command, so you have test coverage and running test cases;
 - Typo: Rename `fix-deps` script to `check-deps`;
+- Typo: Remove warning when you set `skip-project-install` option;
+- Typo: Simplify end section in generator;
 
 ## Version 0.6.2
 
