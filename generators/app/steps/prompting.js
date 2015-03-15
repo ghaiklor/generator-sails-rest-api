@@ -16,7 +16,7 @@ var chalk = require('chalk'),
  * @param {Object} answers
  * @private
  */
-function _onDone(done, answers) {
+function _onSectionDone(done, answers) {
     this.answers = assign(this.answers, answers);
     done();
 }
@@ -27,7 +27,7 @@ module.exports = {
      */
     askDatabaseQuestions: function () {
         this.log(chalk.yellow('\nDatabase questions:'));
-        this.prompt(questions.database, _onDone.bind(this, this.async()));
+        this.prompt(questions.database, _onSectionDone.bind(this, this.async()));
     },
 
     /**
@@ -35,7 +35,7 @@ module.exports = {
      */
     askApplicationQuestions: function () {
         this.log(chalk.yellow('\nApplication questions:'));
-        this.prompt(questions.application, _onDone.bind(this, this.async()));
+        this.prompt(questions.application, _onSectionDone.bind(this, this.async()));
     },
 
     // TODO: uncomment this when will be done this feature
@@ -44,7 +44,7 @@ module.exports = {
     // */
     //askServiceQuestions: function () {
     //    this.log(chalk.yellow('\nService questions:'));
-    //    this.prompt(questions.services, _onDone.bind(this, this.async()));
+    //    this.prompt(questions.services, _onSectionDone.bind(this, this.async()));
     //},
     //
     ///**
@@ -52,7 +52,7 @@ module.exports = {
     // */
     //askMiscellaneousQuestions: function () {
     //    this.log(chalk.yellow('\nMiscellaneous questions:'));
-    //    this.prompt(questions.miscellaneous, _onDone.bind(this, this.async()));
+    //    this.prompt(questions.miscellaneous, _onSectionDone.bind(this, this.async()));
     //},
 
     /**
