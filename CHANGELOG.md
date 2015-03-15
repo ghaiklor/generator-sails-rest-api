@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Add winston Logger by default;
+- Improvement: Add Console and DailyRotateFile transports to `sails.config.log`;
 - Improvement: Add Google Plus authorization;
 - Improvement: Add Memory, Disk, SQLServer and OrientDB connections;
 - Improvement: Add model connection by default to Disk in development environment;
