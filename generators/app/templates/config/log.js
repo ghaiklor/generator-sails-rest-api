@@ -4,7 +4,9 @@
  * Configure the log level for your app
  */
 
-var path = require('path');
+var path = require('path'),
+    winston = require('winston'),
+    mkdirp = require('mkdirp');
 
 module.exports.log = {
     /**
@@ -79,3 +81,14 @@ module.exports.log = {
         datePattern: 'yyyy-MM-dd.log'
     }
 };
+
+/**
+ * Winston logger
+ */
+mkdirp.sync(module.exports.log.dailyRotate.dirname);
+module.exports.log.custom = new winston.Logger({
+    transports: [
+        new winston.transports.Console(module.exports.log),
+        new winston.transports.DailyRotateFile(module.exports.log.dailyRotate)
+    ]
+});
