@@ -4,6 +4,9 @@
  */
 
 module.exports = {
+    log: {
+        level: 'silly'
+    },
     models: {
         connection: 'disk'
     }
