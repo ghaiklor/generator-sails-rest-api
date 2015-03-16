@@ -58,12 +58,11 @@ module.exports.log = {
      * @type {Function|Object}
      */
     formatter: function (options) {
-        var message = this.timestamp ? (new Date().toUTCString() + ' ') : '';
-
-        message += (options.message !== 'undefined' ? options.message : '');
-        message += (options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : '' );
-
-        return message;
+        return [
+            this.timestamp ? (new Date().toUTCString() + ': ') : '',
+            typeof options.message !== 'undefined' ? options.message : '',
+            options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : ''
+        ].join('');
     },
 
     /**
