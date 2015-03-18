@@ -42,8 +42,8 @@ function _onLocalStrategyAuth(username, password, next) {
 
 /**
  * Triggers when user authenticates via JWT strategy
- * @param {Object} payload
- * @param {Function} next
+ * @param {Object} payload Decoded payload from JWT
+ * @param {Function} next Callback
  * @private
  */
 function _onJwtStrategyAuth(payload, next) {
