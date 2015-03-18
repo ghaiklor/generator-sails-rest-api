@@ -66,6 +66,44 @@ function _onJwtStrategyAuth(payload, next) {
         });
 }
 
+/**
+ * Triggers when user authenticates via one of social strategies
+ * @param {String} strategyName What strategy was used?
+ * @param {Object} req Request object
+ * @param {String} accessToken Access token from social network
+ * @param {String} refreshToken Refresh token from social network
+ * @param {Object} profile Social profile
+ * @param {Function} next Callback
+ * @private
+ */
+function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, profile, next) {
+    if (!req.user) {
+        User
+            .findOrCreate({
+                'facebook.id': profile.id
+            }, {
+                username: req.param('username') || profile.username || profile.displayName,
+                email: req.param('email') || (profile.emails && profile.emails[0].value),
+                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
+                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
+                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
+                facebook: profile._json
+            })
+            .exec(function (error, user) {
+                if (error) return next(error, false, {});
+                if (!user) return next(null, false, {
+                    code: 'E_AUTH_FAILED',
+                    message: [strategyName.charAt(0).toUpperCase(), strategyName.slice(1), ' auth failed'].join('')
+                });
+
+                return next(null, user, {});
+            });
+    } else {
+        req.user[strategyName] = profile._json;
+        req.user.save(next);
+    }
+}
+
 passport.use(new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
@@ -81,126 +119,22 @@ passport.use(new FacebookTokenStrategy({
     clientID: "<%= answers['application:passport-facebook-client-id'] || '-' %>",
     clientSecret: "<%= answers['application:passport-facebook-client-secret'] || '-' %>",
     passReqToCallback: true
-}, function (req, accessToken, refreshToken, profile, next) {
-    if (!req.user) {
-        User
-            .findOrCreate({
-                'facebook.id': profile.id
-            }, {
-                username: req.param('username') || profile.username || profile.displayName,
-                email: req.param('email') || (profile.emails && profile.emails[0].value),
-                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
-                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || ['https://graph.facebook.com/', profile.id, '/picture?type=large'].join(''),
-                facebook: profile._json
-            })
-            .exec(function (error, user) {
-                if (error) return next(error, false, {});
-                if (!user) return next(null, false, {
-                    code: 'E_AUTH_FAILED',
-                    message: 'Facebook auth failed'
-                });
-
-                return next(null, user, {});
-            });
-    } else {
-        req.user.facebook = profile._json;
-        req.user.save(next);
-    }
-}));
+}, _onSocialStrategyAuth.bind(this, 'facebook')));
 
 passport.use(new TwitterTokenStrategy({
     consumerKey: "<%= answers['application:passport-twitter-client-id'] || '-' %>",
     consumerSecret: "<%= answers['application:passport-twitter-client-secret'] || '-' %>",
     passReqToCallback: true
-}, function (req, accessToken, tokenSecret, profile, next) {
-    if (!req.user) {
-        User
-            .findOrCreate({
-                'twitter.id': profile.id
-            }, {
-                username: req.param('username') || profile.username || profile.displayName,
-                email: req.param('email') || (profile.emails && profile.emails[0].value),
-                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
-                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
-                twitter: profile._json
-            })
-            .exec(function (error, user) {
-                if (error) return next(error, false, {});
-                if (!user) return next(null, false, {
-                    code: 'E_AUTH_FAILED',
-                    message: 'Twitter auth failed'
-                });
-
-                return next(null, user, {});
-            });
-    } else {
-        req.user.twitter = profile._json;
-        req.user.save(next);
-    }
-}));
+}, _onSocialStrategyAuth.bind(this, 'twitter')));
 
 passport.use(new YahooTokenStrategy({
     clientID: "<%= answers['application:passport-yahoo-client-id'] || '-' %>",
     clientSecret: "<%= answers['application:passport-yahoo-client-secret'] || '-' %>",
     passReqToCallback: true
-}, function (req, accessToken, refreshToken, profile, next) {
-    if (!req.user) {
-        User
-            .findOrCreate({
-                'yahoo.id': profile.id
-            }, {
-                username: req.param('username') || profile.username || profile.displayName,
-                email: req.param('email') || (profile.emails && profile.emails[0].value),
-                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
-                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
-                yahoo: profile._json
-            })
-            .exec(function (error, user) {
-                if (error) return next(error, false, {});
-                if (!user) return next(null, false, {
-                    code: 'E_AUTH_FAILED',
-                    message: 'Yahoo auth failed'
-                });
-
-                return next(null, user, {});
-            });
-    } else {
-        req.user.yahoo = profile._json;
-        req.user.save(next);
-    }
-}));
+}, _onSocialStrategyAuth.bind(this, 'yahoo')));
 
 passport.use(new GooglePlusTokenStrategy({
     clientID: "<%= answers['application:passport-google-client-id'] || '-' %>",
     clientSecret: "<%= answers['application:passport-google-client-secret'] || '-' %>",
     passReqToCallback: true
-}, function (req, accessToken, refreshToken, profile, next) {
-    if (!req.user) {
-        User
-            .findOrCreate({
-                'google.id': profile.id
-            }, {
-                username: req.param('username') || profile.username || profile.displayName,
-                email: req.param('email') || (profile.emails && profile.emails[0].value),
-                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
-                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
-                google: profile._json
-            })
-            .exec(function (error, user) {
-                if (error) return next(error, false, {});
-                if (!user) return next(null, false, {
-                    code: 'E_AUTH_FAILED',
-                    message: 'Google Plus auth failed'
-                });
-
-                return next(null, user, {});
-            });
-    } else {
-        req.user.google = profile._json;
-        req.user.save(next);
-    }
-}));
+}, _onSocialStrategyAuth.bind(this, 'google')));
