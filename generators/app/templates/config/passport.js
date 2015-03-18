@@ -13,10 +13,14 @@ var passport = require('passport'),
 
 // TODO: make this more stable and properly parse profile data
 
-passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password'
-}, function (username, password, next) {
+/**
+ * Triggers when user authenticates via local strategy
+ * @param {String} username
+ * @param {String} password
+ * @param {Function} next
+ * @private
+ */
+function _onLocalStrategyAuth(username, password, next) {
     User
         .findOne({
             or: [{
@@ -40,7 +44,12 @@ passport.use(new LocalStrategy({
 
             return next(null, user, {});
         });
-}));
+}
+
+passport.use(new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password'
+}, _onLocalStrategyAuth));
 
 passport.use(new JwtStrategy({
     secretOrKey: "<%= answers['application:jwt-secret'] %>",
