@@ -46,20 +46,15 @@ function _onLocalStrategyAuth(username, password, next) {
         });
 }
 
-passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password'
-}, _onLocalStrategyAuth));
-
-passport.use(new JwtStrategy({
-    secretOrKey: "<%= answers['application:jwt-secret'] %>",
-    tokenBodyField: 'jwt-token',
-    tokenHeader: 'JWT'
-}, function (payload, next) {
+/**
+ * Triggers when user authenticates via JWT strategy
+ * @param {Object} payload
+ * @param {Function} next
+ * @private
+ */
+function _onJwtStrategyAuth(payload, next) {
     User
-        .findOne({
-            id: payload.id
-        })
+        .findOne({id: payload.id})
         .exec(function (error, user) {
             if (error) return next(error, false, {});
             if (!user) return next(null, false, {
@@ -69,7 +64,18 @@ passport.use(new JwtStrategy({
 
             return next(null, user, {});
         });
-}));
+}
+
+passport.use(new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password'
+}, _onLocalStrategyAuth));
+
+passport.use(new JwtStrategy({
+    secretOrKey: "<%= answers['application:jwt-secret'] %>",
+    tokenBodyField: 'jwt-token',
+    tokenHeader: 'JWT'
+}, _onJwtStrategyAuth));
 
 passport.use(new FacebookTokenStrategy({
     clientID: "<%= answers['application:passport-facebook-client-id'] || '-' %>",
