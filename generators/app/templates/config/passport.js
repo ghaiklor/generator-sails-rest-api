@@ -15,20 +15,14 @@ var passport = require('passport'),
 
 /**
  * Triggers when user authenticates via local strategy
- * @param {String} username
- * @param {String} password
- * @param {Function} next
+ * @param {String} username Username from body field in request
+ * @param {String} password Password from body field in request
+ * @param {Function} next Callback
  * @private
  */
 function _onLocalStrategyAuth(username, password, next) {
     User
-        .findOne({
-            or: [{
-                username: username
-            }, {
-                email: username
-            }]
-        })
+        .findOne({or: [{username: username}, {email: username}]})
         .exec(function (error, user) {
             if (error) return next(error, false, {});
 
