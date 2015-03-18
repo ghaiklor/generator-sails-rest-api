@@ -73,14 +73,12 @@ function _onJwtStrategyAuth(payload, next) {
 function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
         User
-            .findOrCreate({
-                'facebook.id': profile.id
-            }, {
-                username: req.param('username') || profile.username || profile.displayName,
-                email: req.param('email') || (profile.emails && profile.emails[0].value),
-                firstName: req.param('firstName') || (profile.displayName && profile.displayName.split(' ')[0]),
-                lastName: req.param('lastName') || (profile.displayName && profile.displayName.split(' ')[1]),
-                photo: req.param('photo') || (profile.photos && profile.photos[0].value),
+            .findOrCreate({'facebook.id': profile.id}, {
+                username: profile.username || profile.displayName || '',
+                email: (profile.emails && profile.emails[0].value) || '',
+                firstName: (profile.name && profile.name.givenName) || '',
+                lastName: (profile.name && profile.name.familyName) || '',
+                photo: (profile.photos && profile.photos[0].value) || '',
                 facebook: profile._json
             })
             .exec(function (error, user) {
