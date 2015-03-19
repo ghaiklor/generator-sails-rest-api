@@ -15,20 +15,20 @@ var passport = require('passport'),
 
 /**
  * Triggers when user authenticates via local strategy
- * @param {String} username Username from body field in request
+ * @param {String} email Email from body field in request
  * @param {String} password Password from body field in request
  * @param {Function} next Callback
  * @private
  */
-function _onLocalStrategyAuth(username, password, next) {
+function _onLocalStrategyAuth(email, password, next) {
     User
-        .findOne({or: [{username: username}, {email: username}]})
+        .findOne({email: email})
         .exec(function (error, user) {
             if (error) return next(error, false, {});
 
             if (!user) return next(null, false, {
                 code: 'E_USER_NOT_FOUND',
-                message: username + ' is not found'
+                message: email + ' is not found'
             });
 
             if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
@@ -97,7 +97,7 @@ function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, pro
 }
 
 passport.use(new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'email',
     passwordField: 'password'
 }, _onLocalStrategyAuth));
 
