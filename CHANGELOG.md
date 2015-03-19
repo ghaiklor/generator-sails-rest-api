@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.7.0
+
 - Improvement: Add wrapper for prototype extending to services;
 - Improvement: Add winston Logger by default;
 - Improvement: Add Console and DailyRotateFile transports to `sails.config.log`;
