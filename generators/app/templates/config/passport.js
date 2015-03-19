@@ -114,25 +114,25 @@ passport.use(new JwtStrategy({
 }, _onJwtStrategyAuth));
 
 passport.use(new FacebookTokenStrategy({
-    clientID: "<%= answers['application:passport-facebook-client-id'] || '-' %>",
-    clientSecret: "<%= answers['application:passport-facebook-client-secret'] || '-' %>",
+    clientID: "<%= answers['application:passport:facebook:client-id'] || '-' %>",
+    clientSecret: "<%= answers['application:passport:facebook:client-secret'] || '-' %>",
     passReqToCallback: true
 }, _onSocialStrategyAuth.bind(this, 'facebook')));
 
 passport.use(new TwitterTokenStrategy({
-    consumerKey: "<%= answers['application:passport-twitter-client-id'] || '-' %>",
-    consumerSecret: "<%= answers['application:passport-twitter-client-secret'] || '-' %>",
+    consumerKey: "<%= answers['application:passport:twitter:client-id'] || '-' %>",
+    consumerSecret: "<%= answers['application:passport:twitter:client-secret'] || '-' %>",
     passReqToCallback: true
 }, _onSocialStrategyAuth.bind(this, 'twitter')));
 
 passport.use(new YahooTokenStrategy({
-    clientID: "<%= answers['application:passport-yahoo-client-id'] || '-' %>",
-    clientSecret: "<%= answers['application:passport-yahoo-client-secret'] || '-' %>",
+    clientID: "<%= answers['application:passport:yahoo:client-id'] || '-' %>",
+    clientSecret: "<%= answers['application:passport:yahoo:client-secret'] || '-' %>",
     passReqToCallback: true
 }, _onSocialStrategyAuth.bind(this, 'yahoo')));
 
 passport.use(new GooglePlusTokenStrategy({
-    clientID: "<%= answers['application:passport-google-client-id'] || '-' %>",
-    clientSecret: "<%= answers['application:passport-google-client-secret'] || '-' %>",
+    clientID: "<%= answers['application:passport:google-plus:client-id'] || '-' %>",
+    clientSecret: "<%= answers['application:passport:google-plus:client-secret'] || '-' %>",
     passReqToCallback: true
 }, _onSocialStrategyAuth.bind(this, 'google')));
