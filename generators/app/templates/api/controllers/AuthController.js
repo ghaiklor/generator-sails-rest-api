@@ -88,13 +88,5 @@ module.exports = {
             req.user = user;
             passport.authenticate('google-plus-token', _onPassportAuth.bind(this, req, res))(req, res);
         })(req, res);
-    },
-
-    /**
-     * Server ping
-     * Useful when need to check if it's server is down or some logic is break
-     */
-    ping: function (req, res) {
-        res.ok(null, null, 'Pong');
     }
 };
