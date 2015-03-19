@@ -21,6 +21,7 @@
 - Typo: Rename `fix-deps` script to `check-deps`;
 - Typo: Remove warning when you set `skip-project-install` option;
 - Typo: Simplify end section in generator;
+- Typo: Rename `test` folder to `tests`;
 
 ## Version 0.6.2
 

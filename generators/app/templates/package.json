@@ -16,7 +16,7 @@
     "scripts": {
         "start": "node app.js",
         "debug": "node debug app.js",
-        "test": "istanbul cover _mocha ./test/**/*.test.js",
+        "test": "istanbul cover _mocha ./tests/**/*.test.js",
         "console": "sails console",
         "check-updates": "node ./tools/check-updates.js",
         "check-deps": "node ./tools/check-deps.js"
