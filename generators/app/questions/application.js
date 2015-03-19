@@ -19,6 +19,7 @@ module.exports = [{
     type: 'checkbox',
     name: 'application:passport-enabled-strategies',
     message: 'Choose which Passport strategies you want',
+    default: [],
     choices: [{
         name: 'Facebook',
         checked: true
