@@ -8,14 +8,11 @@ module.exports = {
 
     attributes: {
         username: {
-            type: 'string',
-            notEmpty: true,
-            unique: true
+            type: 'string'
         },
 
         password: {
-            type: 'string',
-            notEmpty: true
+            type: 'string'
         },
 
         email: {
@@ -35,18 +32,8 @@ module.exports = {
             defaultsTo: ''
         },
 
-        gender: {
-            type: 'string',
-            enum: ['MALE', 'FEMALE']
-        },
-
         photo: {
             type: 'url',
-            defaultsTo: ''
-        },
-
-        phoneNumber: {
-            type: 'string',
             defaultsTo: ''
         },
 
