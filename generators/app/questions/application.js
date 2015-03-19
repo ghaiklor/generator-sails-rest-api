@@ -16,17 +16,29 @@ module.exports = [{
     message: 'Type your private key for JSON Web Token',
     default: crypto.randomBytes(32).toString('hex')
 }, {
-    type: 'confirm',
-    name: 'application:passport-facebook-enabled',
-    message: 'Do you need Facebook authorization?',
-    default: false
+    type: 'checkbox',
+    name: 'application:passport-enabled-strategies',
+    message: 'Choose which Passport strategies you want',
+    choices: [{
+        name: 'Facebook',
+        checked: true
+    }, {
+        name: 'Twitter',
+        checked: false
+    }, {
+        name: 'Yahoo',
+        checked: false
+    }, {
+        name: 'Google',
+        checked: false
+    }]
 }, {
     type: 'input',
     name: 'application:passport-facebook-client-id',
     message: 'Type your Facebook Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-facebook-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Facebook') > -1;
     }
 }, {
     type: 'input',
@@ -34,20 +46,15 @@ module.exports = [{
     message: 'Type your Facebook Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-facebook-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Facebook') > -1;
     }
-}, {
-    type: 'confirm',
-    name: 'application:passport-twitter-enabled',
-    message: 'Do you need Twitter authorization?',
-    default: false
 }, {
     type: 'input',
     name: 'application:passport-twitter-client-id',
     message: 'Type your Twitter Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-twitter-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Twitter') > -1;
     }
 }, {
     type: 'input',
@@ -55,20 +62,15 @@ module.exports = [{
     message: 'Type your Twitter Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-twitter-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Twitter') > -1;
     }
-}, {
-    type: 'confirm',
-    name: 'application:passport-yahoo-enabled',
-    message: 'Do you need Yahoo authorization?',
-    default: false
 }, {
     type: 'input',
     name: 'application:passport-yahoo-client-id',
     message: 'Type your Yahoo Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-yahoo-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Yahoo') > -1;
     }
 }, {
     type: 'input',
@@ -76,20 +78,15 @@ module.exports = [{
     message: 'Type your Yahoo Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-yahoo-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Yahoo') > -1;
     }
-}, {
-    type: 'confirm',
-    name: 'application:passport-google-enabled',
-    message: 'Do you need Google Plus authorization?',
-    default: false
 }, {
     type: 'input',
     name: 'application:passport-google-client-id',
     message: 'Type your Google Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-google-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Google') > -1;
     }
 }, {
     type: 'input',
@@ -97,6 +94,6 @@ module.exports = [{
     message: 'Type your Google Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-google-enabled'];
+        return answers['application:passport-enabled-strategies'].indexOf('Google') > -1;
     }
 }];
