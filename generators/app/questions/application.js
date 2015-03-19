@@ -17,7 +17,7 @@ module.exports = [{
     default: crypto.randomBytes(32).toString('hex')
 }, {
     type: 'checkbox',
-    name: 'application:passport-enabled-strategies',
+    name: 'application:passport:enabled-strategies',
     message: 'Choose which Passport strategies you want',
     default: [],
     choices: [{
@@ -30,71 +30,71 @@ module.exports = [{
         name: 'Yahoo',
         checked: false
     }, {
-        name: 'Google',
+        name: 'Google Plus',
         checked: false
     }]
 }, {
     type: 'input',
-    name: 'application:passport-facebook-client-id',
+    name: 'application:passport:facebook:client-id',
     message: 'Type your Facebook Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Facebook') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Facebook') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-facebook-client-secret',
+    name: 'application:passport:facebook:client-secret',
     message: 'Type your Facebook Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Facebook') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Facebook') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-twitter-client-id',
+    name: 'application:passport:twitter:client-id',
     message: 'Type your Twitter Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Twitter') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Twitter') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-twitter-client-secret',
+    name: 'application:passport:twitter:client-secret',
     message: 'Type your Twitter Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Twitter') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Twitter') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-yahoo-client-id',
+    name: 'application:passport:yahoo:client-id',
     message: 'Type your Yahoo Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Yahoo') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Yahoo') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-yahoo-client-secret',
+    name: 'application:passport:yahoo:client-secret',
     message: 'Type your Yahoo Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Yahoo') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Yahoo') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-google-client-id',
-    message: 'Type your Google Client ID',
+    name: 'application:passport:google-plus:client-id',
+    message: 'Type your Google Plus Client ID',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Google') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Google Plus') > -1;
     }
 }, {
     type: 'input',
-    name: 'application:passport-google-client-secret',
-    message: 'Type your Google Client Secret',
+    name: 'application:passport:google-plus:client-secret',
+    message: 'Type your Google Plus Client Secret',
     default: '-',
     when: function (answers) {
-        return answers['application:passport-enabled-strategies'].indexOf('Google') > -1;
+        return answers['application:passport:enabled-strategies'].indexOf('Google Plus') > -1;
     }
 }];
