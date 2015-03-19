@@ -19,7 +19,7 @@ module.exports.connections = {
         adapter: 'sails-postgresql',
         host: "<%= answers['database:host'] %>",
         port: 5432,
-        user: "<%= answers['database:user'] %>",
+        user: "<%= answers['database:username'] %>",
         password: "<%= answers['database:password'] %>",
         database: "<%= answers['database:name'] %>",
         pool: false,
@@ -34,7 +34,7 @@ module.exports.connections = {
         adapter: 'sails-mysql',
         host: "<%= answers['database:host'] %>",
         port: 3306,
-        user: "<%= answers['database:user'] %>",
+        user: "<%= answers['database:username'] %>",
         password: "<%= answers['database:password'] %>",
         database: "<%= answers['database:name'] %>",
         charset: 'utf8',
@@ -49,7 +49,7 @@ module.exports.connections = {
         adapter: 'sails-mongo',
         host: "<%= answers['database:host'] %>",
         port: 27017,
-        user: "<%= answers['database:user'] %>",
+        user: "<%= answers['database:username'] %>",
         password: "<%= answers['database:password'] %>",
         database: "<%= answers['database:name'] %>"
         //replSet: {
@@ -87,7 +87,7 @@ module.exports.connections = {
      */
     sqlserver: {
         adapter: 'sails-sqlserver',
-        user: "<%= answers['database:user'] %>",
+        user: "<%= answers['database:username'] %>",
         password: "<%= answers['database:password'] %>",
         host: "<%= answers['database:host'] %>",
         database: "<%= answers['database:name'] %>",
@@ -125,7 +125,7 @@ module.exports.connections = {
         database: {
             name: "<%= answers['database:name'] %>"
         },
-        username: "<%= answers['database:user'] %>",
+        username: "<%= answers['database:username'] %>",
         password: "<%= answers['database:password'] %>"
     }
 };

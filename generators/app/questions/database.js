@@ -25,7 +25,7 @@ module.exports = [{
     default: 'sails-rest-api'
 }, {
     type: 'input',
-    name: 'database:user',
+    name: 'database:username',
     message: 'Type your database username',
     default: ''
 }, {
