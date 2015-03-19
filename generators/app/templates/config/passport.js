@@ -103,8 +103,8 @@ passport.use(new LocalStrategy({
 
 passport.use(new JwtStrategy({
     secretOrKey: "<%= answers['application:jwt-secret'] %>",
-    tokenBodyField: 'jwt-token',
-    tokenHeader: 'JWT'
+    tokenBodyField: 'bearer-token',
+    tokenHeader: 'Bearer'
 }, _onJwtStrategyAuth));
 
 passport.use(new FacebookTokenStrategy({
