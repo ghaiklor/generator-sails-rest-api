@@ -15,6 +15,7 @@
 - Improvement: Move mocha options to `mocha.opts` files in `test` folder;
 - Improvement: Optimize `passport.js` configuration file;
 - Improvement: Move ping from Auth to `PingController`. Into this controller can be added more checks of server status;
+- Improvement: Add shortcut for Sails REPL in package, so you can call `npm run console` and you'll get REPL of sails app;
 - Typo: Rename `JWT` header auth to `Bearer`;
 - Typo: Remove auth by username. Local strategy works only with email now;
 - Typo: Rename `fix-deps` script to `check-deps`;
