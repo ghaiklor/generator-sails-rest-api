@@ -12,6 +12,9 @@
 - Improvement: Add bootstrap function and configure `npm test` command, so you have test coverage and running test cases;
 - Improvement: Rename all test cases to `*.test.js` files;
 - Improvement: Move mocha options to `mocha.opts` files in `test` folder;
+- Improvement: Optimize `passport.js` configuration file;
+- Typo: Rename `JWT` header auth to `Bearer`;
+- Typo: Remove auth by username. Local strategy works only with email now;
 - Typo: Rename `fix-deps` script to `check-deps`;
 - Typo: Remove warning when you set `skip-project-install` option;
 - Typo: Simplify end section in generator;
