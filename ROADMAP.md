@@ -21,6 +21,15 @@
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 
+## Version 0.7.0 (released)
+
+- [x] Expose `Class` to global scope. It's just wrapper for prototype extending;
+- [x] Add winston logger and possibility to log into files;
+- [x] Add more adapters to Sails app;
+- [x] Refactor questions list and make it more user-friendly;
+- [x] Add istanbul to app tests;
+- [x] Small optimizations and fixes;
+
 ## Version 0.6.0 (released)
 
 - [x] Improve stability (too much new features is appears in previous version);
