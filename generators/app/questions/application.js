@@ -12,7 +12,7 @@ module.exports = [{
     default: crypto.randomBytes(32).toString('hex')
 }, {
     type: 'input',
-    name: 'application:jwt-secret',
+    name: 'application:jwt-secret-key',
     message: 'Type your private key for JSON Web Token',
     default: crypto.randomBytes(32).toString('hex')
 }, {

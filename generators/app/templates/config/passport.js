@@ -108,7 +108,7 @@ passport.use(new LocalStrategy({
 }, _onLocalStrategyAuth));
 
 passport.use(new JwtStrategy({
-    secretOrKey: "<%= answers['application:jwt-secret'] %>",
+    secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
     tokenBodyField: 'bearer-token',
     tokenHeader: 'Bearer'
 }, _onJwtStrategyAuth));
