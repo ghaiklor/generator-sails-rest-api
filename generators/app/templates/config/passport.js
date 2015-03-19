@@ -72,15 +72,21 @@ function _onJwtStrategyAuth(payload, next) {
  */
 function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
+        // TODO: move to ComputedPropertyName ES6
+        var criteria = {};
+        criteria[strategyName + '.id'] = profile.id;
+
+        var model = {
+            username: profile.username || profile.displayName || '',
+            email: (profile.emails && profile.emails[0].value) || '',
+            firstName: (profile.name && profile.name.givenName) || '',
+            lastName: (profile.name && profile.name.familyName) || '',
+            photo: (profile.photos && profile.photos[0].value) || ''
+        };
+        model[strategyName] = profile._json;
+
         User
-            .findOrCreate({'facebook.id': profile.id}, {
-                username: profile.username || profile.displayName || '',
-                email: (profile.emails && profile.emails[0].value) || '',
-                firstName: (profile.name && profile.name.givenName) || '',
-                lastName: (profile.name && profile.name.familyName) || '',
-                photo: (profile.photos && profile.photos[0].value) || '',
-                facebook: profile._json
-            })
+            .findOrCreate(criteria, model)
             .exec(function (error, user) {
                 if (error) return next(error, false, {});
                 if (!user) return next(null, false, {
