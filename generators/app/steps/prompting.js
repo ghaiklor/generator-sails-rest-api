@@ -46,14 +46,6 @@ module.exports = {
     //    this.log(chalk.yellow('\nService questions:'));
     //    this.prompt(questions.services, _onSectionDone.bind(this, this.async()));
     //},
-    //
-    ///**
-    // * Ask miscellaneous questions
-    // */
-    //askMiscellaneousQuestions: function () {
-    //    this.log(chalk.yellow('\nMiscellaneous questions:'));
-    //    this.prompt(questions.miscellaneous, _onSectionDone.bind(this, this.async()));
-    //},
 
     /**
      * Print generated answers object if in verbose mode
