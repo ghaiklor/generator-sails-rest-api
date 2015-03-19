@@ -18,6 +18,5 @@
 module.exports = {
     application: require('./application'),
     database: require('./database'),
-    miscellaneous: require('./miscellaneous'),
     services: require('./services')
 };
