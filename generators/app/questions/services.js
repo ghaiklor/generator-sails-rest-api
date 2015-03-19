@@ -4,10 +4,10 @@ module.exports = [{
     message: 'Choose which Cipher services you want',
     default: [],
     choices: [{
-        name: 'bcrypt',
+        name: 'BCrypt',
         checked: true
     }, {
-        name: 'jwt',
+        name: 'JWT',
         checked: true
     }]
 }, {
