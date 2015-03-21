@@ -19,10 +19,10 @@ var passport = require('passport'),
  * @private
  */
 var SOCIAL_STRATEGY_CONFIG = {
-    clientID: "-",
-    clientSecret: "-",
-    consumerKey: "-",
-    consumerSecret: "-",
+    clientID: '-',
+    clientSecret: '-',
+    consumerKey: '-',
+    consumerSecret: '-',
     passReqToCallback: true
 };
 
@@ -118,7 +118,7 @@ passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password
 passport.use(new JwtStrategy({
     secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
     tokenBodyField: 'bearer-token',
-    tokenHeader: 'Bearer'
+    authScheme: 'Bearer'
 }, _onJwtStrategyAuth));
 passport.use(new FacebookTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
 passport.use(new TwitterTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
