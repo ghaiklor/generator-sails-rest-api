@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Remove questions about passport strategies and credentials (it works without them);
+
 ## Version 0.7.0
 
 - Improvement: Add wrapper for prototype extending to services;
