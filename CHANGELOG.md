@@ -3,6 +3,10 @@
 ## Edge version
 
 - Improvement: Remove questions about passport strategies and credentials (it works without them);
+- Improvement: Remove partial application from passport verify methods;
+- Improvement: Add `req` to each verify method in passport;
+- Improvement: Move configuration objects for passport to separate object (small refactoring);
+- Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
 
 ## Version 0.7.0
 
