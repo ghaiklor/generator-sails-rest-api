@@ -14,6 +14,17 @@ var passport = require('passport'),
 // TODO: make this more stable and properly parse profile data
 
 /**
+ * Configuration object for JWT strategy
+ * @type {Object}
+ * @private
+ */
+var JWT_STRATEGY_CONFIG = {
+    secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
+    tokenBodyField: 'bearer-token',
+    authScheme: 'Bearer'
+};
+
+/**
  * Configuration object for social strategies
  * @type {Object}
  * @private
@@ -115,11 +126,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
 }
 
 passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password'}, _onLocalStrategyAuth));
-passport.use(new JwtStrategy({
-    secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
-    tokenBodyField: 'bearer-token',
-    authScheme: 'Bearer'
-}, _onJwtStrategyAuth));
+passport.use(new JwtStrategy(JWT_STRATEGY_CONFIG, _onJwtStrategyAuth));
 passport.use(new FacebookTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
 passport.use(new TwitterTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
 passport.use(new YahooTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
