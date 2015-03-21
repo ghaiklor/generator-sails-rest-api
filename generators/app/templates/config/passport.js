@@ -20,7 +20,8 @@ var passport = require('passport'),
  */
 var LOCAL_STRATEGY_CONFIG = {
     usernameField: 'email',
-    passwordField: 'password'
+    passwordField: 'password',
+    passReqToCallback: true
 };
 
 /**
@@ -49,12 +50,13 @@ var SOCIAL_STRATEGY_CONFIG = {
 
 /**
  * Triggers when user authenticates via local strategy
+ * @param {Object} req Request object
  * @param {String} email Email from body field in request
  * @param {String} password Password from body field in request
  * @param {Function} next Callback
  * @private
  */
-function _onLocalStrategyAuth(email, password, next) {
+function _onLocalStrategyAuth(req, email, password, next) {
     User
         .findOne({email: email})
         .exec(function (error, user) {
