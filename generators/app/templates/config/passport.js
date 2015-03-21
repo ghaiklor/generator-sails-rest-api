@@ -14,6 +14,19 @@ var passport = require('passport'),
 // TODO: make this more stable and properly parse profile data
 
 /**
+ * Configuration object for social strategies
+ * @type {Object}
+ * @private
+ */
+var SOCIAL_STRATEGY_CONFIG = {
+    clientID: "-",
+    clientSecret: "-",
+    consumerKey: "-",
+    consumerSecret: "-",
+    passReqToCallback: true
+};
+
+/**
  * Triggers when user authenticates via local strategy
  * @param {String} email Email from body field in request
  * @param {String} password Password from body field in request
@@ -101,37 +114,13 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
     }
 }
 
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password'
-}, _onLocalStrategyAuth));
-
+passport.use(new LocalStrategy({usernameField: 'email', passwordField: 'password'}, _onLocalStrategyAuth));
 passport.use(new JwtStrategy({
     secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
     tokenBodyField: 'bearer-token',
     tokenHeader: 'Bearer'
 }, _onJwtStrategyAuth));
-
-passport.use(new FacebookTokenStrategy({
-    clientID: "-",
-    clientSecret: "-",
-    passReqToCallback: true
-}, _onSocialStrategyAuth));
-
-passport.use(new TwitterTokenStrategy({
-    consumerKey: "-",
-    consumerSecret: "-",
-    passReqToCallback: true
-}, _onSocialStrategyAuth));
-
-passport.use(new YahooTokenStrategy({
-    clientID: "-",
-    clientSecret: "-",
-    passReqToCallback: true
-}, _onSocialStrategyAuth));
-
-passport.use(new GooglePlusTokenStrategy({
-    clientID: "-",
-    clientSecret: "-",
-    passReqToCallback: true
-}, _onSocialStrategyAuth));
+passport.use(new FacebookTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new TwitterTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new YahooTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new GooglePlusTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
