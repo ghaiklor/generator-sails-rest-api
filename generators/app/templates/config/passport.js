@@ -31,8 +31,9 @@ var LOCAL_STRATEGY_CONFIG = {
  */
 var JWT_STRATEGY_CONFIG = {
     secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
-    tokenBodyField: 'bearer-token',
-    authScheme: 'Bearer'
+    tokenBodyField: 'access_token',
+    authScheme: 'Bearer',
+    passReqToCallback: true
 };
 
 /**
@@ -78,11 +79,12 @@ function _onLocalStrategyAuth(req, email, password, next) {
 
 /**
  * Triggers when user authenticates via JWT strategy
+ * @param {Object} req Request object
  * @param {Object} payload Decoded payload from JWT
  * @param {Function} next Callback
  * @private
  */
-function _onJwtStrategyAuth(payload, next) {
+function _onJwtStrategyAuth(req, payload, next) {
     User
         .findOne({id: payload.id})
         .exec(function (error, user) {
