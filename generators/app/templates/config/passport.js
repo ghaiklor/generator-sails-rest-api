@@ -62,7 +62,6 @@ function _onJwtStrategyAuth(payload, next) {
 
 /**
  * Triggers when user authenticates via one of social strategies
- * @param {String} strategyName What strategy was used?
  * @param {Object} req Request object
  * @param {String} accessToken Access token from social network
  * @param {String} refreshToken Refresh token from social network
@@ -70,11 +69,11 @@ function _onJwtStrategyAuth(payload, next) {
  * @param {Function} next Callback
  * @private
  */
-function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, profile, next) {
+function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
     if (!req.user) {
         // TODO: move to ComputedPropertyName ES6
         var criteria = {};
-        criteria[strategyName + '.id'] = profile.id;
+        criteria[profile.provider + '.id'] = profile.id;
 
         var model = {
             username: profile.username || profile.displayName || '',
@@ -83,7 +82,7 @@ function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, pro
             lastName: (profile.name && profile.name.familyName) || '',
             photo: (profile.photos && profile.photos[0].value) || ''
         };
-        model[strategyName] = profile._json;
+        model[profile.provider] = profile._json;
 
         User
             .findOrCreate(criteria, model)
@@ -91,13 +90,13 @@ function _onSocialStrategyAuth(strategyName, req, accessToken, refreshToken, pro
                 if (error) return next(error, false, {});
                 if (!user) return next(null, false, {
                     code: 'E_AUTH_FAILED',
-                    message: [strategyName.charAt(0).toUpperCase(), strategyName.slice(1), ' auth failed'].join('')
+                    message: [profile.provider.charAt(0).toUpperCase(), profile.provider.slice(1), ' auth failed'].join('')
                 });
 
                 return next(null, user, {});
             });
     } else {
-        req.user[strategyName] = profile._json;
+        req.user[profile.provider] = profile._json;
         req.user.save(next);
     }
 }
@@ -117,22 +116,22 @@ passport.use(new FacebookTokenStrategy({
     clientID: "-",
     clientSecret: "-",
     passReqToCallback: true
-}, _onSocialStrategyAuth.bind(this, 'facebook')));
+}, _onSocialStrategyAuth));
 
 passport.use(new TwitterTokenStrategy({
     consumerKey: "-",
     consumerSecret: "-",
     passReqToCallback: true
-}, _onSocialStrategyAuth.bind(this, 'twitter')));
+}, _onSocialStrategyAuth));
 
 passport.use(new YahooTokenStrategy({
     clientID: "-",
     clientSecret: "-",
     passReqToCallback: true
-}, _onSocialStrategyAuth.bind(this, 'yahoo')));
+}, _onSocialStrategyAuth));
 
 passport.use(new GooglePlusTokenStrategy({
     clientID: "-",
     clientSecret: "-",
     passReqToCallback: true
-}, _onSocialStrategyAuth.bind(this, 'google')));
+}, _onSocialStrategyAuth));
