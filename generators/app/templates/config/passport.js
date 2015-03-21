@@ -123,6 +123,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
         model[profile.provider] = profile._json;
 
         User
+            // TODO: check if criteria is working
             .findOrCreate(criteria, model)
             .exec(function (error, user) {
                 if (error) return next(error, false, {});
