@@ -8,14 +8,14 @@
  */
 
 module.exports = function (data, code, message, root) {
-    var response = _.assign({
-        code: code || 'CREATED',
-        message: message || 'The request has been fulfilled and resulted in a new resource being created',
-        response: data || {}
-    }, root);
+  var response = _.assign({
+    code: code || 'CREATED',
+    message: message || 'The request has been fulfilled and resulted in a new resource being created',
+    response: data || {}
+  }, root);
 
-    this.req._sails.log.silly('Sent (201 CREATED)\n', response);
+  this.req._sails.log.silly('Sent (201 CREATED)\n', response);
 
-    this.res.status(201);
-    this.res.jsonx(response);
+  this.res.status(201);
+  this.res.jsonx(response);
 };
