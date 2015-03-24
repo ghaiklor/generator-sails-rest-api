@@ -4,77 +4,71 @@
  */
 
 module.exports = {
-    schema: true,
+  schema: true,
 
-    attributes: {
-        username: {
-            type: 'string'
-        },
-
-        password: {
-            type: 'string'
-        },
-
-        email: {
-            type: 'string',
-            notEmpty: true,
-            email: true,
-            unique: true
-        },
-
-        firstName: {
-            type: 'string',
-            defaultsTo: ''
-        },
-
-        lastName: {
-            type: 'string',
-            defaultsTo: ''
-        },
-
-        photo: {
-            type: 'url',
-            defaultsTo: ''
-        },
-
-        facebook: {
-            type: 'object'
-        },
-
-        twitter: {
-            type: 'object'
-        },
-
-        yahoo: {
-            type: 'object'
-        },
-
-        google: {
-            type: 'object'
-        },
-
-        toJSON: function () {
-            var obj = this.toObject();
-
-            delete obj.password;
-
-            return obj;
-        }
+  attributes: {
+    username: {
+      type: 'string'
     },
 
-    beforeUpdate: function (values, next) {
-        if (values.password) {
-            values.password = CipherService.create('bcrypt', values.password).hashSync();
-        }
-
-        next();
+    password: {
+      type: 'string'
     },
 
-    beforeCreate: function (values, next) {
-        if (values.password) {
-            values.password = CipherService.create('bcrypt', values.password).hashSync();
-        }
+    email: {
+      type: 'string',
+      notEmpty: true,
+      email: true,
+      unique: true
+    },
 
-        next();
+    firstName: {
+      type: 'string',
+      defaultsTo: ''
+    },
+
+    lastName: {
+      type: 'string',
+      defaultsTo: ''
+    },
+
+    photo: {
+      type: 'url',
+      defaultsTo: ''
+    },
+
+    facebook: {
+      type: 'object'
+    },
+
+    twitter: {
+      type: 'object'
+    },
+
+    yahoo: {
+      type: 'object'
+    },
+
+    google: {
+      type: 'object'
+    },
+
+    toJSON: function () {
+      var obj = this.toObject();
+
+      delete obj.password;
+
+      return obj;
     }
+  },
+
+  beforeUpdate: function (values, next) {
+    if (values.password) values.password = CipherService.create('bcrypt', values.password).hashSync();
+    next();
+  },
+
+  beforeCreate: function (values, next) {
+    if (values.password) values.password = CipherService.create('bcrypt', values.password).hashSync();
+    next();
+  }
 };
