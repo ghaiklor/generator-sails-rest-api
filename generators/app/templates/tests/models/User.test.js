@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    UserModel = require('../../api/models/User');
+var assert = require('assert');
+var UserModel = require('../../api/models/User');
 
 describe("models:User", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });

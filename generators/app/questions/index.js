@@ -16,7 +16,7 @@
  */
 
 module.exports = {
-    application: require('./application'),
-    database: require('./database'),
-    services: require('./services')
+  application: require('./application'),
+  database: require('./database'),
+  services: require('./services')
 };

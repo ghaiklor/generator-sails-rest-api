@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    created = require('../../api/responses/created');
+var assert = require('assert');
+var created = require('../../api/responses/created');
 
 describe("responses:created", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });

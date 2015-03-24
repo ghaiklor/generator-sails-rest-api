@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    badRequest = require('../../api/responses/badRequest');
+var assert = require('assert');
+var badRequest = require('../../api/responses/badRequest');
 
 describe("responses:badRequest", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });

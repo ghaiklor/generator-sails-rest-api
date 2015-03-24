@@ -3,5 +3,5 @@
  */
 
 module.exports = {
-    assign: require('./assign')
+  assign: require('./assign')
 };

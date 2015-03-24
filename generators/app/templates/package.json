@@ -1,24 +1,24 @@
 {
-    "name": "<%= answers['application:name'] %>",
-    "private": true,
-    "version": "0.1.0",
-    "main": "app.js",
-    "dependencies": {},
-    "devDependencies": {
-        "chalk": "^1.0.0",
-        "dependency-check": "^2.2.2",
-        "istanbul": "^0.3.7",
-        "mocha": "^2.2.1",
-        "npm-check": "^3.2.7",
-        "print-message": "^1.2.1",
-        "recursive-readdir": "^1.2.1"
-    },
-    "scripts": {
-        "start": "node app.js",
-        "debug": "node debug app.js",
-        "test": "istanbul cover _mocha ./tests/**/*.test.js",
-        "console": "sails console",
-        "check-updates": "node ./tools/check-updates.js",
-        "check-deps": "node ./tools/check-deps.js"
-    }
+  "name": "<%= answers['application:name'] %>",
+  "private": true,
+  "version": "0.1.0",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chalk": "^1.0.0",
+    "dependency-check": "^2.2.2",
+    "istanbul": "^0.3.7",
+    "mocha": "^2.2.1",
+    "npm-check": "^3.2.7",
+    "print-message": "^1.2.1",
+    "recursive-readdir": "^1.2.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node debug app.js",
+    "test": "istanbul cover _mocha ./tests/**/*.test.js",
+    "console": "sails console",
+    "check-updates": "node ./tools/check-updates.js",
+    "check-deps": "node ./tools/check-deps.js"
+  }
 }

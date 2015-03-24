@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    forbidden = require('../../api/responses/forbidden');
+var assert = require('assert');
+var forbidden = require('../../api/responses/forbidden');
 
 describe("responses:forbidden", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });

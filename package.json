@@ -1,46 +1,46 @@
 {
-    "name": "generator-sails-rest-api",
-    "version": "0.7.0",
-    "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.",
-    "keywords": [
-        "yeoman-generator",
-        "sails",
-        "boilerplate",
-        "scaffolder",
-        "rest",
-        "api",
-        "yeoman",
-        "generator"
-    ],
-    "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
-    "bugs": {
-        "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues",
-        "email": "ghaiklor@gmail.com"
-    },
-    "license": "GPL-3.0",
-    "author": {
-        "name": "Eugene Obrezkov",
-        "email": "ghaiklor@gmail.com",
-        "url": "https://www.facebook.com/ghaiklor"
-    },
-    "contributors": [],
-    "main": "generators/app/index.js",
-    "scripts": {
-        "test": "istanbul cover _mocha -- --recursive --reporter spec"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
-    },
-    "dependencies": {
-        "chalk": "^1.0.0",
-        "print-message": "^1.3.0",
-        "update-notifier": "^0.3.1",
-        "yeoman-generator": "^0.18.10",
-        "yosay": "^1.0.3"
-    },
-    "devDependencies": {
-        "istanbul": "^0.3.7",
-        "mocha": "^2.2.1"
-    }
+  "name": "generator-sails-rest-api",
+  "version": "0.7.0",
+  "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.",
+  "keywords": [
+    "yeoman-generator",
+    "sails",
+    "boilerplate",
+    "scaffolder",
+    "rest",
+    "api",
+    "yeoman",
+    "generator"
+  ],
+  "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
+  "bugs": {
+    "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues",
+    "email": "ghaiklor@gmail.com"
+  },
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Eugene Obrezkov",
+    "email": "ghaiklor@gmail.com",
+    "url": "https://www.facebook.com/ghaiklor"
+  },
+  "contributors": [],
+  "main": "generators/app/index.js",
+  "scripts": {
+    "test": "istanbul cover _mocha -- --recursive --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
+  },
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "print-message": "^1.3.0",
+    "update-notifier": "^0.3.1",
+    "yeoman-generator": "^0.18.10",
+    "yosay": "^1.0.3"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.7",
+    "mocha": "^2.2.1"
+  }
 }

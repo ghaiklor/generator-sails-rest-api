@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    ok = require('../../api/responses/ok');
+var assert = require('assert');
+var ok = require('../../api/responses/ok');
 
 describe("responses:ok", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });

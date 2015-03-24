@@ -1,8 +1,8 @@
-var assert = require('assert'),
-    serverError = require('../../api/responses/serverError');
+var assert = require('assert');
+var serverError = require('../../api/responses/serverError');
 
 describe("responses:serverError", function () {
-    it("TODO: write this test", function () {
-        assert(true);
-    });
+  it("TODO: write this test", function () {
+    assert(true);
+  });
 });
