@@ -1,7 +1,7 @@
-var util = require('util'),
-    Q = require('q'),
-    jwt = require('jsonwebtoken'),
-    BaseCipher = require('./BaseCipher');
+var util = require('util');
+var Q = require('q');
+var jwt = require('jsonwebtoken');
+var BaseCipher = require('./BaseCipher');
 
 /**
  * Secret key for symmetric encoding
@@ -31,8 +31,8 @@ util.inherits(JwtCipher, BaseCipher);
  * @constructor
  */
 function JwtCipher() {
-    // TODO: think about token and payload attributes in object
-    BaseCipher.apply(this, arguments);
+  // TODO: think about token and payload attributes in object
+  BaseCipher.apply(this, arguments);
 }
 
 /**
@@ -40,10 +40,10 @@ function JwtCipher() {
  * @returns {String} Returns JSON Web Token in string format
  */
 JwtCipher.prototype.hashSync = function () {
-    return jwt.sign(this.getContent(), SECRET_KEY, {
-        algorithm: ALGORITHM,
-        expiresInMinutes: EXPIRES
-    });
+  return jwt.sign(this.getContent(), SECRET_KEY, {
+    algorithm: ALGORITHM,
+    expiresInMinutes: EXPIRES
+  });
 };
 
 /**
@@ -51,17 +51,17 @@ JwtCipher.prototype.hashSync = function () {
  * @returns {Promise}
  */
 JwtCipher.prototype.verify = function () {
-    var defer = Q.defer();
+  var defer = Q.defer();
 
-    jwt.verify(this.getContent(), SECRET_KEY, function (error, decoded) {
-        if (error) {
-            defer.reject(error);
-        } else {
-            defer.resolve(decoded);
-        }
-    });
+  jwt.verify(this.getContent(), SECRET_KEY, function (error, decoded) {
+    if (error) {
+      defer.reject(error);
+    } else {
+      defer.resolve(decoded);
+    }
+  });
 
-    return defer.promise;
+  return defer.promise;
 };
 
 /**
@@ -69,7 +69,7 @@ JwtCipher.prototype.verify = function () {
  * @returns {Object}
  */
 JwtCipher.prototype.decodeSync = function () {
-    return jwt.decode(this.getContent());
+  return jwt.decode(this.getContent());
 };
 
 module.exports = JwtCipher;

@@ -1,7 +1,7 @@
-var util = require('util'),
-    Q = require('q'),
-    bcrypt = require('bcrypt'),
-    BaseCipher = require('./BaseCipher');
+var util = require('util');
+var Q = require('q');
+var bcrypt = require('bcrypt');
+var BaseCipher = require('./BaseCipher');
 
 /**
  * Default salt length
@@ -17,7 +17,7 @@ util.inherits(BCryptCipher, BaseCipher);
  * @constructor
  */
 function BCryptCipher(content) {
-    BaseCipher.apply(this, arguments);
+  BaseCipher.apply(this, arguments);
 }
 
 /**
@@ -26,17 +26,17 @@ function BCryptCipher(content) {
  * @returns {Promise}
  */
 BCryptCipher.prototype.hash = function (salt) {
-    var defer = Q.defer();
+  var defer = Q.defer();
 
-    bcrypt.hash(this.getContent(), salt || DEFAULT_SALT_LENGTH, function (error, hash) {
-        if (error) {
-            defer.reject(error);
-        } else {
-            defer.resolve(hash);
-        }
-    });
+  bcrypt.hash(this.getContent(), salt || DEFAULT_SALT_LENGTH, function (error, hash) {
+    if (error) {
+      defer.reject(error);
+    } else {
+      defer.resolve(hash);
+    }
+  });
 
-    return defer.promise;
+  return defer.promise;
 };
 
 /**
@@ -45,7 +45,7 @@ BCryptCipher.prototype.hash = function (salt) {
  * @returns {String} Returns hashed data
  */
 BCryptCipher.prototype.hashSync = function (salt) {
-    return bcrypt.hashSync(this.getContent(), salt || DEFAULT_SALT_LENGTH);
+  return bcrypt.hashSync(this.getContent(), salt || DEFAULT_SALT_LENGTH);
 };
 
 /**
@@ -54,17 +54,17 @@ BCryptCipher.prototype.hashSync = function (salt) {
  * @returns {Promise}
  */
 BCryptCipher.prototype.compare = function (data) {
-    var defer = Q.defer();
+  var defer = Q.defer();
 
-    bcrypt.compare(data, this.getContent(), function (error, equal) {
-        if (error) {
-            defer.reject(error);
-        } else {
-            defer.resolve(equal);
-        }
-    });
+  bcrypt.compare(data, this.getContent(), function (error, equal) {
+    if (error) {
+      defer.reject(error);
+    } else {
+      defer.resolve(equal);
+    }
+  });
 
-    return defer.promise;
+  return defer.promise;
 };
 
 /**
@@ -73,7 +73,7 @@ BCryptCipher.prototype.compare = function (data) {
  * @returns {Boolean} Returns true if equal
  */
 BCryptCipher.prototype.compareSync = function (data) {
-    return bcrypt.compareSync(data, this.getContent());
+  return bcrypt.compareSync(data, this.getContent());
 };
 
 module.exports = BCryptCipher;

@@ -13,19 +13,19 @@ function BaseStorage() {
 }
 
 BaseStorage.prototype = Object.create({
-    constructor: BaseStorage,
+  constructor: BaseStorage,
 
-    upload: function () {
-        throw new Error(IMPLEMENT_MESSAGE);
-    },
+  upload: function () {
+    throw new Error(IMPLEMENT_MESSAGE);
+  },
 
-    get: function () {
-        throw new Error(IMPLEMENT_MESSAGE);
-    },
+  get: function () {
+    throw new Error(IMPLEMENT_MESSAGE);
+  },
 
-    remove: function () {
-        throw new Error(IMPLEMENT_MESSAGE);
-    }
+  remove: function () {
+    throw new Error(IMPLEMENT_MESSAGE);
+  }
 });
 
 module.exports = BaseStorage;

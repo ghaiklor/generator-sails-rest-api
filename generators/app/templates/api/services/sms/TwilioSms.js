@@ -1,7 +1,7 @@
-var Q = require('q'),
-    util = require('util'),
-    twilio = require('twilio'),
-    BaseSms = require('./BaseSms');
+var Q = require('q');
+var util = require('util');
+var twilio = require('twilio');
+var BaseSms = require('./BaseSms');
 
 util.inherits(TwilioSms, BaseSms);
 
@@ -10,15 +10,15 @@ util.inherits(TwilioSms, BaseSms);
  * @constructor
  */
 function TwilioSms(options) {
-    BaseSms.apply(this, arguments);
+  BaseSms.apply(this, arguments);
 
-    if (!(options.accountSid || options.authToken)) {
-        throw new Error('You must provide accountSid and authToken');
-    }
+  if (!(options.accountSid || options.authToken)) {
+    throw new Error('You must provide accountSid and authToken');
+  }
 
-    this.setAccountSid(options.accountSid);
-    this.setAuthToken(options.authToken);
-    this._createClient();
+  this.setAccountSid(options.accountSid);
+  this.setAuthToken(options.authToken);
+  this._createClient();
 }
 
 /**
@@ -26,21 +26,21 @@ function TwilioSms(options) {
  * @returns {Promise}
  */
 TwilioSms.prototype.send = function () {
-    var defer = Q.defer();
+  var defer = Q.defer();
 
-    this._getClient().messages.create({
-        from: this.getSender(),
-        to: this.getRecipient(),
-        body: this.getMessage()
-    }, function (error, message) {
-        if (error) {
-            defer.reject(error);
-        } else {
-            defer.resolve(message);
-        }
-    });
+  this._getClient().messages.create({
+    from: this.getSender(),
+    to: this.getRecipient(),
+    body: this.getMessage()
+  }, function (error, message) {
+    if (error) {
+      defer.reject(error);
+    } else {
+      defer.resolve(message);
+    }
+  });
 
-    return defer.promise;
+  return defer.promise;
 };
 
 /**
@@ -49,7 +49,7 @@ TwilioSms.prototype.send = function () {
  * @private
  */
 TwilioSms.prototype._getClient = function () {
-    return this._client;
+  return this._client;
 };
 
 /**
@@ -58,8 +58,8 @@ TwilioSms.prototype._getClient = function () {
  * @private
  */
 TwilioSms.prototype._createClient = function () {
-    this._client = twilio(this.getAccountSid(), this.getAuthToken());
-    return this;
+  this._client = twilio(this.getAccountSid(), this.getAuthToken());
+  return this;
 };
 
 /**
@@ -67,7 +67,7 @@ TwilioSms.prototype._createClient = function () {
  * @returns {String}
  */
 TwilioSms.prototype.getAuthToken = function () {
-    return this.authToken;
+  return this.authToken;
 };
 
 /**
@@ -76,8 +76,8 @@ TwilioSms.prototype.getAuthToken = function () {
  * @returns {TwilioSms}
  */
 TwilioSms.prototype.setAuthToken = function (token) {
-    this.authToken = token;
-    return this;
+  this.authToken = token;
+  return this;
 };
 
 /**
@@ -85,7 +85,7 @@ TwilioSms.prototype.setAuthToken = function (token) {
  * @returns {String}
  */
 TwilioSms.prototype.getAccountSid = function () {
-    return this.accountSid;
+  return this.accountSid;
 };
 
 /**
@@ -94,8 +94,8 @@ TwilioSms.prototype.getAccountSid = function () {
  * @returns {TwilioSms}
  */
 TwilioSms.prototype.setAccountSid = function (sid) {
-    this.accountSid = sid;
-    return this;
+  this.accountSid = sid;
+  return this;
 };
 
 module.exports = TwilioSms;

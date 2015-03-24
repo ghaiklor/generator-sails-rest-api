@@ -1,7 +1,7 @@
-var apn = require('apn'),
-    extend = require('node.extend'),
-    util = require('util'),
-    BasePushNotification = require('./BasePushNotification');
+var apn = require('apn');
+var extend = require('node.extend');
+var util = require('util');
+var BasePushNotification = require('./BasePushNotification');
 //connection = new apn.Connection({
 //    cert: '',
 //    key: ''
@@ -16,22 +16,22 @@ util.inherits(APNPushNotification, BasePushNotification);
  * @constructor
  */
 function APNPushNotification(options) {
-    BasePushNotification.apply(this, arguments);
+  BasePushNotification.apply(this, arguments);
 
-    options = extend(true, {}, {
-        device: '',
-        notification: {
-            aps: {
-                alert: "\uD83D\uDCE7 \u2709 You have a new message from Hitch Radio",
-                sound: 'ping.aiff',
-                badge: 1
-            },
-            payload: {}
-        }
-    }, options);
+  options = extend(true, {}, {
+    device: '',
+    notification: {
+      aps: {
+        alert: "\uD83D\uDCE7 \u2709 You have a new message from Hitch Radio",
+        sound: 'ping.aiff',
+        badge: 1
+      },
+      payload: {}
+    }
+  }, options);
 
-    this.device = new apn.Device(options.device);
-    this.notification = new apn.Notification(options.notification);
+  this.device = new apn.Device(options.device);
+  this.notification = new apn.Notification(options.notification);
 }
 
 /**
@@ -39,8 +39,8 @@ function APNPushNotification(options) {
  * @returns {APNPushNotification}
  */
 APNPushNotification.prototype.send = function () {
-    connection.pushNotification(this.notification, this.device);
-    return this;
+  connection.pushNotification(this.notification, this.device);
+  return this;
 };
 
 module.exports = APNPushNotification;
