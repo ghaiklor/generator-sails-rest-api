@@ -4,11 +4,11 @@
  */
 
 module.exports = {
-    /**
-     * Server ping
-     * Useful when need to check if it's server is down or it some logic is broken
-     */
-    index: function (req, res) {
-        res.ok(null, null, 'Pong');
-    }
+  /**
+   * Server ping
+   * Useful when need to check if it's server is down or it some logic is broken
+   */
+  index: function (req, res) {
+    res.ok(null, null, 'Pong');
+  }
 };
