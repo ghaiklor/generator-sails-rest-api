@@ -8,15 +8,15 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  */
 
 module.exports = function (req, res) {
-    var Model = actionUtil.parseModel(req),
-        pk = actionUtil.requirePk(req),
-        query = Model.findOne(pk);
+  var Model = actionUtil.parseModel(req);
+  var pk = actionUtil.requirePk(req);
+  var query = Model.findOne(pk);
 
-    query = actionUtil.populateEach(query, req);
-    query.exec(function (error, record) {
-        if (error) return res.serverError(error);
-        if (!record) return res.notFound();
+  query = actionUtil.populateEach(query, req);
+  query.exec(function (error, record) {
+    if (error) return res.serverError(error);
+    if (!record) return res.notFound();
 
-        return res.ok(record);
-    });
+    return res.ok(record);
+  });
 };
