@@ -10,65 +10,65 @@
  */
 
 module.exports.blueprints = {
-    /**
-     * When enabled, GET, POST, PUT and DELETE routes will be generated for everyone of a controller's actions
-     * @type {Boolean}
-     */
-    actions: true,
+  /**
+   * When enabled, GET, POST, PUT and DELETE routes will be generated for everyone of a controller's actions
+   * @type {Boolean}
+   */
+  actions: true,
 
-    /**
-     * When enabled, `index` action will be default action
-     * @type {Boolean}
-     */
-    index: true,
+  /**
+   * When enabled, `index` action will be default action
+   * @type {Boolean}
+   */
+  index: true,
 
-    /**
-     * REST blueprints are the automatically generated routes Sails uses to expose a conventional REST API
-     * on top of a controller's `find`, `findOne`, `create`, `update`, and `destroy` actions
-     * @type {Boolean}
-     */
-    rest: true,
+  /**
+   * REST blueprints are the automatically generated routes Sails uses to expose a conventional REST API
+   * on top of a controller's `find`, `findOne`, `create`, `update`, and `destroy` actions
+   * @type {Boolean}
+   */
+  rest: true,
 
-    /**
-     * Shortcut routes are simple helpers to provide access to a controller's CRUD methods from your browser's URL bar
-     * @type {Boolean}
-     */
-    shortcuts: false,
+  /**
+   * Shortcut routes are simple helpers to provide access to a controller's CRUD methods from your browser's URL bar
+   * @type {Boolean}
+   */
+  shortcuts: false,
 
-    /**
-     * An optional mount path for all blueprint routes on a controller, including `rest`, `actions`, and `shortcuts`
-     * @type {String}
-     */
-    prefix: '/v1',
+  /**
+   * An optional mount path for all blueprint routes on a controller, including `rest`, `actions`, and `shortcuts`
+   * @type {String}
+   */
+  prefix: '/v1',
 
-    /**
-     * An optional mount path for all blueprint routes on a controller, including only `rest`
-     * @type {String}
-     */
-    restPrefix: '',
+  /**
+   * An optional mount path for all blueprint routes on a controller, including only `rest`
+   * @type {String}
+   */
+  restPrefix: '',
 
-    /**
-     * Whether to pluralize controller names in blueprint routes
-     * @type {Boolean}
-     */
-    pluralize: false,
+  /**
+   * Whether to pluralize controller names in blueprint routes
+   * @type {Boolean}
+   */
+  pluralize: false,
 
-    /**
-     * Whether the blueprint controllers should populate model fetches with data
-     * from other models which are linked by associations
-     * @type {Boolean}
-     */
-    populate: true,
+  /**
+   * Whether the blueprint controllers should populate model fetches with data
+   * from other models which are linked by associations
+   * @type {Boolean}
+   */
+  populate: true,
 
-    /**
-     * Whether to run Model.watch() in the find and findOne blueprint actions
-     * @type {Boolean}
-     */
-    autoWatch: false,
+  /**
+   * Whether to run Model.watch() in the find and findOne blueprint actions
+   * @type {Boolean}
+   */
+  autoWatch: false,
 
-    /**
-     * The default number of records to show in the response from a "find" action
-     * @type {Number}
-     */
-    defaultLimit: 5
+  /**
+   * The default number of records to show in the response from a "find" action
+   * @type {Number}
+   */
+  defaultLimit: 5
 };

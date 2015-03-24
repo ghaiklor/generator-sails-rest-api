@@ -3,13 +3,13 @@
  * @description :: Configuration file where you configure your passport authentication
  */
 
-var passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
-    JwtStrategy = require('passport-jwt').Strategy,
-    FacebookTokenStrategy = require('passport-facebook-token').Strategy,
-    TwitterTokenStrategy = require('passport-twitter-token').Strategy,
-    YahooTokenStrategy = require('passport-yahoo-token').Strategy,
-    GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var JwtStrategy = require('passport-jwt').Strategy;
+var FacebookTokenStrategy = require('passport-facebook-token').Strategy;
+var TwitterTokenStrategy = require('passport-twitter-token').Strategy;
+var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
+var GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
 
 // TODO: make this more stable and properly parse profile data
 
@@ -19,9 +19,9 @@ var passport = require('passport'),
  * @private
  */
 var LOCAL_STRATEGY_CONFIG = {
-    usernameField: 'email',
-    passwordField: 'password',
-    passReqToCallback: true
+  usernameField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true
 };
 
 /**
@@ -30,10 +30,10 @@ var LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 var JWT_STRATEGY_CONFIG = {
-    secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
-    tokenBodyField: 'access_token',
-    authScheme: 'Bearer',
-    passReqToCallback: true
+  secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
+  tokenBodyField: 'access_token',
+  authScheme: 'Bearer',
+  passReqToCallback: true
 };
 
 /**
@@ -42,11 +42,11 @@ var JWT_STRATEGY_CONFIG = {
  * @private
  */
 var SOCIAL_STRATEGY_CONFIG = {
-    clientID: '-',
-    clientSecret: '-',
-    consumerKey: '-',
-    consumerSecret: '-',
-    passReqToCallback: true
+  clientID: '-',
+  clientSecret: '-',
+  consumerKey: '-',
+  consumerSecret: '-',
+  passReqToCallback: true
 };
 
 /**
@@ -58,23 +58,23 @@ var SOCIAL_STRATEGY_CONFIG = {
  * @private
  */
 function _onLocalStrategyAuth(req, email, password, next) {
-    User
-        .findOne({email: email})
-        .exec(function (error, user) {
-            if (error) return next(error, false, {});
+  User
+    .findOne({email: email})
+    .exec(function (error, user) {
+      if (error) return next(error, false, {});
 
-            if (!user) return next(null, false, {
-                code: 'E_USER_NOT_FOUND',
-                message: email + ' is not found'
-            });
+      if (!user) return next(null, false, {
+        code: 'E_USER_NOT_FOUND',
+        message: email + ' is not found'
+      });
 
-            if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
-                code: 'E_WRONG_PASSWORD',
-                message: 'Password is wrong'
-            });
+      if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
+        code: 'E_WRONG_PASSWORD',
+        message: 'Password is wrong'
+      });
 
-            return next(null, user, {});
-        });
+      return next(null, user, {});
+    });
 }
 
 /**
@@ -85,17 +85,17 @@ function _onLocalStrategyAuth(req, email, password, next) {
  * @private
  */
 function _onJwtStrategyAuth(req, payload, next) {
-    User
-        .findOne({id: payload.id})
-        .exec(function (error, user) {
-            if (error) return next(error, false, {});
-            if (!user) return next(null, false, {
-                code: 'E_USER_NOT_FOUND',
-                message: 'User with that JWT not found'
-            });
+  User
+    .findOne({id: payload.id})
+    .exec(function (error, user) {
+      if (error) return next(error, false, {});
+      if (!user) return next(null, false, {
+        code: 'E_USER_NOT_FOUND',
+        message: 'User with that JWT not found'
+      });
 
-            return next(null, user, {});
-        });
+      return next(null, user, {});
+    });
 }
 
 /**
@@ -108,36 +108,36 @@ function _onJwtStrategyAuth(req, payload, next) {
  * @private
  */
 function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
-    if (!req.user) {
-        // TODO: move to ComputedPropertyName ES6
-        var criteria = {};
-        criteria[profile.provider + '.id'] = profile.id;
+  if (!req.user) {
+    // TODO: move to ComputedPropertyName ES6
+    var criteria = {};
+    criteria[profile.provider + '.id'] = profile.id;
 
-        var model = {
-            username: profile.username || profile.displayName || '',
-            email: (profile.emails && profile.emails[0].value) || '',
-            firstName: (profile.name && profile.name.givenName) || '',
-            lastName: (profile.name && profile.name.familyName) || '',
-            photo: (profile.photos && profile.photos[0].value) || ''
-        };
-        model[profile.provider] = profile._json;
+    var model = {
+      username: profile.username || profile.displayName || '',
+      email: (profile.emails && profile.emails[0].value) || '',
+      firstName: (profile.name && profile.name.givenName) || '',
+      lastName: (profile.name && profile.name.familyName) || '',
+      photo: (profile.photos && profile.photos[0].value) || ''
+    };
+    model[profile.provider] = profile._json;
 
-        User
-            // TODO: check if criteria is working
-            .findOrCreate(criteria, model)
-            .exec(function (error, user) {
-                if (error) return next(error, false, {});
-                if (!user) return next(null, false, {
-                    code: 'E_AUTH_FAILED',
-                    message: [profile.provider.charAt(0).toUpperCase(), profile.provider.slice(1), ' auth failed'].join('')
-                });
+    User
+      // TODO: check if criteria is working
+      .findOrCreate(criteria, model)
+      .exec(function (error, user) {
+        if (error) return next(error, false, {});
+        if (!user) return next(null, false, {
+          code: 'E_AUTH_FAILED',
+          message: [profile.provider.charAt(0).toUpperCase(), profile.provider.slice(1), ' auth failed'].join('')
+        });
 
-                return next(null, user, {});
-            });
-    } else {
-        req.user[profile.provider] = profile._json;
-        req.user.save(next);
-    }
+        return next(null, user, {});
+      });
+  } else {
+    req.user[profile.provider] = profile._json;
+    req.user.save(next);
+  }
 }
 
 passport.use(new LocalStrategy(LOCAL_STRATEGY_CONFIG, _onLocalStrategyAuth));
