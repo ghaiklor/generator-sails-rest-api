@@ -11,6 +11,7 @@
 - Typo: Change indent size from 4 to 2;
 - Typo: Move mocha options to `mocha.opts` file;
 - Typo: Change ping message;
+- Typo: Remove `schema` from `User` model (allows easily add other social networks);
 
 ## Version 0.7.0
 

@@ -4,8 +4,6 @@
  */
 
 module.exports = {
-  schema: true,
-
   attributes: {
     username: {
       type: 'string'
@@ -35,22 +33,6 @@ module.exports = {
     photo: {
       type: 'url',
       defaultsTo: ''
-    },
-
-    facebook: {
-      type: 'object'
-    },
-
-    twitter: {
-      type: 'object'
-    },
-
-    yahoo: {
-      type: 'object'
-    },
-
-    google: {
-      type: 'object'
     },
 
     toJSON: function () {
