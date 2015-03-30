@@ -26,7 +26,7 @@
   "contributors": [],
   "main": "generators/app/index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- --recursive --reporter spec"
+    "test": "istanbul cover _mocha -- ./test/**/*.test.js"
   },
   "repository": {
     "type": "git",
