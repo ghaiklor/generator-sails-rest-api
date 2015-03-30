@@ -16,7 +16,7 @@ var passport = require('passport');
  */
 function _onPassportAuth(req, res, error, user, info) {
   if (error) return res.serverError(error);
-  if (!user) return res.unauthorized(null, info.code, info.message);
+  if (!user) return res.unauthorized(null, info && info.code, info && info.message);
 
   return res.ok({
     token: CipherService.create('jwt', {id: user.id}).hashSync(),
