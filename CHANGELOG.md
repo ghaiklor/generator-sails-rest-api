@@ -12,6 +12,7 @@
 - Typo: Move mocha options to `mocha.opts` file;
 - Typo: Change ping message;
 - Typo: Remove `schema` from `User` model (allows easily add other social networks);
+- Typo: `email` is required now;
 
 ## Version 0.7.0
 
