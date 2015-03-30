@@ -10,6 +10,7 @@
 - Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
 - Typo: Change indent size from 4 to 2;
 - Typo: Move mocha options to `mocha.opts` file;
+- Typo: Change ping message;
 
 ## Version 0.7.0
 
