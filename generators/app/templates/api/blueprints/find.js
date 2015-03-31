@@ -4,14 +4,11 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 /**
  * Find Records
  * GET /:model
- * GET /:model/:id
  *
  * An API call to find and return model instances from the data adapter using the specified criteria.
  * If an id was specified, just the instance with that unique id will be returned.
  */
 module.exports = function (req, res) {
-  if (actionUtil.parsePk(req)) return require('./findOne')(req, res);
-
   var Model = actionUtil.parseModel(req);
   var where = actionUtil.parseCriteria(req);
   var limit = actionUtil.parseLimit(req);
