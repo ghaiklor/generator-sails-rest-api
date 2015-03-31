@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Improvement: Rewrite all blueprints to Bluebird promises;
 - Improvement: Remove questions about passport strategies and credentials (it works without them);
 - Improvement: Remove partial application from passport verify methods;
 - Improvement: Add `req` to each verify method in passport;
