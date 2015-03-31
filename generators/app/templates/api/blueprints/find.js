@@ -1,3 +1,4 @@
+var Promise = require('bluebird');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
@@ -16,19 +17,16 @@ module.exports = function (req, res) {
   var limit = actionUtil.parseLimit(req);
   var skip = actionUtil.parseSkip(req);
   var sort = actionUtil.parseSort(req);
-  var query = actionUtil.populateEach(Model.find().where(where).limit(limit).skip(skip).sort(sort), req);
+  var findQuery = actionUtil.populateEach(Model.find().where(where).limit(limit).skip(skip).sort(sort), req);
+  var countQuery = Model.count(where);
 
-  query
-    .then(function (records) {
-      return [records, Model.count(where)];
-    })
+  Promise.all([findQuery, countQuery])
     .spread(function (records, count) {
       return [records, null, null, {
         criteria: where,
         limit: limit,
         start: skip,
         end: skip + limit,
-        sort: sort,
         total: count
       }];
     })
