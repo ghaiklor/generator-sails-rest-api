@@ -6,7 +6,6 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  *
  * An API call to find and return a single model instance from the data adapter using the specified id.
  */
-
 module.exports = function (req, res) {
   actionUtil.populateEach(actionUtil.parseModel(req).findOne(actionUtil.requirePk(req)), req)
     .then(res.ok)
