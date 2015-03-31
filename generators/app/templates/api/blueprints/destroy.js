@@ -9,6 +9,10 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 module.exports = function (req, res) {
   actionUtil.parseModel(req)
     .destroy(actionUtil.requirePk(req))
-    .then(res.ok)
+    .then(function (records) {
+      if (!records[0]) return res.notFound();
+
+      return res.ok(records[0]);
+    })
     .catch(res.serverError);
 };
