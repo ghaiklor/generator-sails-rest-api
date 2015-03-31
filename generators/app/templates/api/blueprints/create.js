@@ -2,10 +2,10 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
  * Triggers when Model is created
- * @param {Object} req
- * @param {Object} res
- * @param {Object} error
- * @param {Object} record
+ * @param {Object} req Request object
+ * @param {Object} res Response object
+ * @param {Object} error Error object
+ * @param {Object} record Record from database
  * @returns {*}
  * @private
  */
