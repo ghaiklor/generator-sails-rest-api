@@ -1,6 +1,38 @@
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
+ * Triggers when Model.destroy
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} record
+ * @param {Object} error
+ * @returns {*}
+ * @private
+ */
+function _onModelDestroy(req, res, record, error) {
+  if (error) return res.serverError(error);
+
+  return res.ok(record);
+}
+
+/**
+ * Triggers when Model.findOne
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} pk
+ * @param {Object} error
+ * @param {Object} record
+ * @returns {*}
+ * @private
+ */
+function _onModelFindOne(req, res, pk, error, record) {
+  if (error) return res.serverError(error);
+  if (!record) return res.notFound();
+
+  Model.destroy(pk).exec(_onModelDestroy.bind(req, res, record));
+}
+
+/**
  * Destroy One Record
  * DELETE /:model/:id
  *
@@ -9,19 +41,7 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 module.exports = function (req, res) {
   var Model = actionUtil.parseModel(req);
   var pk = actionUtil.requirePk(req);
-  var query = Model.findOne(pk);
+  var query = actionUtil.populateEach(Model.findOne(pk), req);
 
-  query = actionUtil.populateEach(query, req);
-  query.exec(function (error, record) {
-    if (error) return res.serverError(error);
-    if (!record) return res.notFound();
-
-    Model
-      .destroy(pk)
-      .exec(function (error) {
-        if (error) return res.serverError(error);
-
-        return res.ok(record);
-      });
-  });
+  query.exec(_onModelFindOne.bind(req, res, pk));
 };
