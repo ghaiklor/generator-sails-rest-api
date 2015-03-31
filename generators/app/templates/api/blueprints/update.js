@@ -15,7 +15,7 @@ module.exports = function (req, res) {
   Model
     .update(actionUtil.requirePk(req), values)
     .then(function (records) {
-      return actionUtil.populateEach(Model.findOne(records[0][Model.primaryKey]), req);
+      return records[0];
     })
     .then(res.ok)
     .catch(res.serverError);
