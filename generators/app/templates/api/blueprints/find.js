@@ -16,28 +16,24 @@ module.exports = function (req, res) {
   var limit = actionUtil.parseLimit(req);
   var skip = actionUtil.parseSkip(req);
   var sort = actionUtil.parseSort(req);
-  var query = Model.find().where(where).limit(limit).skip(skip).sort(sort);
+  var query = actionUtil.populateEach(Model.find().where(where).limit(limit).skip(skip).sort(sort), req);
 
-  query = actionUtil.populateEach(query, req);
-  query.exec(function (error, records) {
-    if (error) return res.serverError(error);
-
-    Model
-      .count(where)
-      .exec(function (error, count) {
-        if (error) return res.serverError(error);
-
-        var metaInfo = {
-          start: skip,
-          end: skip + limit,
-          limit: limit,
-          total: count,
-          criteria: where
-        };
-
-        res.set('Content-Range', metaInfo.start + '-' + metaInfo.end + '/' + metaInfo.total);
-
-        return res.ok(records, null, null, metaInfo);
-      });
-  });
+  query
+    .then(function (records) {
+      return Model
+        .count(where)
+        .then(function (count) {
+          return [records, null, null, {
+            criteria: where,
+            limit: limit,
+            start: skip,
+            end: skip + limit,
+            sort: sort,
+            total: count
+          }];
+        })
+        .catch(res.serverError);
+    })
+    .spread(res.ok)
+    .catch(res.serverError);
 };
