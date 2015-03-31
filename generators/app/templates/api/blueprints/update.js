@@ -7,13 +7,8 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  * An API call to update a model instance with the specified `id`, treating the other unbound parameters as attributes.
  */
 module.exports = function (req, res) {
-  var Model = actionUtil.parseModel(req);
-  var values = actionUtil.parseValues(req);
-
-  if (!((req.body && req.body.id) || req.query.id)) delete values.id;
-
-  Model
-    .update(actionUtil.requirePk(req), values)
+  actionUtil.parseModel(req)
+    .update(actionUtil.requirePk(req), _.omit(actionUtil.parseValues(req), 'id'))
     .then(function (records) {
       return records[0];
     })
