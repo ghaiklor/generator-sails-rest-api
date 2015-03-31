@@ -2,10 +2,10 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
  * Triggers when Model.destroy
- * @param {Object} req
- * @param {Object} res
- * @param {Object} record
- * @param {Object} error
+ * @param {Object} req Request object
+ * @param {Object} res Response object
+ * @param {Object} record Record which was deleted
+ * @param {Object} error Error object
  * @returns {*}
  * @private
  */
@@ -17,11 +17,11 @@ function _onModelDestroy(req, res, record, error) {
 
 /**
  * Triggers when Model.findOne
- * @param {Object} req
- * @param {Object} res
- * @param {Object} pk
- * @param {Object} error
- * @param {Object} record
+ * @param {Object} req Request object
+ * @param {Object} res Response object
+ * @param {Object} pk Primary key of record
+ * @param {Object} error Error object
+ * @param {Object} record Record model from database
  * @returns {*}
  * @private
  */
