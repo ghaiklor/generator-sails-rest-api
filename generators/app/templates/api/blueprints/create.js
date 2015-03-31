@@ -22,8 +22,7 @@ function _onModelCreate(req, res, error, record) {
  * An API call to create and return a single model instance using the specified parameters.
  */
 module.exports = function (req, res) {
-  var Model = actionUtil.parseModel(req);
-  var data = actionUtil.parseValues(req);
-
-  Model.create(data).exec(_onModelCreate.bind(req, res));
+  actionUtil.parseModel(req)
+    .create(actionUtil.parseValues(req))
+    .exec(_onModelCreate.bind(req, res));
 };
