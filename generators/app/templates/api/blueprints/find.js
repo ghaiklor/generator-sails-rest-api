@@ -20,19 +20,17 @@ module.exports = function (req, res) {
 
   query
     .then(function (records) {
-      return Model
-        .count(where)
-        .then(function (count) {
-          return [records, null, null, {
-            criteria: where,
-            limit: limit,
-            start: skip,
-            end: skip + limit,
-            sort: sort,
-            total: count
-          }];
-        })
-        .catch(res.serverError);
+      return [records, Model.count(where)];
+    })
+    .spread(function (records, count) {
+      return [records, null, null, {
+        criteria: where,
+        limit: limit,
+        start: skip,
+        end: skip + limit,
+        sort: sort,
+        total: count
+      }];
     })
     .spread(res.ok)
     .catch(res.serverError);
