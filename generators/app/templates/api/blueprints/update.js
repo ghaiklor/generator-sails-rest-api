@@ -10,8 +10,9 @@ module.exports = function (req, res) {
   actionUtil.parseModel(req)
     .update(actionUtil.requirePk(req), _.omit(actionUtil.parseValues(req), 'id'))
     .then(function (records) {
-      return records[0];
+      if (!records[0]) return res.serverError();
+
+      return res.ok(records[0]);
     })
-    .then(res.ok)
     .catch(res.serverError);
 };
