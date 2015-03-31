@@ -1,21 +1,6 @@
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
- * Triggers when Model is created
- * @param {Object} req Request object
- * @param {Object} res Response object
- * @param {Object} error Error object
- * @param {Object} record Record from database
- * @returns {*}
- * @private
- */
-function _onModelCreate(req, res, error, record) {
-  if (error) return res.serverError(error);
-
-  return res.created(record);
-}
-
-/**
  * Create Record
  * POST /:model
  *
@@ -24,5 +9,6 @@ function _onModelCreate(req, res, error, record) {
 module.exports = function (req, res) {
   actionUtil.parseModel(req)
     .create(actionUtil.parseValues(req))
-    .exec(_onModelCreate.bind(req, res));
+    .then(res.ok)
+    .catch(res.serverError);
 };
