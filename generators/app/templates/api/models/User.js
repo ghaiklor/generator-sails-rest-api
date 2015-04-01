@@ -48,7 +48,7 @@ module.exports = {
       var obj = this.toObject();
 
       delete obj.password;
-      delete obj.social;
+      delete obj.socialProfiles;
 
       return obj;
     }
