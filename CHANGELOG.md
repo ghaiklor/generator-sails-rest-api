@@ -4,6 +4,7 @@
 
 - Improvement: Rewrite all blueprints to Bluebird promises;
 - Improvement: Rewrite authorization method for social networks (add more flexibility to add the new one);
+- Improvement: Add separate `social` object in User model for storing social profiles;
 - Improvement: Remove questions about passport strategies and credentials (it works without them);
 - Improvement: Remove partial application from passport verify methods;
 - Improvement: Add `req` to each verify method in passport;
