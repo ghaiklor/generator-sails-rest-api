@@ -41,8 +41,6 @@ module.exports = {
    * @param {Object} res Response object
    */
   signup: function (req, res) {
-    // TODO: think about model duplicate
-
     User
       .create(req.allParams())
       .then(function (user) {
