@@ -19,6 +19,7 @@ function _onPassportAuth(req, res, error, user, info) {
   if (!user) return res.unauthorized(null, info && info.code, info && info.message);
 
   return res.ok({
+    // TODO: replace with new type of cipher service
     token: CipherService.create('jwt', {id: user.id}).hashSync(),
     user: user
   });
@@ -27,6 +28,8 @@ function _onPassportAuth(req, res, error, user, info) {
 module.exports = {
   /**
    * Sign in by local strategy in passport
+   * @param {Object} req Request object
+   * @param {Object} res Response object
    */
   signin: function (req, res) {
     passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
@@ -34,16 +37,19 @@ module.exports = {
 
   /**
    * Sign up in system
+   * @param {Object} req Request object
+   * @param {Object} res Response object
    */
   signup: function (req, res) {
     // TODO: think about model duplicate
 
     User
       .create(req.allParams())
-      .exec(function (error, user) {
+      .then(function (error, user) {
         if (error) return res.serverError(error);
 
         return res.created({
+          // TODO: replace with new type of cipher service
           token: CipherService.create('jwt', {id: user.id}).hashSync(),
           user: user
         });
@@ -51,42 +57,21 @@ module.exports = {
   },
 
   /**
-   * Facebook authorization\linking
+   * Authorization via social networks
+   * @param req Request object
+   * @param res Response object
    */
-  facebook: function (req, res) {
-    passport.authenticate('jwt', function (error, user) {
-      req.user = user;
-      passport.authenticate('facebook-token', _onPassportAuth.bind(this, req, res))(req, res);
-    })(req, res);
-  },
+  social: function (req, res) {
+    var type = req.param('type').toLowerCase();
+    var strategyName = [type, 'token'].join('-');
 
-  /**
-   * Twitter authorization\linking
-   */
-  twitter: function (req, res) {
-    passport.authenticate('jwt', function (error, user) {
-      req.user = user;
-      passport.authenticate('twitter-token', _onPassportAuth.bind(this, req, res))(req, res);
-    })(req, res);
-  },
+    if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {
+      return res.badRequest(null, null, [type.slice(0, 1).toUpperCase(), type.slice(1), ' is not supported'].join(''));
+    }
 
-  /**
-   * Yahoo authorization\linking
-   */
-  yahoo: function (req, res) {
     passport.authenticate('jwt', function (error, user) {
       req.user = user;
-      passport.authenticate('yahoo-token', _onPassportAuth.bind(this, req, res))(req, res);
-    })(req, res);
-  },
-
-  /**
-   * Google Plus authorization\linking
-   */
-  google: function (req, res) {
-    passport.authenticate('jwt', function (error, user) {
-      req.user = user;
-      passport.authenticate('google-plus-token', _onPassportAuth.bind(this, req, res))(req, res);
+      passport.authenticate(strategyName, _onPassportAuth.bind(this, req, res))(req, res);
     })(req, res);
   }
 };
