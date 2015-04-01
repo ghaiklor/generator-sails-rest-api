@@ -7,8 +7,8 @@ var passport = require('passport');
 
 /**
  * Triggers when user authenticates via passport
- * @param {Object} req Request stream
- * @param {Object} res Response stream
+ * @param {Object} req Request object
+ * @param {Object} res Response object
  * @param {Object} error Error object
  * @param {Object} user User profile
  * @param {Object} info Info if some error occurs
@@ -45,15 +45,15 @@ module.exports = {
 
     User
       .create(req.allParams())
-      .then(function (error, user) {
-        if (error) return res.serverError(error);
-
-        return res.created({
+      .then(function (user) {
+        return {
           // TODO: replace with new type of cipher service
           token: CipherService.create('jwt', {id: user.id}).hashSync(),
           user: user
-        });
-      });
+        };
+      })
+      .then(res.created)
+      .catch(res.serverError);
   },
 
   /**
