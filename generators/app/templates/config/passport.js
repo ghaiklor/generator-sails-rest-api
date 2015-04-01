@@ -115,10 +115,10 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
 
     var model = {
       username: profile.username || profile.displayName || '',
-      email: (profile.emails && profile.emails[0].value) || '',
+      email: (profile.emails[0] && profile.emails[0].value) || '',
       firstName: (profile.name && profile.name.givenName) || '',
       lastName: (profile.name && profile.name.familyName) || '',
-      photo: (profile.photos && profile.photos[0].value) || ''
+      photo: (profile.photos[0] && profile.photos[0].value) || ''
     };
     model[profile.provider] = profile._json;
 
