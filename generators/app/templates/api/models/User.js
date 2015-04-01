@@ -39,7 +39,7 @@ module.exports = {
       defaultsTo: ''
     },
 
-    social: {
+    socialProfiles: {
       type: 'object',
       defaultsTo: {}
     },

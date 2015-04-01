@@ -4,13 +4,14 @@
 
 - Improvement: Rewrite all blueprints to Bluebird promises;
 - Improvement: Rewrite authorization method for social networks (add more flexibility to add the new one);
-- Improvement: Add separate `social` object in User model for storing social profiles;
+- Improvement: Add separate `socialProfiles` object in User model for storing social profiles;
 - Improvement: Remove questions about passport strategies and credentials (it works without them);
 - Improvement: Remove partial application from passport verify methods;
 - Improvement: Add `req` to each verify method in passport;
 - Improvement: Move configuration objects for passport to separate object (small refactoring);
 - Improvement: Add checking for `info` object is exists on authentication;
 - Fix: Server is crashing when `email` is empty on passport authentication;
+- Fix: Fix passport authenticate logic for new User `socialProfiles` attribute;
 - Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
 - Typo: Change indent size from 4 to 2;
 - Typo: Move mocha options to `mocha.opts` file;

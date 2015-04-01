@@ -111,16 +111,17 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
   if (!req.user) {
     // TODO: move to ComputedPropertyName ES6
     var criteria = {};
-    criteria[profile.provider + '.id'] = profile.id;
+    criteria['socialProfiles.' + profile.provider + '.id'] = profile.id;
 
     var model = {
       username: profile.username || profile.displayName || '',
       email: (profile.emails[0] && profile.emails[0].value) || '',
       firstName: (profile.name && profile.name.givenName) || '',
       lastName: (profile.name && profile.name.familyName) || '',
-      photo: (profile.photos[0] && profile.photos[0].value) || ''
+      photo: (profile.photos[0] && profile.photos[0].value) || '',
+      socialProfiles: {}
     };
-    model[profile.provider] = profile._json;
+    model.socialProfiles[profile.provider] = profile._json;
 
     User
       // TODO: check if criteria is working
@@ -135,7 +136,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
         return next(null, user, {});
       });
   } else {
-    req.user[profile.provider] = profile._json;
+    req.user.socialProfiles[profile.provider] = profile._json;
     req.user.save(next);
   }
 }
