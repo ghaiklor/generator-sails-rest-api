@@ -60,7 +60,7 @@ module.exports = {
    * @param res Response object
    */
   social: function (req, res) {
-    var type = req.param('type').toLowerCase();
+    var type = req.param('type') ? req.param('type').toLowerCase() : '-';
     var strategyName = [type, 'token'].join('-');
 
     if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {

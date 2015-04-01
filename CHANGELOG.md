@@ -12,6 +12,7 @@
 - Improvement: Add checking for `info` object is exists on authentication;
 - Fix: Server is crashing when `email` is empty on passport authentication;
 - Fix: Fix passport authenticate logic for new User `socialProfiles` attribute;
+- Fix: When `type` in `auth/social` is empty;
 - Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
 - Typo: Change indent size from 4 to 2;
 - Typo: Move mocha options to `mocha.opts` file;
