@@ -2,12 +2,11 @@
 
 var path = require('path');
 var spawn = require('child_process').spawn;
-var chalk = require('chalk');
 var printMessage = require('print-message');
 var checkDependencies = require('dependency-check');
 var recursive = require('recursive-readdir');
 
-console.log(chalk.yellow("Start fixing package.json, please wait..."));
+console.log("Start fixing package.json, please wait...");
 
 recursive('./', ['node_modules'], function (error, files) {
   if (error) {
@@ -37,8 +36,8 @@ recursive('./', ['node_modules'], function (error, files) {
       printMessage([
         "Checking dependencies successfully done",
         "---",
-        "Unused dependencies - " + chalk.green("Not Found"),
-        "Missing dependencies - " + chalk.green("Not Found")
+        "Unused dependencies - " + "Not Found",
+        "Missing dependencies - " + "Not Found"
       ], {
         borderColor: 'green',
         marginTop: 0,
@@ -49,7 +48,7 @@ recursive('./', ['node_modules'], function (error, files) {
     }
 
     if (unusedDependencies.length !== 0) {
-      printMessage([chalk.yellow("Unused dependencies"), chalk.yellow("---")].concat(unusedDependencies).concat([chalk.yellow("---"), chalk.yellow("Starting cleaning up...")]), {
+      printMessage(["Unused dependencies", "---"].concat(unusedDependencies).concat(["---", "Starting cleaning up..."]), {
         borderColor: 'red',
         marginTop: 0,
         marginBottom: 0
@@ -60,7 +59,7 @@ recursive('./', ['node_modules'], function (error, files) {
     }
 
     if (missingDependencies.length !== 0) {
-      printMessage([chalk.yellow("Missing dependencies"), chalk.yellow("---")].concat(missingDependencies).concat([chalk.yellow("---"), chalk.yellow("Start installing, please wait...")]), {
+      printMessage(["Missing dependencies", "---"].concat(missingDependencies).concat(["---", "Start installing, please wait..."]), {
         borderColor: 'red',
         marginTop: 0,
         marginBottom: 0

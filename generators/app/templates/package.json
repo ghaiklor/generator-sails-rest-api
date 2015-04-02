@@ -4,7 +4,6 @@
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {
-    "chalk": "^1.0.0",
     "dependency-check": "^2.2.2",
     "istanbul": "^0.3.7",
     "mocha": "^2.2.1",
