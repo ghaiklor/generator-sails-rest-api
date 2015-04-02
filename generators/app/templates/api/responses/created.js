@@ -11,7 +11,7 @@ module.exports = function (data, code, message, root) {
   var response = _.assign({
     code: code || 'CREATED',
     message: message || 'The request has been fulfilled and resulted in a new resource being created',
-    response: data || {}
+    data: data || {}
   }, root);
 
   this.req._sails.log.silly('Sent (201 CREATED)\n', response);

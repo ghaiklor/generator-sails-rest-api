@@ -11,7 +11,7 @@ module.exports = function (data, code, message, root) {
   var response = _.assign({
     code: code || 'OK',
     message: message || 'Operation is successfully executed',
-    response: data || {}
+    data: data || {}
   }, root);
 
   this.req._sails.log.silly('Sent (200 OK)\n', response);
