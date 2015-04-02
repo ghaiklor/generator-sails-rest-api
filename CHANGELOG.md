@@ -14,6 +14,7 @@
 - Fix: Fix passport authenticate logic for new User `socialProfiles` attribute;
 - Fix: When `type` in `auth/social` is empty;
 - Fix: Fix response header with `OK` and replace with `CREATED`;
+- Typo: Remove unused check-updates tool from tools;
 - Typo: Rename `response` field in response to `data` field;
 - Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
 - Typo: Change indent size from 4 to 2;
