@@ -71,5 +71,15 @@ module.exports = {
       req.user = user;
       passport.authenticate(strategyName, _onPassportAuth.bind(this, req, res))(req, res);
     })(req, res);
+  },
+
+  /**
+   * Accept JSON Web Token and updates with new one
+   * @param {Object} req Request object
+   * @param {Object} res Response object
+   */
+  refresh_token: function (req, res) {
+    // TODO: implement refreshing tokens
+    res.badRequest(null, null, 'Not implemented yet');
   }
 };
