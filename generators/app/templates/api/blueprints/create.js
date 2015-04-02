@@ -9,6 +9,6 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 module.exports = function (req, res) {
   actionUtil.parseModel(req)
     .create(actionUtil.parseValues(req))
-    .then(res.ok)
+    .then(res.created)
     .catch(res.serverError);
 };
