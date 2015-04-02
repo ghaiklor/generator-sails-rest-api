@@ -4,10 +4,10 @@
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {
-    "dependency-check": "^2.2.2",
-    "istanbul": "^0.3.7",
+    "dependency-check": "^2.3.1",
+    "istanbul": "^0.3.13",
     "mocha": "^2.2.1",
-    "print-message": "^1.2.1",
+    "print-message": "^1.3.0",
     "recursive-readdir": "^1.2.1"
   },
   "scripts": {
