@@ -5,8 +5,9 @@
 
 module.exports = {
   /**
-   * Server ping
    * Useful when need to check if it's server is down or it some logic is broken
+   * @param {Object} req Request object
+   * @param {Object} res Response object
    */
   index: function (req, res) {
     res.ok(null, null, 'HTTP server is working');
