@@ -20,8 +20,8 @@
 - Typo: Change indent size from 4 to 2;
 - Typo: Move mocha options to `mocha.opts` file;
 - Typo: Change ping message;
-- Typo: Remove `schema` from `User` model (allows easily add other social networks);
 - Typo: `email` is required now;
+- Typo: Option names has changes to more simple `skip-welcome`, `skip-update`, `skip-install`, `skip-all` and `verbose`;
 
 ## Version 0.7.0
 
