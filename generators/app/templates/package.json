@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "test": "istanbul cover _mocha ./test/**/*.test.js",
+    "test": "istanbul cover _mocha",
     "console": "sails console",
     "check-deps": "node ./tools/check-deps.js"
   }
