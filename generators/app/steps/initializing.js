@@ -46,7 +46,7 @@ module.exports = {
    * Say yeoman hello
    */
   sayHello: function () {
-    if (!(this.options['skip-generator-welcome'] || this.options['skip-all'])) {
+    if (!(this.options['skip-welcome'] || this.options['skip-all'])) {
       this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
     }
   },
@@ -55,7 +55,7 @@ module.exports = {
    * Notify about updates of generator-sails-rest-api
    */
   notifyAboutGeneratorUpdate: function () {
-    if (!(this.options['skip-generator-update'] || this.options['skip-all'])) {
+    if (!(this.options['skip-update'] || this.options['skip-all'])) {
       this.log(chalk.yellow('Checking for updates...'));
       updateNotifier({
         pkg: this.pkg,

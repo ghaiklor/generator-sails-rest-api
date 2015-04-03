@@ -11,27 +11,20 @@
  *      }
  * };
  */
-
 module.exports = {
-  'verbose': {
-    desc: 'Print all information to console',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
-  'skip-generator-update': {
-    desc: 'Do not check for generator updates',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
-  'skip-generator-welcome': {
+  'skip-welcome': {
     desc: 'Do not welcome at start',
     type: Boolean,
     defaults: false,
     hide: false
   },
-  'skip-project-install': {
+  'skip-update': {
+    desc: 'Do not check for generator updates',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  },
+  'skip-install': {
     desc: 'Do not install npm dependencies',
     type: Boolean,
     defaults: false,
@@ -39,6 +32,12 @@ module.exports = {
   },
   'skip-all': {
     desc: 'Do nothing, just project scaffolding',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  },
+  'verbose': {
+    desc: 'Print all information to console',
     type: Boolean,
     defaults: false,
     hide: false
