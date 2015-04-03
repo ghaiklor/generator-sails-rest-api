@@ -37,12 +37,6 @@ module.exports = {
     defaults: false,
     hide: false
   },
-  'skip-project-diagnostic': {
-    desc: 'Do not run diagnostic tools',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
   'skip-all': {
     desc: 'Do nothing, just project scaffolding',
     type: Boolean,
