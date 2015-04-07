@@ -7,6 +7,7 @@
  */
 
 module.exports = function (data, code, message, root) {
+  // TODO: make transform camelCase to snake_case
   var response = _.assign({
     code: code || 'E_BAD_REQUEST',
     message: message || 'The request cannot be fulfilled due to bad syntax',

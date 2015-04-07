@@ -6,6 +6,7 @@
  */
 
 module.exports = function (data, code, message, root) {
+  // TODO: make transform camelCase to snake_case
   var response = _.assign({
     code: code || 'E_INTERNAL_SERVER_ERROR',
     message: message || 'Something bad happened on the server',
