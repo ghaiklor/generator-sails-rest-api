@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.8.0
+
 - Improvement: Rewrite all blueprints to Bluebird promises;
 - Improvement: Rewrite authorization method for social networks (add more flexibility to add the new one);
 - Improvement: Add separate `socialProfiles` object in User model for storing social profiles;
@@ -14,6 +16,7 @@
 - Fix: Fix passport authenticate logic for new User `socialProfiles` attribute;
 - Fix: When `type` in `auth/social` is empty;
 - Fix: Fix response header with `OK` and replace with `CREATED`;
+- Typo: Add policy rule for `PingController` which allows to ping server from everywhere;
 - Typo: Remove `tools` from project. I see, that nobody use it, so it moves just to generator core;
 - Typo: Rename `response` field in response to `data` field;
 - Typo: Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
