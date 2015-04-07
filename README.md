@@ -20,16 +20,16 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 ## Features
 
 - Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
-- Implemented tools `fix-deps` and `update-deps` which fix `package.json` from unused and missing dependencies and updates dependencies in interactive mode;
 - Overrides default `blueprints` which simplify CRUD operation in REST API;
-- Integrated Passport with Facebook, Twitter and Local authorization strategies;
+- Implemented `AuthController`, `PingController` and `UserController`;
 - Already declared `User` model with most used fields;
-- Implemented 2 policies: `isOurApp` which checks if request is going from our applications, and `isAuthenticated` which inject user in `req` via JSON Web Token;
-- Custom responses which respond with `code` (Status Code), `message` (Status Message) and `response` (Response Data) fields;
+- Implemented 2 policies: `isAllowed` which checks if request is going from our applications, and `isAuthenticated` which inject user in `req` via JSON Web Token;
+- Custom responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
+- Integrated Passport with Facebook, Twitter, Yahoo, Google Plus, JWT and Local authorization strategies _(more social networks will be in future)_;
 - All configuration files cleaned up and optimized for REST API;
-- Integrated Swagger doc specification in `doc` folder;
-- Integrated Mocha tests for all `blueprints`, `controllers`, `models`, `policies`, `responses` and `services`. After generating you can execute `npm test`;
+- Winston logger with logging to console and DailyRotateFile is enabled by default;
+- Bunch of Sails adapters is already declared in `connections` configuration file so you can easily swap between them;
 
 ## Getting Started
 
