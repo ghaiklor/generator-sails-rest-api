@@ -5,8 +5,8 @@ module.exports = yeoman.generators.Base.extend({
   constructor: function () {
     yeoman.generators.Base.apply(this, arguments);
 
-    var args = require('./arguments'),
-      options = require('./options');
+    var args = require('./arguments');
+    var options = require('./options');
 
     Object.keys(args).forEach(function (argName) {
       this.argument(argName, args[argName]);
