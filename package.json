@@ -1,7 +1,7 @@
 {
   "name": "generator-sails-rest-api",
-  "version": "0.7.0",
-  "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.",
+  "version": "0.8.0",
+  "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features",
   "keywords": [
     "yeoman-generator",
     "sails",
@@ -26,7 +26,7 @@
   "contributors": [],
   "main": "generators/app/index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- ./test/**/*.test.js"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
