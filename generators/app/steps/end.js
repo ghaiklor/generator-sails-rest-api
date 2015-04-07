@@ -14,23 +14,25 @@ module.exports = {
    * Parse AST and install missing dependencies
    */
   installProjectDeps: function () {
-    var done = this.async();
+    if (!(this.options['skip-install'] || this.options['skip-all'])) {
+      var done = this.async();
 
-    recursive('./', ['node_modules'], function (error, files) {
-      files = files.filter(function (file) {
-        return file.split('.').pop() === 'js';
-      });
+      recursive('./', ['node_modules'], function (error, files) {
+        files = files.filter(function (file) {
+          return file.split('.').pop() === 'js';
+        });
 
-      checkDependencies({
-        path: this.destinationPath('package.json'),
-        entries: files
-      }, function (error, data) {
-        var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(checkDependencies.missing(data.package, data.used)));
-        npmInstall.stdout.pipe(process.stdout);
-        npmInstall.stderr.pipe(process.stderr);
-        npmInstall.on('close', done);
+        checkDependencies({
+          path: this.destinationPath('package.json'),
+          entries: files
+        }, function (error, data) {
+          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(checkDependencies.missing(data.package, data.used)));
+          npmInstall.stdout.pipe(process.stdout);
+          npmInstall.stderr.pipe(process.stderr);
+          npmInstall.on('close', done);
+        }.bind(this));
       }.bind(this));
-    }.bind(this));
+    }
   },
 
   /**

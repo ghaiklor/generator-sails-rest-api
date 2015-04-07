@@ -16,6 +16,7 @@
 - Fix: Fix passport authenticate logic for new User `socialProfiles` attribute;
 - Fix: When `type` in `auth/social` is empty;
 - Fix: Fix response header with `OK` and replace with `CREATED`;
+- Fix: Fix when `skip-all` is not stopping installing npm dependencies;
 - Typo: Add policy rule for `PingController` which allows to ping server from everywhere;
 - Typo: Remove `tools` from project. I see, that nobody use it, so it moves just to generator core;
 - Typo: Rename `response` field in response to `data` field;
