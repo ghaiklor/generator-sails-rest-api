@@ -12,14 +12,31 @@
 - [ ] Implement pluralized form only for REST models;
 - [ ] Think about questions "Which hook you want to leave enable?" and disable\enable hooks based on those answers;
 - [ ] Think about generating not only backend REST API, so user can still have clean Sails application (maybe call spawn `sails new <app-name>`;
+- [ ] Test coverage for all `api` files;
 
 ## Next minor version
 
-- [ ] Test coverage for all `api` files;
-- [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
+- [ ] Implement `refresh_token` route when you can refresh API token;
+- [ ] Redesign services structure;
+- [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
+- [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
+
+## Version 0.8.0 (released)
+
+- [x] Rewrite all blueprints to Bluebird promises;
+- [x] Rewrite authorization method for social networks (add more flexibility to add the new one);
+- [x] Add separate `socialProfiles` object in User model for storing social profiles;
+- [x] Remove questions about passport strategies and credentials (it works without them);
+- [x] Remove partial application from passport verify methods;
+- [x] Add `req` to each verify method in passport;
+- [x] Move configuration objects for passport to separate object (small refactoring);
+- [x] Add policy rule for `PingController` which allows to ping server from everywhere;
+- [x] Remove `tools` from project. I see, that nobody use it, so it moves just to generator core;
+- [x] Rename fields to retrieve API access token to `Authorization: Bearer <token>` and `access_token` in POST;
+- [x] Change indent size from 4 to 2;
 
 ## Version 0.7.0 (released)
 
