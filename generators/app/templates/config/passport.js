@@ -68,6 +68,7 @@ function _onLocalStrategyAuth(req, email, password, next) {
         message: email + ' is not found'
       });
 
+      // TODO: replace with new cipher service type
       if (!CipherService.create('bcrypt', user.password).compareSync(password)) return next(null, false, {
         code: 'E_WRONG_PASSWORD',
         message: 'Password is wrong'
