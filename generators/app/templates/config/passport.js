@@ -8,8 +8,19 @@ var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
 var FacebookTokenStrategy = require('passport-facebook-token').Strategy;
 var TwitterTokenStrategy = require('passport-twitter-token').Strategy;
-var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
+var VKontakteTokenStrategy = require('passport-vkontakte-token').Strategy;
+var FoursquareTokenStrategy = require('passport-foursquare-token').Strategy;
+var GitHubTokenStrategy = require('passport-github-token').Strategy;
+var InstagramTokenStrategy = require('passport-instagram-token').Strategy;
+var PayPalTokenStrategy = require('passport-paypal-token').Strategy;
+var RedditTokenStrategy = require('passport-reddit-token').Strategy;
+var SoundCloudTokenStrategy = require('passport-soundcloud-token').Strategy;
+var WindowsLiveTokenStrategy = require('passport-windows-live-token').Strategy;
+var TwitchTokenStrategy = require('passport-twitch-token').Strategy;
+var YandexTokenStrategy = require('passport-yandex-token').Strategy;
+var AmazonTokenStrategy = require('passport-amazon-token').Strategy;
 var GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
+var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
 
 // TODO: make this more stable and properly parse profile data
 
@@ -146,5 +157,16 @@ passport.use(new LocalStrategy(LOCAL_STRATEGY_CONFIG, _onLocalStrategyAuth));
 passport.use(new JwtStrategy(JWT_STRATEGY_CONFIG, _onJwtStrategyAuth));
 passport.use(new FacebookTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
 passport.use(new TwitterTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
-passport.use(new YahooTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new VKontakteTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new FoursquareTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new GitHubTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new InstagramTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new PayPalTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new RedditTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new SoundCloudTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new WindowsLiveTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new TwitchTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new YandexTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new AmazonTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
 passport.use(new GooglePlusTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));
+passport.use(new YahooTokenStrategy(SOCIAL_STRATEGY_CONFIG, _onSocialStrategyAuth));

@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Add much more other social networks for authorize;
+
 ## Version 0.8.0
 
 - Improvement: Rewrite all blueprints to Bluebird promises;
