@@ -26,7 +26,7 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 - Implemented 2 policies: `isAllowed` which checks if request is going from our applications, and `isAuthenticated` which inject user in `req` via JSON Web Token;
 - Custom responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
-- Integrated Passport with Facebook, Twitter, Yahoo, Google Plus, JWT and Local authorization strategies _(more social networks will be in future)_;
+- Integrated Passport with Facebook, Twitter, VKontakte, Foursquare, GitHub, Instagram, PayPal, Reddit, SoundCloud, Windows Live, Twitch, Yandex, Amazon, Google Plus, Yahoo, JWT and Local authorization strategies;
 - All configuration files cleaned up and optimized for REST API;
 - Winston logger with logging to console and DailyRotateFile is enabled by default;
 - Bunch of Sails adapters is already declared in `connections` configuration file so you can easily swap between them;
