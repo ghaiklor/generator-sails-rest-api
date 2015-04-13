@@ -127,5 +127,16 @@ module.exports.connections = {
     },
     username: "<%= answers['database:username'] %>",
     password: "<%= answers['database:password'] %>"
+  },
+
+  /**
+   * DynamoDB configuration
+   * @type {Object}
+   */
+  dynamodb: {
+    adapter: 'sails-dynamodb',
+    accessKeyId: process.env['DYNAMO_ACCESS_KEY_ID'],
+    secretAccessKey: process.env['DYNAMO_SECRET_ACCESS_KEY'],
+    region: 'us-west-1'
   }
 };

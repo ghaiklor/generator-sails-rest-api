@@ -11,7 +11,8 @@ module.exports = [{
     'Disk',
     'SQLServer',
     'Redis',
-    'OrientDB'
+    'OrientDB',
+    'DynamoDB'
   ]
 }, {
   type: 'input',
@@ -33,4 +34,19 @@ module.exports = [{
   name: 'database:password',
   message: 'Type your database password',
   default: ''
+}, {
+  type: 'input',
+  name: 'database:access-key-id',
+  message: 'Type your Access Key ID',
+  default: '-'
+}, {
+  type: 'input',
+  name: 'database:secret-access-key',
+  message: 'Type your Secret Access Key',
+  default: '-'
+}, {
+  type: 'input',
+  name: 'database:region',
+  message: 'Type your region',
+  default: 'us-west-1'
 }];

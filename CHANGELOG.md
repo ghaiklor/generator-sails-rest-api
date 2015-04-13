@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Add much more other social networks for authorize;
+- Improvement: Add DynamoDB adapter to questions list;
 
 ## Version 0.8.0
 
