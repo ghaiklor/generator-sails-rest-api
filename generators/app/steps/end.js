@@ -17,6 +17,8 @@ module.exports = {
     if (!(this.options['skip-install'] || this.options['skip-all'])) {
       var done = this.async();
 
+      // TODO: make more simple without deps
+      // FIXME: issue with relative path
       recursive('./', ['node_modules'], function (error, files) {
         files = files.filter(function (file) {
           return file.split('.').pop() === 'js';
