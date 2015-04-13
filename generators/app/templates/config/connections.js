@@ -17,11 +17,11 @@ module.exports.connections = {
    */
   postgresql: {
     adapter: 'sails-postgresql',
+    database: "<%= answers['database:name'] %>",
     host: "<%= answers['database:host'] %>",
-    port: 5432,
     user: "<%= answers['database:username'] %>",
     password: "<%= answers['database:password'] %>",
-    database: "<%= answers['database:name'] %>",
+    port: 5432,
     pool: false,
     ssl: false
   },
@@ -52,15 +52,6 @@ module.exports.connections = {
     user: "<%= answers['database:username'] %>",
     password: "<%= answers['database:password'] %>",
     database: "<%= answers['database:name'] %>"
-    //replSet: {
-    //    servers: [
-    //        {
-    //            host: 'secondary1.localhost',
-    //            port: 27017
-    //        }
-    //    ],
-    //    options: {} // http://mongodb.github.io/node-mongodb-native/api-generated/replset.html
-    //}
   },
 
   /**
@@ -102,8 +93,8 @@ module.exports.connections = {
    */
   redis: {
     adapter: 'sails-redis',
-    host: "<%= answers['database:host'] %>",
     port: 6379,
+    host: "<%= answers['database:host'] %>",
     password: "<%= answers['database:password'] %>",
     database: "<%= answers['database:name'] %>",
     options: {
@@ -122,11 +113,21 @@ module.exports.connections = {
    */
   orientdb: {
     adapter: 'sails-orientdb',
-    database: {
-      name: "<%= answers['database:name'] %>"
-    },
-    username: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>"
+    host: "<%= answers['database:host'] %>",
+    port: 2424,
+    user: "<%= answers['database:username'] %>",
+    password: "<%= answers['database:password'] %>",
+    database: "<%= answers['database:name'] %>",
+    options: {
+      databaseType: 'graph',
+      storage: 'plocal',
+      transport: 'binary',
+      decodeURIComponent: true,
+      removeCircularReferences: false,
+      unsafeDrop: false,
+      parameterized: true,
+      fetchPlanLevel: 1
+    }
   },
 
   /**
@@ -135,8 +136,8 @@ module.exports.connections = {
    */
   dynamodb: {
     adapter: 'sails-dynamodb',
-    accessKeyId: process.env['DYNAMO_ACCESS_KEY_ID'] || "<%= answers['database:access-key-id'] %>",
-    secretAccessKey: process.env['DYNAMO_SECRET_ACCESS_KEY'] || "<%= answers['database:secret-access-key'] %>",
-    region: "<%= answers['database:region'] %>"
+    accessKeyId: process.env['DYNAMO_ACCESS_KEY_ID'] || "<%= answers['database:dynamo:access-key-id'] %>",
+    secretAccessKey: process.env['DYNAMO_SECRET_ACCESS_KEY'] || "<%= answers['database:dynamo:secret-access-key'] %>",
+    region: "<%= answers['database:dynamo:region'] %>"
   }
 };

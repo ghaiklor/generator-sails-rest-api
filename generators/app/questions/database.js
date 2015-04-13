@@ -20,7 +20,7 @@ module.exports = [{
   message: 'Type your database host',
   default: 'localhost',
   when: function (answers) {
-    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis'].indexOf(answers['database:adapter']) === -1);
+    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
   }
 }, {
   type: 'input',
@@ -48,24 +48,24 @@ module.exports = [{
   }
 }, {
   type: 'input',
-  name: 'database:access-key-id',
-  message: 'Type your Access Key ID',
+  name: 'database:dynamo:access-key-id',
+  message: 'Type your DynamoDB Access Key ID',
   default: '',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
   }
 }, {
   type: 'input',
-  name: 'database:secret-access-key',
-  message: 'Type your Secret Access Key',
+  name: 'database:dynamo:secret-access-key',
+  message: 'Type your DynamoDB Secret Access Key',
   default: '',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
   }
 }, {
   type: 'input',
-  name: 'database:region',
-  message: 'Type your region',
+  name: 'database:dynamo:region',
+  message: 'Type your DynamoDB region',
   default: 'us-west-1',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);

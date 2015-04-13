@@ -5,6 +5,7 @@
 - Improvement: Add much more other social networks for authorize;
 - Improvement: Add DynamoDB adapter to questions list;
 - Improvement: More flexible questions workflow. Now it will ask you only questions based on database that you chose;
+- Fix: OrientDB configuration object in connections;
 
 ## Version 0.8.0
 
