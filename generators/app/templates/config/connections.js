@@ -136,8 +136,8 @@ module.exports.connections = {
    */
   dynamodb: {
     adapter: 'sails-dynamodb',
-    accessKeyId: process.env['DYNAMO_ACCESS_KEY_ID'] || "<%= answers['database:dynamo:access-key-id'] %>",
-    secretAccessKey: process.env['DYNAMO_SECRET_ACCESS_KEY'] || "<%= answers['database:dynamo:secret-access-key'] %>",
+    accessKeyId: "<%= answers['database:dynamo:access-key-id'] %>",
+    secretAccessKey: "<%= answers['database:dynamo:secret-access-key'] %>",
     region: "<%= answers['database:dynamo:region'] %>"
   }
 };
