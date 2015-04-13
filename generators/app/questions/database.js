@@ -18,35 +18,56 @@ module.exports = [{
   type: 'input',
   name: 'database:host',
   message: 'Type your database host',
-  default: 'localhost'
+  default: 'localhost',
+  when: function (answers) {
+    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'input',
   name: 'database:name',
   message: 'Type your database name',
-  default: 'sails-rest-api'
+  default: 'sails-rest-api',
+  when: function (answers) {
+    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'input',
   name: 'database:username',
   message: 'Type your database username',
-  default: ''
+  default: '',
+  when: function (answers) {
+    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'password',
   name: 'database:password',
   message: 'Type your database password',
-  default: ''
+  default: '',
+  when: function (answers) {
+    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'input',
   name: 'database:access-key-id',
   message: 'Type your Access Key ID',
-  default: '-'
+  default: '',
+  when: function (answers) {
+    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'input',
   name: 'database:secret-access-key',
   message: 'Type your Secret Access Key',
-  default: '-'
+  default: '',
+  when: function (answers) {
+    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }, {
   type: 'input',
   name: 'database:region',
   message: 'Type your region',
-  default: 'us-west-1'
+  default: 'us-west-1',
+  when: function (answers) {
+    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
+  }
 }];
