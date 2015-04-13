@@ -16,7 +16,7 @@
 
 ## Next minor version
 
-- [ ] Add Amazon DynamoDB (NoSQL) and RDS (SQL) adapters to `connections`;
+- [x] Add Amazon DynamoDB (NoSQL) and RDS (SQL) adapters to `connections`;
 - [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Redesign services structure;
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
