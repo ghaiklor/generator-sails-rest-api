@@ -1,73 +1,61 @@
 module.exports = [{
-  type: 'checkbox',
+  type: 'list',
   name: 'services:cipher',
-  message: 'Choose which Cipher services you want',
-  default: [],
-  choices: [{
-    name: 'BCrypt',
-    checked: true
-  }, {
-    name: 'JWT',
-    checked: true
-  }]
+  message: 'Choose Cipher by default',
+  default: 0,
+  choices: [
+    'bcrypt',
+    'JWT'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
   name: 'services:mailer',
-  message: 'Choose which Mailer services you want',
-  default: [],
-  choices: [{
-    name: 'Mandrill',
-    checked: false
-  }]
+  message: 'Choose Mailer by default',
+  default: 0,
+  choices: [
+    'Mandrill'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
   name: 'services:payment',
-  message: 'Choose which Payment services you want',
-  default: [],
-  choices: [{
-    name: 'Stripe',
-    checked: false
-  }]
+  message: 'Choose Payment by default',
+  default: 0,
+  choices: [
+    'Stripe'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
+  // TODO: think how for example manage default PusherService.send() and PusherService.factory.create('Android').send()
   name: 'services:pusher',
-  message: 'Choose which Pusher services you want',
-  default: [],
-  choices: [{
-    name: 'Apple Push Notification',
-    checked: false
-  }, {
-    name: 'Google Cloud Messaging',
-    checked: false
-  }]
+  message: 'Choose Pusher by default',
+  default: 0,
+  choices: [
+    'Apple Push Notification',
+    'Google Cloud Messaging'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
   name: 'services:sms',
-  message: 'Choose which SMS services you want',
-  default: [],
-  choices: [{
-    name: 'Twilio',
-    checked: false
-  }]
+  message: 'Choose SMS by default',
+  default: 0,
+  choices: [
+    'Twilio'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
   name: 'services:social',
-  message: 'Choose which Social services you want',
-  default: [],
-  choices: [{
-    name: 'Facebook',
-    checked: false
-  }]
+  message: 'Choose Social by default',
+  default: 0,
+  choices: [
+    'Facebook'
+  ]
 }, {
-  type: 'checkbox',
+  type: 'list',
   name: 'services:storage',
-  message: 'Choose which Storage services you want',
-  default: [],
-  choices: [{
-    name: 'Amazon S3',
-    checked: false
-  }, {
-    name: 'Google Cloud Storage',
-    checked: false
-  }]
+  message: 'Choose Storage by default',
+  default: 0,
+  choices: [
+    'Amazon S3',
+    'Google Cloud Storage'
+  ]
 }];
