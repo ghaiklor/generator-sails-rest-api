@@ -8,6 +8,10 @@
 - Improvement: Service questions is returns. Now you will be prompted which service you need by default;
 - Fix: OrientDB configuration object in connections;
 
+## Version 0.8.1
+
+- Hotfix: Strange bug with parsing AST, when `require` from `test` folder is not properly parsing and stop the generation;
+
 ## Version 0.8.0
 
 - Improvement: Rewrite all blueprints to Bluebird promises;
