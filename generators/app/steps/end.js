@@ -18,7 +18,8 @@ module.exports = {
     if (!(this.options['skip-install'] || this.options['skip-all'])) {
       var done = this.async();
 
-      recursive(this.destinationPath(), ['node_modules'], function (error, files) {
+      // FIXME: test folder is also scanning for require and this cause issue with relative
+      recursive(this.destinationPath(), ['node_modules', 'test'], function (error, files) {
         files = files.filter(function (file) {
           return file.split('.').pop() === 'js';
         }).map(function (file) {
