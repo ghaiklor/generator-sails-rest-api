@@ -3,6 +3,7 @@
  * Called last, cleanup, say good bye, etc
  */
 
+var path = require('path');
 var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var printMessage = require('print-message');
@@ -19,9 +20,12 @@ module.exports = {
 
       // TODO: make more simple without deps
       // FIXME: issue with relative path
-      recursive('./', ['node_modules'], function (error, files) {
+      // FIXME: test folder is also scanning for require and this cause issue with relative
+      recursive(this.destinationPath(), ['node_modules', 'test'], function (error, files) {
         files = files.filter(function (file) {
           return file.split('.').pop() === 'js';
+        }).map(function (file) {
+          return path.relative(process.cwd(), file);
         });
 
         checkDependencies({
