@@ -3,6 +3,7 @@
  * Called last, cleanup, say good bye, etc
  */
 
+var path = require('path');
 var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var printMessage = require('print-message');
@@ -17,9 +18,11 @@ module.exports = {
     if (!(this.options['skip-install'] || this.options['skip-all'])) {
       var done = this.async();
 
-      recursive('./', ['node_modules'], function (error, files) {
+      recursive(this.destinationPath(), ['node_modules'], function (error, files) {
         files = files.filter(function (file) {
           return file.split('.').pop() === 'js';
+        }).map(function (file) {
+          return path.relative(process.cwd(), file);
         });
 
         checkDependencies({
