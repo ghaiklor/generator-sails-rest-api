@@ -13,3 +13,4 @@ We don't have contributors yet...
 ## Special Thanks
 
 + [@rizr](https://github.com/rizr) - for participating in testing and proposals to make it better;
++ [@ashaman1991](https://github.com/ashaman1991) - for participating in testing and proposals to make it better;
