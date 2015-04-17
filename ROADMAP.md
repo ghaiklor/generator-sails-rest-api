@@ -16,6 +16,7 @@
 
 ## Next minor version
 
+- [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
 - [ ] Fix the issue with CORS;
 - [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
 - [ ] Implement `refresh_token` route when you can refresh API token;
