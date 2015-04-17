@@ -2,10 +2,11 @@
 
 ## Edge version
 
+## Version 0.9.0
+
 - Improvement: Add much more other social networks for authorize;
 - Improvement: Add DynamoDB adapter to questions list;
 - Improvement: More flexible questions workflow. Now it will ask you only questions based on database that you chose;
-- Improvement: Service questions is returns. Now you will be prompted which service you need by default;
 - Fix: OrientDB configuration object in connections;
 
 ## Version 0.8.1
