@@ -16,6 +16,7 @@
 
 ## Next minor version
 
+- [ ] Fix the issue with CORS;
 - [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
 - [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Redesign services structure;
