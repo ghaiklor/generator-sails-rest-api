@@ -16,7 +16,6 @@
 
 ## Next minor version
 
-- [x] Add Amazon DynamoDB (NoSQL) and RDS (SQL) adapters to `connections`;
 - [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Redesign services structure;
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
@@ -24,6 +23,11 @@
 - [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
+
+## Version 0.9.0
+
+- [x] Add a lot of other passport social strategies;
+- [x] Add Amazon DynamoDB (NoSQL) and RDS (SQL) adapters to `connections`;
 
 ## Version 0.8.0 (released)
 
