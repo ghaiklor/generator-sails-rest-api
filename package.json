@@ -21,7 +21,7 @@
   "author": {
     "name": "Eugene Obrezkov",
     "email": "ghaiklor@gmail.com",
-    "url": "https://www.facebook.com/ghaiklor"
+    "url": "http://ghaiklor.com/"
   },
   "contributors": [],
   "main": "generators/app/index.js",
@@ -42,7 +42,7 @@
     "yosay": "^1.0.3"
   },
   "devDependencies": {
-    "istanbul": "^0.3.7",
-    "mocha": "^2.2.1"
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.4"
   }
 }
