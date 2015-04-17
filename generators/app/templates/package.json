@@ -5,7 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "istanbul": "^0.3.13",
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.4"
   },
   "scripts": {
     "start": "node app.js",
