@@ -42,7 +42,7 @@ module.exports = {
    */
   signup: function (req, res) {
     User
-      .create(req.allParams())
+      .create(_.omit(req.allParams(), 'id'))
       .then(function (user) {
         return {
           // TODO: replace with new type of cipher service
