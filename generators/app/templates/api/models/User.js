@@ -10,7 +10,8 @@ module.exports = {
     username: {
       type: 'string',
       required: true,
-      unique: true
+      unique: true,
+      alphanumericdashed: true
     },
 
     password: {
@@ -35,8 +36,9 @@ module.exports = {
     },
 
     photo: {
-      type: 'url',
-      defaultsTo: ''
+      type: 'string',
+      defaultsTo: '',
+      url: true
     },
 
     socialProfiles: {
