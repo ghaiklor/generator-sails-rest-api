@@ -72,6 +72,7 @@ module.exports.log = {
    * @description Pipes logs to files sorted by dates
    * @type {Object}
    */
+  // TODO: make more beautiful log info in files, not JSON objects
   dailyRotate: {
     level: 'silly',
     timestamp: true,
