@@ -19,7 +19,6 @@ module.exports = {
       var done = this.async();
 
       // TODO: make more simple without deps
-      // FIXME: issue with relative path
       // FIXME: test folder is also scanning for require and this cause issue with relative
       recursive(this.destinationPath(), ['node_modules', 'test'], function (error, files) {
         files = files.filter(function (file) {
