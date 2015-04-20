@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.9.1
+
+- Hotfix: Bug when passport is modify configuration objects for strategies;
+
 ## Version 0.9.0
 
 - Improvement: Add much more other social networks for authorize;
