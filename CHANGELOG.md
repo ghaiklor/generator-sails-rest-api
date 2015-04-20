@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Fix: Fix all strategies that handle errors incorrect;
+
 ## Version 0.9.1
 
 - Hotfix: Bug when passport is modify configuration objects for strategies;

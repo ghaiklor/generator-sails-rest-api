@@ -16,7 +16,7 @@
 
 ## Next minor version
 
-- [ ] Research issue with all social authorizations when you got 113 error code;
+- [x] Research issue with all social authorizations when you got 113 error code;
 - [ ] Replace dependency-check with clean detective in util;
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
 - [ ] Fix the issue with CORS;
