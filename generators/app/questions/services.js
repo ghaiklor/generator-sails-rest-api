@@ -1,3 +1,4 @@
+// TODO: fill with correct questions when service structure will be done
 module.exports = [{
   type: 'list',
   name: 'services:cipher',
