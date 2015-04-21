@@ -19,7 +19,7 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 
 ## Features
 
-- Disabled hooks by default: *cors*, *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
+- Disabled hooks by default: *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
 - Overrides default `blueprints` which simplify CRUD operation in REST API;
 - Implemented `AuthController`, `PingController` and `UserController`;
 - Already declared `User` model with most used fields;
