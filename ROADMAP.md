@@ -17,6 +17,7 @@
 ## Next minor version
 
 - [x] Research issue with all social authorizations when you got 113 error code;
+- [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [ ] Replace dependency-check with clean detective in util;
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
 - [ ] Fix the issue with CORS;
@@ -27,7 +28,6 @@
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
 - [ ] Make global error codes for API with description and how fix it;
-- [ ] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 
 ## Version 0.9.0 (released)
 

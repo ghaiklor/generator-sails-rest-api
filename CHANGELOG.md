@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- Improvement: Add some shortcut actions to User controller;
 - Fix: Fix all strategies that handle errors incorrect;
 
 ## Version 0.9.1
