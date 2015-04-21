@@ -18,9 +18,9 @@
 
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
+- [x] Fix the issue with CORS;
 - [ ] Replace dependency-check with clean detective in util;
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
-- [ ] Fix the issue with CORS;
 - [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
 - [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Redesign services structure;

@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Add some shortcut actions to User controller;
+- Improvement: Return CORS configuration and hook;
 - Fix: Fix all strategies that handle errors incorrect;
 
 ## Version 0.9.1
