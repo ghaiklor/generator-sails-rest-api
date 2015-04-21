@@ -8,7 +8,6 @@ module.exports = {
    * Copy template directory to source root
    */
   copyDirectory: function () {
-    // TODO: split into separate functions
     this.directory(
       this.sourceRoot(),
       this.destinationRoot()
