@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "chalk": "^1.0.0",
-    "dependency-check": "^2.4.0",
     "print-message": "^1.4.0",
     "recursive-readdir": "^1.2.1",
     "update-notifier": "^0.3.2",
