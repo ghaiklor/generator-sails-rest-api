@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Remove old `isAllowed` policy by `Application-Token`. Will be more secured variant;
+
 ## Version 0.9.2
 
 - Improvement: Add some shortcut actions to User controller;

@@ -4,11 +4,6 @@
  */
 
 module.exports = function (req, res, next) {
-  var token = req.headers['application-token'];
-
-  if (token && token === "<%= answers['application:api-secret-key'] %>") {
-    next();
-  } else {
-    res.unauthorized(null, null, 'You must provide application token');
-  }
+  // TODO: make here more complex security
+  next();
 };

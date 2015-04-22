@@ -41,5 +41,5 @@ module.exports.cors = {
   /**
    * Which headers should be allowed for CORS requests?
    */
-  headers: 'content-type, authorization, application-token'
+  headers: 'content-type, authorization'
 };
