@@ -7,7 +7,7 @@ var path = require('path');
 var spawn = require('child_process').spawn;
 var chalk = require('chalk');
 var printMessage = require('print-message');
-var parseDependencies = require('../util').parseDependencies;
+var checkDependencies = require('dependency-check');
 var recursive = require('recursive-readdir');
 
 module.exports = {
@@ -27,11 +27,11 @@ module.exports = {
           return path.relative(process.cwd(), file);
         });
 
-        parseDependencies({
+        checkDependencies({
           path: this.destinationPath('package.json'),
           entries: files
         }, function (error, data) {
-          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(parseDependencies.missing(data.package, data.used)));
+          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(checkDependencies.missing(data.package, data.used)));
           npmInstall.stdout.pipe(process.stdout);
           npmInstall.stderr.pipe(process.stderr);
           npmInstall.on('close', done);

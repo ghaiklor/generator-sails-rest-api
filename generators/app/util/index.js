@@ -3,6 +3,5 @@
  */
 
 module.exports = {
-  assign: require('./assign'),
-  parseDependencies: require('./parseDependencies')
+  assign: require('./assign')
 };
