@@ -27,6 +27,11 @@ module.exports = {
           return path.relative(process.cwd(), file);
         });
 
+        if (this.options.verbose) {
+          this.log(chalk.yellow('Found this js files in your project:'));
+          this.log(files);
+        }
+
         checkDependencies({
           path: this.destinationPath('package.json'),
           entries: files
