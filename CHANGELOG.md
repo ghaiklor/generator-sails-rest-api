@@ -2,7 +2,8 @@
 
 ## Edge version
 
-- Improvement: Remove old `isAllowed` policy by `Application-Token`. Will be more secured variant;
+- Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
+- Improvement: Remove old `isAllowed` policy by `Application-Token`;
 - Improvement: Change JWT algorithm to HS512;
 - Improvement: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because decode doesn't verify token;
 - Improvement: Allow to send options object to `jsonwebtoken` verify and sign methods;
