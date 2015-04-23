@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Remove old `isAllowed` policy by `Application-Token`. Will be more secured variant;
+- Improvement: Change JWT algorithm to HS512;
 
 ## Version 0.9.2
 

@@ -15,7 +15,7 @@ var SECRET_KEY = "<%= answers['application:jwt-secret'] %>";
  * @type {String}
  * @private
  */
-var ALGORITHM = "HS256";
+var ALGORITHM = "HS512";
 
 /**
  * Time interval in minutes when token will be expired or false if not expires
