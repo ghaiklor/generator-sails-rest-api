@@ -2,7 +2,7 @@
 module.exports = [{
   type: 'list',
   name: 'services:cipher',
-  message: 'Choose Cipher by default',
+  message: 'Default cipher service',
   default: 0,
   choices: [
     'bcrypt',
@@ -11,7 +11,7 @@ module.exports = [{
 }, {
   type: 'list',
   name: 'services:mailer',
-  message: 'Choose Mailer by default',
+  message: 'Default mailer service',
   default: 0,
   choices: [
     'Mandrill'
@@ -19,41 +19,23 @@ module.exports = [{
 }, {
   type: 'list',
   name: 'services:payment',
-  message: 'Choose Payment by default',
+  message: 'Default payment service',
   default: 0,
   choices: [
     'Stripe'
   ]
 }, {
   type: 'list',
-  // TODO: think how for example manage default PusherService.send() and PusherService.factory.create('Android').send()
-  name: 'services:pusher',
-  message: 'Choose Pusher by default',
-  default: 0,
-  choices: [
-    'Apple Push Notification',
-    'Google Cloud Messaging'
-  ]
-}, {
-  type: 'list',
   name: 'services:sms',
-  message: 'Choose SMS by default',
+  message: 'Default SMS service',
   default: 0,
   choices: [
     'Twilio'
   ]
 }, {
   type: 'list',
-  name: 'services:social',
-  message: 'Choose Social by default',
-  default: 0,
-  choices: [
-    'Facebook'
-  ]
-}, {
-  type: 'list',
   name: 'services:storage',
-  message: 'Choose Storage by default',
+  message: 'Default storage service',
   default: 0,
   choices: [
     'Amazon S3',
