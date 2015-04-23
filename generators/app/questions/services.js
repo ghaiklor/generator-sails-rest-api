@@ -1,4 +1,3 @@
-// TODO: fill with correct questions when service structure will be done
 module.exports = [{
   type: 'list',
   name: 'services:cipher',
@@ -38,7 +37,7 @@ module.exports = [{
   message: 'Default storage service',
   default: 0,
   choices: [
-    'Amazon S3',
-    'Google Cloud Storage'
+    'Amazon',
+    'GCloud'
   ]
 }];
