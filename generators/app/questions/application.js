@@ -8,6 +8,6 @@ module.exports = [{
 }, {
   type: 'input',
   name: 'application:jwt-secret',
-  message: 'Type your private key for JSON Web Token',
+  message: 'Type your secret for JSON Web Token',
   default: crypto.randomBytes(32).toString('hex')
 }];
