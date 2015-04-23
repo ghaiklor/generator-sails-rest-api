@@ -47,10 +47,10 @@ JwtCipher.prototype.hashSync = function () {
 };
 
 /**
- * Verify token and returns decoded payload
- * @returns {Promise}
+ * Decode token without verification
+ * @returns {Object}
  */
-JwtCipher.prototype.verify = function () {
+JwtCipher.prototype.decode = function () {
   var defer = Q.defer();
 
   jwt.verify(this.getContent(), SECRET_KEY, function (error, decoded) {
@@ -62,14 +62,6 @@ JwtCipher.prototype.verify = function () {
   });
 
   return defer.promise;
-};
-
-/**
- * Decode token without verification
- * @returns {Object}
- */
-JwtCipher.prototype.decodeSync = function () {
-  return jwt.decode(this.getContent());
 };
 
 module.exports = JwtCipher;
