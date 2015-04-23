@@ -42,7 +42,7 @@ var LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 var JWT_STRATEGY_CONFIG = {
-  secretOrKey: "<%= answers['application:jwt-secret-key'] %>",
+  secretOrKey: "<%= answers['application:jwt-secret'] %>",
   tokenBodyField: 'access_token',
   authScheme: 'Bearer',
   passReqToCallback: true

@@ -7,7 +7,7 @@ module.exports = [{
   default: 'sails-rest-api'
 }, {
   type: 'input',
-  name: 'application:jwt-secret-key',
+  name: 'application:jwt-secret',
   message: 'Type your private key for JSON Web Token',
   default: crypto.randomBytes(32).toString('hex')
 }];

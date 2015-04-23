@@ -8,7 +8,7 @@ var BaseCipher = require('./BaseCipher');
  * @type {String}
  * @private
  */
-var SECRET_KEY = "<%= answers['application:jwt-secret-key'] %>";
+var SECRET_KEY = "<%= answers['application:jwt-secret'] %>";
 
 /**
  * Algorithm that using for signing JWT
