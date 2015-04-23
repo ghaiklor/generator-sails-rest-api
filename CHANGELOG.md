@@ -6,6 +6,7 @@
 - Improvement: Change JWT algorithm to HS512;
 - Improvement: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because decode doesn't verify token;
 - Improvement: Allow to send options object to `jsonwebtoken` verify and sign methods;
+- Improvement: Add `SearchController` where search logic will be implemented;
 
 ## Version 0.9.2
 
