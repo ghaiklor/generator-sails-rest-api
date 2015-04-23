@@ -22,7 +22,7 @@ var ALGORITHM = "HS512";
  * @type {Number}
  * @private
  */
-var EXPIRES = 60 * 24;
+var EXPIRES_IN_MINUTES = 60 * 24;
 
 util.inherits(JwtCipher, BaseCipher);
 
@@ -37,23 +37,26 @@ function JwtCipher() {
 
 /**
  * Sign payload with JSON Web Token
+ * @param {Object} [_options] Specify options for jwt.sign
  * @returns {String} Returns JSON Web Token in string format
  */
-JwtCipher.prototype.hashSync = function () {
-  return jwt.sign(this.getContent(), SECRET_KEY, {
-    algorithm: ALGORITHM,
-    expiresInMinutes: EXPIRES
-  });
+JwtCipher.prototype.hashSync = function (_options) {
+  var options = _options || {};
+  options.algorithm = options.algorithm || ALGORITHM;
+  options.expiresInMinutes = options.expiresInMinutes || EXPIRES_IN_MINUTES;
+
+  return jwt.sign(this.getContent(), SECRET_KEY, options);
 };
 
 /**
- * Decode token without verification
+ * Decode token in async mode
  * @returns {Object}
  */
-JwtCipher.prototype.decode = function () {
+JwtCipher.prototype.decode = function (_options) {
+  var options = _options || {};
   var defer = Q.defer();
 
-  jwt.verify(this.getContent(), SECRET_KEY, function (error, decoded) {
+  jwt.verify(this.getContent(), SECRET_KEY, options, function (error, decoded) {
     if (error) {
       defer.reject(error);
     } else {
@@ -62,6 +65,16 @@ JwtCipher.prototype.decode = function () {
   });
 
   return defer.promise;
+};
+
+/**
+ * Decode token in sync mode
+ * @param _options
+ * @returns {*}
+ */
+JwtCipher.prototype.decodeSync = function (_options) {
+  var options = _options || {};
+  return jwt.verify(this.getContent(), SECRET_KEY, options);
 };
 
 module.exports = JwtCipher;
