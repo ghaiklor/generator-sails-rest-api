@@ -18,6 +18,7 @@
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
+- [ ] Find the way to apply patch file (services folder can be updated via patch file from git);
 - [ ] Integrate with pm2, so you can run\deploy your application;
 - [ ] Maybe integrate with docker (create Dockerfile);
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
