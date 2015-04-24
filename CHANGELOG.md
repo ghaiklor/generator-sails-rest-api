@@ -2,7 +2,7 @@
 
 ## Edge version
 
-- Improvement: Asking you for default service that you want to use (i.e. `CipherService.hash()` is equal to `CipherService.Factory.create('bcrypt')` if you choose bcrypt);
+- Improvement: Asking you for default service that you want to use (i.e. `CipherService.hash()` is equal to `CipherService.Factory.create('bcrypt').hash()` if you choose bcrypt);
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
