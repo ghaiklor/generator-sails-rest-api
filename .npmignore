@@ -1,5 +1,6 @@
 coverage
 test
+.idea
 .editorconfig
 .gitignore
 .travis.yml
