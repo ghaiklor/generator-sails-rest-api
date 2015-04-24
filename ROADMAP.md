@@ -20,6 +20,7 @@
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
 - [ ] Integrate with pm2, so you can run\deploy your application;
+- [ ] Maybe integrate with docker (create Dockerfile);
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
 - [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
 - [ ] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
