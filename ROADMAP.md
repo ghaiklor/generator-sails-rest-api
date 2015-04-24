@@ -2,7 +2,6 @@
 
 ## Faraway
 
-- [ ] Add `md5`, `crc` Ciphers;
 - [ ] Add `sendmail`, `Amazon` Mailer;
 - [ ] Add `braintreepayments`, `PayPal` Payment;
 - [ ] Add `Windows Phone` Pusher;
