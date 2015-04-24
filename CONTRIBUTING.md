@@ -2,6 +2,22 @@
 
 At this page we explain how you can contribute to our project.
 
+**Table of Contents**
+
+- [Contributing](#)
+  - [Creating issue](#)
+  - [Get the project](#)
+    - [Clone repository](#)
+    - [Install dependencies](#)
+    - [Run generator-sails-rest-api locally](#)
+  - [Branch explanation](#)
+  - [Git workflow](#)
+    - [Feature/bug branches](#)
+    - [Release branches](#)
+    - [Hotfix branches](#)
+  - [Tests](#)
+  - [Versions](#)
+
 ## Creating issue
 
 If you have any proposal or want to report about bug, feel free to create issue.
