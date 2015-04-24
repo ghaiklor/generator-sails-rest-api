@@ -19,6 +19,7 @@
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
+- [ ] Integrate with pm2, so you can run\deploy your application;
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
 - [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
 - [ ] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
