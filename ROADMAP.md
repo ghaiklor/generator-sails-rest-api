@@ -18,9 +18,10 @@
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
+- [x] Find the way to apply patch file (services folder can be updated via patch file from git);
+- [x] Move all services to separate npm modules like `sails-service-bcrypt`;
+- [x] Redesign services structure;
 - [ ] Add `cron.js` to config folder;
-- [ ] Find the way to apply patch file (services folder can be updated via patch file from git);
-- [ ] Move all services to separate npm modules like `sails-service-bcrypt`;
 - [ ] Integrate with pm2, so you can run\deploy your application;
 - [ ] Maybe integrate with docker (create Dockerfile);
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
@@ -34,7 +35,6 @@
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
 - [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
 - [ ] Implement `refresh_token` route when you can refresh API token;
-- [ ] Redesign services structure;
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;

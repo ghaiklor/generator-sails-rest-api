@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- **Improvement**: I have moved all the services from generator to separate npm modules. In this way you still can get updates for services and get hotfixes and new features without regenerating the whole project;
 - Improvement: Asking you for default service that you want to use (i.e. `CipherService.hash()` is equal to `CipherService.Factory.create('bcrypt').hash()` if you choose bcrypt);
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;

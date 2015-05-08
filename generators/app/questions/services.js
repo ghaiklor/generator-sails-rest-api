@@ -1,3 +1,5 @@
+// TODO: fill with normal questions when services will move
+
 module.exports = [{
   type: 'list',
   name: 'services:cipher',
