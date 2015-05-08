@@ -4,16 +4,25 @@ module.exports = [{
   message: 'Default cipher service',
   default: 0,
   choices: [
-    'bcrypt',
     'JWT'
+  ]
+}, {
+  type: 'list',
+  name: 'services:hash',
+  message: 'Default hash service',
+  default: 0,
+  choices: [
+    'bcrypt'
   ]
 }, {
   type: 'list',
   name: 'services:mailer',
   message: 'Default mailer service',
-  default: 0,
+  default: 2,
   choices: [
-    'Mandrill'
+    'Mandrill',
+    'Amazon',
+    'sendmail'
   ]
 }, {
   type: 'list',
@@ -21,7 +30,8 @@ module.exports = [{
   message: 'Default payment service',
   default: 0,
   choices: [
-    'Stripe'
+    'Stripe',
+    'PayPal'
   ]
 }, {
   type: 'list',

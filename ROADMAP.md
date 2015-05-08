@@ -18,6 +18,7 @@
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
+- [ ] Add `cron.js` to config folder;
 - [ ] Find the way to apply patch file (services folder can be updated via patch file from git);
 - [ ] Move all services to separate npm modules like `sails-service-bcrypt`;
 - [ ] Integrate with pm2, so you can run\deploy your application;
