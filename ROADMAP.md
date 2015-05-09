@@ -37,9 +37,7 @@
 - [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
-- [ ] Add some global stuff which allow make kinda `Service.register(new MailerComponent.extend())`;
 - [ ] Make global error codes for API with description and how fix it;
-- [ ] Think about email verification;
 
 ## Version 0.9.0 (released)
 
