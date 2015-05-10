@@ -65,6 +65,9 @@ _TODO:_ Fill with information. But you can read more at our [wiki page](https://
 
 ## Bundled Sails services
 
+All the services is moved to separate npm modules so this table can change through the development process.
+But I'll try to save it as actual as possible.
+
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
 | CipherService  | bcrypt, JWT                                      |
