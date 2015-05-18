@@ -13,7 +13,7 @@
 - [x] Find the way to apply patch file (services folder can be updated via patch file from git);
 - [x] Move all services to separate npm modules like `sails-service-bcrypt`;
 - [x] Redesign services structure;
-- [ ] Add `cron.js` to config folder;
+- [x] Add `cron.js` to config folder;
 - [ ] Integrate with pm2, so you can run\deploy your application;
 - [ ] Maybe integrate with docker (create Dockerfile);
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
