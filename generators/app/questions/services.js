@@ -1,5 +1,3 @@
-// TODO: fill with normal questions when services will move
-
 module.exports = [{
   type: 'list',
   name: 'services:cipher',
@@ -14,17 +12,18 @@ module.exports = [{
   message: 'Default hash service',
   default: 0,
   choices: [
-    'bcrypt'
+    'bcrypt',
+    'md5'
   ]
 }, {
   type: 'list',
   name: 'services:mailer',
   message: 'Default mailer service',
-  default: 2,
+  default: 0,
   choices: [
+    'sendmail',
     'Mandrill',
-    'Amazon',
-    'sendmail'
+    'Amazon'
   ]
 }, {
   type: 'list',
