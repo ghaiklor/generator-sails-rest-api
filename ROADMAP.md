@@ -14,8 +14,7 @@
 - [x] Move all services to separate npm modules like `sails-service-bcrypt`;
 - [x] Redesign services structure;
 - [x] Add `cron.js` to config folder;
-- [ ] Integrate with pm2, so you can run\deploy your application;
-- [ ] Maybe integrate with docker (create Dockerfile);
+- [x] Maybe integrate with docker (create Dockerfile);
 - [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
 - [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
 - [ ] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
