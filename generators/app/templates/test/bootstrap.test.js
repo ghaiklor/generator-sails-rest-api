@@ -1,10 +1,12 @@
+process.env.NODE_ENV = 'test';
+var testConfig = require('../config/env/test.js'); // configuration for testing purposes
+
 var Sails = require('sails');
 var sails;
 
 before(function (done) {
-  Sails.lift({
-    // configuration for testing purposes
-  }, function (error, server) {
+  this.timeout(40000);
+  Sails.lift(testConfig, function (error, server) {
     if (error) return done(error);
 
     sails = server;
