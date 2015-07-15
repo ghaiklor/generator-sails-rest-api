@@ -14,10 +14,6 @@ function request(method, url) {
 }
 
 describe("controllers:AuthController", function () {
-  it("TODO: write this test", function () {
-    assert(true);
-  });
-
   it("should register new users", function (done) {
     Promise.map(Users, function (user) {
       return new Promise(function (resolve, reject) {
