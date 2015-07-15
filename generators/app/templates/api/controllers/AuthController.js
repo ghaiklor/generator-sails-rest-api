@@ -20,7 +20,7 @@ function _onPassportAuth(req, res, error, user, info) {
 
   return res.ok({
     // TODO: replace with new type of cipher service
-    token: CipherService.create('jwt', {id: user.id}).hashSync(),
+    token: CipherService.encodeSync({id: user.id}),
     user: user
   });
 }
@@ -46,7 +46,7 @@ module.exports = {
       .then(function (user) {
         return {
           // TODO: replace with new type of cipher service
-          token: CipherService.create('jwt', {id: user.id}).hashSync(),
+          token: CipherService.encodeSync({id: user.id}),
           user: user
         };
       })
