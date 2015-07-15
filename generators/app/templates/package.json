@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "test": "istanbul cover _mocha",
+    "test": "istanbul cover _mocha ./test/**/*.test.js",
     "console": "sails console"
   }
 }
