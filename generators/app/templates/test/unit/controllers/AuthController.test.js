@@ -55,14 +55,16 @@ describe("controllers:AuthController", function () {
         sails.requestForTest('post', '/v1/auth/signup')
           .send(user)
           .end(function (err, data) {
-            if (err) return resolve(err);
+            if (err) return resolve(data.body);
 
-            return reject(data.body);
+            return reject(new Error("Faulty user was created!"));
           });
       })
     })
       .then(function (answers) {
-        assert(answers.length === FaultyUsers.length);
+        answers.forEach(function (answer) {
+          assert.ok(!!answer.data.error);
+        });
         done();
       })
       .catch(done)
