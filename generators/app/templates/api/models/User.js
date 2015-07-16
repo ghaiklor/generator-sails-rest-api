@@ -57,13 +57,13 @@ module.exports = {
 
   beforeUpdate: function (values, next) {
     // TODO: replace with new cipher service
-    if (values.password) values.password = CipherService.create('bcrypt', values.password).hashSync();
+    if (values.password) values.password = HashService.hashSync(values.password);
     next();
   },
 
   beforeCreate: function (values, next) {
     // TODO: replace with new cipher service
-    if (values.password) values.password = CipherService.create('bcrypt', values.password).hashSync();
+    if (values.password) values.password = HashService.hashSync(values.password);
     next();
   }
 };
