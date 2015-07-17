@@ -9,7 +9,7 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || 'E_FORBIDDEN',
+    code: code || sails.config.errorCodes.forbidden,
     message: message || 'User not authorized to perform the operation',
     data: data || {}
   }, root);

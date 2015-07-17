@@ -9,7 +9,7 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || 'E_UNAUTHORIZED',
+    code: code || sails.config.errorCodes.unauthorized,
     message: message || 'Missing or invalid authentication token',
     data: data || {}
   }, root);
