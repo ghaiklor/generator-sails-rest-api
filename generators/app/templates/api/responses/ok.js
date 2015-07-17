@@ -10,7 +10,7 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || 'OK',
+    code: code || sails.config.errorCodes.ok,
     message: message || 'Operation is successfully executed',
     data: data || {}
   }, root);
