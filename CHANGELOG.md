@@ -7,7 +7,10 @@
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
 - Improvement: Add `cron.js` config file where you can configure cron tasks;
 - Improvement: Add Dockerfile;
+- Improvement: Start working with test coverage, so now you have tests for controllers and models;
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;
+- Fix: Bug with email validation in User model;
+- Fix: Auth stuff is using new CipherService API;
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
 - Typo: Change JWT algorithm to HS512;
 - Typo: Remove old `isAllowed` policy by `Application-Token`;
