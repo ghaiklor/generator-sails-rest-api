@@ -20,8 +20,7 @@ module.exports = [{
   message: 'Default hash service',
   default: 0,
   choices: [
-    'bcrypt',
-    'md5'
+    'bcrypt'
   ]
 }, {
   type: 'list',
