@@ -7,6 +7,14 @@ module.exports = [{
     'JWT'
   ]
 }, {
+  type: 'input',
+  name: 'services:jwt:secret-key',
+  message: 'Type your secret or key',
+  default: 'DEFAULT_SECRET_KEY',
+  when: function (answers) {
+    return !(['JWT'].indexOf(answers['services:cipher']) === -1);
+  }
+}, {
   type: 'list',
   name: 'services:hash',
   message: 'Default hash service',
