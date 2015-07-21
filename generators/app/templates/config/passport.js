@@ -2,6 +2,7 @@
  * Passport configuration file where you should configure all your strategies
  * @description :: Configuration file where you configure your passport authentication
  */
+var CipherService = require('../api/services/CipherService.js');
 
 var extend = require('extend');
 var passport = require('passport');
@@ -42,7 +43,7 @@ var LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 var JWT_STRATEGY_CONFIG = {
-  secretOrKey: "<%= answers['application:jwt-secret'] %>",
+  secretOrKey: CipherService.getSecretKey(),
   tokenBodyField: 'access_token',
   authScheme: 'Bearer',
   passReqToCallback: true

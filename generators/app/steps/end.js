@@ -36,7 +36,12 @@ module.exports = {
           path: this.destinationPath('package.json'),
           entries: files
         }, function (error, data) {
-          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(checkDependencies.missing(data.package, data.used)));
+          var selectedAdapter = this.answers['database:adapter'].toLowerCase();
+          var adapters = ['sails-' + selectedAdapter];
+          if (selectedAdapter !== 'disk')
+            adapters.push('sails-disk');
+
+          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(checkDependencies.missing(data.package, data.used)).concat(adapters));
           npmInstall.stdout.pipe(process.stdout);
           npmInstall.stderr.pipe(process.stderr);
           npmInstall.on('close', done);
