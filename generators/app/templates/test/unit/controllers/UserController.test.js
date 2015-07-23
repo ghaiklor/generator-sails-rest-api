@@ -19,7 +19,7 @@ describe("controllers:UserController", function () {
         });
     })
       .then(function (answer) {
-        if (!answer.data || !answer.data.token) return Promise.reject("Problem with authorizations!");
+        if (!answer.data || !answer.data.token) return Promise.reject("Problem with authorization!");
 
         return Promise.resolve(answer.data.token);
       })
@@ -36,13 +36,13 @@ describe("controllers:UserController", function () {
         })
       })
       .then(function (recRegistered) {
-        recRegistered.data.forEach(function (recUser) {
-          var res = lastUsers.some(function (user) {
+        lastUsers.forEach(function (user) {
+          var res = recRegistered.data.some(function (recUser) {
             return user.username === recUser.username;
           });
 
           assert.ok(res);
-        })
+        });
       })
       .then(done)
       .catch(done)
