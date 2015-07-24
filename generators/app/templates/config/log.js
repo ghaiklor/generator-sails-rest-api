@@ -79,7 +79,8 @@ module.exports.log = {
     filename: 'app-',
     prettyPrint: true,
     dirname: path.resolve('logs'),
-    datePattern: 'yyyy-MM-dd.log'
+    datePattern: 'yyyy-MM-dd.log',
+    json: false
   }
 };
 

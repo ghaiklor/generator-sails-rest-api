@@ -15,6 +15,7 @@
     "start": "node app.js",
     "debug": "node debug app.js",
     "test": "istanbul cover _mocha ./test/**/*.test.js",
-    "console": "sails console"
+    "console": "sails console",
+    "clean": "rm -rf ./.tmp"
   }
 }
