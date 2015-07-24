@@ -70,4 +70,52 @@ describe("controllers:AuthController", function () {
       .catch(done)
   });
 
+  it("should return error 'email not found'", function (done) {
+    new Promise(function (resolve, reject) {
+      sails.requestForTest('post', '/v1/auth/signin')
+        .send({email: 'my404email@gmail.com', password: 'yeah'})
+        .expect(401)
+        .end(function (err) {
+          if (err) return reject(new Error("Not existing user was logged in!"));
+
+          return resolve();
+        });
+    })
+      .then(done)
+      .catch(done)
+  });
+
+  it("should return error 'Password is wrong'", function (done) {
+    new Promise(function (resolve, reject) {
+      var user = _.assign({}, Users[0]);
+      user.password += '3';
+      sails.requestForTest('post', '/v1/auth/signin')
+        .send(user)
+        .expect(401)
+        .end(function (err) {
+          if (err) return reject(new Error("User with wrong password was logged in!"));
+
+          return resolve();
+        });
+    })
+      .then(done)
+      .catch(done)
+  });
+
+  it("should return error 'User with that JWT not found'", function (done) {
+    new Promise(function (resolve, reject) {
+      var wrongAuthToken = require('../../../api/services/CipherService').encodeSync({id: -1});
+      sails.requestForTest('get', '/v1/User/recently_registered')
+        .set('Authorization', 'Bearer ' + wrongAuthToken)
+        .expect(401)
+        .end(function (err) {
+          if (err) return reject(new Error('Found a user with wrong JWT!'));
+
+          return resolve();
+        });
+    })
+      .then(done)
+      .catch(done)
+  });
+
 });
