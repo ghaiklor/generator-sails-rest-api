@@ -19,6 +19,8 @@ module.exports = function (req, res) {
 
   Promise.all([findQuery, countQuery])
     .spread(function (records, count) {
+      res.set('X-Total-Count', count);
+
       return [records, null, null, {
         criteria: where,
         limit: limit,

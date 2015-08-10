@@ -13,6 +13,7 @@
 - Improvement: Automatically installing sails adapter for chosen database;
 - Improvement: Add `clean` npm task for removing `.tmp` folder;
 - Improvement: Logs files more readable now (without JSON format);
+- Improvement: Add `X-Total-Count` header when you `GET /v1/model`;
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;
 - Fix: Bug with email validation in User model;
 - Fix: Auth stuff is using new CipherService API;
