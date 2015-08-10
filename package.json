@@ -23,7 +23,12 @@
     "email": "ghaiklor@gmail.com",
     "url": "http://ghaiklor.com/"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Dmitriy Akulich",
+      "url": "https://github.com/IncoCode"
+    }
+  ],
   "main": "generators/app/index.js",
   "scripts": {
     "test": "istanbul cover _mocha"
