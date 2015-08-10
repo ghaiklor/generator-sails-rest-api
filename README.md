@@ -2,11 +2,9 @@
 
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
-> Stability: 2 - Unstable
+> Stability: 3 - Stable
 
-> The project is in the process of settling, but has not yet had sufficient real-world testing to be considered stable.
-
-> Backwards-compatibility will be maintained if reasonable.
+> The API has proven satisfactory, but cleanup in the underlying code may cause minor changes. Backwards-compatibility is guaranteed.
 
 Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.
 
@@ -54,7 +52,7 @@ You will be prompted for questions. Answer to those questions that generator is 
 After scaffolding the project you can use this project as before. Just run the `app.js` file and all.
 
 ```bash
-node app.js
+npm start
 ```
 
 Congratulations, you just have setup your first Sails REST API :+1:
