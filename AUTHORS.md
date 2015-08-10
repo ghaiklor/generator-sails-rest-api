@@ -8,7 +8,7 @@
 
 ## Contributors
 
-We don't have contributors yet...
++ [@IncoCode](https://github.com/IncoCode)
 
 ## Special Thanks
 
