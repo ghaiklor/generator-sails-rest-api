@@ -3,11 +3,16 @@
 ## Edge version
 
 - **Improvement**: I have moved all the services from generator to separate npm modules. In this way you still can get updates for services and get hotfixes and new features without regenerating the whole project;
-- Improvement: Asking you for default service that you want to use (i.e. `CipherService.hash()` is equal to `CipherService.Factory.create('bcrypt').hash()` if you choose bcrypt);
+- Improvement: Asking you for default service that you want to use;
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
 - Improvement: Add `cron.js` config file where you can configure cron tasks;
 - Improvement: Add Dockerfile;
 - Improvement: Start working with test coverage, so now you have tests for controllers and models;
+- Improvement: Add `test` environment to Sails application;
+- Improvement: Add `supertest` in sails.request;
+- Improvement: Automatically installing sails adapter for chosen database;
+- Improvement: Add `clean` npm task for removing `.tmp` folder;
+- Improvement: Logs files more readable now (without JSON format);
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;
 - Fix: Bug with email validation in User model;
 - Fix: Auth stuff is using new CipherService API;
