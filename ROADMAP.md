@@ -7,6 +7,18 @@
 
 ## Next minor version
 
+- [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
+- [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
+- [ ] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
+- [ ] Should we return `Location` header which points to the URL of the new resource;
+- [ ] Maybe add `.json` and `.xml` support to endpoint URLs;
+- [ ] Maybe add `page` field to request;
+- [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
+- [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
+- [ ] Implement `refresh_token` route when you can refresh API token;
+
+## Next minor version
+
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
 - [x] Fix the issue with CORS;
@@ -15,17 +27,8 @@
 - [x] Redesign services structure;
 - [x] Add `cron.js` to config folder;
 - [x] Maybe integrate with docker (create Dockerfile);
-- [ ] Check and improve filtering features like `GET /tickets?state=open` (if needed);
-- [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
-- [ ] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
-- [ ] Should we return `Location` header which points to the URL of the new resource;
-- [ ] Maybe add `.json` and `.xml` support to endpoint URLs;
-- [ ] Maybe add `page` field to request;
 - [ ] When I'll be implementing error codes, need to add `description` field to response as well;
 - [ ] Implement `X-Rate-Limiting`;
-- [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
-- [ ] Implement `access_token` and `refresh_token` pair to work and change response name fields to appropriate it;
-- [ ] Implement `refresh_token` route when you can refresh API token;
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 - [ ] Make global error codes for API with description and how fix it;
