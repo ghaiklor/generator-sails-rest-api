@@ -21,6 +21,7 @@
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
 - Typo: Change JWT algorithm to HS512;
 - Typo: Remove old `isAllowed` policy by `Application-Token`;
+- Typo: Remove `skip-welcome` option;
 
 ## Version 0.9.2
 

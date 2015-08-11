@@ -12,12 +12,6 @@
  * };
  */
 module.exports = {
-  'skip-welcome': {
-    desc: 'Do not welcome at start',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
   'skip-update': {
     desc: 'Do not check for generator updates',
     type: Boolean,

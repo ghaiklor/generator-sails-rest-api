@@ -46,9 +46,7 @@ module.exports = {
    * Say yeoman hello
    */
   sayHello: function () {
-    if (!(this.options['skip-welcome'] || this.options['skip-all'])) {
-      this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
-    }
+    this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
   },
 
   /**
