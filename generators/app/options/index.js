@@ -25,7 +25,7 @@ module.exports = {
     hide: false
   },
   'verbose': {
-    desc: 'Print all information to console',
+    desc: 'Print verbose information to console',
     type: Boolean,
     defaults: false,
     hide: false
