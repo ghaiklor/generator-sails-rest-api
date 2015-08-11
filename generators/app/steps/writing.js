@@ -8,9 +8,6 @@ module.exports = {
    * Copy template directory to source root
    */
   copyDirectory: function () {
-    this.directory(
-      this.sourceRoot(),
-      this.destinationRoot()
-    );
+    this.directory(this.sourceRoot(), this.destinationRoot());
   }
 };
