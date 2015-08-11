@@ -2,7 +2,7 @@ module.exports = [{
   type: 'list',
   name: 'database:adapter',
   message: 'Choose database adapter',
-  default: 2,
+  default: 'Mongo',
   choices: [
     'PostgreSQL',
     'MySQL',
