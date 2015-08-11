@@ -43,7 +43,7 @@ var LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 var JWT_STRATEGY_CONFIG = {
-  secretOrKey: CipherService.getSecretKey(),
+  secretOrKey: CipherService.jwt.getSecretKey(),
   tokenBodyField: 'access_token',
   authScheme: 'Bearer',
   passReqToCallback: true
