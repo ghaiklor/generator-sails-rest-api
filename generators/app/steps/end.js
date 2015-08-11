@@ -20,8 +20,8 @@ module.exports = {
 
       // TODO: make more simple without deps
       // FIXME: test folder is also scanning for require and this cause issue with relative
-      recursive(this.destinationPath(), ['node_modules', 'test'], function (error, files) {
-        files = files.filter(function (file) {
+      recursive(this.destinationPath(), ['node_modules', 'test'], function (error, _files) {
+        var files = _files.filter(function (file) {
           return file.split('.').pop() === 'js';
         }).map(function (file) {
           return path.relative(process.cwd(), file);
@@ -48,20 +48,5 @@ module.exports = {
         }.bind(this));
       }.bind(this));
     }
-  },
-
-  /**
-   * Say warning that this generator is under development
-   */
-  sayUnderDevelopmentWarning: function () {
-    // TODO: remove when will be stable version
-    printMessage([
-      'This generator under heavy development!',
-      'Services may be not working, but everything else is working :)',
-      'If you found any bugs or have proposals, feel free to create issue',
-      chalk.red(this.pkg.bugs.url),
-      'Or you can write me the letter',
-      chalk.red(this.pkg.bugs.email)
-    ]);
   }
 };
