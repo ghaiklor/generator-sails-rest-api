@@ -12,7 +12,7 @@
  * };
  */
 module.exports = {
-  'skip-update': {
+  'skip-check-update': {
     desc: 'Do not check for generator updates',
     type: Boolean,
     defaults: false,
