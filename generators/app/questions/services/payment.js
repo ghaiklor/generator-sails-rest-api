@@ -1,3 +1,7 @@
+function _whenPaymentServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('PaymentService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:payment:provider',
@@ -6,5 +10,6 @@ module.exports = [{
   choices: [
     'BrainTree',
     'Stripe'
-  ]
+  ],
+  when: _whenPaymentServiceChosen
 }];

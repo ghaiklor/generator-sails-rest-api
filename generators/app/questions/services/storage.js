@@ -1,3 +1,7 @@
+function _whenStorageServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('StorageService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:storage:provider',
@@ -6,5 +10,6 @@ module.exports = [{
   choices: [
     'Amazon',
     'Local'
-  ]
+  ],
+  when: _whenStorageServiceChosen
 }];

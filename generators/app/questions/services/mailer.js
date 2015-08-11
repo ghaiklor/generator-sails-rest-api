@@ -1,3 +1,7 @@
+function _whenMailerServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('MailerService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:mailer:provider',
@@ -10,5 +14,6 @@ module.exports = [{
     'SES',
     'SMTP',
     'stub'
-  ]
+  ],
+  when: _whenMailerServiceChosen
 }];

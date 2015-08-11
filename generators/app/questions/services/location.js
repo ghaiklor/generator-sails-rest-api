@@ -1,3 +1,7 @@
+function _whenLocationServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('LocationService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:location:provider',
@@ -17,5 +21,6 @@ module.exports = [{
     'SmartyStreets',
     'GeoCodio',
     'Yandex'
-  ]
+  ],
+  when: _whenLocationServiceChosen
 }];

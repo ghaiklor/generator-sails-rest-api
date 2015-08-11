@@ -1,3 +1,7 @@
+function _whenSmsServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('SmsService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:sms:provider',
@@ -5,5 +9,6 @@ module.exports = [{
   default: 'Twilio',
   choices: [
     'Twilio'
-  ]
+  ],
+  when: _whenSmsServiceChosen
 }];

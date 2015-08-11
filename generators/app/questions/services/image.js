@@ -1,3 +1,7 @@
+function _whenImageServiceChosen(answers) {
+  return !(answers['services:chosen'].indexOf('ImageService') === -1);
+}
+
 module.exports = [{
   type: 'list',
   name: 'services:image:provider',
@@ -6,5 +10,6 @@ module.exports = [{
   choices: [
     'GM',
     'IM'
-  ]
+  ],
+  when: _whenImageServiceChosen
 }];
