@@ -44,15 +44,5 @@ module.exports = {
   askServiceQuestions: function () {
     this.log(chalk.yellow('\nService questions:'));
     this.prompt(questions.services, _onSectionDone.bind(this, this.async()));
-  },
-
-  /**
-   * Print generated answers object if in verbose mode
-   */
-  printAnswersObject: function () {
-    if (this.options.verbose) {
-      this.log(chalk.yellow('\nAnswers to your questions:'));
-      this.log(this.answers);
-    }
   }
 };
