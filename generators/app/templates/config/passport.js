@@ -2,9 +2,6 @@
  * Passport configuration file where you should configure all your strategies
  * @description :: Configuration file where you configure your passport authentication
  */
-var CipherService = require('../api/services/CipherService.js');
-
-var extend = require('extend');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
@@ -155,20 +152,20 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
   }
 }
 
-passport.use(new LocalStrategy(extend({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
-passport.use(new JwtStrategy(extend({}, JWT_STRATEGY_CONFIG), _onJwtStrategyAuth));
-passport.use(new FacebookTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new TwitterTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new VKontakteTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new FoursquareTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new GitHubTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new InstagramTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new PayPalTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new RedditTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new SoundCloudTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new WindowsLiveTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new TwitchTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new YandexTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new AmazonTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new GooglePlusTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-passport.use(new YahooTokenStrategy(extend({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new LocalStrategy(_.assign({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
+passport.use(new JwtStrategy(_.assign({}, JWT_STRATEGY_CONFIG), _onJwtStrategyAuth));
+passport.use(new FacebookTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new TwitterTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new VKontakteTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new FoursquareTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new GitHubTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new InstagramTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new PayPalTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new RedditTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new SoundCloudTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new WindowsLiveTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new TwitchTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new YandexTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new AmazonTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new GooglePlusTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+passport.use(new YahooTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
