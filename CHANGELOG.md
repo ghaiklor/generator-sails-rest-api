@@ -23,6 +23,7 @@
 - Typo: Remove old `isAllowed` policy by `Application-Token`;
 - Typo: Remove `skip-welcome` option;
 - Typo: Rename `skip-update` option to `skip-check-update`;
+- Typo: Remove `skip-all` option;
 
 ## Version 0.9.2
 

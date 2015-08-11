@@ -15,7 +15,7 @@ module.exports = {
    * Parse AST and install missing dependencies
    */
   installProjectDeps: function () {
-    if (!(this.options['skip-install'] || this.options['skip-all'])) {
+    if (!this.options['skip-install']) {
       var done = this.async();
 
       // TODO: make more simple without deps

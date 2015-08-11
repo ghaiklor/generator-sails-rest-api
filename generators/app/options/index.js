@@ -24,12 +24,6 @@ module.exports = {
     defaults: false,
     hide: false
   },
-  'skip-all': {
-    desc: 'Do nothing, just project scaffolding',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
   'verbose': {
     desc: 'Print all information to console',
     type: Boolean,
