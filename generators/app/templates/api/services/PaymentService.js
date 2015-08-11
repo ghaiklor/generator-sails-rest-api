@@ -1,1 +1,1 @@
-module.exports = require('sails-service-payment').create("<%= answers['services:payment'] %>");
+module.exports = require('sails-service-payment').create("<%= answers['services:payment:provider'] %>");

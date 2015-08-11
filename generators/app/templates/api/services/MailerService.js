@@ -1,1 +1,1 @@
-module.exports = require('sails-service-mailer').create("<%= answers['services:mailer'] %>");
+module.exports = require('sails-service-mailer').create("<%= answers['services:mailer:provider'] %>");
