@@ -38,15 +38,16 @@
     "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
-    "dependency-check": "^2.4.0",
+    "chalk": "^1.1.0",
+    "dependency-check": "^2.5.0",
     "print-message": "^1.4.0",
     "recursive-readdir": "^1.2.1",
     "update-notifier": "^0.5.0",
     "yeoman-generator": "^0.20.2",
-    "yosay": "^1.0.3"
+    "yosay": "^1.0.5"
   },
   "devDependencies": {
+    "chai": "^3.2.0",
     "istanbul": "^0.3.13",
     "mocha": "^2.2.4"
   }
