@@ -4,6 +4,7 @@
 
 - **Improvement**: I have moved all the services from generator to separate npm modules. In this way you still can get updates for services and get hotfixes and new features without regenerating the whole project;
 - Improvement: Increase stability level index. So we are moving to stable versions;
+- Improvement: Implement `fields` parameter in requests;
 - Improvement: Add question that asks what services you want to use and not;
 - Improvement: Asking you for default service that you want to use;
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;

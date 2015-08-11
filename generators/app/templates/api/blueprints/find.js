@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var Promise = require('bluebird');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
@@ -9,6 +10,9 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  * If an id was specified, just the instance with that unique id will be returned.
  */
 module.exports = function (req, res) {
+  _.set(req.options, 'criteria.blacklist', ['limit', 'skip', 'sort', 'populate', 'fields']);
+
+  var fields = req.param('fields') ? req.param('fields').split(',') : false;
   var Model = actionUtil.parseModel(req);
   var where = actionUtil.parseCriteria(req);
   var limit = actionUtil.parseLimit(req);
@@ -18,15 +22,14 @@ module.exports = function (req, res) {
   var countQuery = Model.count(where);
 
   Promise.all([findQuery, countQuery])
-    .spread(function (records, count) {
-      res.set('X-Total-Count', count);
-
+    .spread(function (_records, _count) {
+      var records = fields ? _.map(_records, _.partial(_.pick, _, fields)) : _records;
       return [records, null, null, {
         criteria: where,
         limit: limit,
         start: skip,
         end: skip + limit,
-        total: count
+        total: _count
       }];
     })
     .spread(res.ok)
