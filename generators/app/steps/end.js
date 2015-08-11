@@ -27,8 +27,8 @@ module.exports = {
           path: this.destinationPath('package.json'),
           entries: files
         }, function (error, data) {
-          var adapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
-          var missingDependencies = checkDependencies.missing(data.package, data.used).concat(adapters);
+          var missingAdapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
+          var missingDependencies = checkDependencies.missing(data.package, data.used).concat(missingAdapters);
           var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(missingDependencies));
 
           npmInstall.stdout.pipe(process.stdout);
