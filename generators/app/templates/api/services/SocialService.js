@@ -1,1 +1,5 @@
-module.exports = require('sails-service-social');
+var socials = require('sails-service-social');
+
+module.exports = {
+  facebook: socials.create('facebook')
+};
