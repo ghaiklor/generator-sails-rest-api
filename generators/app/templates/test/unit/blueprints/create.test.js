@@ -1,6 +1,6 @@
-var assert = require('assert');
-var create = require('../../../api/blueprints/create');
+var assert = require('chai').assert;
 var sinon = require('sinon');
+var create = require('../../../api/blueprints/create');
 
 var user = {
   username: 'testCreate',

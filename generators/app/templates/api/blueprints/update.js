@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
@@ -7,12 +8,14 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  * An API call to update a model instance with the specified `id`, treating the other unbound parameters as attributes.
  */
 module.exports = function (req, res) {
-  actionUtil.parseModel(req)
-    .update(actionUtil.requirePk(req), _.omit(actionUtil.parseValues(req), 'id'))
-    .then(function (records) {
-      if (!records[0]) return res.serverError();
+  var Model = actionUtil.parseModel(req);
+  var PK = actionUtil.requirePk(req);
+  var values = actionUtil.parseValues(req);
 
-      return res.ok(records[0]);
+  Model
+    .update(PK, _.omit(values, 'id'))
+    .then(function (records) {
+      return records[0] ? res.ok(records[0]) : res.serverError();
     })
     .catch(res.serverError);
 };

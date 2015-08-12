@@ -1,6 +1,6 @@
-var assert = require('assert');
-var destroy = require('../../../api/blueprints/destroy');
+var assert = require('chai').assert;
 var sinon = require('sinon');
+var destroy = require('../../../api/blueprints/destroy');
 
 var req = {
   options: {

@@ -16,10 +16,9 @@ module.exports = function (req, res) {
   var findQuery = actionUtil.populateEach(Model.findOne(PK), req);
 
   findQuery
-    .then(function (record) {
-      if (!record) return res.notFound();
-
-      return res.ok(record);
+    .then(function (_record) {
+      var record = fields ? _.map(_record, _.partial(_.pick, _, fields)) : _record;
+      return record ? res.ok(record) : res.notFound();
     })
     .catch(res.serverError);
 };
