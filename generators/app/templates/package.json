@@ -4,9 +4,9 @@
   "main": "app.js",
   "dependencies": {},
   "devDependencies": {
-    "bluebird": "^2.9.34",
-    "istanbul": "^0.3.13",
-    "mocha": "^2.2.4",
+    "chai": "^3.2.0",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
     "sails-memory": "^0.10.5",
     "sinon": "^1.15.4",
     "supertest": "^1.0.1"
