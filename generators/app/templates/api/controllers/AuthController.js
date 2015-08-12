@@ -4,7 +4,6 @@
  */
 
 var passport = require('passport');
-var crypto = require('crypto');
 
 /**
  * Triggers when user authenticates via passport
@@ -15,8 +14,7 @@ function _onPassportAuth(req, res, error, user, info) {
   if (!user) return res.unauthorized(null, info && info.code, info && info.message);
 
   return res.ok({
-    accessToken: CipherService.jwt.encodeSync({id: user.id}),
-    refreshToken: crypto.randomBytes(32).toString('hex'),
+    token: CipherService.jwt.encodeSync({id: user.id}),
     user: user
   });
 }
@@ -37,8 +35,7 @@ module.exports = {
       .create(_.omit(req.allParams(), 'id'))
       .then(function (user) {
         return {
-          accessToken: CipherService.jwt.encodeSync({id: user.id}),
-          refreshToken: crypto.randomBytes(32).toString('hex'),
+          token: CipherService.jwt.encodeSync({id: user.id}),
           user: user
         };
       })
@@ -67,7 +64,10 @@ module.exports = {
    * Accept JSON Web Token and updates with new one
    */
   refresh_token: function (req, res) {
-    // TODO: implement refreshing tokens
-    res.badRequest(null, null, 'Not implemented yet');
+    var oldDecoded = CipherService.jwt.decodeSync(req.param('token'));
+
+    res.ok({
+      token: CipherService.jwt.encodeSync({id: oldDecoded.id})
+    });
   }
 };
