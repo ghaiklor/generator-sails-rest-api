@@ -22,6 +22,7 @@
 - Fix: Bug with email validation in User model;
 - Fix: Auth stuff is using new CipherService API;
 - Fix: Bug with JWT token undefined in passport config;
+- Fix: Bug with lodash is undefined in passport config;
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
 - Typo: Change JWT algorithm to HS512;
 - Typo: Remove old `isAllowed` policy by `Application-Token`;

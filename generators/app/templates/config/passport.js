@@ -2,6 +2,8 @@
  * Passport configuration file where you should configure all your strategies
  * @description :: Configuration file where you configure your passport authentication
  */
+
+var _ = require('lodash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
