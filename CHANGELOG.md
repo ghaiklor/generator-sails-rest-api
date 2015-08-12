@@ -21,6 +21,7 @@
 - Fix: Replace `jwt.decode()` with `jwt.verify()`. It's security fix, because `decode` doesn't verify token;
 - Fix: Bug with email validation in User model;
 - Fix: Auth stuff is using new CipherService API;
+- Fix: Bug with JWT token undefined in passport config;
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
 - Typo: Change JWT algorithm to HS512;
 - Typo: Remove old `isAllowed` policy by `Application-Token`;
