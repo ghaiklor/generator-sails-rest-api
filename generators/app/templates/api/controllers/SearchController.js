@@ -5,7 +5,7 @@
 
 module.exports = {
   index: function (req, res) {
-    //   TODO: implement search
+    //TODO: implement search
     res.badRequest(null, null, 'Not implemented yet...');
   }
 };
