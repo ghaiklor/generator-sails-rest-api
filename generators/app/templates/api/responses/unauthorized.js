@@ -9,8 +9,8 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || ErrorCodes.unauthorized.code,
-    message: message || ErrorCodes.unauthorized.message,
+    code: code || 'E_UNAUTHORIZED',
+    message: message || 'Missing or invalid authentication token',
     data: data || {}
   }, root);
 

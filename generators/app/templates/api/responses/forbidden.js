@@ -9,8 +9,8 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || ErrorCodes.forbidden.code,
-    message: message || ErrorCodes.forbidden.message,
+    code: code || 'E_FORBIDDEN',
+    message: message || 'User not authorized to perform the operation',
     data: data || {}
   }, root);
 

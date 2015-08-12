@@ -10,8 +10,8 @@
 module.exports = function (data, code, message, root) {
   // TODO: make transform camelCase to snake_case
   var response = _.assign({
-    code: code || ErrorCodes.created.code,
-    message: message || ErrorCodes.created.message,
+    code: code || 'CREATED',
+    message: message || 'The request has been fulfilled and resulted in a new resource being created',
     data: data || {}
   }, root);
 
