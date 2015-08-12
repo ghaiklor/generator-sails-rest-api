@@ -4,14 +4,10 @@
  */
 
 var passport = require('passport');
+var crypto = require('crypto');
 
 /**
  * Triggers when user authenticates via passport
- * @param {Object} req Request object
- * @param {Object} res Response object
- * @param {Object} error Error object
- * @param {Object} user User profile
- * @param {Object} info Info if some error occurs
  * @private
  */
 function _onPassportAuth(req, res, error, user, info) {
@@ -19,17 +15,15 @@ function _onPassportAuth(req, res, error, user, info) {
   if (!user) return res.unauthorized(null, info && info.code, info && info.message);
 
   return res.ok({
-    // TODO: replace with new type of cipher service
-    token: CipherService.encodeSync({id: user.id}),
+    accessToken: CipherService.jwt.encodeSync({id: user.id}),
+    refreshToken: crypto.randomBytes(32).toString('hex'),
     user: user
   });
 }
 
 module.exports = {
   /**
-   * Sign in by local strategy in passport
-   * @param {Object} req Request object
-   * @param {Object} res Response object
+   * Sign in by username\password
    */
   signin: function (req, res) {
     passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
@@ -37,16 +31,14 @@ module.exports = {
 
   /**
    * Sign up in system
-   * @param {Object} req Request object
-   * @param {Object} res Response object
    */
   signup: function (req, res) {
     User
       .create(_.omit(req.allParams(), 'id'))
       .then(function (user) {
         return {
-          // TODO: replace with new type of cipher service
-          token: CipherService.encodeSync({id: user.id}),
+          accessToken: CipherService.jwt.encodeSync({id: user.id}),
+          refreshToken: crypto.randomBytes(32).toString('hex'),
           user: user
         };
       })
@@ -56,8 +48,6 @@ module.exports = {
 
   /**
    * Authorization via social networks
-   * @param req Request object
-   * @param res Response object
    */
   social: function (req, res) {
     var type = req.param('type') ? req.param('type').toLowerCase() : '-';
@@ -75,8 +65,6 @@ module.exports = {
 
   /**
    * Accept JSON Web Token and updates with new one
-   * @param {Object} req Request object
-   * @param {Object} res Response object
    */
   refresh_token: function (req, res) {
     // TODO: implement refreshing tokens
