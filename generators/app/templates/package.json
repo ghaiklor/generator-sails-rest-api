@@ -14,7 +14,7 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "test": "istanbul cover _mocha ./test/**/*.test.js",
+    "test": "istanbul cover _mocha",
     "console": "sails console",
     "clean": "rm -rf ./.tmp"
   }
