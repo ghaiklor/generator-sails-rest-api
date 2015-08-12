@@ -17,7 +17,7 @@ module.exports = function (req, res) {
 
   findQuery
     .then(function (_record) {
-      var record = fields ? _.map(_record, _.partial(_.pick, _, fields)) : _record;
+      var record = fields ? _.pick(_record, fields) : _record;
       return record ? res.ok(record) : res.notFound();
     })
     .catch(res.serverError);
