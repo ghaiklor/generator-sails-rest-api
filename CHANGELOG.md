@@ -26,6 +26,7 @@
 - Typo: Remove `skip-welcome` option;
 - Typo: Rename `skip-update` option to `skip-check-update`;
 - Typo: Remove `skip-all` option;
+- Typo: Remove `verbose` option;
 
 ## Version 0.9.2
 
