@@ -2,7 +2,9 @@
   "name": "<%= answers['application:name'] %>",
   "version": "0.1.0",
   "main": "app.js",
-  "dependencies": {},
+  "dependencies": {
+    "sails-hook-cron": "*"
+  },
   "devDependencies": {
     "chai": "^3.2.0",
     "istanbul": "^0.3.17",
