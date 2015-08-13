@@ -12,8 +12,13 @@
 - [ ] Maybe add `.json` and `.xml` support to endpoint URLs;
 - [ ] Maybe add `page` field to request;
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
+- [ ] When I'll be implementing error codes, need to add `description` field to response as well;
+- [ ] Make global error codes for API with description and how fix it;
+- [ ] Implement `X-Rate-Limiting`;
+- [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
+- [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 
-## Next minor version
+## Version 0.10.0
 
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
@@ -26,11 +31,6 @@
 - [x] Check and improve filtering features like `GET /tickets?state=open` (if needed);
 - [x] Improve `find` blueprint with `fields` field where you can specify which fields you want to get (`GET /tickets?fields=id,subject,customer_name,updated_at&state=open&sort=-updated_at`);
 - [x] Implement `refresh_token` route where you can refresh API token;
-- [ ] When I'll be implementing error codes, need to add `description` field to response as well;
-- [ ] Make global error codes for API with description and how fix it;
-- [ ] Implement `X-Rate-Limiting`;
-- [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
-- [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 
 ## Version 0.9.0 (released)
 
