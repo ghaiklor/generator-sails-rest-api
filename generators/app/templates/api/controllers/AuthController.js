@@ -54,12 +54,12 @@ module.exports = {
     var strategyName = [type, 'token'].join('-');
 
     if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {
-      return res.badRequest(null, null, [type.slice(0, 1).toUpperCase(), type.slice(1), ' is not supported'].join(''));
+      return res.badRequest(null, null, [type, ' is not supported'].join(''));
     }
 
-    passport.authenticate('jwt', function (error, user) {
+    passport.authenticate('jwt', function (error, user, info) {
       req.user = user;
-      passport.authenticate(strategyName, _onPassportAuth.bind(this, req, res))(req, res);
+      passport.authenticate(strategyName, _.partial(_onPassportAuth, req, res))(req, res);
     })(req, res);
   },
 
