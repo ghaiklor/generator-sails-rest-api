@@ -1,20 +1,22 @@
+/**
+ * Test environment settings
+ * @description :: This section overrides all other config values ONLY in test environment
+ */
+
 module.exports = {
   log: {
-    level: "silent"
+    level: 'silent'
   },
-
-  hooks: {
-    grunt: false
-  },
-
-  connections: {
-    test: {
-      module: 'sails-memory'
-    }
-  },
-
   models: {
-    connection: "test",
+    connection: 'memory',
     migrate: 'drop'
+  },
+  hooks: {
+    csrf: false,
+    grunt: false,
+    i18n: false,
+    pubsub: false,
+    session: false,
+    views: false
   }
 };
