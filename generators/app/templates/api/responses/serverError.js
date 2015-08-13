@@ -13,8 +13,6 @@ module.exports = function (data, code, message, root) {
     data: data || {}
   }, root);
 
-  this.req._sails.log.error('Sent (500 INTERNAL SERVER ERROR)\n', response);
-
   this.res.status(500);
   this.res.jsonx(response);
 };

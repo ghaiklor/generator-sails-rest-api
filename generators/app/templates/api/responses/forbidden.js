@@ -14,8 +14,6 @@ module.exports = function (data, code, message, root) {
     data: data || {}
   }, root);
 
-  this.req._sails.log.silly('Sent (403 FORBIDDEN)\n', response);
-
   this.res.status(403);
   this.res.jsonx(response);
 };

@@ -14,8 +14,6 @@ module.exports = function (data, code, message, root) {
     data: data || {}
   }, root);
 
-  this.req._sails.log.silly('Sent (404 NOT FOUND)\n', response);
-
   this.res.status(404);
   this.res.jsonx(response);
 };
