@@ -45,7 +45,9 @@ var LOCAL_STRATEGY_CONFIG = {
 var JWT_STRATEGY_CONFIG = {
   secretOrKey: "<%= answers['application:secret'] %>",
   tokenBodyField: 'access_token',
+  tokenQueryParameterName: 'access_token',
   authScheme: 'Bearer',
+  session: false,
   passReqToCallback: true
 };
 
@@ -99,15 +101,15 @@ function _onLocalStrategyAuth(req, email, password, next) {
 function _onJwtStrategyAuth(req, payload, next) {
   User
     .findOne({id: payload.id})
-    .exec(function (error, user) {
-      if (error) return next(error, false, {});
-      if (!user) return next(null, false, {
+    .then(function (user) {
+      if (!user) return next(null, null, {
         code: 'E_USER_NOT_FOUND',
         message: 'User with that JWT not found'
       });
 
       return next(null, user, {});
-    });
+    })
+    .catch(next);
 }
 
 /**
