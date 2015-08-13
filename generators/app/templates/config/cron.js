@@ -1,5 +1,7 @@
-var CronJob = require('cron').CronJob;
+/**
+ * Cron configuration where you can define cron tasks with range time and callbacks.
+ *
+ * Look here for detailed examples https://github.com/ghaiklor/sails-hook-cron
+ */
 
-new CronJob('* * * * * *', function onTick() {
-  //TODO: you can fill it with your job
-}, null, true);
+module.exports.cron = {};
