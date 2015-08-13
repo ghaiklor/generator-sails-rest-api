@@ -33,6 +33,7 @@ var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
 var LOCAL_STRATEGY_CONFIG = {
   usernameField: 'email',
   passwordField: 'password',
+  session: false,
   passReqToCallback: true
 };
 
@@ -72,22 +73,20 @@ var SOCIAL_STRATEGY_CONFIG = {
 function _onLocalStrategyAuth(req, email, password, next) {
   User
     .findOne({email: email})
-    .exec(function (error, user) {
-      if (error) return next(error, false, {});
-
-      if (!user) return next(null, false, {
+    .then(function (user) {
+      if (!user) return next(null, null, {
         code: 'E_USER_NOT_FOUND',
         message: email + ' is not found'
       });
 
-      // TODO: replace with new cipher service type
-      if (!HashService.compareSync(password, user.password)) return next(null, false, {
+      if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, {
         code: 'E_WRONG_PASSWORD',
         message: 'Password is wrong'
       });
 
       return next(null, user, {});
-    });
+    })
+    .catch(next);
 }
 
 /**

@@ -3,6 +3,7 @@
  * @description :: Server-side logic for manage user's authorization
  */
 
+var _ = require('lodash');
 var passport = require('passport');
 
 /**
@@ -21,18 +22,20 @@ function _onPassportAuth(req, res, error, user, info) {
 
 module.exports = {
   /**
-   * Sign in by username\password
+   * Sign in by email\password
    */
   signin: function (req, res) {
-    passport.authenticate('local', _onPassportAuth.bind(this, req, res))(req, res);
+    passport.authenticate('local', _.partial(_onPassportAuth, req, res))(req, res);
   },
 
   /**
-   * Sign up in system
+   * Sign up in system by email\password
    */
   signup: function (req, res) {
+    var values = _.omit(req.allParams(), 'id');
+
     User
-      .create(_.omit(req.allParams(), 'id'))
+      .create(values)
       .then(function (user) {
         return {
           token: CipherService.jwt.encodeSync({id: user.id}),
