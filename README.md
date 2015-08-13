@@ -2,10 +2,6 @@
 
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg) ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg) ![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg) ![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg) ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
-> Stability: 3 - Stable
-
-> The API has proven satisfactory, but cleanup in the underlying code may cause minor changes. Backwards-compatibility is guaranteed.
-
 Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.
 
 ## Build Status
@@ -18,15 +14,20 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 ## Features
 
 - Disabled hooks by default: *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
-- Overrides default `blueprints` which simplify CRUD operation in REST API;
+- Flexible questions that allow to you quickly configure database connections, services that you want to use, etc...
+- Automatically parses the whole project AST for used dependencies and install them;
+- Overrides default `blueprints` which simplify CRUD operation in REST API and add new features like `fields` in requests;
 - Implemented `AuthController`, `PingController` and `UserController`;
+- `AuthController` allows to you make signin\signup via email\password;
+- `PingController` allows to you quickly check if server is alive and can respond;
 - Already declared `User` model with most used fields;
-- Implemented 2 policies: `isAllowed` which checks if request is going from our applications, and `isAuthenticated` which inject user in `req` via JSON Web Token;
+- Integrated Passport with Facebook, Twitter, VKontakte, GitHub, Instagram, Google Plus and other social networks, JWT and Local authorization strategies;
+- Implemented policy `isAuthenticated` which inject user in `req` via JSON Web Token checking;
 - Custom responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
-- Integrated Passport with Facebook, Twitter, VKontakte, GitHub, Instagram, Google Plus and other social networks, JWT and Local authorization strategies;
 - All configuration files cleaned up and optimized for REST API;
 - Winston logger with logging to console and DailyRotateFile is enabled by default;
+- Simple declaring of cron tasks via `config/cron.js`;
 - Bunch of Sails adapters is already declared in `connections` configuration file so you can easily swap between them;
 
 ## Getting Started
@@ -49,7 +50,7 @@ yo sails-rest-api
 
 You will be prompted for questions. Answer to those questions that generator is asks and you will get configured Sails project.
 
-After scaffolding the project you can use this project as before. Just run the `app.js` file and all.
+After scaffolding the project you can use this project as before. Just run the `app.js` file or use npm scripts.
 
 ```bash
 npm start
@@ -57,46 +58,20 @@ npm start
 
 Congratulations, you just have setup your first Sails REST API :+1:
 
-## How to use project code?
-
-_TODO:_ Fill with information. But you can read more at our [wiki page](https://github.com/ghaiklor/generator-sails-rest-api/wiki/How-to-use)
-
 ## Bundled Sails services
-
-All the services is moved to separate npm modules so this table can change through the development process.
-But I'll try to save it as actual as possible.
 
 |  Service Name  |               Implemented providers              |
 |:--------------:|:------------------------------------------------:|
-| CipherService  | bcrypt, JWT                                      |
-| MailerService  | Mandrill                                         |
-| PaymentService | Stripe                                           |
-| PusherService  | Apple Push Notifications, Google Cloud Messaging |
-| SmsService     | Twilio                                           |
-| SocialService  | Facebook                                         |
-| StorageService | Amazon S3, Google Cloud                          |
-
-## How can I get latest dev version of generator?
-
-Right now this generator is extremely under development, so each day our `dev` branch has new updates and fixes.
-
-If you want get the latest updates, you should do this:
-
-```bash
-git clone https://github.com/ghaiklor/generator-sails-rest-api.git # Clone the repository
-cd generator-sails-rest-api # Change directory
-npm link # Link current directory to global module
-```
-
-After that our git repository will be linked to your global npm module and you can use it as described above.
-
-If any updates will come you can just pull the last changes and call generator again:
-
-```bash
-cd generator-sails-rest-api
-git pull
-yo sails-rest-api
-```
+| CipherService   | JWT                                              |
+| HashService     | bcrypt                                           |
+| ImageService    | GraphicsMagick, ImageMagick                      |
+| LocationService | Google, Yandex, FreeGeoIP and a lot of others    |
+| MailerService   | direct, sendmail, SMTP, SES and a lot more       |
+| PaymentService  | BrainTreePayments, Stripe                        |
+| PusherService   | Apple Push Notifications, Google Cloud Messaging |
+| SmsService      | Twilio                                           |
+| SocialService   | Facebook                                         |
+| StorageService  | Amazon S3, Local                                 |
 
 ## License
 
