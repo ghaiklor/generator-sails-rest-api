@@ -4,17 +4,6 @@
  * CORS is like a more modern version of JSONP-- it allows your server/API
  * to successfully respond to requests from client-side JavaScript code
  * running on some other domain (e.g. google.com)
- *
- * Note that any of these settings (besides 'allRoutes') can be changed on a per-route basis
- * by adding a "cors" object to the route configuration:
- *
- * '/get foo': {
- *   controller: 'foo',
- *   action: 'bar',
- *   cors: {
- *     origin: 'http://foobar.com,https://owlhoot.com'
- *   }
- *  }
  */
 
 module.exports.cors = {
