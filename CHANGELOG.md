@@ -5,6 +5,7 @@
 - **Improvement**: I have moved all the services from generator to separate npm modules. In this way you still can get updates for services and get hotfixes and new features without regenerating the whole project;
 - Improvement: Increase stability level index. So we are moving to stable versions;
 - Improvement: Implement `fields` parameter in requests that allows you set name of fields that you want to get;
+- Improvement: Move `cors` tasks loading to separate installable hook. Now you can defined cors tasks in `config/cors.js`;
 - Improvement: Add question that asks what services you want to use and not;
 - Improvement: Asking you for default service that you want to use;
 - Improvement: Add more configuration attributes to `config/http.js` like `ssl` and `port`;
