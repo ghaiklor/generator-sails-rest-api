@@ -23,8 +23,6 @@ var AmazonTokenStrategy = require('passport-amazon-token').Strategy;
 var GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
 var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
 
-// TODO: make this more stable and properly parse profile data
-
 /**
  * Configuration object for local strategy
  * @type {Object}
@@ -123,7 +121,6 @@ function _onJwtStrategyAuth(req, payload, next) {
  */
 function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
   if (!req.user) {
-    // TODO: move to ComputedPropertyName ES6
     var criteria = {};
     criteria['socialProfiles.' + profile.provider + '.id'] = profile.id;
 
@@ -138,17 +135,16 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
     model.socialProfiles[profile.provider] = profile._json;
 
     User
-      // TODO: check if criteria is working
       .findOrCreate(criteria, model)
-      .exec(function (error, user) {
-        if (error) return next(error, false, {});
-        if (!user) return next(null, false, {
+      .then(function (user) {
+        if (!user) return next(null, null, {
           code: 'E_AUTH_FAILED',
-          message: [profile.provider.charAt(0).toUpperCase(), profile.provider.slice(1), ' auth failed'].join('')
+          message: [profile.provider, ' auth failed'].join('')
         });
 
         return next(null, user, {});
-      });
+      })
+      .catch(next);
   } else {
     req.user.socialProfiles[profile.provider] = profile._json;
     req.user.save(next);
