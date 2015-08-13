@@ -18,7 +18,7 @@
 - [ ] Implement `/v1/upload` route which will upload binary file to storage by default;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 
-## Version 0.10.0
+## Version 0.10.0 (released)
 
 - [x] Research issue with all social authorizations when you got 113 error code;
 - [x] Add aliases to common operation (for instance, `v1/user/recently_registered`;
