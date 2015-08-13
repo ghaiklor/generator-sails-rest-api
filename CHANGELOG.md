@@ -26,6 +26,8 @@
 - Typo: Allow to send options object to `jsonwebtoken` verify and sign methods;
 - Typo: Change JWT algorithm to HS512;
 - Typo: Remove old `isAllowed` policy by `Application-Token`;
+- Typo: Change `blueprints.populate` to false;
+- Typo: Increase default limit for response to 20;
 - Typo: Remove `skip-welcome` option;
 - Typo: Rename `skip-update` option to `skip-check-update`;
 - Typo: Remove `skip-all` option;
