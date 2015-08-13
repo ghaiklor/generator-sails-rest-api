@@ -10,14 +10,13 @@
  */
 
 module.exports.policies = {
-  '*': ['isAllowed', 'isAuthenticated'],
+  '*': 'isAuthenticated',
 
   AuthController: {
-    '*': 'isAllowed'
+    '*': true
   },
 
   PingController: {
-    '*': 'isAllowed',
-    'index': true
+    '*': true
   }
 };
