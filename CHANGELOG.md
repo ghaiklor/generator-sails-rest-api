@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Implement `Connection: keep-alive` for all responses;
+- Fix: GZip compression in production mode;
 
 ## Version 0.10.1
 

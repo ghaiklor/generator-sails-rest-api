@@ -72,9 +72,9 @@ module.exports = {
        * @type {Array}
        */
       order: [
+        'compress',
         'keepAlive',
         'bodyParser',
-        'compress',
         '$custom',
         'router',
         '404',
