@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Implement `Connection: keep-alive` for all responses;
+
 ## Version 0.10.1
 
 - Improvement: Implement `populate` field that works tight with `fields` in find and findOne blueprints;

@@ -60,13 +60,21 @@ module.exports = {
      */
     middleware: {
       /**
+       * Middleware for setting Connection: keep-alive to all responses
+       */
+      keepAlive: function (req, res, next) {
+        res.set('Connection', 'keep-alive');
+        next();
+      },
+
+      /**
        * The order in which middleware should be run for HTTP request
        * @type {Array}
        */
       order: [
+        'keepAlive',
         'bodyParser',
         'compress',
-        'methodOverride',
         '$custom',
         'router',
         '404',
