@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Implement `populate` field that works tight with `fields` in find and findOne blueprints;
+
 ## Version 0.10.0
 
 - **Improvement**: I have moved all the services from generator to separate npm modules. In this way you still can get updates for services and get hotfixes and new features without regenerating the whole project;
