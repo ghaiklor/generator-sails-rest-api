@@ -26,6 +26,7 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 - Custom responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
 - Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
 - All configuration files cleaned up and optimized for REST API;
+- Implemented useful express middleware like `Connection: keep-alive` and GZip compression. In a nutshell, all what optimize HTTP performance;
 - Winston logger with logging to console and DailyRotateFile is enabled by default;
 - Simple declaring of cron tasks via `config/cron.js`;
 - Bunch of Sails adapters is already declared in `connections` configuration file so you can easily swap between them;
