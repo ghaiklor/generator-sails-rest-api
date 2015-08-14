@@ -2,6 +2,8 @@
 
 ## Edge version
 
+## Version 0.10.1
+
 - Improvement: Implement `populate` field that works tight with `fields` in find and findOne blueprints;
 
 ## Version 0.10.0
