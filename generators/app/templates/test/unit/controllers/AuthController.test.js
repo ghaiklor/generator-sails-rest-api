@@ -1,6 +1,8 @@
 var assert = require('assert');
 var AuthController = require('../../../api/controllers/AuthController');
 var Promise = require('bluebird');
+var CipherService = require('../../../api/services/CipherService');
+var jwt = CipherService.jwt;
 
 var Users = require('../../fixtures/Users.json');
 var FaultyUsers = require('../../fixtures/FaultyUsers.json');
@@ -104,7 +106,7 @@ describe("controllers:AuthController", function () {
 
   it("should return error 'User with that JWT not found'", function (done) {
     new Promise(function (resolve, reject) {
-      var wrongAuthToken = require('../../../api/services/CipherService').encodeSync({id: -1});
+      var wrongAuthToken = jwt.encodeSync({id: -1});
       sails.requestForTest('get', '/v1/User/recently_registered')
         .set('Authorization', 'Bearer ' + wrongAuthToken)
         .expect(401)
