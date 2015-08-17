@@ -2,7 +2,9 @@ var assert = require('assert');
 var findOne = require('../../../api/blueprints/findone');
 var sinon = require('sinon');
 
-var id = 2;
+var data = {
+  id: 2
+};
 
 var req = {
   options: {
@@ -10,8 +12,8 @@ var req = {
     action: 'create',
     controller: 'user'
   },
-  param: function () {
-    return id;
+  param: function (param) {
+    return data[param];
   },
   _sails: {}
 };
@@ -62,7 +64,7 @@ describe('blueprints:findOne', function () {
     var stubServerError = sinon.stub(res, 'serverError');
     var stubNotFound = sinon.stub(res, 'notFound');
 
-    id = 123493;
+    data.id = 123493;
 
     findOne(req, res);
 
