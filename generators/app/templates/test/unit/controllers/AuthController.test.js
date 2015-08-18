@@ -6,8 +6,11 @@ var jwt = CipherService.jwt;
 
 var Users = require('../../fixtures/Users.json');
 var FaultyUsers = require('../../fixtures/FaultyUsers.json');
+var token = '';
 
 describe("controllers:AuthController", function () {
+  this.timeout(40000);
+
   it("should register new users", function (done) {
     Promise.map(Users, function (user) {
       return new Promise(function (resolve, reject) {
@@ -45,6 +48,7 @@ describe("controllers:AuthController", function () {
           return !!answer.data.token;
         });
         assert(res);
+        token = answers[0].data.token;
 
         done();
       })
@@ -118,6 +122,28 @@ describe("controllers:AuthController", function () {
     })
       .then(done)
       .catch(done)
+  });
+
+  it("should refresh token", function (done) {
+    // we should wait a little bit to get a new token
+    setTimeout(function () {
+      new Promise(function (resolve, reject) {
+        sails.requestForTest('post', '/v1/auth/refresh_token')
+          .send({token: token})
+          .expect(200)
+          .set('Authorization', 'Bearer ' + token)
+          .end(function (err, data) {
+            if (err) return reject(err);
+
+            return resolve(data.body);
+          });
+      })
+        .then(function (answer) {
+          assert.notEqual(token, answer.data.token);
+          done();
+        })
+        .catch(done)
+    }, 2000);
   });
 
 });
