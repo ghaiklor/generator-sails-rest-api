@@ -1,8 +1,10 @@
 var assert = require('assert');
 var isUser = require('../../../api/policies/isAuthenticated');
 var sinon = require('sinon');
+var CipherService = require('../../../api/services/CipherService');
+var jwt = CipherService.jwt;
 
-var token = "Bearer " + require('../../../api/services/CipherService').encodeSync({id: 2});
+var token = "Bearer " + jwt.encodeSync({id: 2});
 var tokenFail = token + '3';
 
 var req = {
