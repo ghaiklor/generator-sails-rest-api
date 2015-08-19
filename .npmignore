@@ -1,5 +1,5 @@
-coverage
-test
+/coverage
+/test
 .idea
 .editorconfig
 .gitignore
