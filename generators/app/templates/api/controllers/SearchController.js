@@ -20,7 +20,7 @@ module.exports = {
         models.push({name: modelStr, model: model});
       });
     }
-    var promisies = models.map(function (modelObj) {
+    Promise.map(models, function (modelObj) {
       var model = modelObj.model;
       var modelStr = modelObj.name;
       var where = genWhereCriteria(model, q);
@@ -31,16 +31,14 @@ module.exports = {
           resObj[modelStr] = queryRes;
           return Promise.resolve(resObj)
         })
-    });
-    Promise
-      .all(promisies)
+    })
       .then(function (searchRes) {
         return _.transform(searchRes, function (result, val) {
           result = _.merge(result, val);
         }, {});
       })
       .then(res.ok)
-      .catch(res.serverError.bind(this, null, null));
+      .catch(res.serverError)
   }
 };
 
