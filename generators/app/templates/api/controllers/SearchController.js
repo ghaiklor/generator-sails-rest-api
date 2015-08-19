@@ -23,7 +23,9 @@ module.exports = {
     Promise.map(models, function (modelObj) {
       var model = modelObj.model;
       var modelStr = modelObj.name;
-      var where = genWhereCriteria(model, q);
+      var where = _.transform(model.definition, function (result, val, key) {
+        result.or.push(_.set({}, key, {contains: q}));
+      }, {or: []});
       return model
         .find(where)
         .then(function (queryRes) {
@@ -41,13 +43,3 @@ module.exports = {
       .catch(res.serverError)
   }
 };
-
-function genWhereCriteria(Model, q) {
-  var orObj = [];
-  _.forEach(Model.definition, function (attr, name) {
-    var obj = {};
-    obj[name] = {contains: q};
-    orObj.push(obj);
-  });
-  return {or: orObj};
-}
