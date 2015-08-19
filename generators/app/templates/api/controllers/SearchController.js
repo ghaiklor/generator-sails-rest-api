@@ -1,11 +1,9 @@
 var _ = require('lodash');
-var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 var Promise = require('bluebird');
 
 module.exports = {
   index: function (req, res) {
     var models = [];
-    var whereObj = {};
     if (!req.param('q')) {
       return res.badRequest(null, null, 'You should specify a "q" parameter!');
     }
@@ -15,8 +13,6 @@ module.exports = {
       if (!(modelStr in sails.models)) {
         return res.badRequest(null, null, 'Cannot find model: ' + modelStr);
       }
-      _.set(req.options, 'criteria.blacklist', ['model', 'q']);
-      whereObj = actionUtil.parseCriteria(req);
       models.push({name: modelStr, model: sails.models[modelStr]});
     }
     else {
@@ -27,7 +23,7 @@ module.exports = {
     var promisies = models.map(function (modelObj) {
       var model = modelObj.model;
       var modelStr = modelObj.name;
-      var where = _.merge(genWhereCriteria(model, q), whereObj);
+      var where = genWhereCriteria(model, q);
       return model
         .find(where)
         .then(function (queryRes) {
