@@ -18,5 +18,8 @@ module.exports = {
     pubsub: false,
     session: false,
     views: false
+  },
+  blueprints: {
+    pluralize: false
   }
 };
