@@ -9,6 +9,7 @@
     "i18n": false,
     "pubsub": false,
     "session": false,
-    "views": false
+    "views": false,
+    "sockets": false
   }
 }
