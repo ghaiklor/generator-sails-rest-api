@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.10.3
+
+- Fix: Bug with sockets hook is enabled by default;
+
 ## Version 0.10.2
 
 - Improvement: Implement `Connection: keep-alive` for all responses;
