@@ -7,6 +7,7 @@ module.exports = function (sails) {
         if (!_.get(sails.config, 'blueprints.pluralize')) {
           return;
         }
+
         _.forEach(sails.middleware.controllers, function (controller, name) {
           if (!_.get(sails.models, name, false) && !_.get(controller, '_config.pluralize', false))
             _.set(controller, '_config.pluralize', false);
