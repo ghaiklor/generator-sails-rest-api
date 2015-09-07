@@ -2,6 +2,10 @@
 
 ## Edge version
 
+- Improvement: Implement `SearchController` that can lookup for text in all models;
+- Improvement: `pluralize` config in `blueprints` is works only for controllers that own appropriate model;
+- Fix: `test` folder is not copies to destination folder;
+
 ## Version 0.10.3
 
 - Fix: Bug with sockets hook is enabled by default;
