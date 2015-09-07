@@ -51,7 +51,7 @@ module.exports.blueprints = {
    * Whether to pluralize controller names in blueprint routes
    * @type {Boolean}
    */
-  pluralize: false,
+  pluralize: true,
 
   /**
    * Whether the blueprint controllers should populate model fetches with data
