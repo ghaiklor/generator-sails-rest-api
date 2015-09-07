@@ -49,6 +49,6 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "istanbul": "^0.3.13",
-    "mocha": "^2.2.4"
+    "mocha": "^2.3.1"
   }
 }
