@@ -2,6 +2,8 @@
 
 ## Edge version
 
+- Improvement: Implement `page` param in requests;
+
 ## Version 0.10.4
 
 - Improvement: Implement `SearchController` that can lookup for text in all models;
