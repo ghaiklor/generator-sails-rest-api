@@ -2,9 +2,6 @@
 
 ## Faraway
 
-- [ ] Implement search on top of `find` blueprint;
-- [ ] Implement pluralized form only for REST models;
-
 ## Next minor version
 
 - [ ] Check and improve sorting features like `GET /tickets?sort=-priority,created_at`;
@@ -15,6 +12,11 @@
 - [ ] Make global error codes for API with description and how fix it;
 - [ ] Implement `X-Rate-Limiting`;
 - [ ] Implement converting camelCase attributes to snake_case in HTTP response;
+
+## Version 0.11.0
+
+- [x] Implement search on top of `find` blueprint;
+- [x] Implement pluralized form only for REST models;
 
 ## Version 0.10.0 (released)
 
