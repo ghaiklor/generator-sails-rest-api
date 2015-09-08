@@ -92,11 +92,7 @@ describe("controllers:SearchController", function () {
     new Promise(function (resolve, reject) {
       sails.requestForTest('get', '/v1/Search/')
         .set('Authorization', 'Bearer ' + authToken)
-        .end(function (err, data) {
-          if (err) return resolve();
-
-          return reject('Should return badRequest error if "q" parameter does not exists!');
-        });
+        .expect(400, done);
     })
       .then(done)
       .catch(done)
@@ -107,11 +103,7 @@ describe("controllers:SearchController", function () {
       sails.requestForTest('post', '/v1/Search/')
         .send({q: 'someText', model: 'undefinedModel'})
         .set('Authorization', 'Bearer ' + authToken)
-        .end(function (err, data) {
-          if (err) return resolve();
-
-          return reject('Should return badRequest error if "model" parameter contains an invalid model name!');
-        });
+        .expect(400, done);
     })
       .then(done)
       .catch(done)
