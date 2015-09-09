@@ -15,7 +15,7 @@ module.exports = function (req, res) {
   Model
     .update(PK, _.omit(values, 'id'))
     .then(function (records) {
-      return records[0] ? res.ok(records[0]) : res.serverError();
+      return records[0] ? res.ok(records[0]) : res.notFound();
     })
     .catch(res.serverError);
 };
