@@ -13,17 +13,17 @@ var populateAliases = function (model, alias) {
  * An API call to find and return a single model instance from the data adapter using the specified id.
  */
 module.exports = function (req, res) {
-  _.set(req.options, 'criteria.blacklist', ['limit', 'skip', 'sort', 'populate', 'fields']);
+  _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
   var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
   var Model = actionUtil.parseModel(req);
   var PK = actionUtil.requirePk(req);
-  var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, Model.findOne(PK));
+  var query = Model.findOne(PK, fields.length > 0 ? {select: fields} : null);
+  var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, query);
 
   findQuery
-    .then(function (_record) {
-      var record = fields.length > 0 ? _.pick(_record, fields) : _record;
+    .then(function (record) {
       return record ? res.ok(record) : res.notFound();
     })
     .catch(res.serverError);
