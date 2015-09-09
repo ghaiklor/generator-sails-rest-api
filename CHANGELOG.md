@@ -3,6 +3,7 @@
 ## Edge version
 
 - Improvement: Implement `page` param in requests;
+- Improvement: Optimize selecting fields from database on `GET`;
 
 ## Version 0.10.4
 

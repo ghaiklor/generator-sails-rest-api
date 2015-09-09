@@ -1,9 +1,8 @@
 var _ = require('lodash');
-var Promise = require('bluebird');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
-var takeAliases = _.partial(_.pluck, _, 'alias');
-var populateAliases = function (model, alias) {
+var takeAlias = _.partial(_.pluck, _, 'alias');
+var populateAlias = function (model, alias) {
   return model.populate(alias);
 };
 
@@ -15,27 +14,26 @@ var populateAliases = function (model, alias) {
  * If an id was specified, just the instance with that unique id will be returned.
  */
 module.exports = function (req, res) {
-  _.set(req.options, 'criteria.blacklist', ['limit', 'skip', 'sort', 'populate', 'fields']);
+  _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
   var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
   var Model = actionUtil.parseModel(req);
   var where = actionUtil.parseCriteria(req);
   var limit = actionUtil.parseLimit(req);
-  var skip = (parseInt(req.param('page'), 10) - 1) * limit || actionUtil.parseSkip(req);
+  var skip = (req.param('page') - 1) * limit || actionUtil.parseSkip(req);
   var sort = actionUtil.parseSort(req);
-  var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, Model.find().where(where).limit(limit).skip(skip).sort(sort));
-  var countQuery = Model.count(where);
+  var query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
+  var findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
 
-  Promise.all([findQuery, countQuery])
-    .spread(function (_records, _count) {
-      var records = fields.length > 0 ? _.map(_records, _.partial(_.pick, _, fields)) : _records;
+  findQuery
+    .then(function (records) {
       return [records, null, null, {
         criteria: where,
         limit: limit,
         start: skip,
         end: skip + limit,
-        total: _count
+        total: records.length
       }];
     })
     .spread(res.ok)
