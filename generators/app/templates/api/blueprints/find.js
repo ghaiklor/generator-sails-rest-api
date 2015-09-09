@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var Promise = require('bluebird');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 var takeAlias = _.partial(_.pluck, _, 'alias');
@@ -25,15 +26,16 @@ module.exports = function (req, res) {
   var sort = actionUtil.parseSort(req);
   var query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
   var findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
+  var countQuery = Model.count(where);
 
-  findQuery
-    .then(function (records) {
+  Promise.all([findQuery, countQuery])
+    .spread(function (records, count) {
       return [records, null, null, {
         criteria: where,
         limit: limit,
         start: skip,
         end: skip + limit,
-        total: records.length
+        total: count
       }];
     })
     .spread(res.ok)
