@@ -6,6 +6,7 @@
 - Improvement: Optimize selecting fields from database on `GET`;
 - Improvement: Replace all error responses in blueprints with `negotiate`;
 - Improvement: Add `page` to responses on `GET`;
+- Fix: Issue with `fields` and `populate` in `findOne` blueprint;
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
 - Typo: Change `serverError` to `notFound` in `update` blueprint;

@@ -19,12 +19,12 @@ module.exports = function (req, res) {
   var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
   var Model = actionUtil.parseModel(req);
   var pk = actionUtil.requirePk(req);
-  var query = Model.findOne(pk, fields.length > 0 ? {select: fields} : null);
+  var query = Model.find(pk, fields.length > 0 ? {select: fields} : null);
   var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, query);
 
   findQuery
     .then(function (record) {
-      return record ? res.ok(record) : res.notFound();
+      return record[0] ? res.ok(record[0]) : res.notFound();
     })
     .catch(res.negotiate);
 };
