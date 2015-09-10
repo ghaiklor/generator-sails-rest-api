@@ -22,7 +22,7 @@ module.exports = function (req, res) {
   var Model = actionUtil.parseModel(req);
   var where = actionUtil.parseCriteria(req);
   var limit = actionUtil.parseLimit(req);
-  var skip = (req.param('page') - 1) * limit || actionUtil.parseSkip(req);
+  var skip = req.param('page') * limit || actionUtil.parseSkip(req);
   var sort = actionUtil.parseSort(req);
   var query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
   var findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
@@ -35,6 +35,7 @@ module.exports = function (req, res) {
         limit: limit,
         start: skip,
         end: skip + limit,
+        page: Math.floor(skip / limit),
         total: count
       }];
     })
