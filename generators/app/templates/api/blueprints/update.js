@@ -9,11 +9,11 @@ var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  */
 module.exports = function (req, res) {
   var Model = actionUtil.parseModel(req);
-  var PK = actionUtil.requirePk(req);
+  var pk = actionUtil.requirePk(req);
   var values = actionUtil.parseValues(req);
 
   Model
-    .update(PK, _.omit(values, 'id'))
+    .update(pk, _.omit(values, 'id'))
     .then(function (records) {
       return records[0] ? res.ok(records[0]) : res.notFound();
     })
