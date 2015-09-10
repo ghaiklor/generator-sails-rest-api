@@ -26,5 +26,5 @@ module.exports = function (req, res) {
     .then(function (record) {
       return record ? res.ok(record) : res.notFound();
     })
-    .catch(res.serverError);
+    .catch(res.negotiate);
 };

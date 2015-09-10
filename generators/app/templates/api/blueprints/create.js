@@ -14,5 +14,5 @@ module.exports = function (req, res) {
   Model
     .create(_.omit(values, 'id'))
     .then(res.created)
-    .catch(res.serverError);
+    .catch(res.negotiate);
 };

@@ -39,5 +39,5 @@ module.exports = function (req, res) {
       }];
     })
     .spread(res.ok)
-    .catch(res.serverError);
+    .catch(res.negotiate);
 };
