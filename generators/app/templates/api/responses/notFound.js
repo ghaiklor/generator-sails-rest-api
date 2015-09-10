@@ -6,13 +6,12 @@
  * Used when the requested resource is not found, whether it doesn't exist.
  */
 
-module.exports = function (data, code, message, root) {
-  // TODO: make transform camelCase to snake_case
+module.exports = function (data) {
   var response = _.assign({
-    code: code || 'E_NOT_FOUND',
-    message: message || 'The requested resource could not be found but may be available again in the future',
-    data: data || {}
-  }, root);
+    code: _.get(data, 'code', 'E_NOT_FOUND'),
+    message: _.get(data, 'message', 'The requested resource could not be found but may be available again in the future'),
+    data: _.get(data, 'data', data || {})
+  }, _.get(data, 'root', {}));
 
   this.res.status(404);
   this.res.jsonx(response);

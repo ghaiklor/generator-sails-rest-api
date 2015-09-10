@@ -6,15 +6,16 @@
 
 module.exports = function (error) {
   var res = this.res;
-  var code = error && error.code;
-  var message = error && error.reason;
-  var data = (error && error.invalidAttributes) || error;
-  var statusCode = (error && error.status) || 500;
+  var code = _.get(error, 'code');
+  var message = _.get(error, 'reason');
+  var data = _.get(error, 'invalidAttributes', error);
+  var statusCode = _.get(error, 'status', 500);
+  var response = {code: code, message: message, data: data};
 
-  if (statusCode === 401) return res.unauthorized(data, code, message);
-  if (statusCode === 403) return res.forbidden(data, code, message);
-  if (statusCode === 404) return res.notFound(data, code, message);
-  if (statusCode >= 400 && statusCode < 500) return res.badRequest(data, code, message);
+  if (statusCode === 401) return res.unauthorized(response);
+  if (statusCode === 403) return res.forbidden(response);
+  if (statusCode === 404) return res.notFound(response);
+  if (statusCode >= 400 && statusCode < 500) return res.badRequest(response);
 
-  return res.serverError(data, code, message);
+  return res.serverError(response);
 };

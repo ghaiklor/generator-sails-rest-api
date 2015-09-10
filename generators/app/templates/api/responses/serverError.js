@@ -5,13 +5,12 @@
  * The general catch-all error when the server-side throws an exception.
  */
 
-module.exports = function (data, code, message, root) {
-  // TODO: make transform camelCase to snake_case
+module.exports = function (data) {
   var response = _.assign({
-    code: code || 'E_INTERNAL_SERVER_ERROR',
-    message: message || 'Something bad happened on the server',
-    data: data || {}
-  }, root);
+    code: _.get(data, 'code', 'E_INTERNAL_SERVER_ERROR'),
+    message: _.get(data, 'message', 'Something bad happened on the server'),
+    data: _.get(data, 'data', data || {})
+  }, _.get(data, 'root', {}));
 
   this.res.status(500);
   this.res.jsonx(response);

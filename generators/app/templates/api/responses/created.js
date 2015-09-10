@@ -7,13 +7,12 @@
  * Response body content may or may not be present.
  */
 
-module.exports = function (data, code, message, root) {
-  // TODO: make transform camelCase to snake_case
+module.exports = function (data) {
   var response = _.assign({
-    code: code || 'CREATED',
-    message: message || 'The request has been fulfilled and resulted in a new resource being created',
-    data: data || {}
-  }, root);
+    code: _.get(data, 'code', 'CREATED'),
+    message: _.get(data, 'message', 'The request has been fulfilled and resulted in a new resource being created'),
+    data: _.get(data, 'data', data || {})
+  }, _.get(data, 'root', {}));
 
   this.res.status(201);
   this.res.jsonx(response);

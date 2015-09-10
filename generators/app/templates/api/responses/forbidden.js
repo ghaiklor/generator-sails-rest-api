@@ -6,13 +6,12 @@
  * Error code for user not authorized to perform the operation or the resource is unavailable for some reason.
  */
 
-module.exports = function (data, code, message, root) {
-  // TODO: make transform camelCase to snake_case
+module.exports = function (data) {
   var response = _.assign({
-    code: code || 'E_FORBIDDEN',
-    message: message || 'User not authorized to perform the operation',
-    data: data || {}
-  }, root);
+    code: _.get(data, 'code', 'E_FORBIDDEN'),
+    message: _.get(data, 'message', 'User not authorized to perform the operation'),
+    data: _.get(data, 'data', data || {})
+  }, _.get(data, 'root', {}));
 
   this.res.status(403);
   this.res.jsonx(response);

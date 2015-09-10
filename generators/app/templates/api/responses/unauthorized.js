@@ -6,13 +6,12 @@
  * Error code response for missing or invalid authentication token.
  */
 
-module.exports = function (data, code, message, root) {
-  // TODO: make transform camelCase to snake_case
+module.exports = function (data) {
   var response = _.assign({
-    code: code || 'E_UNAUTHORIZED',
-    message: message || 'Missing or invalid authentication token',
-    data: data || {}
-  }, root);
+    code: _.get(data, 'code', 'E_UNAUTHORIZED'),
+    message: _.get(data, 'message', 'Missing or invalid authentication token'),
+    data: _.get(data, 'data', data || {})
+  }, _.get(data, 'root', {}));
 
   this.res.status(401);
   this.res.jsonx(response);
