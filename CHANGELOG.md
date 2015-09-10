@@ -4,6 +4,7 @@
 
 - Improvement: Implement `page` param in requests;
 - Improvement: Optimize selecting fields from database on `GET`;
+- Fix: Issue with custom `id` on `create` resource;
 - Typo: Change `serverError` to `notFound` in `update` blueprint;
 
 ## Version 0.10.4

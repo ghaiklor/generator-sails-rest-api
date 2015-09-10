@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
@@ -11,7 +12,7 @@ module.exports = function (req, res) {
   var values = actionUtil.parseValues(req);
 
   Model
-    .create(values)
+    .create(_.omit(values, 'id'))
     .then(res.created)
     .catch(res.serverError);
 };
