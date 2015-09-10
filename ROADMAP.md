@@ -8,7 +8,6 @@
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
 - [ ] When I'll be implementing error codes, need to add `description` field to response as well;
 - [ ] Make global error codes for API with description and how fix it;
-- [ ] Implement converting camelCase attributes to snake_case in HTTP response;
 
 ## Version 0.10.0 (released)
 
