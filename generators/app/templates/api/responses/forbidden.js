@@ -6,6 +6,8 @@
  * Error code for user not authorized to perform the operation or the resource is unavailable for some reason.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'E_FORBIDDEN'),

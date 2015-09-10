@@ -6,6 +6,8 @@
  * Used when the requested resource is not found, whether it doesn't exist.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'E_NOT_FOUND'),

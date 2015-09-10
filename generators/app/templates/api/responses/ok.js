@@ -7,6 +7,8 @@
  * In a POST request the response will contain an entity describing or containing the result of the action.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'OK'),

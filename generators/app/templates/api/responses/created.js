@@ -7,6 +7,8 @@
  * Response body content may or may not be present.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'CREATED'),

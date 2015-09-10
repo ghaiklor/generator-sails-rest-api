@@ -5,6 +5,8 @@
  * The general catch-all error when the server-side throws an exception.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'E_INTERNAL_SERVER_ERROR'),

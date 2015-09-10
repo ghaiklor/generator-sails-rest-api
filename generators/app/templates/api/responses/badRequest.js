@@ -6,6 +6,8 @@
  * Domain validation errors, missing data, etc.
  */
 
+var _ = require('lodash');
+
 module.exports = function (data) {
   var response = _.assign({
     code: _.get(data, 'code', 'E_BAD_REQUEST'),
