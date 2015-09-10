@@ -18,8 +18,8 @@ module.exports = function (req, res) {
   var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
   var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
   var Model = actionUtil.parseModel(req);
-  var PK = actionUtil.requirePk(req);
-  var query = Model.findOne(PK, fields.length > 0 ? {select: fields} : null);
+  var pk = actionUtil.requirePk(req);
+  var query = Model.findOne(pk, fields.length > 0 ? {select: fields} : null);
   var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, query);
 
   findQuery
