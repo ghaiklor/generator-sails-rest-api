@@ -6,7 +6,7 @@
 - Improvement: Optimize selecting fields from database on `GET`;
 - Improvement: Replace all error responses in blueprints with `negotiate`;
 - Improvement: Add `page` to responses on `GET`;
-- Improvement: Add `negotiate` response that handles errors;
+- Improvement: Add `negotiate` response that handles errors from Waterline;
 - Fix: Issue with `fields` and `populate` in `findOne` blueprint;
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
