@@ -6,13 +6,8 @@
 var _ = require('lodash');
 var passport = require('passport');
 
-/**
- * Triggers when user authenticates via passport
- * @private
- */
 function _onPassportAuth(req, res, error, user, info) {
-  if (error) return res.serverError(error);
-  if (!user) return res.unauthorized(null, info && info.code, info && info.message);
+  if (error || !user) return res.negotiate(_.assign(error, info));
 
   return res.ok({
     token: CipherService.jwt.encodeSync({id: user.id}),
@@ -29,7 +24,7 @@ module.exports = {
   },
 
   /**
-   * Sign up in system by email\password
+   * Sign up by email\password
    */
   signup: function (req, res) {
     var values = _.omit(req.allParams(), 'id');
@@ -43,7 +38,7 @@ module.exports = {
         };
       })
       .then(res.created)
-      .catch(res.serverError);
+      .catch(res.negotiate);
   },
 
   /**
@@ -54,7 +49,7 @@ module.exports = {
     var strategyName = [type, 'token'].join('-');
 
     if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {
-      return res.badRequest(null, null, [type, ' is not supported'].join(''));
+      return res.badRequest({message: [type, ' is not supported'].join('')});
     }
 
     passport.authenticate('jwt', function (error, user, info) {
