@@ -56,12 +56,28 @@ module.exports = {
   },
 
   beforeUpdate: function (values, next) {
-    if (values.password) values.password = HashService.bcrypt.hashSync(values.password);
-    next();
+    var id = values.id;
+    var password = values.password;
+
+    if (id && password) {
+      return User
+        .findOne({id: id})
+        .then(function (user) {
+          if (password === user.password) {
+            return next();
+          } else {
+            values.password = HashService.bcrypt.hashSync(password);
+            return next();
+          }
+        })
+        .catch(next);
+    } else {
+      next();
+    }
   },
 
   beforeCreate: function (values, next) {
-    if (values.password) values.password = HashService.bcrypt.hashSync(values.password);
+    values.password = HashService.bcrypt.hashSync(values.password);
     next();
   }
 };
