@@ -12,12 +12,11 @@ module.exports = function (error) {
   var message = _.get(error, 'reason') || _.get(error, 'message');
   var data = _.get(error, 'invalidAttributes', error);
   var statusCode = _.get(error, 'status', 500);
-  var response = {code: code, message: message, data: data};
 
-  if (statusCode === 401) return res.unauthorized(response);
-  if (statusCode === 403) return res.forbidden(response);
-  if (statusCode === 404) return res.notFound(response);
-  if (statusCode >= 400 && statusCode < 500) return res.badRequest(response);
+  if (statusCode === 401) return res.unauthorized(data, {code: code, message: message});
+  if (statusCode === 403) return res.forbidden(data, {code: code, message: message});
+  if (statusCode === 404) return res.notFound(data, {code: code, message: message});
+  if (statusCode >= 400 && statusCode < 500) return res.badRequest(data, {code: code, message: message});
 
-  return res.serverError(response);
+  return res.serverError(data, {code: code, message: message});
 };

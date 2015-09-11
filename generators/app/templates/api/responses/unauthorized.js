@@ -8,12 +8,12 @@
 
 var _ = require('lodash');
 
-module.exports = function (data) {
+module.exports = function (data, config) {
   var response = _.assign({
-    code: _.get(data, 'code', 'E_UNAUTHORIZED'),
-    message: _.get(data, 'message', 'Missing or invalid authentication token'),
-    data: _.get(data, 'data', data || {})
-  }, _.get(data, 'root', {}));
+    code: _.get(config, 'code', 'E_UNAUTHORIZED'),
+    message: _.get(config, 'message', 'Missing or invalid authentication token'),
+    data: data || {}
+  }, _.get(config, 'root', {}));
 
   this.res.status(401);
   this.res.jsonx(response);

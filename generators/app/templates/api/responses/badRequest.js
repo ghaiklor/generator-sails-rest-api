@@ -8,12 +8,12 @@
 
 var _ = require('lodash');
 
-module.exports = function (data) {
+module.exports = function (data, config) {
   var response = _.assign({
-    code: _.get(data, 'code', 'E_BAD_REQUEST'),
-    message: _.get(data, 'message', 'The request cannot be fulfilled due to bad syntax'),
-    data: _.get(data, 'data', data || {})
-  }, _.get(data, 'root', {}));
+    code: _.get(config, 'code', 'E_BAD_REQUEST'),
+    message: _.get(config, 'message', 'The request cannot be fulfilled due to bad syntax'),
+    data: data || {}
+  }, _.get(config, 'root', {}));
 
   this.res.status(400);
   this.res.jsonx(response);

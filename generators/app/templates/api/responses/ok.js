@@ -9,12 +9,12 @@
 
 var _ = require('lodash');
 
-module.exports = function (data) {
+module.exports = function (data, config) {
   var response = _.assign({
-    code: _.get(data, 'code', 'OK'),
-    message: _.get(data, 'message', 'Operation is successfully executed'),
-    data: _.get(data, 'data', data || {})
-  }, _.get(data, 'root', {}));
+    code: _.get(config, 'code', 'OK'),
+    message: _.get(config, 'message', 'Operation is successfully executed'),
+    data: data || {}
+  }, _.get(config, 'root', {}));
 
   this.res.status(200);
   this.res.jsonx(response);

@@ -9,12 +9,12 @@
 
 var _ = require('lodash');
 
-module.exports = function (data) {
+module.exports = function (data, config) {
   var response = _.assign({
-    code: _.get(data, 'code', 'CREATED'),
-    message: _.get(data, 'message', 'The request has been fulfilled and resulted in a new resource being created'),
-    data: _.get(data, 'data', data || {})
-  }, _.get(data, 'root', {}));
+    code: _.get(config, 'code', 'CREATED'),
+    message: _.get(config, 'message', 'The request has been fulfilled and resulted in a new resource being created'),
+    data: data || {}
+  }, _.get(config, 'root', {}));
 
   this.res.status(201);
   this.res.jsonx(response);

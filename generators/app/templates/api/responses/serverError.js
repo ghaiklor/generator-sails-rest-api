@@ -7,12 +7,12 @@
 
 var _ = require('lodash');
 
-module.exports = function (data) {
+module.exports = function (data, config) {
   var response = _.assign({
-    code: _.get(data, 'code', 'E_INTERNAL_SERVER_ERROR'),
-    message: _.get(data, 'message', 'Something bad happened on the server'),
-    data: _.get(data, 'data', data || {})
-  }, _.get(data, 'root', {}));
+    code: _.get(config, 'code', 'E_INTERNAL_SERVER_ERROR'),
+    message: _.get(config, 'message', 'Something bad happened on the server'),
+    data: data || {}
+  }, _.get(config, 'root', {}));
 
   this.res.status(500);
   this.res.jsonx(response);
