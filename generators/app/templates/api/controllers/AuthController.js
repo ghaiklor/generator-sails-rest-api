@@ -6,21 +6,12 @@
 var _ = require('lodash');
 var passport = require('passport');
 
-function _onPassportAuth(req, res, error, user, info) {
-  if (error || !user) return res.negotiate(_.assign(error || {}, info));
-
-  return res.ok({
-    token: CipherService.jwt.encodeSync({id: user.id}),
-    user: user
-  });
-}
-
 module.exports = {
   /**
    * Sign in by email\password
    */
   signin: function (req, res) {
-    passport.authenticate('local', _.partial(_onPassportAuth, req, res))(req, res);
+    passport.authenticate('local', _.partial(sails.config.passport.onPassportAuth, req, res))(req, res);
   },
 
   /**
@@ -54,7 +45,7 @@ module.exports = {
 
     passport.authenticate('jwt', function (error, user, info) {
       req.user = user;
-      passport.authenticate(strategyName, _.partial(_onPassportAuth, req, res))(req, res);
+      passport.authenticate(strategyName, _.partial(sails.config.passport.onPassportAuth, req, res))(req, res);
     })(req, res);
   },
 

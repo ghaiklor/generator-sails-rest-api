@@ -155,6 +155,25 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
   }
 }
 
+/**
+ * Triggers when all Passport steps is done and user profile is parsed
+ * @param {Object} req Request object
+ * @param {Object} res Response object
+ * @param {Object} error Object with error info
+ * @param {Object} user User object
+ * @param {Object} info Information object
+ * @returns {*}
+ * @private
+ */
+function _onPassportAuth(req, res, error, user, info) {
+  if (error || !user) return res.negotiate(_.assign(error || {}, info));
+
+  return res.ok({
+    token: CipherService.jwt.encodeSync({id: user.id}),
+    user: user
+  });
+}
+
 passport.use(new LocalStrategy(_.assign({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
 passport.use(new JwtStrategy(_.assign({}, JWT_STRATEGY_CONFIG), _onJwtStrategyAuth));
 passport.use(new FacebookTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
@@ -172,3 +191,7 @@ passport.use(new YandexTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSo
 passport.use(new AmazonTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new GooglePlusTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new YahooTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
+
+module.exports.passport = {
+  onPassportAuth: _onPassportAuth
+};

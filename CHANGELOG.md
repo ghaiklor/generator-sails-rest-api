@@ -10,6 +10,7 @@
 - Improvement: Rewrite all responses so you are able to send all options as one object;
 - Improvement: Checks for `token` exists in `refresh_token` route;
 - Improvement: Add echo response on `/v1/ping`;
+- Improvement: Move `_onPassportAuth` method from controller to `passport.js` config;
 - Fix: Issue with `fields` and `populate` in `findOne` blueprint;
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
