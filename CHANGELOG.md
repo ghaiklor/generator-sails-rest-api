@@ -8,10 +8,11 @@
 - Improvement: Add `page` to responses on `GET`;
 - Improvement: Add `negotiate` response that handles errors from Waterline;
 - Improvement: Rewrite all responses so you are able to send all options as one object;
+- Improvement: Checks for `token` exists in `refresh_token` route;
 - Fix: Issue with `fields` and `populate` in `findOne` blueprint;
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
-- Typo: Change `serverError` to `notFound` in `update` blueprint;
+- Fix: Change `serverError` to `notFound` in `update` blueprint;
 
 ## Version 0.10.4
 

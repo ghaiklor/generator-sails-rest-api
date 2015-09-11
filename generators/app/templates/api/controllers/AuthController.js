@@ -62,6 +62,8 @@ module.exports = {
    * Accept JSON Web Token and updates with new one
    */
   refresh_token: function (req, res) {
+    if (!req.param('token')) return res.badRequest({message: 'You must provide token parameter'});
+
     var oldDecoded = CipherService.jwt.decodeSync(req.param('token'));
 
     res.ok({
