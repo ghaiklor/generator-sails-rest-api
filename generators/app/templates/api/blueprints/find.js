@@ -30,8 +30,7 @@ module.exports = function (req, res) {
 
   Promise.all([findQuery, countQuery])
     .spread(function (records, count) {
-      return {
-        data: records,
+      return [records, {
         root: {
           criteria: where,
           limit: limit,
@@ -40,8 +39,8 @@ module.exports = function (req, res) {
           page: Math.floor(skip / limit),
           total: count
         }
-      };
+      }];
     })
-    .then(res.ok)
+    .spread(res.ok)
     .catch(res.negotiate);
 };
