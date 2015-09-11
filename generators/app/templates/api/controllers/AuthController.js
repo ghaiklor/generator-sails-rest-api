@@ -7,7 +7,7 @@ var _ = require('lodash');
 var passport = require('passport');
 
 function _onPassportAuth(req, res, error, user, info) {
-  if (error || !user) return res.negotiate(_.assign(error, info));
+  if (error || !user) return res.negotiate(_.assign(error || {}, info));
 
   return res.ok({
     token: CipherService.jwt.encodeSync({id: user.id}),
