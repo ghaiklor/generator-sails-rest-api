@@ -8,6 +8,6 @@ module.exports = {
    * Useful when need to check if it's server is down or it some logic is broken
    */
   index: function (req, res) {
-    res.ok(null, {message: 'HTTP server is working'});
+    res.ok(req.allParams(), {message: 'HTTP server is working'});
   }
 };
