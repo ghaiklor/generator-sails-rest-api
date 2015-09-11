@@ -76,12 +76,14 @@ function _onLocalStrategyAuth(req, email, password, next) {
     .then(function (user) {
       if (!user) return next(null, null, {
         code: 'E_USER_NOT_FOUND',
-        message: email + ' is not found'
+        message: email + ' is not found',
+        status: 401
       });
 
       if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, {
         code: 'E_WRONG_PASSWORD',
-        message: 'Password is wrong'
+        message: 'Password is wrong',
+        status: 401
       });
 
       return next(null, user, {});
@@ -102,7 +104,8 @@ function _onJwtStrategyAuth(req, payload, next) {
     .then(function (user) {
       if (!user) return next(null, null, {
         code: 'E_USER_NOT_FOUND',
-        message: 'User with that JWT not found'
+        message: 'User with that JWT not found',
+        status: 401
       });
 
       return next(null, user, {});
@@ -139,7 +142,8 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
       .then(function (user) {
         if (!user) return next(null, null, {
           code: 'E_AUTH_FAILED',
-          message: [profile.provider, ' auth failed'].join('')
+          message: [profile.provider, ' auth failed'].join(''),
+          status: 401
         });
 
         return next(null, user, {});
