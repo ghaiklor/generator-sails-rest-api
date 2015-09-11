@@ -49,7 +49,7 @@ module.exports = {
     var strategyName = [type, 'token'].join('-');
 
     if (Object.keys(passport._strategies).indexOf(strategyName) === -1) {
-      return res.badRequest({message: [type, ' is not supported'].join('')});
+      return res.badRequest(null, {message: [type, ' is not supported'].join('')});
     }
 
     passport.authenticate('jwt', function (error, user, info) {
@@ -62,7 +62,7 @@ module.exports = {
    * Accept JSON Web Token and updates with new one
    */
   refresh_token: function (req, res) {
-    if (!req.param('token')) return res.badRequest({message: 'You must provide token parameter'});
+    if (!req.param('token')) return res.badRequest(null, {message: 'You must provide token parameter'});
 
     var oldDecoded = CipherService.jwt.decodeSync(req.param('token'));
 
