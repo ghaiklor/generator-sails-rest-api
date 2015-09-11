@@ -13,6 +13,7 @@
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
 - Fix: Change `serverError` to `notFound` in `update` blueprint;
+- Fix: Duplicate error in `data` and `root` of response;
 
 ## Version 0.10.4
 
