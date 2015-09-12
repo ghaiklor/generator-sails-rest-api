@@ -35,6 +35,7 @@ describe('hooks:pluralize-only-rest-models', function () {
 
       done();
     };
-    pluralizeOnlyModels(sailsLoc).initialize(function () {});
+    pluralizeOnlyModels(sailsLoc).initialize(function () {
+    });
   });
 });
