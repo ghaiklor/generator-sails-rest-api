@@ -5,6 +5,6 @@ MAINTAINER Eugene Obrezkov <ghaiklor@gmail.com>
 RUN mkdir /server
 VOLUME ["/server"]
 WORKDIR /server
-EXPOSE 1337
+EXPOSE 3000
 
 CMD node app.js

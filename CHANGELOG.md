@@ -16,6 +16,7 @@
 - Fix: Issue with custom `id` on `create` resource;
 - Fix: Change `serverError` to `notFound` in `update` blueprint;
 - Fix: Duplicate error in `data` and `root` of response;
+- Fix: Change 1337 port to 3000 in Dockerfile;
 
 ## Version 0.10.4
 
