@@ -5,9 +5,9 @@
 - [x] Implement search on top of `find` blueprint;
 - [x] Implement pluralized form only for REST models;
 - [x] Maybe add `page` field to request;
+- [x] When I'll be implementing error codes, need to add `description` field to response as well;
+- [x] Make global error codes for API with description and how fix it;
 - [ ] Think about ACL hook `sails-hook-acl` and make roles for model's attributes;
-- [ ] When I'll be implementing error codes, need to add `description` field to response as well;
-- [ ] Make global error codes for API with description and how fix it;
 
 ## Version 0.10.0 (released)
 
