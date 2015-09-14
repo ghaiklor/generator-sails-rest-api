@@ -1,5 +1,5 @@
 var assert = require('assert');
-var pluralizeOnlyModels = require('../../../api/hooks/pluralize-only-rest-models');
+var pluralizeOnlyModels = require('../../../api/hooks/pluralize-models.js');
 var _ = require('lodash');
 
 var sailsLoc = {
