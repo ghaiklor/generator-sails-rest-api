@@ -74,18 +74,8 @@ function _onLocalStrategyAuth(req, email, password, next) {
   User
     .findOne({email: email})
     .then(function (user) {
-      if (!user) return next(null, null, {
-        code: 'E_USER_NOT_FOUND',
-        message: email + ' is not found',
-        status: 401
-      });
-
-      if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, {
-        code: 'E_WRONG_PASSWORD',
-        message: 'Password is wrong',
-        status: 401
-      });
-
+      if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
+      if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       return next(null, user, {});
     })
     .catch(next);
@@ -102,12 +92,7 @@ function _onJwtStrategyAuth(req, payload, next) {
   User
     .findOne({id: payload.id})
     .then(function (user) {
-      if (!user) return next(null, null, {
-        code: 'E_USER_NOT_FOUND',
-        message: 'User with that JWT not found',
-        status: 401
-      });
-
+      if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       return next(null, user, {});
     })
     .catch(next);
@@ -140,12 +125,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
     User
       .findOrCreate(criteria, model)
       .then(function (user) {
-        if (!user) return next(null, null, {
-          code: 'E_AUTH_FAILED',
-          message: [profile.provider, ' auth failed'].join(''),
-          status: 401
-        });
-
+        if (!user) return next(null, null, sails.config.errors.AUTH_FAILED);
         return next(null, user, {});
       })
       .catch(next);
