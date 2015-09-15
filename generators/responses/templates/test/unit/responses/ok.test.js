@@ -2,37 +2,37 @@ var assert = require('chai').assert;
 var sinon = require('sinon');
 var status = sinon.spy();
 var jsonx = sinon.spy();
-var forbidden = require('../../../api/responses/forbidden').bind({
+var ok = require('../../../.././ok').bind({
   res: {
     status: status,
     jsonx: jsonx
   }
 });
 
-describe('responses:forbidden', function () {
+describe('responses:ok', function () {
   it('Should generate response with no params', function () {
-    forbidden();
-    assert.ok(status.calledWith(403));
+    ok();
+    assert.ok(status.calledWith(200));
     assert.ok(jsonx.calledWith({
-      code: 'E_FORBIDDEN',
-      message: 'User not authorized to perform the operation',
+      code: 'OK',
+      message: 'Operation is successfully executed',
       data: {}
     }));
   });
 
   it('Should generate response with data param', function () {
-    forbidden('MY_DATA');
-    assert.ok(status.calledWith(403));
+    ok('MY_DATA');
+    assert.ok(status.calledWith(200));
     assert.ok(jsonx.calledWith({
-      code: 'E_FORBIDDEN',
-      message: 'User not authorized to perform the operation',
+      code: 'OK',
+      message: 'Operation is successfully executed',
       data: 'MY_DATA'
     }));
   });
 
   it('Should generate response with config param', function () {
-    forbidden('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {root: 'MY_ROOT'}});
-    assert.ok(status.calledWith(403));
+    ok('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {root: 'MY_ROOT'}});
+    assert.ok(status.calledWith(200));
     assert.ok(jsonx.calledWith({
       code: 'MY_CODE',
       message: 'MY_MESSAGE',
