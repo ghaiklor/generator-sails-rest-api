@@ -23,26 +23,10 @@ function _onSectionDone(done, answers) {
 
 module.exports = {
   /**
-   * Ask database questions
-   */
-  askDatabaseQuestions: function () {
-    this.log(chalk.yellow('\nDatabase questions:'));
-    this.prompt(questions.database, _onSectionDone.bind(this, this.async()));
-  },
-
-  /**
    * Ask application questions
    */
   askApplicationQuestions: function () {
     this.log(chalk.yellow('\nApplication questions:'));
     this.prompt(questions.application, _onSectionDone.bind(this, this.async()));
-  },
-
-  /**
-   * Ask services questions
-   */
-  askServiceQuestions: function () {
-    this.log(chalk.yellow('\nService questions:'));
-    this.prompt(questions.services, _onSectionDone.bind(this, this.async()));
   }
 };

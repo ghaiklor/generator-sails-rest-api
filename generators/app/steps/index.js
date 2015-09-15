@@ -5,6 +5,7 @@
 module.exports = {
   configuring: require('./configuring'),
   conflicts: require('./conflicts'),
+  default: require('./default'),
   end: require('./end'),
   initializing: require('./initializing'),
   install: require('./install'),

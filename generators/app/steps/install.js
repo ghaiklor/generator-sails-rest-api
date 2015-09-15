@@ -27,7 +27,9 @@ module.exports = {
           path: this.destinationPath('package.json'),
           entries: files
         }, function (error, data) {
-          var missingAdapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
+          // FIXME: database:adapter answer
+          //var missingAdapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
+          var missingAdapters = ['sails-mongo', 'sails-disk'];
           var missingDependencies = checkDependencies.missing(data.package, data.used).concat(missingAdapters);
           var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(missingDependencies));
 

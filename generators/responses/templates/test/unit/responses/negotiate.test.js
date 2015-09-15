@@ -5,7 +5,7 @@ var forbidden = sinon.spy();
 var notFound = sinon.spy();
 var serverError = sinon.spy();
 var unauthorized = sinon.spy();
-var negotiate = require('../../../.././negotiate').bind({
+var negotiate = require('../../../api/responses/negotiate').bind({
   res: {
     badRequest: badRequest,
     forbidden: forbidden,

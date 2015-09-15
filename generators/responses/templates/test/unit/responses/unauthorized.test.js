@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var sinon = require('sinon');
 var status = sinon.spy();
 var jsonx = sinon.spy();
-var unauthorized = require('../../../.././unauthorized').bind({
+var unauthorized = require('../../../api/responses/unauthorized').bind({
   res: {
     status: status,
     jsonx: jsonx

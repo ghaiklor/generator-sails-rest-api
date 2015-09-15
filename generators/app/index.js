@@ -24,6 +24,7 @@ module.exports = yeoman.generators.Base.extend({
   prompting: steps.prompting,
   configuring: steps.configuring,
   writing: steps.writing,
+  default: steps.default,
   conflicts: steps.conflicts,
   install: steps.install,
   end: steps.end
