@@ -20,6 +20,7 @@
 - Fix: Change `serverError` to `notFound` in `update` blueprint;
 - Fix: Duplicate error in `data` and `root` of response;
 - Fix: Change 1337 port to 3000 in Dockerfile;
+- Typo: Replace `devDependencies` versions with asterisk so that installs the latest version;
 
 ## Version 0.10.4
 

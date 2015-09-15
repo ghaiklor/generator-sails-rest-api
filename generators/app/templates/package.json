@@ -6,12 +6,12 @@
     "sails-hook-cron": "*"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
-    "sails-memory": "^0.10.5",
-    "sinon": "^1.15.4",
-    "supertest": "^1.0.1"
+    "chai": "*",
+    "istanbul": "*",
+    "mocha": "*",
+    "sails-memory": "*",
+    "sinon": "*",
+    "supertest": "*"
   },
   "scripts": {
     "start": "node app.js",
