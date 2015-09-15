@@ -31,13 +31,13 @@ describe('responses:notFound', function () {
   });
 
   it('Should generate response with config param', function () {
-    notFound('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {custom: 'MY_CUSTOM'}});
+    notFound('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {root: 'MY_ROOT'}});
     assert.ok(status.calledWith(404));
     assert.ok(jsonx.calledWith({
       code: 'MY_CODE',
       message: 'MY_MESSAGE',
       data: 'MY_DATA',
-      custom: 'MY_CUSTOM'
+      root: 'MY_ROOT'
     }));
   });
 });

@@ -22,11 +22,11 @@ describe('responses:negotiate', function () {
   });
 
   it('Should handle complex error object', function () {
-    negotiate({error: 'MY_ERROR', code: 'MY_CODE', message: 'MY_MESSAGE', root: {custom: 'MY_CUSTOM'}});
+    negotiate({error: 'MY_ERROR', code: 'MY_CODE', message: 'MY_MESSAGE', root: {root: 'MY_ROOT'}});
     assert.ok(serverError.calledWith({error: 'MY_ERROR'}, {
       code: 'MY_CODE',
       message: 'MY_MESSAGE',
-      root: {custom: 'MY_CUSTOM'}
+      root: {root: 'MY_ROOT'}
     }));
   });
 
@@ -35,13 +35,33 @@ describe('responses:negotiate', function () {
     assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
   });
 
+  it('Should handle error from Passport', function () {
+    negotiate({name: 'InternalOAuthError', oauthError: 401, message: 'PASSPORT_ERROR'});
+    assert.ok(unauthorized.calledWith({}, {code: undefined, message: 'PASSPORT_ERROR', root: undefined}));
+  });
+
+  it('Should handle error with unauthorized status', function () {
+    negotiate({code: 'E_UNAUTHORIZED', reason: 'ANY_REASON', invalidAttributes: [], status: 401});
+    assert.ok(unauthorized.calledWith([], {code: 'E_UNAUTHORIZED', message: 'ANY_REASON', root: undefined}));
+  });
+
   it('Should handle error with forbidden status', function () {
-    negotiate({code: 'E_VALIDATION', reason: 'ANY_REASON', invalidAttributes: [], status: 403});
-    assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
+    negotiate({code: 'E_FORBIDDEN', reason: 'ANY_REASON', invalidAttributes: [], status: 403});
+    assert.ok(forbidden.calledWith([], {code: 'E_FORBIDDEN', message: 'ANY_REASON', root: undefined}));
   });
 
   it('Should handle error with notFound status', function () {
-    negotiate({code: 'E_VALIDATION', reason: 'ANY_REASON', invalidAttributes: [], status: 404});
-    assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
+    negotiate({code: 'E_NOT_FOUND', reason: 'ANY_REASON', invalidAttributes: [], status: 404});
+    assert.ok(notFound.calledWith([], {code: 'E_NOT_FOUND', message: 'ANY_REASON', root: undefined}));
+  });
+
+  it('Should handle error with badRequest status', function () {
+    negotiate({code: 'E_BAD_REQUEST', reason: 'ANY_REASON', invalidAttributes: [], status: 402});
+    assert.ok(badRequest.calledWith([], {code: 'E_BAD_REQUEST', message: 'ANY_REASON', root: undefined}));
+  });
+
+  it('Should handle error with server error status', function () {
+    negotiate({code: 'E_INTERNAL_SERVER_ERROR', reason: 'ANY_REASON', invalidAttributes: [], status: 500});
+    assert.ok(serverError.calledWith([], {code: 'E_INTERNAL_SERVER_ERROR', message: 'ANY_REASON', root: undefined}));
   });
 });
