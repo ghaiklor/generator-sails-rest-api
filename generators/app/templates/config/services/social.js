@@ -1,1 +1,5 @@
-module.exports = {};
+module.exports.services = {
+  social: {
+    facebook: {}
+  }
+};

@@ -1,1 +1,5 @@
-module.exports.hash = {};
+module.exports.services = {
+  hash: {
+    bcrypt: {}
+  }
+};
