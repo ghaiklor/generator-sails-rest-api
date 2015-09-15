@@ -2,6 +2,7 @@
 
 ## Edge version
 
+- **Improvement**: Generator became more composable. So you are able to generate different parts of project independently;
 - Improvement: Implement `page` param in requests;
 - Improvement: Optimize selecting fields from database on `GET`;
 - Improvement: Replace all error responses in blueprints with `negotiate`;
