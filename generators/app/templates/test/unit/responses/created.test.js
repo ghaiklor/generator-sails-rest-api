@@ -1,75 +1,43 @@
-var assert = require('assert');
-var created = require('../../../api/responses/created');
+var assert = require('chai').assert;
 var sinon = require('sinon');
-
-var context = {
+var status = sinon.spy();
+var jsonx = sinon.spy();
+var created = require('../../../api/responses/created').bind({
   res: {
-    status: function () {
-    },
-    jsonx: function () {
-    }
-  },
-  req: {
-    _sails: {
-      log: {
-        silly: function () {
-        }
-      }
-    }
+    status: status,
+    jsonx: jsonx
   }
-};
+});
 
-var createdObj = {
-  code: 'CREATED',
-  message: 'The request has been fulfilled and resulted in a new resource being created',
-  data: {}
-};
-
-var check = function () {
-  assert(stubStatus.alwaysCalledWith(201));
-  assert(stubJsonx.calledWith(createdObj));
-};
-
-var stubStatus = sinon.stub(context.res, 'status');
-var stubJsonx = sinon.stub(context.res, 'jsonx');
-
-describe("responses:created", function () {
-  it("should generate response (no params)", function (done) {
-    created.call(context);
-    check();
-
-    done();
+describe('responses:created', function () {
+  it('Should generate response with no params', function () {
+    created();
+    assert.ok(status.calledWith(201));
+    assert.ok(jsonx.calledWith({
+      code: 'CREATED',
+      message: 'The request has been fulfilled and resulted in a new resource being created',
+      data: {}
+    }));
   });
 
-  it("should generate response with custom data param", function (done) {
-    createdObj = _.merge(createdObj, {data: 'MY_DATA'});
-    created.call(context, 'MY_DATA');
-    check();
-
-    done();
+  it('Should generate response with data param', function () {
+    created('MY_DATA');
+    assert.ok(status.calledWith(201));
+    assert.ok(jsonx.calledWith({
+      code: 'CREATED',
+      message: 'The request has been fulfilled and resulted in a new resource being created',
+      data: 'MY_DATA'
+    }));
   });
 
-  it("should generate response with custom code param", function (done) {
-    createdObj = _.merge(createdObj, {code: 'MY_CODE'});
-    created.call(context, 'MY_DATA', 'MY_CODE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom message param", function (done) {
-    createdObj = _.merge(createdObj, {message: 'MY_MESSAGE'});
-    created.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom root param", function (done) {
-    createdObj = _.assign({dt: '2'}, createdObj);
-    created.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE', {dt: '2'});
-    check();
-
-    done();
+  it('Should generate response with config param', function () {
+    created('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {custom: 'MY_CUSTOM'}});
+    assert.ok(status.calledWith(201));
+    assert.ok(jsonx.calledWith({
+      code: 'MY_CODE',
+      message: 'MY_MESSAGE',
+      data: 'MY_DATA',
+      custom: 'MY_CUSTOM'
+    }));
   });
 });

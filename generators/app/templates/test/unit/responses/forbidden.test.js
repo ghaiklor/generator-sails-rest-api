@@ -1,75 +1,43 @@
-var assert = require('assert');
-var forbidden = require('../../../api/responses/forbidden');
+var assert = require('chai').assert;
 var sinon = require('sinon');
-
-var context = {
+var status = sinon.spy();
+var jsonx = sinon.spy();
+var forbidden = require('../../../api/responses/forbidden').bind({
   res: {
-    status: function () {
-    },
-    jsonx: function () {
-    }
-  },
-  req: {
-    _sails: {
-      log: {
-        silly: function () {
-        }
-      }
-    }
+    status: status,
+    jsonx: jsonx
   }
-};
+});
 
-var forbiddenObj = {
-  code: 'E_FORBIDDEN',
-  message: 'User not authorized to perform the operation',
-  data: {}
-};
-
-var check = function () {
-  assert(stubStatus.alwaysCalledWith(403));
-  assert(stubJsonx.calledWith(forbiddenObj));
-};
-
-var stubStatus = sinon.stub(context.res, 'status');
-var stubJsonx = sinon.stub(context.res, 'jsonx');
-
-describe("responses:forbidden", function () {
-  it("should generate response (no params)", function (done) {
-    forbidden.call(context);
-    check();
-
-    done();
+describe('responses:forbidden', function () {
+  it('Should generate response with no params', function () {
+    forbidden();
+    assert.ok(status.calledWith(403));
+    assert.ok(jsonx.calledWith({
+      code: 'E_FORBIDDEN',
+      message: 'User not authorized to perform the operation',
+      data: {}
+    }));
   });
 
-  it("should generate response with custom data param", function (done) {
-    forbiddenObj = _.merge(forbiddenObj, {data: 'MY_DATA'});
-    forbidden.call(context, 'MY_DATA');
-    check();
-
-    done();
+  it('Should generate response with data param', function () {
+    forbidden('MY_DATA');
+    assert.ok(status.calledWith(403));
+    assert.ok(jsonx.calledWith({
+      code: 'E_FORBIDDEN',
+      message: 'User not authorized to perform the operation',
+      data: 'MY_DATA'
+    }));
   });
 
-  it("should generate response with custom code param", function (done) {
-    forbiddenObj = _.merge(forbiddenObj, {code: 'MY_CODE'});
-    forbidden.call(context, 'MY_DATA', 'MY_CODE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom message param", function (done) {
-    forbiddenObj = _.merge(forbiddenObj, {message: 'MY_MESSAGE'});
-    forbidden.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom root param", function (done) {
-    forbiddenObj = _.assign({dt: '2'}, forbiddenObj);
-    forbidden.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE', {dt: '2'});
-    check();
-
-    done();
+  it('Should generate response with config param', function () {
+    forbidden('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {custom: 'MY_CUSTOM'}});
+    assert.ok(status.calledWith(403));
+    assert.ok(jsonx.calledWith({
+      code: 'MY_CODE',
+      message: 'MY_MESSAGE',
+      data: 'MY_DATA',
+      custom: 'MY_CUSTOM'
+    }));
   });
 });

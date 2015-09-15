@@ -1,75 +1,43 @@
-var assert = require('assert');
-var notFound = require('../../../api/responses/notFound');
+var assert = require('chai').assert;
 var sinon = require('sinon');
-
-var context = {
+var status = sinon.spy();
+var jsonx = sinon.spy();
+var notFound = require('../../../api/responses/notFound').bind({
   res: {
-    status: function () {
-    },
-    jsonx: function () {
-    }
-  },
-  req: {
-    _sails: {
-      log: {
-        silly: function () {
-        }
-      }
-    }
+    status: status,
+    jsonx: jsonx
   }
-};
+});
 
-var notFoundObj = {
-  code: 'E_NOT_FOUND',
-  message: 'The requested resource could not be found but may be available again in the future',
-  data: {}
-};
-
-var check = function () {
-  assert(stubStatus.alwaysCalledWith(404));
-  assert(stubJsonx.calledWith(notFoundObj));
-};
-
-var stubStatus = sinon.stub(context.res, 'status');
-var stubJsonx = sinon.stub(context.res, 'jsonx');
-
-describe("responses:notFound", function () {
-  it("should generate response (no params)", function (done) {
-    notFound.call(context);
-    check();
-
-    done();
+describe('responses:notFound', function () {
+  it('Should generate response with no params', function () {
+    notFound();
+    assert.ok(status.calledWith(404));
+    assert.ok(jsonx.calledWith({
+      code: 'E_NOT_FOUND',
+      message: 'The requested resource could not be found but may be available again in the future',
+      data: {}
+    }));
   });
 
-  it("should generate response with custom data param", function (done) {
-    notFoundObj = _.merge(notFoundObj, {data: 'MY_DATA'});
-    notFound.call(context, 'MY_DATA');
-    check();
-
-    done();
+  it('Should generate response with data param', function () {
+    notFound('MY_DATA');
+    assert.ok(status.calledWith(404));
+    assert.ok(jsonx.calledWith({
+      code: 'E_NOT_FOUND',
+      message: 'The requested resource could not be found but may be available again in the future',
+      data: 'MY_DATA'
+    }));
   });
 
-  it("should generate response with custom code param", function (done) {
-    notFoundObj = _.merge(notFoundObj, {code: 'MY_CODE'});
-    notFound.call(context, 'MY_DATA', 'MY_CODE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom message param", function (done) {
-    notFoundObj = _.merge(notFoundObj, {message: 'MY_MESSAGE'});
-    notFound.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE');
-    check();
-
-    done();
-  });
-
-  it("should generate response with custom root param", function (done) {
-    notFoundObj = _.assign({dt: '2'}, notFoundObj);
-    notFound.call(context, 'MY_DATA', 'MY_CODE', 'MY_MESSAGE', {dt: '2'});
-    check();
-
-    done();
+  it('Should generate response with config param', function () {
+    notFound('MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {custom: 'MY_CUSTOM'}});
+    assert.ok(status.calledWith(404));
+    assert.ok(jsonx.calledWith({
+      code: 'MY_CODE',
+      message: 'MY_MESSAGE',
+      data: 'MY_DATA',
+      custom: 'MY_CUSTOM'
+    }));
   });
 });
