@@ -1,4 +1,4 @@
-module.exports.services.cipher = {
+module.exports.cipher = {
   jwt: {
     secretKey: "<%= answers['application:secret'] %>"
   }

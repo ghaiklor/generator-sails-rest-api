@@ -1,1 +1,1 @@
-module.exports.services.hash = {};
+module.exports.hash = {};

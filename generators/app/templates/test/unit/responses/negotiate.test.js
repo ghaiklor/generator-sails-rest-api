@@ -1,17 +1,17 @@
 var assert = require('chai').assert;
 var sinon = require('sinon');
-var unauthorized = sinon.spy();
+var badRequest = sinon.spy();
 var forbidden = sinon.spy();
 var notFound = sinon.spy();
-var badRequest = sinon.spy();
 var serverError = sinon.spy();
+var unauthorized = sinon.spy();
 var negotiate = require('../../../api/responses/negotiate').bind({
   res: {
-    unauthorized: unauthorized,
+    badRequest: badRequest,
     forbidden: forbidden,
     notFound: notFound,
-    badRequest: badRequest,
-    serverError: serverError
+    serverError: serverError,
+    unauthorized: unauthorized
   }
 });
 
