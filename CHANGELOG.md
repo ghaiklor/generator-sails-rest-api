@@ -13,6 +13,7 @@
 - Improvement: Move `_onPassportAuth` method from controller to `passport.js` config;
 - Improvement: Add `errors.js` file into Sails configuration;
 - Improvement: `negotiate` response accepts `root` in `error` object;
+- Improvement: Add `config/services` folder for configuring all the services in the `api/services`;
 - Fix: Issue with `fields` and `populate` in `findOne` blueprint;
 - Fix: Issue with page starts from 1;
 - Fix: Issue with custom `id` on `create` resource;
