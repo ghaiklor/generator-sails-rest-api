@@ -34,4 +34,14 @@ describe('responses:negotiate', function () {
     negotiate({code: 'E_VALIDATION', reason: 'ANY_REASON', invalidAttributes: [], status: 400});
     assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
   });
+
+  it('Should handle error with forbidden status', function () {
+    negotiate({code: 'E_VALIDATION', reason: 'ANY_REASON', invalidAttributes: [], status: 403});
+    assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
+  });
+
+  it('Should handle error with notFound status', function () {
+    negotiate({code: 'E_VALIDATION', reason: 'ANY_REASON', invalidAttributes: [], status: 404});
+    assert.ok(badRequest.calledWith([], {code: 'E_VALIDATION', message: 'ANY_REASON', root: undefined}));
+  });
 });
