@@ -10,7 +10,7 @@
  * }];
  */
 
-const whenServiceIsChosen = serviceName => answers => !(answers['services:chosen'].indexOf(serviceName) === -1);
+const whenServiceIsChosen = serviceName => answers => answers['services:chosen'].indexOf(serviceName) !== -1;
 
 export default [{
   type: 'checkbox',
