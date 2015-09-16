@@ -1,14 +1,15 @@
 /**
- * Exports object contains arguments names and their configuration objects
+ * Exports object that contains names of arguments as a key and their configuration objects as a value
  *
  * @example
- * module.exports = {
- *   argName: {
- *       desc: 'Argument description',
- *       required: false,
- *       optional: true,
- *       type: String || Number || Array || Object,
- *       defaults: 'test'
+ * export default {
+ *   argumentName: {
+ *     desc: 'Description for the argument',
+ *     required: false,
+ *     optional: true,
+ *     type: String || Number || Array || Object,
+ *     defaults: 'Default value for this argument',
+ *     banner: 'String to show on usage notes'
  *   }
  * };
  */
