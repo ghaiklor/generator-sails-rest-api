@@ -10,16 +10,7 @@
  * }];
  */
 
-const _whenCipherServiceChosen = answers => !(answers['services:chosen'].indexOf('CipherService') === -1);
-const _whenHashServiceChosen = answers => !(answers['services:chosen'].indexOf('HashService') === -1);
-const _whenImageServiceChosen = answers => !(answers['services:chosen'].indexOf('ImageService') === -1);
-const _whenLocationServiceChosen = answers => !(answers['services:chosen'].indexOf('LocationService') === -1);
-const _whenMailerServiceChosen = answers => !(answers['services:chosen'].indexOf('MailerService') === -1);
-const _whenPaymentServiceChosen = answers => !(answers['services:chosen'].indexOf('PaymentService') === -1);
-const _whenPusherServiceChosen = answers => !(answers['services:chosen'].indexOf('PusherService') === -1);
-const _whenSmsServiceChosen = answers => !(answers['services:chosen'].indexOf('SmsService') === -1);
-const _whenSocialServiceChosen = answers => !(answers['services:chosen'].indexOf('SocialService') === -1);
-const _whenStorageServiceChosen = answers => !(answers['services:chosen'].indexOf('StorageService') === -1);
+const whenServiceIsChosen = serviceName => answers => !(answers['services:chosen'].indexOf(serviceName) === -1);
 
 export default [{
   type: 'checkbox',
@@ -47,7 +38,7 @@ export default [{
     'GM',
     'IM'
   ],
-  when: _whenImageServiceChosen
+  when: whenServiceIsChosen('ImageService')
 }, {
   type: 'list',
   name: 'services:location:provider',
@@ -68,7 +59,7 @@ export default [{
     'GeoCodio',
     'Yandex'
   ],
-  when: _whenLocationServiceChosen
+  when: whenServiceIsChosen('LocationService')
 }, {
   type: 'list',
   name: 'services:mailer:provider',
@@ -82,7 +73,7 @@ export default [{
     'SMTP',
     'stub'
   ],
-  when: _whenMailerServiceChosen
+  when: whenServiceIsChosen('MailerService')
 }, {
   type: 'list',
   name: 'services:payment:provider',
@@ -92,7 +83,7 @@ export default [{
     'BrainTree',
     'Stripe'
   ],
-  when: _whenPaymentServiceChosen
+  when: whenServiceIsChosen('PaymentService')
 }, {
   type: 'list',
   name: 'services:sms:provider',
@@ -101,7 +92,7 @@ export default [{
   choices: [
     'Twilio'
   ],
-  when: _whenSmsServiceChosen
+  when: whenServiceIsChosen('SmsService')
 }, {
   type: 'list',
   name: 'services:storage:provider',
@@ -111,5 +102,5 @@ export default [{
     'Amazon',
     'Local'
   ],
-  when: _whenStorageServiceChosen
+  when: whenServiceIsChosen('StorageService')
 }];
