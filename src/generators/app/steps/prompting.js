@@ -7,8 +7,8 @@
  */
 
 var chalk = require('chalk');
-var assign = require('../util').assign;
-var questions = require('../questions');
+var assign = require('../util/index').assign;
+var questions = require('../questions/index');
 
 /**
  * Triggers when user finishes answering to questions from section

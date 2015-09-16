@@ -1,12 +1,12 @@
 var yeoman = require('yeoman-generator');
-var steps = require('./steps');
+var steps = require('./steps/index');
 
 module.exports = yeoman.generators.Base.extend({
   constructor: function () {
     yeoman.generators.Base.apply(this, arguments);
 
-    var args = require('./arguments');
-    var options = require('./options');
+    var args = require('./arguments/index');
+    var options = require('./options/index');
 
     Object.keys(args).forEach(function (argName) {
       this.argument(argName, args[argName]);

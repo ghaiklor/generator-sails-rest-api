@@ -8,7 +8,7 @@
 
 var chalk = require('chalk');
 var assign = require('../../app/util/assign.js');
-var questions = require('../questions');
+var questions = require('../questions/index');
 
 function _onSectionDone(done, answers) {
   this.answers = assign(this.answers, answers);
