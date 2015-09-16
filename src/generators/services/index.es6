@@ -7,41 +7,39 @@ export default class ServicesGenerator extends Base {
   constructor(...args) {
     super(...args);
 
-    Object.keys(generatorArguments).forEach(name => this.argument(name, arguments[name]));
-    Object.keys(generatorOptions).forEach(name => this.option(name, options[name]));
-
-    //this._.templateSettings.interpolate = /<%=([\s\S]+?)%>/g;
-  }
-
-  get initializing() {
-    return generatorSteps.initializing
-  }
-
-  get prompting() {
-    return generatorSteps.prompting
+    Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
+    Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
   }
 
   get configuring() {
     return generatorSteps.configuring;
   }
 
-  get writing() {
-    return generatorSteps.writing;
+  get conflicts() {
+    return generatorSteps.conflicts;
   }
 
   get default() {
     return generatorSteps.default;
   }
 
-  get conflicts() {
-    return generatorSteps.conflicts;
+  get end() {
+    return generatorSteps.end;
+  }
+
+  get initializing() {
+    return generatorSteps.initializing
   }
 
   get install() {
     return generatorSteps.install;
   }
 
-  get end() {
-    return generatorSteps.end;
+  get prompting() {
+    return generatorSteps.prompting
+  }
+
+  get writing() {
+    return generatorSteps.writing;
   }
 }
