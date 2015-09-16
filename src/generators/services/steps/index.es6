@@ -1,5 +1,5 @@
 /**
- * Exports object contains each priority step for yeoman run loop
+ * Exports object that contains each of priority steps of yeoman run loop
  */
 
 import configuring from './configuring';
