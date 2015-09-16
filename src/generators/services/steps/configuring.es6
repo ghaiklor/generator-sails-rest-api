@@ -3,4 +3,4 @@
  * Saving configurations and configure the project (creating .sails-rc files and other metadata files)
  */
 
-module.exports = {};
+export default {};

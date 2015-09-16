@@ -3,4 +3,4 @@
  * Where installation are run (npm, bower)
  */
 
-module.exports = {};
+export default {};

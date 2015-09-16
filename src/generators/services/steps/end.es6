@@ -3,4 +3,4 @@
  * Called last, cleanup, say good bye, etc
  */
 
-module.exports = {};
+export default {};

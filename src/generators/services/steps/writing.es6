@@ -3,7 +3,7 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-module.exports = {
+export default {
   copyDirectory: function () {
     this.directory(this.sourceRoot(), this.destinationRoot());
   }

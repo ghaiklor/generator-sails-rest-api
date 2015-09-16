@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var SocialService = require('../../../api/services/SocialService');
+var SocialService = require('../../.');
 
 describe('services:SocialService', function () {
   it('Should properly export', function () {
