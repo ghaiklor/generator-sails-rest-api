@@ -15,16 +15,16 @@
  * };
  */
 
-const _whenCipherServiceChosen = answers => answers['services:chosen'].includes('CipherService');
-const _whenHashServiceChosen = answers => answers['services:chosen'].includes('HashService');
-const _whenImageServiceChosen = answers => answers['services:chosen'].includes('ImageService');
-const _whenLocationServiceChosen = answers => answers['services:chosen'].includes('LocationService');
-const _whenMailerServiceChosen = answers => answers['services:chosen'].includes('MailerService');
-const _whenPaymentServiceChosen = answers => answers['services:chosen'].includes('PaymentService');
-const _whenPusherServiceChosen = answers => answers['services:chosen'].includes('PusherService');
-const _whenSmsServiceChosen = answers => answers['services:chosen'].includes('SmsService');
-const _whenSocialServiceChosen = answers => answers['services:chosen'].includes('SocialService');
-const _whenStorageServiceChosen = answers => answers['services:chosen'].includes('StorageService');
+const _whenCipherServiceChosen = answers => !(answers['services:chosen'].indexOf('CipherService') === -1);
+const _whenHashServiceChosen = answers => !(answers['services:chosen'].indexOf('HashService') === -1);
+const _whenImageServiceChosen = answers => !(answers['services:chosen'].indexOf('ImageService') === -1);
+const _whenLocationServiceChosen = answers => !(answers['services:chosen'].indexOf('LocationService') === -1);
+const _whenMailerServiceChosen = answers => !(answers['services:chosen'].indexOf('MailerService') === -1);
+const _whenPaymentServiceChosen = answers => !(answers['services:chosen'].indexOf('PaymentService') === -1);
+const _whenPusherServiceChosen = answers => !(answers['services:chosen'].indexOf('PusherService') === -1);
+const _whenSmsServiceChosen = answers => !(answers['services:chosen'].indexOf('SmsService') === -1);
+const _whenSocialServiceChosen = answers => !(answers['services:chosen'].indexOf('SocialService') === -1);
+const _whenStorageServiceChosen = answers => !(answers['services:chosen'].indexOf('StorageService') === -1);
 
 export default [{
   type: 'checkbox',
