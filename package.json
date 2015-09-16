@@ -31,9 +31,11 @@
   ],
   "main": "lib/generators/app/index.js",
   "scripts": {
+    "clean": "rm -rf ./lib",
     "compile": "babel src --out-dir lib",
-    "test": "npm run compile && istanbul cover _mocha",
-    "clean": "rm -rf ./lib"
+    "dev": "babel src --watch --out-dir lib",
+    "prepublish": "npm run compile",
+    "test": "npm run compile && istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
