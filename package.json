@@ -47,6 +47,7 @@
     "yosay": "^1.0.5"
   },
   "devDependencies": {
+    "babel": "^5.8.23",
     "chai": "^3.2.0",
     "istanbul": "^0.3.13",
     "mocha": "^2.3.1"
