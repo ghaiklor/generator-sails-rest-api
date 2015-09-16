@@ -13,4 +13,17 @@
  * };
  */
 
-export default {};
+export default {
+  'skip-check-update': {
+    desc: 'Do not check for generator updates',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  },
+  'skip-install': {
+    desc: 'Do not install npm dependencies',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  }
+};
