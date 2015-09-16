@@ -29,8 +29,9 @@
       "url": "https://github.com/IncoCode"
     }
   ],
-  "main": "generators/app/index.js",
+  "main": "lib/generators/app/index.js",
   "scripts": {
+    "compile": "babel src --out-dir lib",
     "test": "istanbul cover _mocha"
   },
   "repository": {
