@@ -1,19 +1,18 @@
-var assert = require('assert');
-var isUser = require('../../../api/policies/isAuthenticated');
-var sinon = require('sinon');
-var CipherService = require('../../../api/services/CipherService');
-var jwt = CipherService.jwt;
+import { assert } from 'chai';
+import sinon from 'sinon';
+import isUser from '../../../api/policies/isAuthenticated';
+import { jwt } from '../../../api/services/CipherService';
 
-var token = "Bearer " + jwt.encodeSync({id: 2});
-var tokenFail = token + '3';
+let token = "Bearer " + jwt.encodeSync({id: 2});
+let tokenFail = token + '3';
 
-var req = {
+let req = {
   headers: {
     authorization: token
   }
 };
 
-var res = {
+let res = {
   serverError: function () {
   },
   unauthorized: function () {
@@ -21,15 +20,14 @@ var res = {
 };
 
 describe("policies:isUser", function () {
-
   it("should call next() callback", function (done) {
-    var stubUnauthorized = sinon.stub(res, 'unauthorized');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var nextCb = sinon.spy();
+    let stubUnauthorized = sinon.stub(res, 'unauthorized');
+    let stubServerError = sinon.stub(res, 'serverError');
+    let nextCb = sinon.spy();
 
     isUser(req, res, nextCb);
 
-    var i = setInterval(function () {
+    let i = setInterval(function () {
       if (!stubUnauthorized.called && !stubServerError.called && !nextCb.called)
         return;
 
@@ -47,14 +45,14 @@ describe("policies:isUser", function () {
   });
 
   it("should return unauthorized error", function (done) {
-    var stubUnauthorized = sinon.stub(res, 'unauthorized');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var nextCb = sinon.spy();
+    let stubUnauthorized = sinon.stub(res, 'unauthorized');
+    let stubServerError = sinon.stub(res, 'serverError');
+    let nextCb = sinon.spy();
 
     req.headers.authorization = tokenFail;
     isUser(req, res, nextCb);
 
-    var i = setInterval(function () {
+    let i = setInterval(function () {
       if (!stubUnauthorized.called && !stubServerError.called && !nextCb.called)
         return;
 
