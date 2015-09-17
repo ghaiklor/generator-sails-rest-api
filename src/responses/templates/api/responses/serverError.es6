@@ -5,10 +5,10 @@
  * The general catch-all error when the server-side throws an exception.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'E_INTERNAL_SERVER_ERROR'),
     message: _.get(config, 'message', 'Something bad happened on the server'),
     data: data || {}

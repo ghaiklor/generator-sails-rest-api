@@ -7,10 +7,10 @@
  * Response body content may or may not be present.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'CREATED'),
     message: _.get(config, 'message', 'The request has been fulfilled and resulted in a new resource being created'),
     data: data || {}
@@ -18,4 +18,4 @@ module.exports = function (data, config) {
 
   this.res.status(201);
   this.res.jsonx(response);
-};
+}

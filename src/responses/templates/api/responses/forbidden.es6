@@ -6,10 +6,10 @@
  * Error code for user not authorized to perform the operation or the resource is unavailable for some reason.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'E_FORBIDDEN'),
     message: _.get(config, 'message', 'User not authorized to perform the operation'),
     data: data || {}
@@ -17,4 +17,4 @@ module.exports = function (data, config) {
 
   this.res.status(403);
   this.res.jsonx(response);
-};
+}

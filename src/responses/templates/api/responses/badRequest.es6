@@ -6,10 +6,10 @@
  * Domain validation errors, missing data, etc.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'E_BAD_REQUEST'),
     message: _.get(config, 'message', 'The request cannot be fulfilled due to bad syntax'),
     data: data || {}
@@ -17,4 +17,4 @@ module.exports = function (data, config) {
 
   this.res.status(400);
   this.res.jsonx(response);
-};
+}

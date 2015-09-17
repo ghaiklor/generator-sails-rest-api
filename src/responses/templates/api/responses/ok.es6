@@ -7,10 +7,10 @@
  * In a POST request the response will contain an entity describing or containing the result of the action.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'OK'),
     message: _.get(config, 'message', 'Operation is successfully executed'),
     data: data || {}
@@ -18,4 +18,4 @@ module.exports = function (data, config) {
 
   this.res.status(200);
   this.res.jsonx(response);
-};
+}

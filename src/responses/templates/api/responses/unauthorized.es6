@@ -6,10 +6,10 @@
  * Error code response for missing or invalid authentication token.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (data, config) {
-  var response = _.assign({
+export default function (data, config) {
+  let response = _.assign({
     code: _.get(config, 'code', 'E_UNAUTHORIZED'),
     message: _.get(config, 'message', 'Missing or invalid authentication token'),
     data: data || {}
@@ -17,4 +17,4 @@ module.exports = function (data, config) {
 
   this.res.status(401);
   this.res.jsonx(response);
-};
+}
