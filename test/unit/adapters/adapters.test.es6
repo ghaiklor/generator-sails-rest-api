@@ -2,7 +2,9 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:adapters', () => {
+describe('sails-rest-api:adapters', function () {
+  this.timeout(10000);
+
   before(done => {
     test
       .run(path.join(__dirname, '../../../generators/adapters'))
