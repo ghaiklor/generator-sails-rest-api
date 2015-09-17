@@ -13,11 +13,9 @@ const FILES_MAP = {
   PusherService: ['api/services/PusherService.es6', 'config/services/pusher.es6', 'test/unit/services/PusherService.test.es6'],
   SmsService: ['api/services/SmsService.es6', 'config/services/sms.es6', 'test/unit/services/SmsService.test.es6'],
   SocialService: ['api/services/SocialService.es6', 'config/services/social.es6', 'test/unit/services/SocialService.test.es6'],
-  StorageService: ['api/services/StorageService.es6', 'config/services/storage.es6', 'test/unit/services/StorageService.test.es6'],
+  StorageService: ['api/services/StorageService.es6', 'config/services/storage.es6', 'test/unit/services/StorageService.test.es6']
 };
 
 export default function () {
-  this.answers['services:chosen'].forEach((name) => {
-    FILES_MAP[name].forEach((path) => this.copy(path, path));
-  });
+  this.answers['services:chosen'].forEach(service => FILES_MAP[service].forEach(path => this.copy(path, path)));
 };
