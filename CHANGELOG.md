@@ -3,6 +3,7 @@
 ## Edge version
 
 - **Improvement**: Generator became more composable. So you are able to generate different parts of project independently:
+  - Improvement: Implement `sails-rest-api:responses` generator;
   - Improvement: Implement `sails-rest-api:services` generator;
 - Improvement: Implement `page` param in requests;
 - Improvement: Optimize selecting fields from database on `GET`;
