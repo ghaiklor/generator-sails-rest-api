@@ -1,9 +1,9 @@
 /**
- * Step 8
- * Called last, cleanup, say good bye, etc
+ * Step 4
+ * Default priority in run loop
  */
 
-module.exports = {
+export default {
   compose: function () {
     this.composeWith('sails-rest-api:adapters', {}, {
       local: require.resolve('../../adapters')

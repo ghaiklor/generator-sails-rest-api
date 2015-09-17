@@ -3,18 +3,11 @@
  * Your initialization methods (checking current project state, getting configs, etc)
  */
 
-var chalk = require('chalk');
-var updateNotifier = require('update-notifier');
-var printMessage = require('print-message');
-var yosay = require('yosay');
+import chalk from 'chalk';
+import updateNotifier from 'update-notifier';
+import printMessage from 'print-message';
+import yosay from 'yosay';
 
-/**
- * Triggers when updateNotifier done checking updates
- * @param {Function} done
- * @param {Object} error
- * @param {Object} update
- * @private
- */
 function _onUpdateNotifier(done, error, update) {
   if (error) {
     console.error(error.stack || error);
@@ -34,7 +27,7 @@ function _onUpdateNotifier(done, error, update) {
   }
 }
 
-module.exports = {
+export default {
   /**
    * Load package.json
    */

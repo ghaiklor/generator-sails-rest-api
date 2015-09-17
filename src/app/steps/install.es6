@@ -3,21 +3,21 @@
  * Where installation are run (npm, bower)
  */
 
-var path = require('path');
-var spawn = require('child_process').spawn;
-var checkDependencies = require('dependency-check');
-var recursive = require('recursive-readdir');
+import path from 'path';
+import spawn from 'spawn';
+import checkDependencies from 'dependency-check';
+import recursive from 'recursive-readdir';
 
-module.exports = {
+export default {
   /**
    * Parse AST and install missing dependencies
    */
   installDependencies: function () {
     if (!this.options['skip-install']) {
-      var done = this.async();
+      let done = this.async();
 
       recursive(this.destinationPath(), ['node_modules'], function (error, _files) {
-        var files = _files.filter(function (file) {
+        let files = _files.filter(function (file) {
           return file.split('.').pop() === 'js';
         }).map(function (file) {
           return path.relative(process.cwd(), file);
@@ -28,10 +28,10 @@ module.exports = {
           entries: files
         }, function (error, data) {
           // FIXME: database:adapter answer
-          //var missingAdapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
-          var missingAdapters = ['sails-mongo', 'sails-disk'];
-          var missingDependencies = checkDependencies.missing(data.package, data.used).concat(missingAdapters);
-          var npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(missingDependencies));
+          //let missingAdapters = ['sails-' + this.answers['database:adapter'].toLowerCase(), 'sails-disk'];
+          let missingAdapters = ['sails-mongo', 'sails-disk'];
+          let missingDependencies = checkDependencies.missing(data.package, data.used).concat(missingAdapters);
+          let npmInstall = spawn('npm', ['install', '--save', '--color', 'always'].concat(missingDependencies));
 
           npmInstall.stdout.pipe(process.stdout);
           npmInstall.stderr.pipe(process.stderr);
@@ -46,8 +46,8 @@ module.exports = {
    */
   installDevDependencies: function () {
     if (!this.options['skip-install']) {
-      var done = this.async();
-      var npmInstall = spawn('npm', ['install', '--save', '--color', 'always']);
+      let done = this.async();
+      let npmInstall = spawn('npm', ['install', '--save', '--color', 'always']);
       npmInstall.stdout.pipe(process.stdout);
       npmInstall.stderr.pipe(process.stderr);
       npmInstall.on('close', done);

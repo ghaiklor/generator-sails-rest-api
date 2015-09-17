@@ -1,9 +1,9 @@
 process.env.NODE_ENV = 'test';
-var testConfig = require('../config/env/test.js'); // configuration for testing purposes
+let testConfig = require('../config/env/test.js'); // configuration for testing purposes
 
-var Sails = require('sails');
-var supertest = require('supertest');
-var sails;
+let Sails = require('sails');
+let supertest = require('supertest');
+let sails;
 
 /**
  * Global function to send request
