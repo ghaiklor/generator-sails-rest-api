@@ -1,5 +1,3 @@
-<% if (answers['services:location:provider']) { %>
-  module.exports = require('sails-service-location').create("<%= answers['services:location:provider'] %>", sails.config.services.location);
-<% } else { %>
-  module.exports = {};
-<% } %>
+import location from 'sails-service-location';
+
+export default location.create("<%= answers['services:location:provider'] %>", sails.config.services.location);

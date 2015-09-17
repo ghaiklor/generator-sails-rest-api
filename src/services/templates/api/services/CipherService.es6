@@ -1,5 +1,5 @@
-var ciphers = require('sails-service-cipher');
+import cipher from 'sails-service-cipher';
 
-module.exports = {
-  jwt: ciphers.create('jwt', sails.config.services.cipher.jwt)
-};
+export default {
+  jwt: cipher.create('jwt', sails.config.services.cipher.jwt)
+}

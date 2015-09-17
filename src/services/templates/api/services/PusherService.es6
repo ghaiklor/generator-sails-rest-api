@@ -1,9 +1,6 @@
-<% if (answers['services:pusher:provider']) { %>
-  var pushes = require('sails-service-pusher');
-  module.exports = {
-    android: pushes.create('android', sails.config.services.pusher.android),
-    ios: pushes.create('ios', sails.config.services.pusher.ios)
-  };
-<% } else { %>
-  module.exports = {};
-<% } %>
+import pusher from 'sails-service-pusher';
+
+export default {
+  android: pusher.create('android', sails.config.services.pusher.android),
+  ios: pusher.create('ios', sails.config.services.pusher.ios)
+}

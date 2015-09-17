@@ -1,5 +1,3 @@
-<% if (answers['services:storage:provider']) { %>
-  module.exports = require('sails-service-storage').create("<%= answers['services:storage:provider'] %>", sails.config.services.storage);
-<% } else { %>
-  module.exports = {};
-<% } %>
+import storage from 'sails-service-storage';
+
+export default storage.create("<%= answers['services:storage:provider'] %>", sails.config.services.storage);

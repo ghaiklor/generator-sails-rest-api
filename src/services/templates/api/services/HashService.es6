@@ -1,5 +1,5 @@
-var hashes = require('sails-service-hash');
+import hash from 'sails-service-hash';
 
-module.exports = {
-  bcrypt: hashes.create('bcrypt', sails.config.services.hash.bcrypt)
+export default {
+  bcrypt: hash.create('bcrypt', sails.config.services.hash.bcrypt)
 };
