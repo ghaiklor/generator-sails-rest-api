@@ -5,4 +5,5 @@
 
 export default function () {
   this.directory('api/responses', 'api/responses');
+  this.directory('test/unit/responses', 'test/unit/responses');
 };
