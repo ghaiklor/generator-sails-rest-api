@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var ImageService = require('../../.');
+import { assert } from 'chai';
+import ImageService from '../../../api/services/ImageService';
 
-describe('services:ImageService', function () {
-  it('Should properly export', function () {
+describe('services:ImageService', () => {
+  it('Should properly export', () => {
     assert.isObject(ImageService);
   });
 });

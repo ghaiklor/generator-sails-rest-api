@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var PaymentService = require('../../.');
+import { assert } from 'chai';
+import PaymentService from '../../../api/services/PaymentService';
 
-describe('services:PaymentService', function () {
-  it('Should properly export', function () {
+describe('services:PaymentService', () => {
+  it('Should properly export', () => {
     assert.isObject(PaymentService);
   });
 });

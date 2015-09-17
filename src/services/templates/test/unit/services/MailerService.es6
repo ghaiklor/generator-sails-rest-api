@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var MailerService = require('../../.');
+import { assert } from 'chai';
+import MailerService from '../../../api/services/MailerService';
 
-describe('services:MailerService', function () {
-  it('Should properly export', function () {
+describe('services:MailerService', () => {
+  it('Should properly export', () => {
     assert.isObject(MailerService);
   });
 });

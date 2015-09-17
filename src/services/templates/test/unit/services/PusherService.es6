@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var PusherService = require('../../.');
+import { assert } from 'chai';
+import PusherService from '../../../api/services/PusherService';
 
-describe('services:PusherService', function () {
-  it('Should properly export', function () {
+describe('services:PusherService', () => {
+  it('Should properly export', () => {
     assert.isObject(PusherService);
   });
 });

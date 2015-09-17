@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var StorageService = require('../../.');
+import { assert } from 'chai';
+import StorageService from '../../../api/services/StorageService';
 
-describe('services:StorageService', function () {
-  it('Should properly export', function () {
+describe('services:StorageService', () => {
+  it('Should properly export', () => {
     assert.isObject(StorageService);
   });
 });

@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var SocialService = require('../../.');
+import { assert } from 'chai';
+import SocialService from '../../../api/services/SocialService';
 
-describe('services:SocialService', function () {
-  it('Should properly export', function () {
+describe('services:SocialService', () => {
+  it('Should properly export', () => {
     assert.isObject(SocialService);
   });
 });
