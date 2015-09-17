@@ -1,5 +1,5 @@
-var assert = require('assert');
-var Promise = require('bluebird');
+import { assert } from 'chai';
+import Promise from 'bluebird';
 
 describe("controllers:PingController", function () {
   it("should return 'HTTP server is working'", function (done) {

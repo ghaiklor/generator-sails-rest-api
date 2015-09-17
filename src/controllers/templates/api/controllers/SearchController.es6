@@ -3,14 +3,14 @@
  * @description :: Server-side logic for manage user's authorization
  */
 
-var _ = require('lodash');
-var Promise = require('bluebird');
+import _ from 'lodash';
+import Promise from 'bluebird';
 
-module.exports = {
+export default {
   /**
    * Index route for searching
    */
-  index: function (req, res) {
+  index: (req, res) => {
     var models = [];
 
     if (!req.param('q')) {

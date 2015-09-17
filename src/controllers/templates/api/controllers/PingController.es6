@@ -3,11 +3,11 @@
  * @description :: Server-side logic for checking if different part of app is alive
  */
 
-module.exports = {
+export default {
   /**
    * Useful when need to check if it's server is down or it some logic is broken
    */
-  index: function (req, res) {
+  index: (req, res) => {
     res.ok(req.allParams(), {message: 'HTTP server is working'});
   }
 };

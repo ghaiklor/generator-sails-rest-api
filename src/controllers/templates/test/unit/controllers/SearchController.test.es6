@@ -1,8 +1,8 @@
-var assert = require('assert');
-var Promise = require('bluebird');
+import { assert } from 'assert';
+import Promise from 'bluebird';
+import Users from '../../fixtures/Users.json';
 
-var Users = require('../../fixtures/Users.json');
-var authToken = '';
+let authToken = '';
 
 describe("controllers:SearchController", function () {
   before(function (done) {

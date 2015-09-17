@@ -3,4 +3,4 @@
  * @description :: Server-side logic for manage users
  */
 
-module.exports = {};
+export default {};

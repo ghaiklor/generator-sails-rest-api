@@ -1,12 +1,11 @@
-var assert = require('assert');
-var AuthController = require('../../../api/controllers/AuthController');
-var Promise = require('bluebird');
-var CipherService = require('../../../api/services/CipherService');
-var jwt = CipherService.jwt;
+import { assert } from 'chai';
+import Promise from 'bluebird';
+import AuthController from '../../../api/controllers/AuthController';
+import { jwt } from '../../../api/services/CipherService';
+import Users from '../../fixtures/Users.json';
+import FaultyUsers from '../../fixtures/FaultyUsers.json';
 
-var Users = require('../../fixtures/Users.json');
-var FaultyUsers = require('../../fixtures/FaultyUsers.json');
-var token = '';
+let token = '';
 
 describe("controllers:AuthController", function () {
   this.timeout(40000);
