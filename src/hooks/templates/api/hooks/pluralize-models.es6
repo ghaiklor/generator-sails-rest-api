@@ -3,15 +3,15 @@
  * If controller or model doesn't exist then applies default route.
  */
 
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function (sails) {
+export default function (sails) {
   return {
     initialize: function (cb) {
-      sails.on('router:before', function () {
+      sails.on('router:before', () => {
         if (!_.get(sails, 'config.blueprints.pluralize')) return;
 
-        _.forEach(sails.middleware.controllers, function (controller, name) {
+        _.forEach(sails.middleware.controllers, (controller, name) => {
           if (!_.get(sails.models, name, false) && !_.get(controller, '_config.pluralize', false)) {
             _.set(controller, '_config.pluralize', false);
           }

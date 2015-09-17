@@ -3,4 +3,4 @@
  * Where conflicts are handled (used internally)
  */
 
-module.exports = {};
+export default {};

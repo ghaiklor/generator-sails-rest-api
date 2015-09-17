@@ -1,8 +1,8 @@
-var assert = require('assert');
-var pluralizeOnlyModels = require('../../../api/hooks/pluralize-models.js');
-var _ = require('lodash');
+import { assert } from 'chai';
+import _ from 'lodash';
+import pluralizeModels from '../../../api/hooks/pluralize-models';
 
-var sailsLoc = {
+let sailsLoc = {
   middleware: {
     controllers: {
       test1: {}, test2: {}, test3: {}
@@ -28,7 +28,7 @@ describe('hooks:pluralize-only-rest-models', function () {
     sailsLoc.on = function (event, func) {
       func();
 
-      var controllers = sailsLoc.middleware.controllers;
+      let controllers = sailsLoc.middleware.controllers;
       assert.ok(!_.get(controllers.test1, '_config.pluralize', false));
       assert.ok(!controllers.test2._config.pluralize);
       assert.ok(!controllers.test3._config.pluralize);
