@@ -29,13 +29,12 @@
       "url": "https://github.com/IncoCode"
     }
   ],
-  "main": "generators/app/index.js",
   "scripts": {
     "clean": "rm -rf ./generators ./coverage ./lib",
     "compile": "babel src --out-dir generators && cp -rn src/ generators/",
     "dev": "babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
-    "test": "npm run compile && istanbul cover _mocha"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
