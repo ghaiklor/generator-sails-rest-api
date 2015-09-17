@@ -2,7 +2,17 @@
 
 ## Edge version
 
+- **Improvement**: Sails project migration to ES6 syntax and Babel support;
+- **Improvement**: Generator migration to ES6 syntax and Babel support;
 - **Improvement**: Generator became more composable. So you are able to generate different parts of project independently:
+  - Improvement: Implement `sails-rest-api:adapters` generator;
+  - Improvement: Implement `sails-rest-api:app` generator;
+  - Improvement: Implement `sails-rest-api:blueprints` generator;
+  - Improvement: Implement `sails-rest-api:config` generator;
+  - Improvement: Implement `sails-rest-api:controllers` generator;
+  - Improvement: Implement `sails-rest-api:hooks` generator;
+  - Improvement: Implement `sails-rest-api:models` generator;
+  - Improvement: Implement `sails-rest-api:policies` generator;
   - Improvement: Implement `sails-rest-api:responses` generator;
   - Improvement: Implement `sails-rest-api:services` generator;
 - Improvement: Implement `page` param in requests;
