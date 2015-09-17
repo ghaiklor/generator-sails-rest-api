@@ -2,20 +2,22 @@
  * Exports object that contains each of priority steps of yeoman run loop
  */
 
-import configuring from './configuring';
-import conflicts from './conflicts';
-import end from './end';
-import initializing from './initializing';
-import install from './install';
-import prompting from './prompting';
-import writing from './writing';
+import configuringSteps from './configuring';
+import conflictsSteps from './conflicts';
+import defaultSteps from './default';
+import endSteps from './end';
+import initializingSteps from './initializing';
+import installSteps from './install';
+import promptingSteps from './prompting';
+import writingSteps from './writing';
 
 export default {
-  configuring,
-  conflicts,
-  end,
-  initializing,
-  install,
-  prompting,
-  writing
+  configuring: configuringSteps,
+  conflicts: conflictsSteps,
+  default: defaultSteps,
+  end: endSteps,
+  initializing: initializingSteps,
+  install: installSteps,
+  prompting: promptingSteps,
+  writing: writingSteps
 }
