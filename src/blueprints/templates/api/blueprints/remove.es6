@@ -4,4 +4,6 @@
  *
  * Removes associated record from collection.
  */
-module.exports = require('sails/lib/hooks/blueprints/actions/remove');
+import remove from 'sails/lib/hooks/blueprints/actions/remove';
+
+export default remove;

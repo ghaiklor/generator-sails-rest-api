@@ -1,11 +1,9 @@
-var _ = require('lodash');
-var Promise = require('bluebird');
-var actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
+import _ from 'lodash';
+import Promise from 'bluebird'
+import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
 
-var takeAlias = _.partial(_.pluck, _, 'alias');
-var populateAlias = function (model, alias) {
-  return model.populate(alias);
-};
+const takeAlias = _.partial(_.pluck, _, 'alias');
+const populateAlias = (model, alias) => model.populate(alias);
 
 /**
  * Find Records
@@ -14,7 +12,7 @@ var populateAlias = function (model, alias) {
  * An API call to find and return model instances from the data adapter using the specified criteria.
  * If an id was specified, just the instance with that unique id will be returned.
  */
-module.exports = function (req, res) {
+export default function (req, res) {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
@@ -29,7 +27,7 @@ module.exports = function (req, res) {
   var countQuery = Model.count(where);
 
   Promise.all([findQuery, countQuery])
-    .spread(function (records, count) {
+    .spread((records, count) => {
       return [records, {
         root: {
           criteria: where,

@@ -7,4 +7,7 @@
  * If it doesn't, a new record will be created, then linked appropriately.
  * In either case, the association is bidirectional.
  */
-module.exports = require('sails/lib/hooks/blueprints/actions/add');
+
+import add from 'sails/lib/hooks/blueprints/actions/add';
+
+export default add;

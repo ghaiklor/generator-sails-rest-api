@@ -5,4 +5,6 @@
  *
  * Expand response with populated data from relations in models.
  */
-module.exports = require('sails/lib/hooks/blueprints/actions/populate');
+import populate from 'sails/lib/hooks/blueprints/actions/populate';
+
+export default populate;
