@@ -4,7 +4,7 @@
  */
 
 import path from 'path';
-import spawn from 'spawn';
+import { spawn } from 'child_process';
 import checkDependencies from 'dependency-check';
 import recursive from 'recursive-readdir';
 
