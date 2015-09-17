@@ -3,7 +3,7 @@
  * @description :: Model for storing users
  */
 
-module.exports = {
+export default {
   schema: true,
 
   attributes: {
@@ -46,7 +46,7 @@ module.exports = {
     },
 
     toJSON: function () {
-      var obj = this.toObject();
+      let obj = this.toObject();
 
       delete obj.password;
       delete obj.socialProfiles;
@@ -56,13 +56,13 @@ module.exports = {
   },
 
   beforeUpdate: function (values, next) {
-    var id = values.id;
-    var password = values.password;
+    let id = values.id;
+    let password = values.password;
 
     if (id && password) {
       return User
         .findOne({id: id})
-        .then(function (user) {
+        .then(user => {
           if (password === user.password) {
             return next();
           } else {

@@ -1,9 +1,8 @@
-var assert = require('assert');
-var UserModel = require('../../../api/models/User');
-var Promise = require('bluebird');
+import { assert } from 'chai';
+import UserModel from '../../../api/models/User';
+import FaultyUsers from '../../fixtures/FaultyUsers.json';
 
-var FaultyUsers = require('../../fixtures/FaultyUsers.json');
-var newUser = {
+const newUser = {
   username: "modelTest",
   password: "password",
   email: "modelTest@gmail.com"
