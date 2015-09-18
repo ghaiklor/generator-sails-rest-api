@@ -1,4 +1,4 @@
-./test/bootstrap.test.es6
-./test/unit/**/*.test.es6
+./test/bootstrap.js
+./test/unit/**/*.test.js
 --reporter spec
 --recursive
