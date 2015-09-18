@@ -18,10 +18,10 @@ describe('sails-rest-api:controllers', function () {
       'api/controllers/PingController.js',
       'api/controllers/SearchController.js',
       'api/controllers/UserController.js',
-      'test/unit/controllers/AuthController.js',
-      'test/unit/controllers/PingController.js',
-      'test/unit/controllers/SearchController.js',
-      'test/unit/controllers/UserController.js'
+      'test/unit/controllers/AuthController.test.js',
+      'test/unit/controllers/PingController.test.js',
+      'test/unit/controllers/SearchController.test.js',
+      'test/unit/controllers/UserController.test.js'
     ]);
   });
 });

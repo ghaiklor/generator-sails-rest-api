@@ -34,16 +34,16 @@ describe('sails-rest-api:services', function () {
       'config/services/sms.js',
       'config/services/social.js',
       'config/services/storage.js',
-      'test/unit/services/CipherService.js',
-      'test/unit/services/HashService.js',
-      'test/unit/services/ImageService.js',
-      'test/unit/services/LocationService.js',
-      'test/unit/services/MailerService.js',
-      'test/unit/services/PaymentService.js',
-      'test/unit/services/PusherService.js',
-      'test/unit/services/SmsService.js',
-      'test/unit/services/SocialService.js',
-      'test/unit/services/StorageService.js'
+      'test/unit/services/CipherService.test.js',
+      'test/unit/services/HashService.test.js',
+      'test/unit/services/ImageService.test.js',
+      'test/unit/services/LocationService.test.js',
+      'test/unit/services/MailerService.test.js',
+      'test/unit/services/PaymentService.test.js',
+      'test/unit/services/PusherService.test.js',
+      'test/unit/services/SmsService.test.js',
+      'test/unit/services/SocialService.test.js',
+      'test/unit/services/StorageService.test.js'
     ]);
   });
 });

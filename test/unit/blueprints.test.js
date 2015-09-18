@@ -22,14 +22,14 @@ describe('sails-rest-api:blueprints', function () {
       'api/blueprints/populate.js',
       'api/blueprints/remove.js',
       'api/blueprints/update.js',
-      'test/unit/blueprints/add.js',
-      'test/unit/blueprints/create.js',
-      'test/unit/blueprints/destroy.js',
-      'test/unit/blueprints/find.js',
-      'test/unit/blueprints/findone.js',
-      'test/unit/blueprints/populate.js',
-      'test/unit/blueprints/remove.js',
-      'test/unit/blueprints/update.js'
+      'test/unit/blueprints/add.test.js',
+      'test/unit/blueprints/create.test.js',
+      'test/unit/blueprints/destroy.test.js',
+      'test/unit/blueprints/find.test.js',
+      'test/unit/blueprints/findone.test.js',
+      'test/unit/blueprints/populate.test.js',
+      'test/unit/blueprints/remove.test.js',
+      'test/unit/blueprints/update.test.js'
     ]);
   });
 });

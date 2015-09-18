@@ -22,14 +22,14 @@ describe('sails-rest-api:responses', function () {
       'api/responses/ok.js',
       'api/responses/serverError.js',
       'api/responses/unauthorized.js',
-      'test/unit/responses/badRequest.js',
-      'test/unit/responses/created.js',
-      'test/unit/responses/forbidden.js',
-      'test/unit/responses/negotiate.js',
-      'test/unit/responses/notFound.js',
-      'test/unit/responses/ok.js',
-      'test/unit/responses/serverError.js',
-      'test/unit/responses/unauthorized.js'
+      'test/unit/responses/badRequest.test.js',
+      'test/unit/responses/created.test.js',
+      'test/unit/responses/forbidden.test.js',
+      'test/unit/responses/negotiate.test.js',
+      'test/unit/responses/notFound.test.js',
+      'test/unit/responses/ok.test.js',
+      'test/unit/responses/serverError.test.js',
+      'test/unit/responses/unauthorized.test.js'
     ]);
   });
 });
