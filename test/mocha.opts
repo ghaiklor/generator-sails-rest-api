@@ -1,4 +1,4 @@
-./test/unit/**/*.test.es6
+./test/unit/**/*.test.js
 --require babelhook.js
 --recursive
 --reporter spec
