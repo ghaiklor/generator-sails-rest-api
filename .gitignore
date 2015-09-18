@@ -33,3 +33,6 @@ node_modules
 nbproject
 .idea
 .node_history
+
+# Babel compiled generators
+generators

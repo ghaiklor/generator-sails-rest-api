@@ -30,7 +30,9 @@
     }
   ],
   "scripts": {
-    "test": "istanbul cover _mocha"
+    "clean": "rm -rf ./coverage ./generators",
+    "compile": "cp -r src/ generators/ && babel src --out-dir generators",
+    "test": "npm run compile && istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
