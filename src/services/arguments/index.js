@@ -14,12 +14,4 @@
  * };
  */
 
-export default {
-  'services': {
-    'desc': 'Specifies the services that you want to generate',
-    'required': true,
-    'optional': false,
-    'type': String,
-    'defaults': 'CipherService HashService'
-  }
-};
+export default {};

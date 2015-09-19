@@ -14,6 +14,12 @@
  */
 
 export default {
+  'services': {
+    'desc': 'Specifies the services that you want to generate',
+    'type': String,
+    'defaults': 'CipherService,HashService'
+  },
+
   'image-provider': {
     'desc': 'Specifies the image provider for ImageService',
     'type': String,
