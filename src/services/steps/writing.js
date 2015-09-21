@@ -17,5 +17,5 @@ const FILES_MAP = {
 };
 
 export default function () {
-  this.answers['services:chosen'].forEach(service => FILES_MAP[service].forEach(path => this.copy(path, path)));
+  this.options['services'].split(',').forEach(service => FILES_MAP[service].forEach(path => this.copy(path, path)));
 };

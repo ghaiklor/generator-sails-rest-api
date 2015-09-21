@@ -10,7 +10,7 @@ export default function () {
   let done = this.async();
 
   this.prompt(questions, answers => {
-    this.answers = Object.assign(this.answers || {}, answers);
+    this.answers = Object.assign(this.answers || {}, answers, this.options);
     done();
   });
 };

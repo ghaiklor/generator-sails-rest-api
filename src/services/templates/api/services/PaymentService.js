@@ -1,3 +1,3 @@
 import payment from 'sails-service-payment';
 
-export default payment.create("<%= answers['services:payment:provider'] %>", sails.config.services.payment);
+export default payment.create("<%= options['payment-provider'] %>", sails.config.services.payment);
