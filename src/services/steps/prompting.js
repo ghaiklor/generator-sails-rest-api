@@ -9,7 +9,6 @@ import questions from '../questions';
 export default function () {
   let done = this.async();
 
-  this.log(chalk.yellow('\nService questions:'));
   this.prompt(questions, answers => {
     this.answers = Object.assign(this.answers || {}, answers);
     done();
