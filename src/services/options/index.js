@@ -15,7 +15,7 @@
 
 export default {
   'services': {
-    'desc': 'Specifies the services that you want to generate',
+    'desc': 'Specifies the services that you want to generate (comma-separated)',
     'type': String,
     'defaults': 'CipherService,HashService'
   },
