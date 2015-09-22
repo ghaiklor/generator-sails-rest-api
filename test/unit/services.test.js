@@ -9,19 +9,8 @@ describe('sails-rest-api:services', function () {
     test
       .run(path.join(__dirname, '../../generators/services'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
-      .withPrompts({
-        'services:chosen': [
-          'CipherService',
-          'HashService',
-          'ImageService',
-          'LocationService',
-          'MailerService',
-          'PaymentService',
-          'PusherService',
-          'SmsService',
-          'SocialService',
-          'StorageService'
-        ]
+      .withOptions({
+        'services': ['Cipher', 'Hash', 'Image', 'Location', 'Mailer', 'Payment', 'Pusher', 'Sms', 'Social', 'Storage'].join(',')
       })
       .on('end', done);
   });
