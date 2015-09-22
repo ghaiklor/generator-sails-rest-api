@@ -10,7 +10,7 @@ describe('sails-rest-api:services', function () {
       .run(path.join(__dirname, '../../generators/services'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({
-        'services': ['Cipher', 'Hash', 'Image', 'Location', 'Mailer', 'Payment', 'Pusher', 'Sms', 'Social', 'Storage'].join(','),
+        'services': ['Cipher', 'Hash', 'Image', 'LocationService', 'Mailer', 'PaymentService', 'Pusher', 'Sms', 'Social', 'Storage'].join(','),
         'image-provider': 'IM',
         'location-provider': 'FreeGeoIP',
         'mailer-provider': 'SMTP',
