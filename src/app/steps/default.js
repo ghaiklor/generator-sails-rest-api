@@ -37,7 +37,15 @@ export default {
       local: require.resolve('../../responses')
     });
 
-    this.composeWith('sails-rest-api:services', {}, {
+    this.composeWith('sails-rest-api:services', {
+      'services': this.answers['services:chosen'].join(','),
+      'image-provider': this.answers['services:image:provider'],
+      'location-provider': this.answers['services:location:provider'],
+      'mailer-provider': this.answers['services:mailer:provider'],
+      'payment-provider': this.answers['services:payment:provider'],
+      'sms-provider': this.answers['services:sms:provider'],
+      'storage-provider': this.answers['services:storage:provider']
+    }, {
       local: require.resolve('../../services')
     });
   }
