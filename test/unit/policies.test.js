@@ -3,19 +3,26 @@ import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:policies', function () {
-  this.timeout(10000);
+  describe('Should properly handle copying templates', () => {
+    this.timeout(10000);
 
-  before(done => {
-    test
-      .run(path.join(__dirname, '../../generators/policies'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
-      .on('end', done);
-  });
+    before(done => {
+      test
+        .run(path.join(__dirname, '../../generators/policies'))
+        .inDir(path.join(os.tmpdir(), './temp-test'))
+        .on('end', done);
+    });
 
-  it('Should properly create root files', () => {
-    assert.file([
-      'api/policies/isAuthenticated.js',
-      'test/unit/policies/isAuthenticated.test.js'
-    ]);
+    it('Should properly create api files', () => {
+      assert.file([
+        'api/policies/isAuthenticated.js'
+      ]);
+    });
+
+    it('Should properly create test files', () => {
+      assert.file([
+        'test/unit/policies/isAuthenticated.test.js'
+      ]);
+    });
   });
 });
