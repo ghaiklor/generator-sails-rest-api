@@ -6,12 +6,38 @@
 import chalk from 'chalk';
 import questions from '../questions';
 
-export default function () {
-  let done = this.async();
+export default {
+  askApplication: function () {
+    let done = this.async();
 
-  this.log(chalk.yellow('\nService questions:'));
-  this.prompt(questions, answers => {
-    this.answers = Object.assign(this.answers || {}, answers);
-    done();
-  });
+    this.log(chalk.yellow('\nApplication questions:'));
+    this.prompt(questions.application, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
+  askDatabase: function () {
+    let done = this.async();
+
+    this.log(chalk.yellow('\nDatabase questions:'));
+    this.prompt(questions.database, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
+  askServices: function () {
+    let done = this.async();
+
+    this.log(chalk.yellow('\nService questions:'));
+    this.prompt(questions.services, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
+  test: function () {
+    console.log(this.answers);
+  }
 };
