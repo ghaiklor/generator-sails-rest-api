@@ -13,4 +13,60 @@
  * };
  */
 
-export default {};
+import crypto from 'crypto';
+
+export default {
+  'application-secret': {
+    desc: 'Specifies a secret key for your application',
+    type: String,
+    defaults: crypto.randomBytes(32).toString('hex')
+  },
+
+  'database-adapter': {
+    desc: 'Specifies an adapter for your database',
+    type: String,
+    defaults: 'Mongo'
+  },
+
+  'database-host': {
+    desc: 'Specifies a host of your database',
+    type: String,
+    defaults: 'localhost'
+  },
+
+  'database-name': {
+    desc: 'Specifies a name of your database',
+    type: String,
+    defaults: 'sails-rest-api'
+  },
+
+  'database-username': {
+    desc: 'Specifies an username of your database',
+    type: String,
+    defaults: ''
+  },
+
+  'database-password': {
+    desc: 'Specifies a password of your database',
+    type: String,
+    defaults: ''
+  },
+
+  'dynamo-access-key-id': {
+    desc: 'Specifies an Access Key ID for DynamoDB',
+    type: String,
+    defaults: ''
+  },
+
+  'dynamo-secret-access-key': {
+    desc: 'Specifies a Secret Key for DynamoDB',
+    type: String,
+    defaults: ''
+  },
+
+  'dynamo-region': {
+    desc: 'Specifies a region for DynamoDB',
+    type: String,
+    defaults: 'us-west-1'
+  }
+};
