@@ -17,10 +17,10 @@ module.exports.connections = {
    */
   postgresql: {
     adapter: 'sails-postgresql',
-    database: "<%= answers['database:name'] %>",
-    host: "<%= answers['database:host'] %>",
-    user: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>",
+    database: "<%= options['database-name'] %>",
+    host: "<%= options['database-host'] %>",
+    user: "<%= options['database-username'] %>",
+    password: "<%= options['database-password'] %>",
     port: 5432,
     pool: false,
     ssl: false
@@ -32,11 +32,11 @@ module.exports.connections = {
    */
   mysql: {
     adapter: 'sails-mysql',
-    host: "<%= answers['database:host'] %>",
+    host: "<%= options['database-host'] %>",
     port: 3306,
-    user: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>",
-    database: "<%= answers['database:name'] %>",
+    user: "<%= options['database-username'] %>",
+    password: "<%= options['database-password'] %>",
+    database: "<%= options['database-name'] %>",
     charset: 'utf8',
     collation: 'utf8_swedish_ci'
   },
@@ -47,11 +47,11 @@ module.exports.connections = {
    */
   mongo: {
     adapter: 'sails-mongo',
-    host: "<%= answers['database:host'] %>",
+    host: "<%= options['database-host'] %>",
     port: 27017,
-    user: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>",
-    database: "<%= answers['database:name'] %>"
+    user: "<%= options['database-username'] %>",
+    password: "<%= options['database-password'] %>",
+    database: "<%= options['database-name'] %>"
   },
 
   /**
@@ -78,10 +78,10 @@ module.exports.connections = {
    */
   sqlserver: {
     adapter: 'sails-sqlserver',
-    user: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>",
-    host: "<%= answers['database:host'] %>",
-    database: "<%= answers['database:name'] %>",
+    user: "<%= options['database-username'] %>",
+    password: "<%= options['database-password'] %>",
+    host: "<%= options['database-host'] %>",
+    database: "<%= options['database-name'] %>",
     options: {
       encrypt: false
     }
@@ -94,9 +94,9 @@ module.exports.connections = {
   redis: {
     adapter: 'sails-redis',
     port: 6379,
-    host: "<%= answers['database:host'] %>",
-    password: "<%= answers['database:password'] %>",
-    database: "<%= answers['database:name'] %>",
+    host: "<%= options['database-host'] %>",
+    password: "<%= options['database-password'] %>",
+    database: "<%= options['database-name'] %>",
     options: {
       parser: 'hiredis',
       return_buffers: false,
@@ -113,11 +113,11 @@ module.exports.connections = {
    */
   orientdb: {
     adapter: 'sails-orientdb',
-    host: "<%= answers['database:host'] %>",
+    host: "<%= options['database-host'] %>",
     port: 2424,
-    user: "<%= answers['database:username'] %>",
-    password: "<%= answers['database:password'] %>",
-    database: "<%= answers['database:name'] %>",
+    user: "<%= options['database-username'] %>",
+    password: "<%= options['database-password'] %>",
+    database: "<%= options['database-name'] %>",
     options: {
       databaseType: 'graph',
       storage: 'plocal',
@@ -136,8 +136,8 @@ module.exports.connections = {
    */
   dynamodb: {
     adapter: 'sails-dynamodb',
-    accessKeyId: "<%= answers['database:dynamo:access-key-id'] %>",
-    secretAccessKey: "<%= answers['database:dynamo:secret-access-key'] %>",
-    region: "<%= answers['database:dynamo:region'] %>"
+    accessKeyId: "<%= options['dynamo-access-key-id'] %>",
+    secretAccessKey: "<%= options['dynamo-secret-access-key'] %>",
+    region: "<%= options['dynamo-region'] %>"
   }
 };
