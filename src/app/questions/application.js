@@ -10,9 +10,16 @@
  * }];
  */
 
+import crypto from 'crypto';
+
 export default [{
   type: 'input',
   name: 'application:name',
   message: 'Type your application name',
   default: 'sails-rest-api'
+}, {
+  type: 'input',
+  name: 'application:secret',
+  message: 'Type your application secret',
+  default: crypto.randomBytes(32).toString('hex')
 }];
