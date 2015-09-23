@@ -1,7 +1,7 @@
-export default {
+export const services = {
   cipher: {
     jwt: {
       secretOrKey: ""
     }
   }
-}
+};
