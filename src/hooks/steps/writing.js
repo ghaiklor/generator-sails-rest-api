@@ -4,6 +4,6 @@
  */
 
 export default function () {
-  this.directory('api', 'api');
-  this.directory('test', 'test');
+  this.directory('api/hooks', 'api/hooks');
+  this.directory('test/unit/hooks', 'test/unit/hooks');
 };
