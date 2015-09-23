@@ -4,6 +4,6 @@
  */
 
 export default function () {
-  this.directory('api', 'api');
-  this.directory('test', 'test');
+  this.directory('api/controllers', 'api/controllers');
+  this.directory('test/unit/controllers', 'test/unit/controllers');
 };
