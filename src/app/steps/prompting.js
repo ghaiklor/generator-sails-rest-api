@@ -35,9 +35,5 @@ export default {
       this.answers = Object.assign(this.answers || {}, answers);
       done();
     });
-  },
-
-  test: function () {
-    console.log(this.answers);
   }
 };
