@@ -35,6 +35,14 @@
 - Fix: Change 1337 port to 3000 in Dockerfile;
 - Typo: Replace `devDependencies` versions with asterisk so that installs the latest version;
 
+## Version 0.10.6
+
+- Hofix: Issue with installing the latest versions of dependencies;
+
+## Version 0.10.5
+
+- Hotfix: Issue with breaking changes in services;
+
 ## Version 0.10.4
 
 - Improvement: Implement `SearchController` that can lookup for text in all models;
