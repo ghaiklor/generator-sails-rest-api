@@ -19,7 +19,7 @@
     "passport-reddit-token": "^1.2.0",
     "passport-soundcloud-token": "^1.2.0",
     "passport-twitch-token": "^1.2.0",
-    "passport-twitter-token": "^1.0.0",
+    "passport-twitter-token": "^0.1.5",
     "passport-vkontakte-token": "^1.0.3",
     "passport-windows-live-token": "^1.2.0",
     "passport-yahoo-token": "^1.6.0",
