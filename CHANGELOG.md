@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.10.6
+
+- Hofix: Issue with installing the latest versions of dependencies;
+
 ## Version 0.10.5
 
 - Hotfix: Issue with breaking changes in services;
