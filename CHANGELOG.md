@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.10.5
+
+- Hotfix: Issue with breaking changes in services;
+
 ## Version 0.10.4
 
 - Improvement: Implement `SearchController` that can lookup for text in all models;
