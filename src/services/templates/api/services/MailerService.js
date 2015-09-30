@@ -1,3 +1,3 @@
 import mailer from 'sails-service-mailer';
 
-export default mailer.create("<%= options['mailer-provider'] %>", sails.config.services.mailer);
+export default mailer("<%= options['mailer-provider'] %>", sails.config.services.mailer);

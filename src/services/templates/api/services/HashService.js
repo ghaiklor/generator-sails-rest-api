@@ -1,5 +1,5 @@
 import hash from 'sails-service-hash';
 
 export default {
-  bcrypt: hash.create('bcrypt', sails.config.services.hash.bcrypt)
+  bcrypt: hash('bcrypt', sails.config.services.hash.bcrypt)
 };
