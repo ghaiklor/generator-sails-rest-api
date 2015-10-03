@@ -7,21 +7,21 @@ var _ = require('lodash');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
-var FacebookTokenStrategy = require('passport-facebook-token').Strategy;
-var TwitterTokenStrategy = require('passport-twitter-token').Strategy;
-var VKontakteTokenStrategy = require('passport-vkontakte-token').Strategy;
-var FoursquareTokenStrategy = require('passport-foursquare-token').Strategy;
-var GitHubTokenStrategy = require('passport-github-token').Strategy;
-var InstagramTokenStrategy = require('passport-instagram-token').Strategy;
-var PayPalTokenStrategy = require('passport-paypal-token').Strategy;
-var RedditTokenStrategy = require('passport-reddit-token').Strategy;
-var SoundCloudTokenStrategy = require('passport-soundcloud-token').Strategy;
-var WindowsLiveTokenStrategy = require('passport-windows-live-token').Strategy;
-var TwitchTokenStrategy = require('passport-twitch-token').Strategy;
-var YandexTokenStrategy = require('passport-yandex-token').Strategy;
-var AmazonTokenStrategy = require('passport-amazon-token').Strategy;
-var GooglePlusTokenStrategy = require('passport-google-plus-token').Strategy;
-var YahooTokenStrategy = require('passport-yahoo-token').Strategy;
+var FacebookTokenStrategy = require('passport-facebook-token');
+var TwitterTokenStrategy = require('passport-twitter-token');
+var VKontakteTokenStrategy = require('passport-vkontakte-token');
+var FoursquareTokenStrategy = require('passport-foursquare-token');
+var GitHubTokenStrategy = require('passport-github-token');
+var InstagramTokenStrategy = require('passport-instagram-token');
+var PayPalTokenStrategy = require('passport-paypal-token');
+var RedditTokenStrategy = require('passport-reddit-token');
+var SoundCloudTokenStrategy = require('passport-soundcloud-token');
+var WindowsLiveTokenStrategy = require('passport-windows-live-token');
+var TwitchTokenStrategy = require('passport-twitch-token');
+var YandexTokenStrategy = require('passport-yandex-token');
+var AmazonTokenStrategy = require('passport-amazon-token');
+var GooglePlusTokenStrategy = require('passport-google-plus-token');
+var YahooTokenStrategy = require('passport-yahoo-token');
 
 /**
  * Configuration object for local strategy
