@@ -39,6 +39,7 @@ export default function () {
   this.composeWith('sails-rest-api:services', {
     options: {
       'services': this.answers['services:chosen'].join(','),
+      'cipher-secret-key': this.answers['application:secret'],
       'image-provider': this.answers['services:image:provider'],
       'location-provider': this.answers['services:location:provider'],
       'mailer-provider': this.answers['services:mailer:provider'],
