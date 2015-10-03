@@ -8,7 +8,7 @@ describe('sails-rest-api:services', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/services'))
+        .run(path.join(__dirname, '../../src/services'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
@@ -46,7 +46,9 @@ describe('sails-rest-api:services', function () {
         'config/services/sms.js',
         'config/services/social.js',
         'config/services/storage.js'
-      ])
+      ]);
+
+      assert.fileContent('config/services/cipher.js', /secretOrKey: "[a-z0-9]{64}"/);
     });
 
     it('Should properly create test files', () => {
@@ -73,10 +75,11 @@ describe('sails-rest-api:services', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/services'))
+        .run(path.join(__dirname, '../../src/services'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
           'services': ['Cipher', 'Hash', 'Image', 'LocationService', 'Mailer', 'PaymentService', 'Pusher', 'Sms', 'Social', 'Storage'].join(','),
+          'cipher-secret-key': '1234567890',
           'image-provider': 'IM',
           'location-provider': 'FreeGeoIP',
           'mailer-provider': 'SMTP',
@@ -101,12 +104,12 @@ describe('sails-rest-api:services', function () {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/ImageService.js', /image\.create\("IM"/);
-      assert.fileContent('api/services/LocationService.js', /location\.create\("FreeGeoIP"/);
-      assert.fileContent('api/services/MailerService.js', /mailer\.create\("SMTP"/);
-      assert.fileContent('api/services/PaymentService.js', /payment\.create\("BrainTree"/);
-      assert.fileContent('api/services/SmsService.js', /sms\.create\("Twilio"/);
-      assert.fileContent('api/services/StorageService.js', /storage\.create\("Local"/);
+      assert.fileContent('api/services/ImageService.js', /image\("IM"/);
+      assert.fileContent('api/services/LocationService.js', /location\("FreeGeoIP"/);
+      assert.fileContent('api/services/MailerService.js', /mailer\("SMTP"/);
+      assert.fileContent('api/services/PaymentService.js', /payment\("BrainTree"/);
+      assert.fileContent('api/services/SmsService.js', /sms\("Twilio"/);
+      assert.fileContent('api/services/StorageService.js', /storage\("Local"/);
     });
 
     it('Should properly create config files', () => {
@@ -122,6 +125,8 @@ describe('sails-rest-api:services', function () {
         'config/services/social.js',
         'config/services/storage.js'
       ]);
+
+      assert.fileContent('config/services/cipher.js', /secretOrKey: "1234567890"/);
     });
 
     it('Should properly create test files', () => {
