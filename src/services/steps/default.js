@@ -3,4 +3,5 @@
  * Default priority in run loop
  */
 
-export default {};
+export default function () {
+};
