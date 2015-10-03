@@ -1,6 +1,4 @@
 import pusher from 'sails-service-pusher';
 
-export default {
-  android: pusher('android', sails.config.services.pusher.android),
-  ios: pusher('ios', sails.config.services.pusher.ios)
-}
+export const android = pusher('android', sails.config.services.pusher.android);
+export const ios = pusher('ios', sails.config.services.pusher.ios);
