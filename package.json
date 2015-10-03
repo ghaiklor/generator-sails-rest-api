@@ -30,11 +30,11 @@
     }
   ],
   "scripts": {
-    "clean": "rm -rf ./coverage ./generators",
+    "clean": "rm -rf ./generators",
     "compile": "npm run clean && cp -r src/ generators/ && babel src --out-dir generators",
     "dev": "cp -r src/ generators/ && babel src --watch --out-dir generators",
-    "prepublish": "npm run test",
-    "test": "npm run compile && istanbul cover _mocha"
+    "prepublish": "npm run compile",
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
