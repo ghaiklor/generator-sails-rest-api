@@ -8,7 +8,7 @@ describe('sails-rest-api:responses', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/responses'))
+        .run(path.join(__dirname, '../../src/responses'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
