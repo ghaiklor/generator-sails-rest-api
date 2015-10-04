@@ -3,4 +3,5 @@
  * Called last, cleanup, say good bye, etc
  */
 
-export default {};
+export default function () {
+};
