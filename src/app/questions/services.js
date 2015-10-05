@@ -32,7 +32,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:image:provider',
-  message: 'Which type of image providers you want to use',
+  message: 'Image provider',
   default: 'GM',
   choices: [
     'GM',
@@ -42,7 +42,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:location:provider',
-  message: 'Which type of location providers you want to use',
+  message: 'Location provider',
   default: 'Google',
   choices: [
     'Google',
@@ -63,7 +63,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:mailer:provider',
-  message: 'Which type of mailer providers you want to use',
+  message: 'Mailer provider',
   default: 'sendmail',
   choices: [
     'direct',
@@ -77,7 +77,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:payment:provider',
-  message: 'Which type of payment providers you want to use',
+  message: 'Payment provider',
   default: 'Stripe',
   choices: [
     'BrainTree',
@@ -87,7 +87,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:sms:provider',
-  message: 'Which type of SMS providers you want to use',
+  message: 'SMS provider',
   default: 'Twilio',
   choices: [
     'Twilio'
@@ -96,7 +96,7 @@ export default [{
 }, {
   type: 'list',
   name: 'services:storage:provider',
-  message: 'Which type of storage providers you want to use',
+  message: 'Storage provider',
   default: 'Amazon',
   choices: [
     'Amazon',

@@ -15,7 +15,7 @@ const whenDatabaseIsChosen = databases => answers => databases.indexOf(answers['
 export default [{
   type: 'list',
   name: 'database:adapter',
-  message: 'Choose database adapter',
+  message: 'Database adapter',
   default: 'Mongo',
   choices: [
     'PostgreSQL',
