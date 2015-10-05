@@ -21,7 +21,7 @@ describe('sails-rest-api:adapters', function () {
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/adapters'
+        'test/unit/adapters/.gitkeep'
       ]);
     });
   });
