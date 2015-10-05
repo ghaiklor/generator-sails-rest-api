@@ -3,4 +3,5 @@
  * Where conflicts are handled (used internally)
  */
 
-export default {};
+export default function () {
+};

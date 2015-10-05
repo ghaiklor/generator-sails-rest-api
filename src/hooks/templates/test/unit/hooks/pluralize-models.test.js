@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import _ from 'lodash';
 import pluralizeModels from '../../../api/hooks/pluralize-models';
 
-let sailsLoc = {
+const sailsLoc = {
   middleware: {
     controllers: {
       test1: {}, test2: {}, test3: {}
@@ -14,18 +14,18 @@ let sailsLoc = {
 };
 
 describe('hooks:pluralize-only-rest-models', function () {
-  before(function (done) {
+  before(done => {
     _.set(sailsLoc, 'config.blueprints.pluralize', true);
     done();
   });
 
-  it('should properly exports', function (done) {
-    assert.ok(typeof pluralizeOnlyModels === 'function');
+  it('Should properly exports', done => {
+    assert.isFunction(pluralizeModels);
     done();
   });
 
-  it('should pluralize only REST models', function (done) {
-    sailsLoc.on = function (event, func) {
+  it('Should pluralize only REST models', done => {
+    sailsLoc.on = (event, func) => {
       func();
 
       let controllers = sailsLoc.middleware.controllers;
@@ -35,7 +35,8 @@ describe('hooks:pluralize-only-rest-models', function () {
 
       done();
     };
-    pluralizeOnlyModels(sailsLoc).initialize(function () {
+
+    pluralizeModels(sailsLoc).initialize(() => {
     });
   });
 });

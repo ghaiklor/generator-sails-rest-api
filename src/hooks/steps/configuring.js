@@ -3,4 +3,5 @@
  * Saving configurations and configure the project
  */
 
-export default {};
+export default function () {
+};
