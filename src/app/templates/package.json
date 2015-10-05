@@ -6,12 +6,12 @@
     "sails-hook-cron": "*"
   },
   "devDependencies": {
-    "chai": "*",
-    "istanbul": "*",
-    "mocha": "*",
-    "sails-memory": "*",
-    "sinon": "*",
-    "supertest": "*"
+    "babel": "^5.8.23",
+    "chai": "^3.3.0",
+    "istanbul": "^0.3.22",
+    "mocha": "^2.3.3",
+    "sails-memory": "^0.10.5",
+    "sinon": "^1.17.1"
   },
   "scripts": {
     "start": "babel-node app.js",
