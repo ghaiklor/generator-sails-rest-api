@@ -15,30 +15,28 @@ const populateAlias = (model, alias) => model.populate(alias);
 export default function (req, res) {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
-  var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
-  var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
-  var Model = actionUtil.parseModel(req);
-  var where = actionUtil.parseCriteria(req);
-  var limit = actionUtil.parseLimit(req);
-  var skip = req.param('page') * limit || actionUtil.parseSkip(req);
-  var sort = actionUtil.parseSort(req);
-  var query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
-  var findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
-  var countQuery = Model.count(where);
+  let fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
+  let populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
+  let Model = actionUtil.parseModel(req);
+  let where = actionUtil.parseCriteria(req);
+  let limit = actionUtil.parseLimit(req);
+  let skip = req.param('page') * limit || actionUtil.parseSkip(req);
+  let sort = actionUtil.parseSort(req);
+  let query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
+  let findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
+  let countQuery = Model.count(where);
 
   Promise.all([findQuery, countQuery])
-    .spread((records, count) => {
-      return [records, {
-        root: {
-          criteria: where,
-          limit: limit,
-          start: skip,
-          end: skip + limit,
-          page: Math.floor(skip / limit),
-          total: count
-        }
-      }];
-    })
+    .spread((records, count) => [records, {
+      root: {
+        criteria: where,
+        limit: limit,
+        start: skip,
+        end: skip + limit,
+        page: Math.floor(skip / limit),
+        total: count
+      }
+    }])
     .spread(res.ok)
     .catch(res.negotiate);
 };

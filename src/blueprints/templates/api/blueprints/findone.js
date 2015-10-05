@@ -13,12 +13,12 @@ const populateAliases = (model, alias) => model.populate(alias);
 export default function (req, res) {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
-  var fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
-  var populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
-  var Model = actionUtil.parseModel(req);
-  var pk = actionUtil.requirePk(req);
-  var query = Model.find(pk, fields.length > 0 ? {select: fields} : null);
-  var findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, query);
+  let fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
+  let populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
+  let Model = actionUtil.parseModel(req);
+  let pk = actionUtil.requirePk(req);
+  let query = Model.find(pk, fields.length > 0 ? {select: fields} : null);
+  let findQuery = _.reduce(_.intersection(populate, takeAliases(Model.associations)), populateAliases, query);
 
   findQuery
     .then(record => record[0] ? res.ok(record[0]) : res.notFound())
