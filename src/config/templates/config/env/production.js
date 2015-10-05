@@ -3,7 +3,7 @@
  * @description :: This section overrides all other config values ONLY in production environment
  */
 
-module.exports = {
+export default {
   port: 80,
   log: {
     level: 'info'

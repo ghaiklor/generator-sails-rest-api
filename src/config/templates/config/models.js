@@ -4,7 +4,7 @@
  * Unless you override them, the following properties will be included in each of your models.
  */
 
-module.exports.models = {
+export const models = {
   /**
    * Your app's default connection
    * @type {String}

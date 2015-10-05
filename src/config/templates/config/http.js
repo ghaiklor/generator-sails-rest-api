@@ -1,10 +1,9 @@
 /**
  * HTTP Server Settings
- *
  * Configuration for the underlying HTTP server in Sails
  */
 
-module.exports = {
+export default {
   /**
    * Port where to run this app
    * @type {Number}
@@ -39,7 +38,7 @@ module.exports = {
      * You can define own custom middleware here
      * @param app Express application
      */
-    customMiddleware: function (app) {
+    customMiddleware: app => {
 
     },
 
@@ -62,7 +61,7 @@ module.exports = {
       /**
        * Middleware for setting Connection: keep-alive to all responses
        */
-      keepAlive: function (req, res, next) {
+      keepAlive: (req, res, next) => {
         res.set('Connection', 'keep-alive');
         next();
       },

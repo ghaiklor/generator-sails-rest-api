@@ -1,4 +1,8 @@
-module.exports.errors = {
+/**
+ * Configuration file where you can store error codes for responses
+ */
+
+export const errors = {
   USER_NOT_FOUND: {
     code: 'E_USER_NOT_FOUND',
     message: 'User with specified credentials is not found',

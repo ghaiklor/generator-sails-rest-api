@@ -3,7 +3,7 @@
  * @description :: This section overrides all other config values ONLY in test environment
  */
 
-module.exports = {
+export default {
   log: {
     level: 'silent'
   },

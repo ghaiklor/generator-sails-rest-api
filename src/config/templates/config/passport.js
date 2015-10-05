@@ -3,32 +3,32 @@
  * @description :: Configuration file where you configure your passport authentication
  */
 
-var _ = require('lodash');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var JwtStrategy = require('passport-jwt').Strategy;
-var FacebookTokenStrategy = require('passport-facebook-token');
-var TwitterTokenStrategy = require('passport-twitter-token');
-var VKontakteTokenStrategy = require('passport-vkontakte-token');
-var FoursquareTokenStrategy = require('passport-foursquare-token');
-var GitHubTokenStrategy = require('passport-github-token');
-var InstagramTokenStrategy = require('passport-instagram-token');
-var PayPalTokenStrategy = require('passport-paypal-token');
-var RedditTokenStrategy = require('passport-reddit-token');
-var SoundCloudTokenStrategy = require('passport-soundcloud-token');
-var WindowsLiveTokenStrategy = require('passport-windows-live-token');
-var TwitchTokenStrategy = require('passport-twitch-token');
-var YandexTokenStrategy = require('passport-yandex-token');
-var AmazonTokenStrategy = require('passport-amazon-token');
-var GooglePlusTokenStrategy = require('passport-google-plus-token');
-var YahooTokenStrategy = require('passport-yahoo-token');
+import _ from 'lodash';
+import passport from 'passport';
+import LocalStrategy from 'passport-local';
+import JwtStrategy from 'passport-jwt';
+import FacebookTokenStrategy from 'passport-facebook-token';
+import TwitterTokenStrategy from 'passport-twitter-token';
+import VKontakteTokenStrategy from 'passport-vkontakte-token';
+import FoursquareTokenStrategy from 'passport-foursquare-token';
+import GitHubTokenStrategy from 'passport-github-token';
+import InstagramTokenStrategy from 'passport-instagram-token';
+import PayPalTokenStrategy from 'passport-paypal-token';
+import RedditTokenStrategy from 'passport-reddit-token';
+import SoundCloudTokenStrategy from 'passport-soundcloud-token';
+import WindowsLiveTokenStrategy from 'passport-windows-live-token';
+import TwitchTokenStrategy from 'passport-twitch-token';
+import YandexTokenStrategy from 'passport-yandex-token';
+import AmazonTokenStrategy from 'passport-amazon-token';
+import GooglePlusTokenStrategy from 'passport-google-plus-token';
+import YahooTokenStrategy from 'passport-yahoo-token';
 
 /**
  * Configuration object for local strategy
  * @type {Object}
  * @private
  */
-var LOCAL_STRATEGY_CONFIG = {
+const LOCAL_STRATEGY_CONFIG = {
   usernameField: 'email',
   passwordField: 'password',
   session: false,
@@ -40,7 +40,7 @@ var LOCAL_STRATEGY_CONFIG = {
  * @type {Object}
  * @private
  */
-var JWT_STRATEGY_CONFIG = {
+const JWT_STRATEGY_CONFIG = {
   secretOrKey: "<%= options['application-secret'] %>",
   tokenBodyField: 'access_token',
   tokenQueryParameterName: 'access_token',
@@ -54,7 +54,7 @@ var JWT_STRATEGY_CONFIG = {
  * @type {Object}
  * @private
  */
-var SOCIAL_STRATEGY_CONFIG = {
+const SOCIAL_STRATEGY_CONFIG = {
   clientID: '-',
   clientSecret: '-',
   consumerKey: '-',
@@ -70,16 +70,16 @@ var SOCIAL_STRATEGY_CONFIG = {
  * @param {Function} next Callback
  * @private
  */
-function _onLocalStrategyAuth(req, email, password, next) {
+const _onLocalStrategyAuth = (req, email, password, next) => {
   User
     .findOne({email: email})
-    .then(function (user) {
+    .then(user => {
       if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       return next(null, user, {});
     })
     .catch(next);
-}
+};
 
 /**
  * Triggers when user authenticates via JWT strategy
@@ -88,15 +88,15 @@ function _onLocalStrategyAuth(req, email, password, next) {
  * @param {Function} next Callback
  * @private
  */
-function _onJwtStrategyAuth(req, payload, next) {
+const _onJwtStrategyAuth = (req, payload, next) => {
   User
     .findOne({id: payload.id})
-    .then(function (user) {
+    .then(user => {
       if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       return next(null, user, {});
     })
     .catch(next);
-}
+};
 
 /**
  * Triggers when user authenticates via one of social strategies
@@ -107,12 +107,12 @@ function _onJwtStrategyAuth(req, payload, next) {
  * @param {Function} next Callback
  * @private
  */
-function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
+const _onSocialStrategyAuth = (req, accessToken, refreshToken, profile, next) => {
   if (!req.user) {
-    var criteria = {};
+    let criteria = {};
     criteria['socialProfiles.' + profile.provider + '.id'] = profile.id;
 
-    var model = {
+    let model = {
       username: profile.username || profile.displayName || '',
       email: (profile.emails[0] && profile.emails[0].value) || '',
       firstName: (profile.name && profile.name.givenName) || '',
@@ -124,7 +124,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
 
     User
       .findOrCreate(criteria, model)
-      .then(function (user) {
+      .then(user => {
         if (!user) return next(null, null, sails.config.errors.AUTH_FAILED);
         return next(null, user, {});
       })
@@ -133,7 +133,7 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
     req.user.socialProfiles[profile.provider] = profile._json;
     req.user.save(next);
   }
-}
+};
 
 /**
  * Triggers when all Passport steps is done and user profile is parsed
@@ -145,14 +145,14 @@ function _onSocialStrategyAuth(req, accessToken, refreshToken, profile, next) {
  * @returns {*}
  * @private
  */
-function _onPassportAuth(req, res, error, user, info) {
+export const onPassportAuth = (req, res, error, user, info) => {
   if (error || !user) return res.negotiate(_.assign(error || {}, info));
 
   return res.ok({
     token: CipherService.jwt.encodeSync({id: user.id}),
     user: user
   });
-}
+};
 
 passport.use(new LocalStrategy(_.assign({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
 passport.use(new JwtStrategy(_.assign({}, JWT_STRATEGY_CONFIG), _onJwtStrategyAuth));
@@ -171,7 +171,3 @@ passport.use(new YandexTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSo
 passport.use(new AmazonTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new GooglePlusTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
 passport.use(new YahooTokenStrategy(_.assign({}, SOCIAL_STRATEGY_CONFIG), _onSocialStrategyAuth));
-
-module.exports.passport = {
-  onPassportAuth: _onPassportAuth
-};

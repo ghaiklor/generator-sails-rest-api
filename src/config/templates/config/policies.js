@@ -9,7 +9,7 @@
  * below by its filename, minus the extension, (e.g. "authenticated")
  */
 
-module.exports.policies = {
+export const policies = {
   '*': 'isAuthenticated',
 
   AuthController: {

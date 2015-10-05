@@ -4,11 +4,11 @@
  * Configure the log level for your app
  */
 
-var path = require('path');
-var winston = require('winston');
-var mkdirp = require('mkdirp');
+import path from 'path';
+import winston from 'winston';
+import mkdirp from 'mkdirp';
 
-module.exports.log = {
+export const log = {
   /**
    * The order of precedence for log levels from lowest to highest is:
    * silly, verbose, info, debug, warn, error, silent
@@ -82,6 +82,7 @@ module.exports.log = {
     json: false
   }
 };
+
 
 /**
  * Winston logger

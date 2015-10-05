@@ -10,7 +10,7 @@
  * in `config/local.js`, environment variables, or use another strategy.
  */
 
-module.exports.connections = {
+export const connections = {
   /**
    * PostgreSQL configuration
    * @type {Object}

@@ -9,7 +9,7 @@
  * a configuration object with overrides for the settings in this file
  */
 
-module.exports.blueprints = {
+export const blueprints = {
   /**
    * When enabled, GET, POST, PUT and DELETE routes will be generated for everyone of a controller's actions
    * @type {Boolean}

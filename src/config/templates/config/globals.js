@@ -1,10 +1,9 @@
 /**
  * Global Variable Configuration
- *
  * Configure which global variables which will be exposed automatically by Sails.
  */
 
-module.exports.globals = {
+export const globals = {
   /**
    * Expose the lodash installed in Sails core as a global variable
    * @type {Boolean}

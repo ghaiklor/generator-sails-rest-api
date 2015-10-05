@@ -6,7 +6,7 @@
  * running on some other domain (e.g. google.com)
  */
 
-module.exports.cors = {
+export const cors = {
   /**
    * Allow CORS on all routes by default?
    */
