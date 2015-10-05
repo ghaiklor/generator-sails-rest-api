@@ -5,8 +5,8 @@
 
 import _ from 'lodash';
 import passport from 'passport';
-import LocalStrategy from 'passport-local';
-import JwtStrategy from 'passport-jwt';
+import { Strategy as LocalStrategy } from 'passport-local';
+import { Strategy as JwtStrategy } from 'passport-jwt';
 import FacebookTokenStrategy from 'passport-facebook-token';
 import TwitterTokenStrategy from 'passport-twitter-token';
 import VKontakteTokenStrategy from 'passport-vkontakte-token';
