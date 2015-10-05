@@ -2,50 +2,44 @@ import { assert } from 'chai';
 import Promise from 'bluebird';
 import AuthController from '../../../api/controllers/AuthController';
 import { jwt } from '../../../api/services/CipherService';
-import Users from '../../fixtures/Users.json';
-import FaultyUsers from '../../fixtures/FaultyUsers.json';
+import Users from '../../fixtures/Users';
+import FaultyUsers from '../../fixtures/FaultyUsers';
 
 let token = '';
 
-describe("controllers:AuthController", function () {
+describe('controllers:AuthController', function () {
   this.timeout(40000);
 
-  it("should register new users", function (done) {
-    Promise.map(Users, function (user) {
-      return new Promise(function (resolve, reject) {
+  it('Should register new users', done => {
+    Promise.map(Users, user => {
+      return new Promise((resolve, reject) => {
         sails.requestForTest('post', '/v1/auth/signup')
           .send(user)
           .expect(201)
-          .end(function (err, data) {
-            if (err) return reject(err);
-
+          .end((error, data) => {
+            if (error) return reject(err);
             return resolve(data.body);
           });
       })
     })
-      .then(function (answers) {
-        done();
-      })
-      .catch(done)
+      .then(done)
+      .catch(done);
   });
 
-  it("should login with just created users", function (done) {
-    Promise.map(Users, function (user) {
-      return new Promise(function (resolve, reject) {
+  it('Should login with just created users', done => {
+    Promise.map(Users, user => {
+      return new Promise((resolve, reject) => {
         sails.requestForTest('post', '/v1/auth/signin')
           .send(user)
           .expect(200)
-          .end(function (err, data) {
-            if (err) return reject(err);
-
+          .end((error, data) => {
+            if (error) return reject(err);
             return resolve(data.body);
           });
       })
     })
-      .then(function (answers) {
-        var res = _.every(answers, function (answer) {
-          return !!answer.data.token;
-        });
+      .then(answers => {
+        let res = _.every(answers, answer => !!answer.data.token);
         assert(res);
         token = answers[0].data.token;
 
@@ -54,33 +48,28 @@ describe("controllers:AuthController", function () {
       .catch(done)
   });
 
-  it("should be rejected after trying to signup with faulty users", function (done) {
-    Promise.map(FaultyUsers, function (user) {
-      return new Promise(function (resolve, reject) {
+  it('Should be rejected after trying to signup with faulty users', done => {
+    Promise.map(FaultyUsers, user => {
+      return new Promise((resolve, reject) => {
         sails.requestForTest('post', '/v1/auth/signup')
           .send(user)
-          .end(function (err, data) {
-            return resolve(data.body);
-          });
+          .end((error, data) => resolve(data.body));
       })
     })
-      .then(function (answers) {
-        answers.forEach(function (answer) {
-          assert.ok(!!answer.data.error);
-        });
+      .then(answers => {
+        answers.forEach(answer => assert.ok(!!answer.data.error));
         done();
       })
       .catch(done)
   });
 
-  it("should return error 'email not found'", function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return error when email not found', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/auth/signin')
         .send({email: 'my404email@gmail.com', password: 'yeah'})
         .expect(401)
-        .end(function (err) {
-          if (err) return reject(new Error("Not existing user was logged in!"));
-
+        .end(error => {
+          if (error) return reject(new Error("Not existing user was logged in!"));
           return resolve();
         });
     })
@@ -88,16 +77,15 @@ describe("controllers:AuthController", function () {
       .catch(done)
   });
 
-  it("should return error 'Password is wrong'", function (done) {
-    new Promise(function (resolve, reject) {
-      var user = _.assign({}, Users[0]);
+  it('Should return error on password is wrong', done => {
+    new Promise((resolve, reject) => {
+      let user = _.assign({}, Users[0]);
       user.password += '3';
       sails.requestForTest('post', '/v1/auth/signin')
         .send(user)
         .expect(401)
-        .end(function (err) {
-          if (err) return reject(new Error("User with wrong password was logged in!"));
-
+        .end(error => {
+          if (error) return reject(new Error("User with wrong password was logged in!"));
           return resolve();
         });
     })
@@ -105,15 +93,14 @@ describe("controllers:AuthController", function () {
       .catch(done)
   });
 
-  it("should return error 'User with that JWT not found'", function (done) {
-    new Promise(function (resolve, reject) {
-      var wrongAuthToken = jwt.encodeSync({id: -1});
+  it('Should return error on user with JWT not found', done => {
+    new Promise((resolve, reject) => {
+      let wrongAuthToken = jwt.encodeSync({id: -1});
       sails.requestForTest('get', '/v1/User/recently_registered')
         .set('Authorization', 'Bearer ' + wrongAuthToken)
         .expect(401)
-        .end(function (err) {
-          if (err) return reject(new Error('Found a user with wrong JWT!'));
-
+        .end(error => {
+          if (error) return reject(new Error('Found a user with wrong JWT!'));
           return resolve();
         });
     })
@@ -121,26 +108,24 @@ describe("controllers:AuthController", function () {
       .catch(done)
   });
 
-  it("should refresh token", function (done) {
+  it('Should refresh token', done => {
     // we should wait a little bit to get a new token
-    setTimeout(function () {
-      new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      new Promise((resolve, reject) => {
         sails.requestForTest('post', '/v1/auth/refresh_token')
           .send({token: token})
           .expect(200)
           .set('Authorization', 'Bearer ' + token)
-          .end(function (err, data) {
-            if (err) return reject(err);
-
+          .end((error, data) => {
+            if (error) return reject(error);
             return resolve(data.body);
           });
       })
-        .then(function (answer) {
+        .then(answer => {
           assert.notEqual(token, answer.data.token);
           done();
         })
         .catch(done)
     }, 2000);
   });
-
 });

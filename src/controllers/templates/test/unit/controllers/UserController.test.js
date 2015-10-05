@@ -1,20 +1,18 @@
 import { assert } from 'chai';
 import Promise from 'bluebird';
 
-describe("controllers:UserController", function () {
-  it('Should return list of users', function (done) {
-    new Promise(function (resolve, reject) {
+describe('controllers:UserController', function () {
+  it('Should return list of users', (done) => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('get', '/v1/user')
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
+      .then(answer => {
         assert.instanceOf(answer.data, Array);
-
         done();
       })
       .catch(done)

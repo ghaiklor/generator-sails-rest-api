@@ -1,23 +1,22 @@
 import { assert } from 'assert';
 import Promise from 'bluebird';
-import Users from '../../fixtures/Users.json';
+import Users from '../../fixtures/Users';
 
 let authToken = '';
 
-describe("controllers:SearchController", function () {
-  before(function (done) {
-    new Promise(function (resolve, reject) {
+describe('controllers:SearchController', function () {
+  before(done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/auth/signin')
         .send(Users[0])
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
-        if (!answer.data || !answer.data.token) return Promise.reject("Problem with authorization!");
+      .then(answer => {
+        if (!answer.data || !answer.data.token) return Promise.reject('Problem with authorization!');
         authToken = answer.data.token;
 
         return Promise.resolve();
@@ -26,19 +25,18 @@ describe("controllers:SearchController", function () {
       .catch(done)
   });
 
-  it('should return user with username "test2"', function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return user with username "test2"', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/Search/')
         .send({q: "test2"})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
+      .then(answer => {
         assert.ok(!!answer.data.user);
         assert.equal(answer.data.user.length, 1);
         assert.equal(answer.data.user[0].username, "test2");
@@ -47,19 +45,18 @@ describe("controllers:SearchController", function () {
       .catch(done)
   });
 
-  it("should return at least 2 users whose username contains 'test'", function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return at least 2 users whose username contains \'test\'', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/Search/')
         .send({q: "test"})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
+      .then(answer => {
         assert.ok(!!answer.data.user);
         assert.ok(answer.data.user.length >= 2);
       })
@@ -67,19 +64,18 @@ describe("controllers:SearchController", function () {
       .catch(done)
   });
 
-  it("should return user with email 'test@gmail.com' (request with 'model' parameter)", function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return user with email \'test@gmail.com\' (request with \'model\' parameter)', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/Search/')
         .send({q: "test@gmail.com", model: 'User'})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
+      .then(answer => {
         assert.ok(!!answer.data.user);
         assert.equal(answer.data.user.length, 1);
         assert.equal(answer.data.user[0].email, "test@gmail.com");
@@ -88,8 +84,8 @@ describe("controllers:SearchController", function () {
       .catch(done)
   });
 
-  it("should return badRequest error ('q' parameter doesn't exists)", function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return badRequest error (\'q\' parameter doesn\'t exists)', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('get', '/v1/Search/')
         .set('Authorization', 'Bearer ' + authToken)
         .expect(400, done);
@@ -98,8 +94,8 @@ describe("controllers:SearchController", function () {
       .catch(done)
   });
 
-  it("should return badRequest error ('model' parameter contains an invalid model name)", function (done) {
-    new Promise(function (resolve, reject) {
+  it('Should return badRequest error (\'model\' parameter contains an invalid model name)', done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/Search/')
         .send({q: 'someText', model: 'undefinedModel'})
         .set('Authorization', 'Bearer ' + authToken)

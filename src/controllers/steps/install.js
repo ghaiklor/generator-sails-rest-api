@@ -3,4 +3,5 @@
  * Where installation are run (npm, bower)
  */
 
-export default {};
+export default function () {
+};

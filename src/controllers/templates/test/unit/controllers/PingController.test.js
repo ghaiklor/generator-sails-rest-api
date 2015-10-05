@@ -1,20 +1,18 @@
 import { assert } from 'chai';
 import Promise from 'bluebird';
 
-describe("controllers:PingController", function () {
-  it("should return 'HTTP server is working'", function (done) {
-    new Promise(function (resolve, reject) {
+describe('controllers:PingController', () => {
+  it("should return 'HTTP server is working'", done => {
+    new Promise((resolve, reject) => {
       sails.requestForTest('get', '/v1/Ping')
         .expect(200)
-        .end(function (err, data) {
-          if (err) return reject(err);
-
+        .end((error, data) => {
+          if (error) return reject(error);
           return resolve(data.body);
         });
     })
-      .then(function (answer) {
+      .then(answer => {
         assert(answer.message === 'HTTP server is working');
-
         done();
       })
       .catch(done)
