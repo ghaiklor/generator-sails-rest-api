@@ -56,28 +56,12 @@ export default {
   },
 
   beforeUpdate: function (values, next) {
-    let id = values.id;
-    let password = values.password;
+    if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
 
-    if (id && password) {
-      return User
-        .findOne({id: id})
-        .then(user => {
-          if (password === user.password) {
-            return next();
-          } else {
-            values.password = HashService.bcrypt.hashSync(password);
-            return next();
-          }
-        })
-        .catch(next);
-    } else {
-      next();
-    }
+    values.password = HashService.bcrypt.hash(password).then(next).catch(next);
   },
 
   beforeCreate: function (values, next) {
-    values.password = HashService.bcrypt.hashSync(values.password);
-    next();
+    values.password = HashService.bcrypt.hash(values.password).then(next).catch(next);
   }
 };

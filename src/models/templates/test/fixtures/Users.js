@@ -1,4 +1,4 @@
-[
+export default JSON.stringify([
   {
     "username": "test",
     "password": "test",
@@ -21,4 +21,4 @@
     "state": "",
     "photo": "http://cloud.com/myselfiewhereimwithducklips.jpg"
   }
-]
+])
