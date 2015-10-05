@@ -12,7 +12,19 @@ export default function () {
     local: require.resolve('../../blueprints')
   });
 
-  this.composeWith('sails-rest-api:config', {}, {
+  this.composeWith('sails-rest-api:config', {
+    options: {
+      'application-secret': this.answers['application:secret'],
+      'database-adapter': this.answers['database:adapter'],
+      'database-host': this.answers['database:host'],
+      'database-name': this.answers['database:name'],
+      'database-username': this.answers['database:username'],
+      'database-password': this.answers['database:password'],
+      'dynamo-access-key-id': this.answers['database:dynamo:access-key-id'],
+      'dynamo-secret-access-key': this.answers['database:dynamo:secret-access-key'],
+      'dynamo-region': this.answers['database:dynamo:region']
+    }
+  }, {
     local: require.resolve('../../config')
   });
 

@@ -29,7 +29,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:host',
-  message: 'Type your database host',
+  message: 'Database host',
   default: 'localhost',
   when: function (answers) {
     return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
@@ -37,7 +37,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:name',
-  message: 'Type your database name',
+  message: 'Database name',
   default: 'sails-rest-api',
   when: function (answers) {
     return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
@@ -45,7 +45,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:username',
-  message: 'Type your database username',
+  message: 'Database username',
   default: '',
   when: function (answers) {
     return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
@@ -53,7 +53,7 @@ export default [{
 }, {
   type: 'password',
   name: 'database:password',
-  message: 'Type your database password',
+  message: 'Database password',
   default: '',
   when: function (answers) {
     return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
@@ -61,7 +61,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:dynamo:access-key-id',
-  message: 'Type your DynamoDB Access Key ID',
+  message: 'DynamoDB Access Key ID',
   default: '',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
@@ -69,7 +69,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:dynamo:secret-access-key',
-  message: 'Type your DynamoDB Secret Access Key',
+  message: 'DynamoDB Secret Access Key',
   default: '',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
@@ -77,7 +77,7 @@ export default [{
 }, {
   type: 'input',
   name: 'database:dynamo:region',
-  message: 'Type your DynamoDB region',
+  message: 'DynamoDB region',
   default: 'us-west-1',
   when: function (answers) {
     return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
