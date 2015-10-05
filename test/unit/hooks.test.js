@@ -8,7 +8,7 @@ describe('sails-rest-api:hooks', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/hooks'))
+        .run(path.join(__dirname, '../../src/hooks'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });

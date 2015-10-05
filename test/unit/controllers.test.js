@@ -8,7 +8,7 @@ describe('sails-rest-api:controllers', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/controllers'))
+        .run(path.join(__dirname, '../../src/controllers'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });

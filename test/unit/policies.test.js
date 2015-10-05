@@ -8,7 +8,7 @@ describe('sails-rest-api:policies', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/policies'))
+        .run(path.join(__dirname, '../../src/policies'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });

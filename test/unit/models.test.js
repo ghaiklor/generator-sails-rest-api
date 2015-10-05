@@ -8,7 +8,7 @@ describe('sails-rest-api:models', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/models'))
+        .run(path.join(__dirname, '../../src/models'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
