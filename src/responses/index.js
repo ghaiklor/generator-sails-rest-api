@@ -3,7 +3,7 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class ServicesGenerator extends Base {
+export default class ResponsesGenerator extends Base {
   constructor(...args) {
     super(...args);
 
