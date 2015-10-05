@@ -8,7 +8,7 @@ describe('sails-rest-api:blueprints', function () {
 
     before(done => {
       test
-        .run(path.join(__dirname, '../../generators/blueprints'))
+        .run(path.join(__dirname, '../../src/blueprints'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });

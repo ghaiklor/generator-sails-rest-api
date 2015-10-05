@@ -7,7 +7,7 @@ describe('sails-rest-api:app', function () {
 
   before(done => {
     test
-      .run(path.join(__dirname, '../../generators/app'))
+      .run(path.join(__dirname, '../../src/app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({
         "skip-all": true,
