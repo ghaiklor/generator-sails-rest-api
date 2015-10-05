@@ -21,8 +21,8 @@ describe('sails-rest-api:models', function () {
 
     it('Should properly create fixtures files', () => {
       assert.file([
-        'test/fixtures/FaultyUsers.json',
-        'test/fixtures/Users.json'
+        'test/fixtures/FaultyUsers.js',
+        'test/fixtures/Users.js'
       ]);
     });
 
