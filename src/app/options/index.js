@@ -14,14 +14,8 @@
  */
 
 export default {
-  "skip-update": {
-    desc: 'Do not check for generator updates',
-    type: Boolean,
-    defaults: false,
-    hide: false
-  },
-  'skip-install': {
-    desc: 'Do not install npm dependencies',
+  'skip-update': {
+    desc: `Do not check for generator\'s updates`,
     type: Boolean,
     defaults: false,
     hide: false
