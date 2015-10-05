@@ -11,5 +11,6 @@ export default function () {
   this.copy('editorconfig', '.editorconfig');
   this.copy('gitignore', '.gitignore');
   this.copy('package.json', 'package.json');
+  this.copy('README.md', 'README.md');
   this.copy('sailsrc', '.sailsrc');
 };

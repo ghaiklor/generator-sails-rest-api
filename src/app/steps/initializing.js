@@ -9,11 +9,6 @@ import printMessage from 'print-message';
 import yosay from 'yosay';
 
 function _onUpdateNotifier(done, error, update) {
-  if (error) {
-    console.error(error.stack || error);
-    return process.exit(1);
-  }
-
   if (update && update.type !== 'latest') {
     printMessage([
       'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
@@ -45,7 +40,7 @@ export default {
   /**
    * Notify about updates of generator-sails-rest-api
    */
-  notifyAboutGeneratorUpdate: function () {
+  checkUpdates: function () {
     if (!this.options['skip-update']) {
       this.log(chalk.yellow('Checking for updates...'));
       updateNotifier({
@@ -54,4 +49,4 @@ export default {
       });
     }
   }
-};
+}
