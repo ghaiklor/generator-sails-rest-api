@@ -2,9 +2,9 @@ FROM node:slim
 
 MAINTAINER Eugene Obrezkov <ghaiklor@gmail.com>
 
-RUN mkdir /server
-VOLUME ["/server"]
-WORKDIR /server
+RUN mkdir /app
+VOLUME ["/app"]
+WORKDIR /app
 EXPOSE 3000
 
-CMD node app.js
+CMD npm start
