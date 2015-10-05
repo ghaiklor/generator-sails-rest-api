@@ -23,7 +23,7 @@ const res = {
   negotiate: sinon.spy()
 };
 
-describe('blueprints:find', function () {
+describe('blueprints:find', () => {
   before(done => {
     req._sails = sails;
     done();

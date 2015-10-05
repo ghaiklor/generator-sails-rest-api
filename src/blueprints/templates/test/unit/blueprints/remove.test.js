@@ -1,7 +1,8 @@
 import { assert } from 'chai';
+import remove from '../../../api/blueprints/remove';
 
 describe('blueprints:remove', () => {
-  it('TODO: write this test', () => {
-    assert(true);
+  it('Should properly export', () => {
+    assert.isFunction(remove);
   })
 });

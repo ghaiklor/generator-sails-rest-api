@@ -25,7 +25,7 @@ const res = {
   negotiate: sinon.spy()
 };
 
-describe('blueprints:create', function () {
+describe('blueprints:create', () => {
   before(done => {
     req._sails = sails;
     done();
