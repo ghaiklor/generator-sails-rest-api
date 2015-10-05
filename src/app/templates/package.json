@@ -2,9 +2,7 @@
   "name": "<%= answers['application:name'] %>",
   "version": "0.1.0",
   "main": "app.js",
-  "dependencies": {
-    "sails-hook-cron": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.3.0",
@@ -17,7 +15,6 @@
     "start": "babel-node app.js",
     "debug": "babel-node debug app.js",
     "test": "istanbul cover _mocha",
-    "console": "sails console",
     "clean": "rm -rf ./.tmp"
   }
 }
