@@ -10,6 +10,8 @@
  * }];
  */
 
+const whenDatabaseIsChosen = databases => answers => databases.indexOf(answers['database:adapter']) !== -1;
+
 export default [{
   type: 'list',
   name: 'database:adapter',
@@ -31,55 +33,41 @@ export default [{
   name: 'database:host',
   message: 'Database host',
   default: 'localhost',
-  when: function (answers) {
-    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
 }, {
   type: 'input',
   name: 'database:name',
   message: 'Database name',
   default: 'sails-rest-api',
-  when: function (answers) {
-    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
 }, {
   type: 'input',
   name: 'database:username',
   message: 'Database username',
   default: '',
-  when: function (answers) {
-    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'OrientDB'])
 }, {
   type: 'password',
   name: 'database:password',
   message: 'Database password',
   default: '',
-  when: function (answers) {
-    return !(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
 }, {
   type: 'input',
   name: 'database:dynamo:access-key-id',
   message: 'DynamoDB Access Key ID',
   default: '',
-  when: function (answers) {
-    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['DynamoDB'])
 }, {
   type: 'input',
   name: 'database:dynamo:secret-access-key',
   message: 'DynamoDB Secret Access Key',
   default: '',
-  when: function (answers) {
-    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['DynamoDB'])
 }, {
   type: 'input',
   name: 'database:dynamo:region',
   message: 'DynamoDB region',
   default: 'us-west-1',
-  when: function (answers) {
-    return !(['DynamoDB'].indexOf(answers['database:adapter']) === -1);
-  }
+  when: whenDatabaseIsChosen(['DynamoDB'])
 }];
