@@ -34,6 +34,7 @@
 - Fix: Duplicate error in `data` and `root` of response;
 - Fix: Change 1337 port to 3000 in Dockerfile;
 - Typo: Replace `devDependencies` versions with asterisk so that installs the latest version;
+- Typo: Rename `skip-check-update` option to `skip-update`;
 
 ## Version 0.10.6
 

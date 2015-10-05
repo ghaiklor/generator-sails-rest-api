@@ -46,7 +46,7 @@ export default {
    * Notify about updates of generator-sails-rest-api
    */
   notifyAboutGeneratorUpdate: function () {
-    if (!this.options['skip-check-update']) {
+    if (!this.options['skip-update']) {
       this.log(chalk.yellow('Checking for updates...'));
       updateNotifier({
         pkg: this.pkg,

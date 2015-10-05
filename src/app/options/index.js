@@ -14,7 +14,7 @@
  */
 
 export default {
-  'skip-check-update': {
+  "skip-update": {
     desc: 'Do not check for generator updates',
     type: Boolean,
     defaults: false,
