@@ -1,7 +1,7 @@
-var assert = require('assert');
+import { assert } from 'chai';
 
-describe('blueprints:populate', function () {
-  it('TODO: write this test', function () {
+describe('blueprints:populate', () => {
+  it('TODO: write this test', () => {
     assert(true);
   })
 });

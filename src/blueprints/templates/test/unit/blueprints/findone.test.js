@@ -1,84 +1,68 @@
-var assert = require('assert');
-var findOne = require('../../../api/blueprints/findone');
-var sinon = require('sinon');
+import { assert } from 'chai';
+import sinon from 'sinon';
+import findOne from '../../../api/blueprints/findone';
 
-var data = {
-  id: 2
-};
+const data = {id: 2};
 
-var req = {
+const req = {
   options: {
     model: 'user',
     action: 'create',
     controller: 'user'
   },
-  param: function (param) {
-    return data[param];
-  },
+  param: param => data[param],
   _sails: {}
 };
 
-var res = {
-  ok: function () {
-  },
-  serverError: function () {
-  },
-  notFound: function () {
-  }
+const res = {
+  ok: sinon.spy(),
+  negotiate: sinon.spy(),
+  notFound: sinon.spy()
 };
 
-describe('blueprints:findOne', function () {
-  before(function (done) {
+describe('blueprints:findOne', () => {
+  before(done => {
     req._sails = sails;
-
     done();
   });
 
-  it("should find one user (username = 'testFind')", function (done) {
-    var stubOk = sinon.stub(res, 'ok');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var stubNotFound = sinon.stub(res, 'notFound');
-
+  it('Should find one user (username = \'testFind\')', done => {
     findOne(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubOk.called && !stubNotFound.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.ok.called && !res.notFound.called) return;
+
       clearInterval(i);
 
-      assert(!stubServerError.called);
-      assert(!stubNotFound.called);
-      assert(stubOk.called);
-      assert(stubOk.getCall(0).args[0].username === 'testFind');
+      assert(!res.negotiate.called);
+      assert(!res.notFound.called);
+      assert(res.ok.called);
+      assert(res.ok.getCall(0).args[0].username === 'testFind');
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
       res.notFound.restore();
 
       done();
     }, 20);
   });
 
-  it("should return notFound", function (done) {
-    var stubOk = sinon.stub(res, 'ok');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var stubNotFound = sinon.stub(res, 'notFound');
-
+  it('Should return notFound', done => {
     data.id = 123493;
 
     findOne(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubOk.called && !stubNotFound.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.ok.called && !res.notFound.called) return;
+
       clearInterval(i);
 
-      assert(!stubServerError.called);
-      assert(!stubOk.called);
-      assert(stubNotFound.called);
+      assert(!res.negotiate.called);
+      assert(!res.ok.called);
+      assert(res.notFound.called);
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
       res.notFound.restore();
 
       done();

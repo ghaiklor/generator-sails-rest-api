@@ -1,86 +1,73 @@
-var assert = require('assert');
-var update = require('../../../api/blueprints/update');
-var sinon = require('sinon');
+import { assert } from 'chai';
+import sinon from 'sinon';
+import update from '../../../api/blueprints/update';
 
-var id = 2;
-var username = 'testFindUpdated';
+let id = 2;
+let username = 'testFindUpdated';
 
-var req = {
+const req = {
   options: {
     model: 'user',
     action: 'create',
     controller: 'user'
   },
   params: {
-    all: function () {
+    all: () => {
       return {
         username: username
       };
     }
   },
-  param: function () {
-    return id;
-  },
+  param: () => id,
   _sails: {}
 };
 
-var res = {
-  ok: function () {
-  },
-  serverError: function () {
-  }
+const res = {
+  ok: sinon.spy(),
+  negotiate: sinon.spy()
 };
 
-describe('blueprints:update', function () {
-  before(function (done) {
+describe('blueprints:update', () => {
+  before(done => {
     req._sails = sails;
-
     done();
   });
 
-  it('should update user with id = 2', function (done) {
-    var stubOk = sinon.stub(res, 'ok');
-    var stubServerError = sinon.stub(res, 'serverError');
-
+  it('Should update user with id = 2', done => {
     update(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubOk.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.ok.called) return;
 
       clearInterval(i);
 
-      assert(!stubServerError.called);
-      assert(stubOk.called);
-      assert(stubOk.getCall(0).args[0].username === username);
+      assert(!res.negotiate.called);
+      assert(res.ok.called);
+      assert(res.ok.getCall(0).args[0].username === username);
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
 
       done();
     }, 20);
   });
 
-  it('should return serverError', function (done) {
-    var stubOk = sinon.stub(res, 'ok');
-    var stubServerError = sinon.stub(res, 'serverError');
-
+  it('Should return negotiate', done => {
     id = 398843;
     username = 'testFindUpdated2';
 
     update(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubOk.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.ok.called) return;
 
       clearInterval(i);
 
-      assert(!stubOk.called);
-      assert(stubServerError.called);
+      assert(!res.ok.called);
+      assert(res.negotiate.called);
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
 
       done();
     }, 20);

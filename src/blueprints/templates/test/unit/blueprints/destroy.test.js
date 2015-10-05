@@ -1,8 +1,8 @@
-var assert = require('chai').assert;
-var sinon = require('sinon');
-var destroy = require('../../../api/blueprints/destroy');
+import { assert } from 'chai';
+import sinon from 'sinon';
+import destroy from '../../../api/blueprints/destroy';
 
-var req = {
+const req = {
   options: {
     model: 'user',
     action: 'create',
@@ -10,72 +10,59 @@ var req = {
     id: 1
   },
   params: {
-    all: function () {
-      return user;
-    }
+    all: () => user
   },
   _sails: {}
 };
 
-var res = {
-  ok: function () {
-  },
-  serverError: function () {
-  },
-  notFound: function () {
-  }
+const res = {
+  ok: sinon.spy(),
+  negotiate: sinon.spy(),
+  notFound: sinon.spy()
 };
 
-describe('blueprints:destroy', function () {
-  before(function (done) {
+describe('blueprints:destroy', () => {
+  before(done => {
     req._sails = sails;
-
     done();
   });
 
-  it("should destroy a user with id = 1", function (done) {
-    var stubNotFound = sinon.stub(res, 'notFound');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var stubOk = sinon.stub(res, 'ok');
-
+  it('Should destroy a user with id = 1', done => {
     destroy(req, res);
 
-    var i = setInterval(function () {
-      if (!stubNotFound.called && !stubOk.called && !stubServerError.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.notFound.called && !res.ok.called && !res.negotiate.called) return;
+
       clearInterval(i);
 
-      assert(!stubNotFound.called);
-      assert(!stubServerError.called);
-      assert(stubOk.called);
+      assert(!res.notFound.called);
+      assert(!res.negotiate.called);
+      assert(res.ok.called);
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
       res.notFound.restore();
 
       done();
     }, 20);
   });
 
-  it("should be rejected with notFound error after trying to destroy a user with non existing id", function (done) {
-    var stubNotFound = sinon.stub(res, 'notFound');
-    var stubServerError = sinon.stub(res, 'serverError');
-    var stubOk = sinon.stub(res, 'ok');
+  it('Should be rejected with notFound error after trying to destroy a user with non existing id', done => {
     req.options.id = -1;
 
     destroy(req, res);
 
-    var i = setInterval(function () {
-      if (!stubNotFound.called && !stubOk.called && !stubServerError.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.notFound.called && !res.ok.called && !res.negotiate.called) return;
+
       clearInterval(i);
 
-      assert(!stubServerError.called);
-      assert(!stubOk.called);
-      assert(stubNotFound.called);
+      assert(!res.negotiate.called);
+      assert(!res.ok.called);
+      assert(res.notFound.called);
 
       res.ok.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
       res.notFound.restore();
 
       done();

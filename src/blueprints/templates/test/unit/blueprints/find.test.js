@@ -1,65 +1,56 @@
-var assert = require('assert');
-var find = require('../../../api/blueprints/find');
-var sinon = require('sinon');
+import { assert } from 'chai';
+import sinon from 'sinon';
+import find from '../../../api/blueprints/find';
 
-var req = {
+const req = {
   options: {
     model: 'user',
     action: 'create',
     controller: 'user'
   },
   params: {
-    all: function () {
-      return {
-        username: 'testFind'
-      };
+    all: () => {
+      return {username: 'testFind'};
     }
   },
-  param: function () {
-
+  param: () => {
   },
   _sails: {}
 };
 
-var res = {
-  ok: function () {
-  },
-  serverError: function () {
-  }
+const res = {
+  ok: sinon.spy(),
+  negotiate: sinon.spy()
 };
 
 describe('blueprints:find', function () {
-  before(function (done) {
+  before(done => {
     req._sails = sails;
-
     done();
   });
 
-  it("should find a user", function (done) {
-    var stubOk = sinon.stub(res, 'ok');
-    var stubServerError = sinon.stub(res, 'serverError');
-
-    var user = {
+  it('Should find a user', done => {
+    const user = {
       username: 'testFind',
       password: 'testFind',
       email: 'testFind@gmail.com'
     };
 
     User.create(user)
-      .then(function (u) {
+      .then(() => {
         find(req, res);
 
-        var i = setInterval(function () {
-          if (!stubServerError.called && !stubOk.called)
-            return;
+        let i = setInterval(() => {
+          if (!res.negotiate.called && !res.ok.called) return;
+
           clearInterval(i);
 
-          assert(!stubServerError.called);
-          assert(stubOk.called);
-          assert(stubOk.getCall(0).args[0][0].username === user.username);
+          assert(!res.negotiate.called);
+          assert(res.ok.called);
+          assert(res.ok.getCall(0).args[0][0].username === user.username);
 
           res.ok.restore();
-          res.serverError.restore();
+          res.negotiate.restore();
 
           done();
         }, 20);

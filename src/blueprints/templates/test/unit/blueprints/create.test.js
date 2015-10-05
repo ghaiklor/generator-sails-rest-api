@@ -1,78 +1,67 @@
-var assert = require('chai').assert;
-var sinon = require('sinon');
-var create = require('../../../api/blueprints/create');
+import { assert } from 'chai';
+import sinon from 'sinon';
+import create from '../../../api/blueprints/create'
 
-var user = {
+const user = {
   username: 'testCreate',
   password: 'testCreate',
   email: 'testCreate@gmail.com'
 };
 
-var req = {
+const req = {
   options: {
     model: 'user',
     action: 'create',
     controller: 'user'
   },
   params: {
-    all: function () {
-      return user;
-    }
+    all: () => user
   },
   _sails: {}
 };
 
-var res = {
-  created: function () {
-  },
-  serverError: function () {
-  }
+const res = {
+  created: sinon.spy(),
+  negotiate: sinon.spy()
 };
 
 describe('blueprints:create', function () {
-  before(function (done) {
+  before(done => {
     req._sails = sails;
-
     done();
   });
 
-  it('should create user', function (done) {
-    var stubCreated = sinon.stub(res, 'created');
-    var stubServerError = sinon.stub(res, 'serverError');
-
+  it('Should create user', done => {
     create(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubCreated.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.created.called) return;
+
       clearInterval(i);
 
-      assert(!stubServerError.called);
-      assert(stubCreated.called);
+      assert(!res.negotiate.called);
+      assert(res.created.called);
 
       res.created.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
 
       done();
     }, 20);
   });
 
-  it('should reject creating the same user', function (done) {
-    var stubCreated = sinon.stub(res, 'created');
-    var stubServerError = sinon.stub(res, 'serverError');
-
+  it('Should reject creating the same user', done => {
     create(req, res);
 
-    var i = setInterval(function () {
-      if (!stubServerError.called && !stubCreated.called)
-        return;
+    let i = setInterval(() => {
+      if (!res.negotiate.called && !res.created.called) return;
+
       clearInterval(i);
 
-      assert(!stubCreated.called);
-      assert(stubServerError.called);
+      assert(!res.created.called);
+      assert(res.negotiate.called);
 
       res.created.restore();
-      res.serverError.restore();
+      res.negotiate.restore();
 
       done();
     }, 20);
