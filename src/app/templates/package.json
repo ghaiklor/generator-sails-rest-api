@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
+    "lodash": "^3.10.1",
     "passport": "^0.3.0",
     "passport-amazon-token": "^2.0.1",
     "passport-facebook-token": "^3.0.5",
