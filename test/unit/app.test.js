@@ -22,7 +22,6 @@ describe('sails-rest-api:app', function () {
       'test/mocha.opts',
       '.editorconfig',
       '.gitignore',
-      '.jshintrc',
       '.sailsrc',
       'app.js',
       'Dockerfile',

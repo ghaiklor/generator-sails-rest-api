@@ -1,8 +1,9 @@
 process.env.NODE_ENV = 'test';
-let testConfig = require('../config/env/test.js'); // configuration for testing purposes
 
-let Sails = require('sails');
-let supertest = require('supertest');
+import Sails from 'sails';
+import supertest from 'supertest';
+import testConfig from '../config/env/test';
+
 let sails;
 
 /**
@@ -18,9 +19,9 @@ function request(method, url) {
     .expect('Content-Type', /json/);
 }
 
-before(function (done) {
+before(done => {
   this.timeout(40000);
-  Sails.lift(testConfig, function (error, server) {
+  Sails.lift(testConfig, (error, server) => {
     if (error) return done(error);
 
     sails = server;
@@ -32,7 +33,7 @@ before(function (done) {
   });
 });
 
-after(function (done) {
+after(done => {
   // here you can clear fixtures, etc.
   sails.lower(done);
 });

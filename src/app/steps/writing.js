@@ -4,5 +4,12 @@
  */
 
 export default function () {
-  this.directory(this.sourceRoot(), this.destinationRoot());
+  this.directory('test', 'test');
+  this.copy('app.js', 'app.js');
+  this.copy('babelhook.js', 'babelhook.js');
+  this.copy('Dockerfile', 'Dockerfile');
+  this.copy('editorconfig', '.editorconfig');
+  this.copy('gitignore', '.gitignore');
+  this.copy('package.json', 'package.json');
+  this.copy('sailsrc', '.sailsrc');
 };

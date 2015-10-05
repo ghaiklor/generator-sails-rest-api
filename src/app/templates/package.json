@@ -14,8 +14,8 @@
     "supertest": "*"
   },
   "scripts": {
-    "start": "node app.js",
-    "debug": "node debug app.js",
+    "start": "babel-node app.js",
+    "debug": "babel-node debug app.js",
     "test": "istanbul cover _mocha",
     "console": "sails console",
     "clean": "rm -rf ./.tmp"
