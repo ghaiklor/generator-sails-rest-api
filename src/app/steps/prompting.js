@@ -7,6 +7,16 @@ import chalk from 'chalk';
 import questions from '../questions';
 
 export default {
+  askAdapters: function () {
+    let done = this.async();
+
+    // this.log(chalk.yellow('\nAdapters questions:'));
+    this.prompt(questions.adapters, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
   askApplication: function () {
     let done = this.async();
 
