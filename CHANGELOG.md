@@ -36,6 +36,10 @@
 - Typo: Replace `devDependencies` versions with asterisk so that installs the latest version;
 - Typo: Rename `skip-check-update` option to `skip-update`;
 
+## Version 0.10.7
+
+- Hotfix: Issue with the latest stable version in npm;
+
 ## Version 0.10.6
 
 - Hofix: Issue with installing the latest versions of dependencies;
