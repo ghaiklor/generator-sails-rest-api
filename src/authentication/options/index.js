@@ -13,4 +13,12 @@
  * };
  */
 
-export default {};
+import crypto from 'crypto';
+
+export default {
+  'application-secret': {
+    desc: 'Specifies a secret key for your application',
+    type: String,
+    defaults: crypto.randomBytes(32).toString('hex')
+  }
+};
