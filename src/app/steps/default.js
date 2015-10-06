@@ -8,7 +8,11 @@ export default function () {
     local: require.resolve('../../adapters')
   });
 
-  this.composeWith('sails-rest-api:blueprints', {}, {
+  this.composeWith('sails-rest-api:blueprints', {
+    options: {
+      'use-default': this.answers['blueprints:use-default']
+    }
+  }, {
     local: require.resolve('../../blueprints')
   });
 
