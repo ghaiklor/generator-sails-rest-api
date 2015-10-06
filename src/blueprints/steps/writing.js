@@ -4,6 +4,8 @@
  */
 
 export default function () {
-  this.directory('api/blueprints', 'api/blueprints');
-  this.directory('test/unit/blueprints', 'test/unit/blueprints');
+  if (!this.options['use-default']) {
+    this.directory('api/blueprints', 'api/blueprints');
+    this.directory('test/unit/blueprints', 'test/unit/blueprints');
+  }
 };
