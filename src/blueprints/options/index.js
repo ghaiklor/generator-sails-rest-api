@@ -13,4 +13,11 @@
  * };
  */
 
-export default {};
+export default {
+  'use-default': {
+    desc: 'Use default blueprints',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  }
+};
