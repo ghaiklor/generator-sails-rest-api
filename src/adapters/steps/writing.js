@@ -4,6 +4,6 @@
  */
 
 export default function () {
-  this.directory('api/adapters', 'api/adapters');
-  this.directory('test/unit/adapters', 'test/unit/adapters');
+  this.copy('api/adapters/.gitkeep', 'api/adapters/.gitkeep');
+  this.copy('test/unit/adapters/.gitkeep', 'test/unit/adapters/.gitkeep');
 };

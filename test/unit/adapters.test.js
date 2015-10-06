@@ -2,10 +2,8 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:adapters', function () {
-  describe('Should properly handle copying templates', () => {
-    this.timeout(10000);
-
+describe('sails-rest-api:adapters', () => {
+  describe('Should properly handle default configuration', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/adapters'))
