@@ -27,6 +27,16 @@ export default {
     });
   },
 
+  askBlueprints: function () {
+    let done = this.async();
+
+    this.log(chalk.yellow('\nBlueprint questions:'));
+    this.prompt(questions.blueprints, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
   askServices: function () {
     let done = this.async();
 
