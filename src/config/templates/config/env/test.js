@@ -17,9 +17,7 @@ export default {
     i18n: false,
     pubsub: false,
     session: false,
+    sockets: false,
     views: false
-  },
-  blueprints: {
-    pluralize: false
   }
 };
