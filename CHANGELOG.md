@@ -2,6 +2,10 @@
 
 ## Edge version
 
+## Version 0.10.7
+
+- Hotfix: Issue with the latest stable version in npm;
+
 ## Version 0.10.6
 
 - Hofix: Issue with installing the latest versions of dependencies;
