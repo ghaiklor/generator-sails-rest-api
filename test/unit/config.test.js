@@ -90,14 +90,14 @@ describe('sails-rest-api:config', () => {
         'config/routes.js'
       ]);
 
-      assert.fileContent('config/models.js', /connection: "mysql"/);
-      assert.fileContent('config/connections.js', /host: "123\.456\.789\.000"/g);
-      assert.fileContent('config/connections.js', /database: "db_name"/g);
-      assert.fileContent('config/connections.js', /user: "db_user"/g);
-      assert.fileContent('config/connections.js', /password: "db_pass"/g);
-      assert.fileContent('config/connections.js', /accessKeyId: "access_key_id"/g);
-      assert.fileContent('config/connections.js', /secretAccessKey: "secret_access_key"/g);
-      assert.fileContent('config/connections.js', /region: "amazon_region"/g);
+      assert.fileContent('config/models.js', /connection: 'mysql'/);
+      assert.fileContent('config/connections.js', /host: '123\.456\.789\.000'/g);
+      assert.fileContent('config/connections.js', /database: 'db_name'/g);
+      assert.fileContent('config/connections.js', /user: 'db_user'/g);
+      assert.fileContent('config/connections.js', /password: 'db_pass'/g);
+      assert.fileContent('config/connections.js', /accessKeyId: 'access_key_id'/g);
+      assert.fileContent('config/connections.js', /secretAccessKey: 'secret_access_key'/g);
+      assert.fileContent('config/connections.js', /region: 'amazon_region'/g);
     });
   });
 });
