@@ -9,7 +9,6 @@ describe('sails-rest-api:policies', function () {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/policies'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
           'skip-install': true
         })

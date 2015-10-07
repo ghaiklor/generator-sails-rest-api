@@ -7,7 +7,6 @@ describe('sails-rest-api:config', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/config'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
 
@@ -49,7 +48,6 @@ describe('sails-rest-api:config', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/config'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
           'database-adapter': 'mysql',
           'database-host': '123.456.789.000',

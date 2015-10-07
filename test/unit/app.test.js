@@ -6,7 +6,6 @@ describe('sails-rest-api:app', () => {
   before(done => {
     test
       .run(path.join(__dirname, '../../src/app'))
-      .inDir(path.join(os.tmpdir(), './temp-test'))
       .withGenerators([
         [test.createDummyGenerator(), 'sails-rest-api:adapters'],
         [test.createDummyGenerator(), 'sails-rest-api:authentication'],

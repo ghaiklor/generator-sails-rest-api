@@ -9,7 +9,6 @@ describe('sails-rest-api:services', function () {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/services'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
 
@@ -76,7 +75,6 @@ describe('sails-rest-api:services', function () {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/services'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
           'services': ['Cipher', 'Hash', 'Image', 'LocationService', 'Mailer', 'PaymentService', 'Pusher', 'Sms', 'Social', 'Storage'].join(','),
           'cipher-secret-key': '1234567890',

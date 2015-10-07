@@ -7,7 +7,6 @@ describe('sails-rest-api:adapters', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/adapters'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
 

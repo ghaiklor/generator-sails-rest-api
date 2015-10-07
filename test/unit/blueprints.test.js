@@ -7,7 +7,6 @@ describe('sails-rest-api:blueprints', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .on('end', done);
     });
 
@@ -50,7 +49,6 @@ describe('sails-rest-api:blueprints', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
-        .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
           'use-default': true
         })
