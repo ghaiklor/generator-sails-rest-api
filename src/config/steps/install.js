@@ -3,6 +3,11 @@
  * Where installation are run (npm, bower)
  */
 
+const DEPENDENCIES = [
+  'sails-disk',
+  'sails-memory'
+];
+
 export default function () {
-  this.npmInstall(['sails-disk', 'sails-memory', `sails-${this.options['database-adapter'].toLowerCase()}`], {save: true});
+  this.npmInstall(DEPENDENCIES.concat([`sails-${this.options['database-adapter'].toLowerCase()}`]), {save: true});
 };

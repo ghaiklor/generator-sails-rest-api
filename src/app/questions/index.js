@@ -1,7 +1,7 @@
 import adapters from './adapters';
-import application from './application';
+import application from './app';
 import blueprints from './blueprints';
-import database from './database';
+import database from './config';
 import services from './services';
 
 export default {adapters, application, blueprints, database, services};

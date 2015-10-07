@@ -10,63 +10,64 @@
  * }];
  */
 
-const whenDatabaseIsChosen = databases => answers => databases.indexOf(answers['database:adapter']) !== -1;
+const whenDatabaseIsChosen = databases => answers => databases.indexOf(answers['config:database-adapter']) !== -1;
 
 export default [{
   type: 'list',
-  name: 'database:adapter',
+  name: 'config:database-adapter',
   message: 'Database adapter',
   default: 'Mongo',
   choices: [
+    'Mongo',
+    'Redis',
     'PostgreSQL',
     'MySQL',
-    'Mongo',
-    'Memory',
-    'Disk',
     'SQLServer',
-    'Redis',
     'OrientDB',
-    'DynamoDB'
+    'DynamoDB',
+    'FileMaker',
+    'Memory',
+    'Disk'
   ]
 }, {
   type: 'input',
-  name: 'database:host',
+  name: 'config:database-host',
   message: 'Database host',
   default: 'localhost',
-  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
+  when: whenDatabaseIsChosen(['Mongo', 'Redis', 'PostgreSQL', 'MySQL', 'SQLServer', 'OrientDB', 'FileMaker'])
 }, {
   type: 'input',
-  name: 'database:name',
+  name: 'config:database-name',
   message: 'Database name',
   default: 'sails-rest-api',
-  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
+  when: whenDatabaseIsChosen(['Mongo', 'Redis', 'PostgreSQL', 'MySQL', 'SQLServer', 'OrientDB', 'FileMaker'])
 }, {
   type: 'input',
-  name: 'database:username',
+  name: 'config:database-username',
   message: 'Database username',
   default: '',
-  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'OrientDB'])
+  when: whenDatabaseIsChosen(['Mongo', 'PostgreSQL', 'MySQL', 'SQLServer', 'OrientDB', 'FileMaker'])
 }, {
   type: 'password',
-  name: 'database:password',
+  name: 'config:database-password',
   message: 'Database password',
   default: '',
-  when: whenDatabaseIsChosen(['PostgreSQL', 'MySQL', 'Mongo', 'SQLServer', 'Redis', 'OrientDB'])
+  when: whenDatabaseIsChosen(['Mongo', 'Redis', 'PostgreSQL', 'MySQL', 'SQLServer', 'OrientDB', 'FileMaker'])
 }, {
   type: 'input',
-  name: 'database:dynamo:access-key-id',
+  name: 'config:dynamo-access-key-id',
   message: 'DynamoDB Access Key ID',
   default: '',
   when: whenDatabaseIsChosen(['DynamoDB'])
 }, {
   type: 'input',
-  name: 'database:dynamo:secret-access-key',
+  name: 'config:dynamo-secret-access-key',
   message: 'DynamoDB Secret Access Key',
   default: '',
   when: whenDatabaseIsChosen(['DynamoDB'])
 }, {
   type: 'input',
-  name: 'database:dynamo:region',
+  name: 'config:dynamo-region',
   message: 'DynamoDB region',
   default: 'us-west-1',
   when: whenDatabaseIsChosen(['DynamoDB'])

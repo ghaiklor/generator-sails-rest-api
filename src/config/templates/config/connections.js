@@ -12,79 +12,16 @@
 
 export const connections = {
   /**
-   * PostgreSQL configuration
-   * @type {Object}
-   */
-  postgresql: {
-    adapter: 'sails-postgresql',
-    database: "<%= options['database-name'] %>",
-    host: "<%= options['database-host'] %>",
-    user: "<%= options['database-username'] %>",
-    password: "<%= options['database-password'] %>",
-    port: 5432,
-    pool: false,
-    ssl: false
-  },
-
-  /**
-   * MySQL configuration
-   * @type {Object}
-   */
-  mysql: {
-    adapter: 'sails-mysql',
-    host: "<%= options['database-host'] %>",
-    port: 3306,
-    user: "<%= options['database-username'] %>",
-    password: "<%= options['database-password'] %>",
-    database: "<%= options['database-name'] %>",
-    charset: 'utf8',
-    collation: 'utf8_swedish_ci'
-  },
-
-  /**
    * MongoDB configuration
    * @type {Object}
    */
   mongo: {
     adapter: 'sails-mongo',
-    host: "<%= options['database-host'] %>",
+    host: '<%= options["database-host"] %>',
     port: 27017,
-    user: "<%= options['database-username'] %>",
-    password: "<%= options['database-password'] %>",
-    database: "<%= options['database-name'] %>"
-  },
-
-  /**
-   * Memory configuration
-   * ONLY FOR DEVELOPMENT
-   * @type {Object}
-   */
-  memory: {
-    adapter: 'sails-memory'
-  },
-
-  /**
-   * Disk configuration
-   * ONLY FOR DEVELOPMENT
-   * @type {Object}
-   */
-  disk: {
-    adapter: 'sails-disk'
-  },
-
-  /**
-   * Microsoft SQL Server configuration
-   * @type {Object}
-   */
-  sqlserver: {
-    adapter: 'sails-sqlserver',
-    user: "<%= options['database-username'] %>",
-    password: "<%= options['database-password'] %>",
-    host: "<%= options['database-host'] %>",
-    database: "<%= options['database-name'] %>",
-    options: {
-      encrypt: false
-    }
+    user: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>',
+    database: '<%= options["database-name"] %>'
   },
 
   /**
@@ -94,9 +31,9 @@ export const connections = {
   redis: {
     adapter: 'sails-redis',
     port: 6379,
-    host: "<%= options['database-host'] %>",
-    password: "<%= options['database-password'] %>",
-    database: "<%= options['database-name'] %>",
+    host: '<%= options["database-host"] %>',
+    password: '<%= options["database-password"] %>',
+    database: '<%= options["database-name"] %>',
     options: {
       parser: 'hiredis',
       return_buffers: false,
@@ -108,16 +45,61 @@ export const connections = {
   },
 
   /**
+   * PostgreSQL configuration
+   * @type {Object}
+   */
+  postgresql: {
+    adapter: 'sails-postgresql',
+    database: '<%= options["database-name"] %>',
+    host: '<%= options["database-host"] %>',
+    user: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>',
+    port: 5432,
+    pool: false,
+    ssl: false
+  },
+
+  /**
+   * MySQL configuration
+   * @type {Object}
+   */
+  mysql: {
+    adapter: 'sails-mysql',
+    host: '<%= options["database-host"] %>',
+    port: 3306,
+    user: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>',
+    database: '<%= options["database-name"] %>',
+    charset: 'utf8',
+    collation: 'utf8_swedish_ci'
+  },
+
+  /**
+   * Microsoft SQL Server configuration
+   * @type {Object}
+   */
+  sqlserver: {
+    adapter: 'sails-sqlserver',
+    user: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>',
+    host: '<%= options["database-host"] %>',
+    database: '<%= options["database-name"] %>',
+    options: {
+      encrypt: false
+    }
+  },
+
+  /**
    * OrientDB configuration
    * @type {Object}
    */
   orientdb: {
     adapter: 'sails-orientdb',
-    host: "<%= options['database-host'] %>",
+    host: '<%= options["database-host"] %>',
     port: 2424,
-    user: "<%= options['database-username'] %>",
-    password: "<%= options['database-password'] %>",
-    database: "<%= options['database-name'] %>",
+    user: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>',
+    database: '<%= options["database-name"] %>',
     options: {
       databaseType: 'graph',
       storage: 'plocal',
@@ -136,8 +118,38 @@ export const connections = {
    */
   dynamodb: {
     adapter: 'sails-dynamodb',
-    accessKeyId: "<%= options['dynamo-access-key-id'] %>",
-    secretAccessKey: "<%= options['dynamo-secret-access-key'] %>",
-    region: "<%= options['dynamo-region'] %>"
+    accessKeyId: '<%= options["dynamo-access-key-id"] %>',
+    secretAccessKey: '<%= options["dynamo-secret-access-key"] %>',
+    region: '<%= options["dynamo-region"] %>'
+  },
+
+  /**
+   * FileMaker configuration
+   * @type {Object}
+   */
+  filemaker: {
+    adapter: 'sails-filemaker',
+    host: '<%= options["database-host"] %>',
+    database: '<%= options["database-name"] %>',
+    userName: '<%= options["database-username"] %>',
+    password: '<%= options["database-password"] %>'
+  },
+
+  /**
+   * Memory configuration
+   * ONLY FOR DEVELOPMENT
+   * @type {Object}
+   */
+  memory: {
+    adapter: 'sails-memory'
+  },
+
+  /**
+   * Disk configuration
+   * ONLY FOR DEVELOPMENT
+   * @type {Object}
+   */
+  disk: {
+    adapter: 'sails-disk'
   }
 };
