@@ -8,15 +8,11 @@ describe('sails-rest-api:blueprints', () => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
-        .withOptions({
-          'skip-install': true
-        })
         .on('end', done);
     });
 
     it('Should properly create api files', () => {
       assert.file([
-        'api/blueprints/.gitkeep',
         'api/blueprints/add.js',
         'api/blueprints/create.js',
         'api/blueprints/destroy.js',
@@ -26,11 +22,14 @@ describe('sails-rest-api:blueprints', () => {
         'api/blueprints/remove.js',
         'api/blueprints/update.js'
       ]);
+
+      assert.noFile([
+        'api/blueprints/.gitkeep'
+      ]);
     });
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/blueprints/.gitkeep',
         'test/unit/blueprints/add.test.js',
         'test/unit/blueprints/create.test.js',
         'test/unit/blueprints/destroy.test.js',
@@ -39,7 +38,11 @@ describe('sails-rest-api:blueprints', () => {
         'test/unit/blueprints/populate.test.js',
         'test/unit/blueprints/remove.test.js',
         'test/unit/blueprints/update.test.js'
-      ])
+      ]);
+
+      assert.noFile([
+        'test/unit/blueprints/.gitkeep'
+      ]);
     });
   });
 
@@ -49,8 +52,7 @@ describe('sails-rest-api:blueprints', () => {
         .run(path.join(__dirname, '../../src/blueprints'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
-          'use-default': true,
-          'skip-install': true
+          'use-default': true
         })
         .on('end', done);
     });

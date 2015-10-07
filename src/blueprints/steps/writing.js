@@ -15,10 +15,10 @@ const FILES_MAP = {
 };
 
 export default function () {
-  this.copy('api/blueprints/.gitkeep', 'api/blueprints/.gitkeep');
-  this.copy('test/unit/blueprints/.gitkeep', 'test/unit/blueprints/.gitkeep');
-
-  if (!this.options['use-default']) {
+  if (this.options['use-default']) {
+    this.copy('api/blueprints/.gitkeep', 'api/blueprints/.gitkeep');
+    this.copy('test/unit/blueprints/.gitkeep', 'test/unit/blueprints/.gitkeep');
+  } else {
     Object.keys(FILES_MAP).forEach(blueprint => FILES_MAP[blueprint].forEach(path => this.copy(path, path)));
   }
 };

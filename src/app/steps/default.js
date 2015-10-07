@@ -4,8 +4,14 @@
  */
 
 export default function () {
-  this.composeWith('sails-rest-api:adapters', {}, {
+  this.composeWith('sails-rest-api:adapters', {
+    options: {}
+  }, {
     local: require.resolve('../../adapters')
+  });
+
+  this.composeWith('sails-rest-api:authentication', {}, {
+    local: require.resolve('../../authentication')
   });
 
   this.composeWith('sails-rest-api:blueprints', {
@@ -18,15 +24,14 @@ export default function () {
 
   this.composeWith('sails-rest-api:config', {
     options: {
-      'application-secret': this.answers['application:secret'],
-      'database-adapter': this.answers['database:adapter'],
-      'database-host': this.answers['database:host'],
-      'database-name': this.answers['database:name'],
-      'database-username': this.answers['database:username'],
-      'database-password': this.answers['database:password'],
-      'dynamo-access-key-id': this.answers['database:dynamo:access-key-id'],
-      'dynamo-secret-access-key': this.answers['database:dynamo:secret-access-key'],
-      'dynamo-region': this.answers['database:dynamo:region']
+      'database-adapter': this.answers['config:database-adapter'],
+      'database-host': this.answers['config:database-host'],
+      'database-name': this.answers['config:database-name'],
+      'database-username': this.answers['config:database-username'],
+      'database-password': this.answers['config:database-password'],
+      'dynamo-access-key-id': this.answers['config:dynamo-access-key-id'],
+      'dynamo-secret-access-key': this.answers['config:dynamo-secret-access-key'],
+      'dynamo-region': this.answers['config:dynamo-region']
     }
   }, {
     local: require.resolve('../../config')
@@ -36,8 +41,16 @@ export default function () {
     local: require.resolve('../../controllers')
   });
 
+  this.composeWith('sails-rest-api:cron', {}, {
+    local: require.resolve('../../cron')
+  });
+
   this.composeWith('sails-rest-api:hooks', {}, {
     local: require.resolve('../../hooks')
+  });
+
+  this.composeWith('sails-rest-api:logger', {}, {
+    local: require.resolve('../../logger')
   });
 
   this.composeWith('sails-rest-api:models', {}, {

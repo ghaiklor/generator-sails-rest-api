@@ -8,9 +8,6 @@ describe('sails-rest-api:config', () => {
       test
         .run(path.join(__dirname, '../../src/config'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
-        .withOptions({
-          'skip-install': true
-        })
         .on('end', done);
     });
 
@@ -61,8 +58,7 @@ describe('sails-rest-api:config', () => {
           'database-password': 'db_pass',
           'dynamo-access-key-id': 'access_key_id',
           'dynamo-secret-access-key': 'secret_access_key',
-          'dynamo-region': 'amazon_region',
-          'skip-install': true
+          'dynamo-region': 'amazon_region'
         })
         .on('end', done);
     });
