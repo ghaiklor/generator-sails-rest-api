@@ -10,18 +10,21 @@ describe('sails-rest-api:policies', function () {
       test
         .run(path.join(__dirname, '../../src/policies'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
+        .withOptions({
+          'skip-install': true
+        })
         .on('end', done);
     });
 
     it('Should properly create api files', () => {
       assert.file([
-        'api/policies/isAuthenticated.js'
+        'api/policies/.gitkeep'
       ]);
     });
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/policies/isAuthenticated.test.js'
+        'test/unit/policies/.gitkeep'
       ]);
     });
   });

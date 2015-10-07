@@ -15,20 +15,19 @@ describe('sails-rest-api:models', function () {
 
     it('Should properly create api files', () => {
       assert.file([
-        'api/models/User.js'
+        'api/models/.gitkeep'
       ]);
     });
 
     it('Should properly create fixtures files', () => {
       assert.file([
-        'test/fixtures/FaultyUsers.js',
-        'test/fixtures/Users.js'
+        'test/fixtures/.gitkeep'
       ]);
     });
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/models/User.test.js'
+        'test/unit/models/.gitkeep'
       ]);
     });
   });

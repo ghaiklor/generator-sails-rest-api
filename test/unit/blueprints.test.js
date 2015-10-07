@@ -8,6 +8,9 @@ describe('sails-rest-api:blueprints', () => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
+        .withOptions({
+          'skip-install': true
+        })
         .on('end', done);
     });
 
@@ -46,7 +49,8 @@ describe('sails-rest-api:blueprints', () => {
         .run(path.join(__dirname, '../../src/blueprints'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
         .withOptions({
-          'use-default': true
+          'use-default': true,
+          'skip-install': true
         })
         .on('end', done);
     });

@@ -8,6 +8,9 @@ describe('sails-rest-api:adapters', () => {
       test
         .run(path.join(__dirname, '../../src/adapters'))
         .inDir(path.join(os.tmpdir(), './temp-test'))
+        .withOptions({
+          'skip-install': true
+        })
         .on('end', done);
     });
 
