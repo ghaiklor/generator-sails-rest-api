@@ -4,11 +4,7 @@ import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:config', () => {
   describe('Should properly handle default configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/config'))
-        .on('end', done);
-    });
+    before(done => test.run(path.join(__dirname, '../../src/config')).on('end', done));
 
     it('Should properly create environment configuration files', () => {
       assert.file([
@@ -44,7 +40,7 @@ describe('sails-rest-api:config', () => {
     });
   });
 
-  describe('Should properly handle full configuration', () => {
+  describe('Should properly handle custom configuration', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/config'))
