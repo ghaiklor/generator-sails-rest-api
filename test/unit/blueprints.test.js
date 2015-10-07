@@ -4,11 +4,7 @@ import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:blueprints', () => {
   describe('Should properly handle default configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/blueprints'))
-        .on('end', done);
-    });
+    before(done => test.run(path.join(__dirname, '../../src/blueprints')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
