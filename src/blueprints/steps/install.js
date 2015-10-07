@@ -3,8 +3,13 @@
  * Where installation are run (npm, bower)
  */
 
+const DEPENDENCIES = [
+  'lodash',
+  'bluebird'
+];
+
 export default function () {
   if (!this.options['use-default']) {
-    this.npmInstall(['lodash', 'bluebird'], {save: true});
+    this.npmInstall(DEPENDENCIES, {save: true});
   }
 };
