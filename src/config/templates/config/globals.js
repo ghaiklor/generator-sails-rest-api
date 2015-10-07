@@ -8,13 +8,13 @@ export const globals = {
    * Expose the lodash installed in Sails core as a global variable
    * @type {Boolean}
    */
-  _: true,
+  _: false,
 
   /**
    * Expose the async installed in Sails core as a global variable
    * @type {Boolean}
    */
-  async: true,
+  async: false,
 
   /**
    * Expose the sails instance representing your app

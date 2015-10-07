@@ -9,14 +9,4 @@
  * below by its filename, minus the extension, (e.g. "authenticated")
  */
 
-export const policies = {
-  '*': 'isAuthenticated',
-
-  AuthController: {
-    '*': true
-  },
-
-  PingController: {
-    '*': true
-  }
-};
+export const policies = {};
