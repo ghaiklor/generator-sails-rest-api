@@ -4,4 +4,7 @@
  */
 
 export default function () {
+  if (!this.options['use-default']) {
+    this.npmInstall(['lodash', 'bluebird'], {save: true});
+  }
 };
