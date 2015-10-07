@@ -37,14 +37,14 @@ describe('sails-rest-api:config', () => {
         'config/routes.js'
       ]);
 
-      assert.fileContent('config/models.js', /connection: "mongo"/);
-      assert.fileContent('config/connections.js', /host: "localhost"/g);
-      assert.fileContent('config/connections.js', /database: "sails-rest-api"/g);
-      assert.fileContent('config/connections.js', /user: ""/g);
-      assert.fileContent('config/connections.js', /password: ""/g);
-      assert.fileContent('config/connections.js', /accessKeyId: ""/g);
-      assert.fileContent('config/connections.js', /secretAccessKey: ""/g);
-      assert.fileContent('config/connections.js', /region: "us-west-1"/g);
+      assert.fileContent('config/models.js', /connection: 'mongo'/);
+      assert.fileContent('config/connections.js', /host: 'localhost'/g);
+      assert.fileContent('config/connections.js', /database: 'sails-rest-api'/g);
+      assert.fileContent('config/connections.js', /user: ''/g);
+      assert.fileContent('config/connections.js', /password: ''/g);
+      assert.fileContent('config/connections.js', /accessKeyId: ''/g);
+      assert.fileContent('config/connections.js', /secretAccessKey: ''/g);
+      assert.fileContent('config/connections.js', /region: 'us-west-1'/g);
     });
   });
 

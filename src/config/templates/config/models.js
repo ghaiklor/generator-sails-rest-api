@@ -9,7 +9,7 @@ export const models = {
    * Your app's default connection
    * @type {String}
    */
-  connection: "<%= options['database-adapter'].toLowerCase() %>",
+  connection: '<%= options["database-adapter"].toLowerCase() %>',
 
   /**
    * How and whether Sails will attempt to automatically rebuild the tables/collections/etc. in your schema
