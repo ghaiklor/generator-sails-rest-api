@@ -4,11 +4,7 @@ import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:adapters', () => {
   describe('Should properly handle default configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/adapters'))
-        .on('end', done);
-    });
+    before(done => test.run(path.join(__dirname, '../../src/adapters')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
