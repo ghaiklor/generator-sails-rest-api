@@ -1,7 +1,8 @@
 import adapters from './adapters';
-import application from './app';
+import app from './app';
+import authentication from './authentication';
 import blueprints from './blueprints';
-import database from './config';
+import config from './config';
 import services from './services';
 
-export default {adapters, application, blueprints, database, services};
+export default {adapters, app, authentication, blueprints, config, services};

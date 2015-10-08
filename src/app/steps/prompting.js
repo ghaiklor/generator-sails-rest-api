@@ -10,28 +10,28 @@ export default {
   askAdapters: function () {
     let done = this.async();
 
-    // this.log(chalk.yellow('\nAdapters questions:'));
+    this.log(chalk.yellow('\nAdapters questions:'));
     this.prompt(questions.adapters, answers => {
       this.answers = Object.assign(this.answers || {}, answers);
       done();
     });
   },
 
-  askApplication: function () {
+  askApp: function () {
     let done = this.async();
 
     this.log(chalk.yellow('\nApplication questions:'));
-    this.prompt(questions.application, answers => {
+    this.prompt(questions.app, answers => {
       this.answers = Object.assign(this.answers || {}, answers);
       done();
     });
   },
 
-  askDatabase: function () {
+  askAuthentication: function () {
     let done = this.async();
 
-    this.log(chalk.yellow('\nDatabase questions:'));
-    this.prompt(questions.database, answers => {
+    this.log(chalk.yellow('\nAuthentication questions:'));
+    this.prompt(questions.authentication, answers => {
       this.answers = Object.assign(this.answers || {}, answers);
       done();
     });
@@ -42,6 +42,16 @@ export default {
 
     this.log(chalk.yellow('\nBlueprints questions:'));
     this.prompt(questions.blueprints, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
+  askConfig: function () {
+    let done = this.async();
+
+    this.log(chalk.yellow('\nConfiguration questions:'));
+    this.prompt(questions.config, answers => {
       this.answers = Object.assign(this.answers || {}, answers);
       done();
     });
