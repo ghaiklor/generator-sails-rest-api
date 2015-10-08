@@ -9,4 +9,6 @@
  * below by its filename, minus the extension, (e.g. "authenticated")
  */
 
-export const policies = {};
+export default {
+  policies: {}
+}

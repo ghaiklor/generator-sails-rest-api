@@ -7,11 +7,13 @@
  * allows for some pretty neat custom transports/adapters for log messages)
  */
 
-export const log = {
-  /**
-   * The order of precedence for log levels from lowest to highest is:
-   * silly, verbose, info, debug, warn, error, silent
-   * @type {String}
-   */
-  level: 'silly'
-};
+export default {
+  log: {
+    /**
+     * The order of precedence for log levels from lowest to highest is:
+     * silly, verbose, info, debug, warn, error, silent
+     * @type {String}
+     */
+    level: 'silly'
+  }
+}

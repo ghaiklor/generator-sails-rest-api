@@ -6,29 +6,31 @@
  * running on some other domain (e.g. google.com)
  */
 
-export const cors = {
-  /**
-   * Allow CORS on all routes by default?
-   */
-  allRoutes: false,
+export default {
+  cors: {
+    /**
+     * Allow CORS on all routes by default?
+     */
+    allRoutes: false,
 
-  /**
-   * Which domains which are allowed CORS access?
-   */
-  origin: '*',
+    /**
+     * Which domains which are allowed CORS access?
+     */
+    origin: '*',
 
-  /**
-   * Allow cookies to be shared for CORS requests?
-   */
-  credentials: true,
+    /**
+     * Allow cookies to be shared for CORS requests?
+     */
+    credentials: true,
 
-  /**
-   * Which methods should be allowed for CORS requests?
-   */
-  methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+    /**
+     * Which methods should be allowed for CORS requests?
+     */
+    methods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
 
-  /**
-   * Which headers should be allowed for CORS requests?
-   */
-  headers: 'content-type, authorization'
-};
+    /**
+     * Which headers should be allowed for CORS requests?
+     */
+    headers: 'content-type, authorization'
+  }
+}
