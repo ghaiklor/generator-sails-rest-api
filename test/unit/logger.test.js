@@ -4,22 +4,14 @@ import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:logger', () => {
   describe('Should properly handle default configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/logger'))
-        .on('end', done);
-    });
+    before(done => test.run(path.join(__dirname, '../../src/logger')).on('end', done));
 
-    it('Should properly create api files', () => {
+    it('Should properly create configuration files', () => {
       assert.file([
-        //'api/logger/.gitkeep'
+        'config/log.js'
       ]);
-    });
 
-    it('Should properly create test files', () => {
-      assert.file([
-        //'test/unit/logger/.gitkeep'
-      ]);
+      assert.fileContent('config/log.js', /import winston/g);
     });
   });
 });

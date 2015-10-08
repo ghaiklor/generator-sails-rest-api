@@ -4,4 +4,5 @@
  */
 
 export default function () {
+  this.copy('config/log.js', 'config/log.js');
 };
