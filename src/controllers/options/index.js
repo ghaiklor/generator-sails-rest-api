@@ -13,4 +13,11 @@
  * };
  */
 
-export default {};
+export default {
+  'controllers': {
+    desc: 'Specifies which controllers you want to copy (comma-separated)',
+    type: String,
+    defaults: 'PingController,SearchController',
+    hide: false
+  }
+};
