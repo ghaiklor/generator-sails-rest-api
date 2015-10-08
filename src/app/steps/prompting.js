@@ -57,6 +57,16 @@ export default {
     });
   },
 
+  askControllers: function () {
+    let done = this.async();
+
+    this.log(chalk.yellow('\nControllers questions:'));
+    this.prompt(questions.controllers, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  },
+
   askServices: function () {
     let done = this.async();
 
