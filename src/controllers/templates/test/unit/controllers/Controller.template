@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 
 describe('controllers:<%= name %>Controller', () => {
-  it('Should be tested', done => {
+  it('Should be tested', () => {
     assert(false);
   });
 });
