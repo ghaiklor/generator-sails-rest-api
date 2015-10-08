@@ -1,3 +1,5 @@
-export const services = {
-  mailer: {}
-};
+export default {
+  services: {
+    mailer: {}
+  }
+}

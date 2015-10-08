@@ -1,6 +1,8 @@
-export const services = {
-  pusher: {
-    android: {},
-    ios: {}
+export default {
+  services: {
+    pusher: {
+      android: {},
+      ios: {}
+    }
   }
-};
+}

@@ -1,3 +1,5 @@
-export const services = {
-  sms: {}
-};
+export default {
+  services: {
+    sms: {}
+  }
+}

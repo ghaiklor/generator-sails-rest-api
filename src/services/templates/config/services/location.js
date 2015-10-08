@@ -1,3 +1,5 @@
-export const services = {
-  location: {}
-};
+export default {
+  services: {
+    location: {}
+  }
+}

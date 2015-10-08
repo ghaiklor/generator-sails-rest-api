@@ -1,7 +1,9 @@
-export const services = {
-  cipher: {
-    jwt: {
-      secretOrKey: "<%= options['cipher-secret-key'] %>"
+export default {
+  services: {
+    cipher: {
+      jwt: {
+        secretOrKey: "<%= options['cipher-secret-key'] %>"
+      }
     }
   }
-};
+}

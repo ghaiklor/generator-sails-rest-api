@@ -1,5 +1,7 @@
-export const services = {
-  social: {
-    facebook: {}
+export default {
+  services: {
+    social: {
+      facebook: {}
+    }
   }
-};
+}

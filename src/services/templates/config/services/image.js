@@ -1,3 +1,5 @@
-export const services = {
-  image: {}
-};
+export default {
+  services: {
+    image: {}
+  }
+}

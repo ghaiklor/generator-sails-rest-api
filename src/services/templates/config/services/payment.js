@@ -1,3 +1,5 @@
-export const services = {
-  payment: {}
-};
+export default {
+  services: {
+    payment: {}
+  }
+}

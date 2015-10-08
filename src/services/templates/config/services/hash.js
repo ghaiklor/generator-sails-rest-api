@@ -1,5 +1,7 @@
-export const services = {
-  hash: {
-    bcrypt: {}
+export default {
+  services: {
+    hash: {
+      bcrypt: {}
+    }
   }
-};
+}

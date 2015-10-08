@@ -2,15 +2,9 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:services', function () {
+describe('sails-rest-api:services', () => {
   describe('Should properly handle default configuration', () => {
-    this.timeout(10000);
-
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/services'))
-        .on('end', done);
-    });
+    before(done => test.run(path.join(__dirname, '../../src/services')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -70,8 +64,6 @@ describe('sails-rest-api:services', function () {
   });
 
   describe('Should properly handle full configuration', () => {
-    this.timeout(10000);
-
     before(done => {
       test
         .run(path.join(__dirname, '../../src/services'))
