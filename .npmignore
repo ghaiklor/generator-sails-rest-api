@@ -24,11 +24,11 @@
 
 work
 build
-test
+/test
 pids
 logs
 results
-coverage
+/coverage
 lib-cov
 html-report
 xunit.xml
@@ -49,6 +49,6 @@ Thumbs.db
 .Trashes
 
 # added by KAS
-test/
-src/
-babelhook.js
+/test/
+/src/
+/babelhook.js
