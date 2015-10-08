@@ -13,5 +13,17 @@ export default function () {
     .options['controllers']
     .split(',')
     .map(controller => controller.replace(/Controller/g, '').toLowerCase())
-    .forEach(controller => FILES_MAP[controller].forEach(path => this.copy(path, path)));
+    .forEach(controller => {
+      if (FILES_MAP[controller]) {
+        FILES_MAP[controller].forEach(path => this.copy(path, path));
+      } else {
+        controller = controller.charAt(0).toUpperCase() + controller.slice(1);
+        this.template('api/controllers/Controller.template', `api/controllers/${controller}Controller.js`, {
+          name: controller
+        });
+        this.template('test/unit/controllers/Controller.template', `test/unit/controllers/${controller}Controller.test.js`, {
+          name: controller
+        });
+      }
+    });
 };

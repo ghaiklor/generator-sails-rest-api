@@ -63,7 +63,7 @@ describe('sails-rest-api:controllers', () => {
 
       assert.noFile([
         'api/controllers/SearchController.js'
-      ])
+      ]);
     });
 
     it('Should properly create test files', () => {
@@ -73,7 +73,42 @@ describe('sails-rest-api:controllers', () => {
 
       assert.noFile([
         'test/unit/controllers/SearchController.test.js'
-      ])
+      ]);
     });
-  })
+  });
+
+  describe('Should properly generate custom controllers', () => {
+    before(done => {
+      test
+        .run(path.join(__dirname, '../../src/controllers'))
+        .withOptions({
+          'controllers': 'PingController,SomeController,Test'
+        })
+        .on('end', done)
+    });
+
+    it('Should properly create api files', () => {
+      assert.file([
+        'api/controllers/PingController.js',
+        'api/controllers/SomeController.js',
+        'api/controllers/TestController.js'
+      ]);
+
+      assert.noFile([
+        'api/controllers/SearchController.js'
+      ]);
+    });
+
+    it('Should properly create test files', () => {
+      assert.file([
+        'test/unit/controllers/PingController.test.js',
+        'test/unit/controllers/SomeController.test.js',
+        'test/unit/controllers/TestController.test.js'
+      ]);
+
+      assert.noFile([
+        'test/unit/controllers/SearchController.test.js'
+      ]);
+    });
+  });
 });

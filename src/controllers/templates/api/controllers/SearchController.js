@@ -1,14 +1,11 @@
 /**
- * AuthController
- * @description :: Server-side logic for manage user's authorization
+ * SearchController
+ * @description :: Server-side logic for searching within records in database
  */
 
 import _ from 'lodash';
 import Promise from 'bluebird';
 
-/**
- * Index route for searching
- */
 export function index(req, res) {
   let q = req.param('q');
   let models = [];
