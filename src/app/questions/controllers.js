@@ -17,6 +17,13 @@ export default [{
   default: ['PingController', 'SearchController'],
   choices: [
     'PingController',
-    'SearchController'
+    'SearchController',
+    'CustomController...'
   ]
+}, {
+  type: 'input',
+  name: 'controllers:custom-controllers',
+  message: 'Controllers\' name (comma-separated)',
+  default: '',
+  when: answers => answers['controllers:controllers'].indexOf('CustomController...') !== -1
 }];
