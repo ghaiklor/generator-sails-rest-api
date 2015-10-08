@@ -2,15 +2,9 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:models', function () {
-  describe('Should properly handle copying templates', () => {
-    this.timeout(10000);
-
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/models'))
-        .on('end', done);
-    });
+describe('sails-rest-api:models', () => {
+  describe('Should properly handle default configuration', () => {
+    before(done => test.run(path.join(__dirname, '../../src/models')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
