@@ -21,7 +21,7 @@ describe('sails-rest-api:controllers', () => {
     });
   });
 
-  describe('Should properly generate custom configuration', () => {
+  describe('Should properly generate with custom configuration', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/controllers'))
@@ -97,6 +97,11 @@ describe('sails-rest-api:controllers', () => {
       assert.noFile([
         'api/controllers/SearchController.js'
       ]);
+
+      assert.fileContent('api/controllers/SomeController.js', /export function index\(req, res\)/g);
+      assert.fileContent('api/controllers/SomeController.js', /SomeController/g);
+      assert.fileContent('api/controllers/TestController.js', /export function index\(req, res\)/g);
+      assert.fileContent('api/controllers/TestController.js', /TestController/g);
     });
 
     it('Should properly create test files', () => {
@@ -109,6 +114,9 @@ describe('sails-rest-api:controllers', () => {
       assert.noFile([
         'test/unit/controllers/SearchController.test.js'
       ]);
+
+      assert.fileContent('test/unit/controllers/SomeController.test.js', /assert\(false\)/g);
+      assert.fileContent('test/unit/controllers/TestController.test.js', /assert\(false\)/g);
     });
   });
 });
