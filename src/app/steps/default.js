@@ -33,7 +33,7 @@ export default function () {
 
   this.composeWith('sails-rest-api:controllers', {
     options: {
-      'controllers': this.answers['controllers:controllers'].concat(this.answers['controllers:custom-controllers'].split(',')).join(',')
+      'controllers': this.answers['controllers:controllers'].join(',')
     }
   });
 
