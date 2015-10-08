@@ -3,7 +3,7 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class AdaptersGenerator extends Base {
+export default class CronGenerator extends Base {
   constructor(...args) {
     super(...args);
 
