@@ -10,5 +10,11 @@
  */
 
 export default {
-  policies: {}
+  policies: {
+    '*': ['isAuthenticated'],
+
+    AuthController: {
+      '*': true
+    }
+  }
 }

@@ -24,7 +24,6 @@ describe('sails-rest-api:config', () => {
         'config/globals.js',
         'config/http.js',
         'config/models.js',
-        'config/policies.js',
         'config/routes.js'
       ]);
 
@@ -74,7 +73,6 @@ describe('sails-rest-api:config', () => {
         'config/globals.js',
         'config/http.js',
         'config/models.js',
-        'config/policies.js',
         'config/routes.js'
       ]);
 
