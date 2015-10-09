@@ -3,7 +3,15 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const FILES_MAP = {
+import fs from 'fs';
+import path from 'path';
+
+const GIT_KEEP_FILES = [
+  'api/blueprints/.gitkeep',
+  'test/unit/blueprints/.gitkeep'
+];
+
+const BLUEPRINTS_FILES = {
   add: ['api/blueprints/add.js', 'test/unit/blueprints/add.test.js'],
   create: ['api/blueprints/create.js', 'test/unit/blueprints/create.test.js'],
   destroy: ['api/blueprints/destroy.js', 'test/unit/blueprints/destroy.test.js'],
@@ -14,11 +22,14 @@ const FILES_MAP = {
   update: ['api/blueprints/update.js', 'test/unit/blueprints/update.test.js']
 };
 
+const removeFile = file => fs.existsSync(file) ? fs.unlinkSync(path.resolve(process.cwd(), file)) : false;
+
 export default function () {
   if (this.options['use-default']) {
-    this.copy('api/blueprints/.gitkeep', 'api/blueprints/.gitkeep');
-    this.copy('test/unit/blueprints/.gitkeep', 'test/unit/blueprints/.gitkeep');
+    GIT_KEEP_FILES.forEach(file => this.copy(file, file));
+    Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(removeFile));
   } else {
-    Object.keys(FILES_MAP).forEach(blueprint => FILES_MAP[blueprint].forEach(path => this.copy(path, path)));
+    GIT_KEEP_FILES.forEach(removeFile);
+    Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(file => this.copy(file, file)));
   }
 };
