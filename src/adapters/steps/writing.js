@@ -3,7 +3,11 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+const GIT_KEEP_FILES = [
+  'api/adapters/.gitkeep',
+  'test/unit/adapters/.gitkeep'
+];
+
 export default function () {
-  this.copy('api/adapters/.gitkeep', 'api/adapters/.gitkeep');
-  this.copy('test/unit/adapters/.gitkeep', 'test/unit/adapters/.gitkeep');
+  GIT_KEEP_FILES.forEach(file => this.copy(file, file));
 };
