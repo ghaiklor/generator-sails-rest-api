@@ -4,5 +4,5 @@
  */
 
 export default function () {
-  this.copy('config/log.js', 'config/log.js');
+  this.copy('config/winstonLog.js', 'config/log.js');
 };
