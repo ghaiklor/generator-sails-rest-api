@@ -27,7 +27,6 @@ describe('sails-rest-api:config', () => {
         'config/routes.js'
       ]);
 
-      assert.fileContent('config/models.js', /connection: 'mongo'/);
       assert.fileContent('config/connections.js', /host: 'localhost'/g);
       assert.fileContent('config/connections.js', /database: 'sails-rest-api'/g);
       assert.fileContent('config/connections.js', /user: ''/g);
@@ -35,6 +34,8 @@ describe('sails-rest-api:config', () => {
       assert.fileContent('config/connections.js', /accessKeyId: ''/g);
       assert.fileContent('config/connections.js', /secretAccessKey: ''/g);
       assert.fileContent('config/connections.js', /region: 'us-west-1'/g);
+      assert.fileContent('config/cors.js', /allRoutes: false/g);
+      assert.fileContent('config/models.js', /connection: 'mongo'/);
     });
   });
 
@@ -50,7 +51,8 @@ describe('sails-rest-api:config', () => {
           'database-password': 'db_pass',
           'dynamo-access-key-id': 'access_key_id',
           'dynamo-secret-access-key': 'secret_access_key',
-          'dynamo-region': 'amazon_region'
+          'dynamo-region': 'amazon_region',
+          'enable-cors': true
         })
         .on('end', done);
     });
@@ -76,7 +78,6 @@ describe('sails-rest-api:config', () => {
         'config/routes.js'
       ]);
 
-      assert.fileContent('config/models.js', /connection: 'mysql'/);
       assert.fileContent('config/connections.js', /host: '123\.456\.789\.000'/g);
       assert.fileContent('config/connections.js', /database: 'db_name'/g);
       assert.fileContent('config/connections.js', /user: 'db_user'/g);
@@ -84,6 +85,8 @@ describe('sails-rest-api:config', () => {
       assert.fileContent('config/connections.js', /accessKeyId: 'access_key_id'/g);
       assert.fileContent('config/connections.js', /secretAccessKey: 'secret_access_key'/g);
       assert.fileContent('config/connections.js', /region: 'amazon_region'/g);
+      assert.fileContent('config/cors.js', /allRoutes: true/g);
+      assert.fileContent('config/models.js', /connection: 'mysql'/);
     });
   });
 });

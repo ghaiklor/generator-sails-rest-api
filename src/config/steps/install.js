@@ -9,5 +9,7 @@ const DEPENDENCIES = [
 ];
 
 export default function () {
-  this.npmInstall(DEPENDENCIES.concat([`sails-${this.options['database-adapter'].toLowerCase()}`]), {save: true});
+  let adapter = `sails-${this.options['database-adapter'].toLowerCase()}`;
+
+  this.npmInstall(DEPENDENCIES.concat([adapter]), {save: true});
 };

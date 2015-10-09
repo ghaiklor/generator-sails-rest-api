@@ -60,5 +60,11 @@ export default {
     desc: 'Specifies a region for DynamoDB',
     type: String,
     defaults: 'us-west-1'
+  },
+
+  'enable-cors': {
+    desc: 'Enables CORS by default',
+    type: Boolean,
+    defaults: false
   }
 };
