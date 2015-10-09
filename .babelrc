@@ -3,10 +3,13 @@
   "ignore": [
     "adapters/templates",
     "app/templates",
+    "authentication/templates",
     "blueprints/templates",
     "config/templates",
     "controllers/templates",
+    "cron/templates",
     "hooks/templates",
+    "logger/templates",
     "models/templates",
     "policies/templates",
     "responses/templates",
