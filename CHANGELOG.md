@@ -7,14 +7,20 @@
 - **Improvement**: Generator became more composable. So you are able to generate different parts of project independently:
   - Improvement: Implement `sails-rest-api:adapters` generator;
   - Improvement: Implement `sails-rest-api:app` generator;
+  - Improvement: Implement `sails-rest-api:authentication` generator;
   - Improvement: Implement `sails-rest-api:blueprints` generator;
   - Improvement: Implement `sails-rest-api:config` generator;
-  - Improvement: Implement `sails-rest-api:controllers` generator;
+  - Improvement: Implement `sails-rest-api:controller` generator;
+  - Improvement: Implement `sails-rest-api:cron` generator;
   - Improvement: Implement `sails-rest-api:hooks` generator;
+  - Improvement: Implement `sails-rest-api:logger` generator;
   - Improvement: Implement `sails-rest-api:models` generator;
   - Improvement: Implement `sails-rest-api:policies` generator;
   - Improvement: Implement `sails-rest-api:responses` generator;
   - Improvement: Implement `sails-rest-api:services` generator;
+- Improvement: `blueprints` generator can scaffold default Sails blueprints if you wish (`--use-default` options);
+- Improvement: `config` generator supports options for scaffolding new configuration in existing project;
+- Improvement: `controller` generator can scaffold custom controllers (`yo sails-rest-api:controller Ticket ticket,actions`);
 - Improvement: Implement `page` param in requests;
 - Improvement: Optimize selecting fields from database on `GET`;
 - Improvement: Replace all error responses in blueprints with `negotiate`;
