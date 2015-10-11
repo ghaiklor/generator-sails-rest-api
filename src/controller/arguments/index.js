@@ -14,4 +14,20 @@
  * };
  */
 
-export default {};
+export default {
+  'controller-name': {
+    desc: `Controller's name`,
+    required: true,
+    optional: false,
+    type: String,
+    defaults: ''
+  },
+
+  'controller-actions': {
+    desc: `Controller's actions`,
+    required: false,
+    optional: true,
+    type: String,
+    defaults: 'index'
+  }
+};

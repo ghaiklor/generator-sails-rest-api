@@ -13,11 +13,4 @@
  * };
  */
 
-export default {
-  'controllers': {
-    'desc': 'Specifies which controllers you want to create (comma-separated)',
-    'type': String,
-    'defaults': 'Ping,Search',
-    'hide': false
-  }
-};
+export default {};

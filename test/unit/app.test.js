@@ -11,7 +11,7 @@ describe('sails-rest-api:app', () => {
         [test.createDummyGenerator(), 'sails-rest-api:authentication'],
         [test.createDummyGenerator(), 'sails-rest-api:blueprints'],
         [test.createDummyGenerator(), 'sails-rest-api:config'],
-        [test.createDummyGenerator(), 'sails-rest-api:controllers'],
+        [test.createDummyGenerator(), 'sails-rest-api:controller'],
         [test.createDummyGenerator(), 'sails-rest-api:cron'],
         [test.createDummyGenerator(), 'sails-rest-api:hooks'],
         [test.createDummyGenerator(), 'sails-rest-api:logger'],

@@ -4,7 +4,7 @@ import Users from '../../fixtures/Users';
 
 let authToken = '';
 
-describe('controllers:SearchController', function () {
+describe('controllers:SearchController', () => {
   before(done => {
     new Promise((resolve, reject) => {
       sails.requestForTest('post', '/v1/auth/signin')

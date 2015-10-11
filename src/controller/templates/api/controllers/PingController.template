@@ -6,3 +6,8 @@
 export function index(req, res) {
   res.ok(req.allParams(), {message: 'HTTP server is working'});
 }
+<% actions.forEach(function(action) { %>
+export function <%= action %>(req, res) {
+  res.ok();
+}
+<% }) %>

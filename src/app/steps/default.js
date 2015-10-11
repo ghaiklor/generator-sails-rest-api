@@ -31,10 +31,8 @@ export default function () {
     }
   });
 
-  this.composeWith('sails-rest-api:controllers', {
-    options: {
-      'controllers': this.answers['controllers:controllers'].join(',')
-    }
+  this.composeWith('sails-rest-api:controller', {
+    options: {}
   });
 
   this.composeWith('sails-rest-api:cron', {

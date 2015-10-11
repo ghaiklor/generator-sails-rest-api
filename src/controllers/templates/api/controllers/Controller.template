@@ -1,8 +1,0 @@
-/**
- * <%= name %>Controller
- * @description :: Server-side logic that ...
- */
-
-export function index(req, res) {
-  res.ok();
-}

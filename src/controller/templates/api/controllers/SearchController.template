@@ -38,3 +38,8 @@ export function index(req, res) {
     .then(res.ok)
     .catch(res.negotiate);
 }
+<% actions.forEach(function(action) { %>
+export function <%= action %>(req, res) {
+  res.ok();
+}
+<% }) %>
