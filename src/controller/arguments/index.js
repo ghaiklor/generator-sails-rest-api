@@ -16,7 +16,6 @@
 
 export default {
   'controller-name': {
-    desc: `Controller's name`,
     required: true,
     optional: false,
     type: String,
@@ -24,7 +23,6 @@ export default {
   },
 
   'controller-actions': {
-    desc: `Controller's actions`,
     required: false,
     optional: true,
     type: String,
