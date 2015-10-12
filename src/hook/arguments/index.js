@@ -14,4 +14,11 @@
  * };
  */
 
-export default {};
+export default {
+  'hook-name': {
+    desc: `Hook's name`,
+    required: true,
+    optional: false,
+    type: String
+  }
+};

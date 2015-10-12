@@ -3,7 +3,7 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class HooksGenerator extends Base {
+export default class HookGenerator extends Base {
   constructor(...args) {
     super(...args);
 

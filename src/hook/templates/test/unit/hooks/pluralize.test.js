@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import _ from 'lodash';
-import pluralizeModels from '../../../api/hooks/pluralize-models';
+import hook from '../../../api/hooks/pluralize';
 
 const sailsLoc = {
   middleware: {
@@ -13,14 +13,14 @@ const sailsLoc = {
   }
 };
 
-describe('hooks:pluralize-models', () => {
+describe('hooks:pluralize', () => {
   before(done => {
     _.set(sailsLoc, 'config.blueprints.pluralize', true);
     done();
   });
 
   it('Should properly exports', done => {
-    assert.isFunction(pluralizeModels);
+    assert.isFunction(hook);
     done();
   });
 
@@ -36,7 +36,7 @@ describe('hooks:pluralize-models', () => {
       done();
     };
 
-    pluralizeModels(sailsLoc).initialize(() => {
+    hook(sailsLoc).initialize(() => {
     });
   });
 });

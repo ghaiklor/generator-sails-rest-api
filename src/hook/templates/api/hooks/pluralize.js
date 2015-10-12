@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 export default function (sails) {
   return {
-    initialize: function (cb) {
+    initialize: cb => {
       sails.on('router:before', () => {
         if (!_.get(sails, 'config.blueprints.pluralize')) return;
 
