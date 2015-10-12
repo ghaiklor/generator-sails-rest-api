@@ -15,7 +15,7 @@
 
 export default {
   'jobs': {
-    desc: 'List of jobs (comma-separated)',
+    desc: 'Specifies list of the jobs (comma-separated)',
     type: String,
     defaults: '',
     hide: false
