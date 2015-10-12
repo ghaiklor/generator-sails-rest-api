@@ -10,5 +10,14 @@ export default {
   models: {
     connection: 'memory',
     migrate: 'drop'
+  },
+  hooks: {
+    csrf: false,
+    grunt: false,
+    i18n: false,
+    pubsub: false,
+    session: false,
+    sockets: false,
+    views: false
   }
 };
