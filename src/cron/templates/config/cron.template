@@ -18,5 +18,16 @@
  */
 
 export default {
-  cron: {}
+  cron: {
+    <% jobs.forEach(function(job) { %>
+    '<%= job %>': {
+      schedule: '* * * * * *',
+      onTick: () => false,
+      onComplete: () => false,
+      start: true,
+      timezone: undefined,
+      context: undefined
+    }
+    <% }) %>
+  }
 };

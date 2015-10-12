@@ -13,4 +13,11 @@
  * };
  */
 
-export default {};
+export default {
+  'jobs': {
+    desc: 'List of jobs (comma-separated)',
+    type: String,
+    defaults: '',
+    hide: false
+  }
+};

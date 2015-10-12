@@ -3,6 +3,10 @@
  * Where installation are run (npm, bower)
  */
 
+const DEPENDENCIES = [
+  'sails-hook-cron'
+];
+
 export default function () {
-  this.npmInstall(['sails-hook-cron'], {save: true});
+  this.npmInstall(DEPENDENCIES, {save: true});
 };
