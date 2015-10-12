@@ -21,6 +21,7 @@
 - Improvement: `blueprints` generator can scaffold default Sails blueprints if you wish (`--use-default` options);
 - Improvement: `config` generator supports options for scaffolding new configuration in existing project;
 - Improvement: `controller` generator can scaffold custom controllers (`yo sails-rest-api:controller Ticket ticket,actions`);
+- Improvement: `cron` generator can scaffold jobs with predefined configuration (`yo sails-rest-api:cron --jobs my,jobs`);
 - Improvement: Implement `page` param in requests;
 - Improvement: Optimize selecting fields from database on `GET`;
 - Improvement: Replace all error responses in blueprints with `negotiate`;
