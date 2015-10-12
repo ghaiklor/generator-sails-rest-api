@@ -3,7 +3,7 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class ModelsGenerator extends Base {
+export default class ModelGenerator extends Base {
   constructor(...args) {
     super(...args);
 

@@ -14,4 +14,11 @@
  * };
  */
 
-export default {};
+export default {
+  'model-name': {
+    desc: `Model's name`,
+    required: true,
+    optional: false,
+    type: String
+  }
+};
