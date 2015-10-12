@@ -22,7 +22,6 @@ describe('sails-rest-api:config', () => {
         'config/cors.js',
         'config/errors.js',
         'config/globals.js',
-        'config/hooks.js',
         'config/http.js',
         'config/models.js',
         'config/routes.js'
@@ -74,7 +73,6 @@ describe('sails-rest-api:config', () => {
         'config/cors.js',
         'config/errors.js',
         'config/globals.js',
-        'config/hooks.js',
         'config/http.js',
         'config/models.js',
         'config/routes.js'
