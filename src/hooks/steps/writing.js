@@ -3,7 +3,10 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+const HOOK_FILES = {
+  pluralizeModels: ['api/hooks/pluralize-models.js', 'test/unit/hooks/pluralize-models.test.js']
+};
+
 export default function () {
-  this.directory('api/hooks', 'api/hooks');
-  this.directory('test/unit/hooks', 'test/unit/hooks');
+  Object.keys(HOOK_FILES).forEach(hook => HOOK_FILES[hook].forEach(file => this.copy(file, file)));
 };

@@ -13,7 +13,7 @@ const sailsLoc = {
   }
 };
 
-describe('hooks:pluralize-only-rest-models', function () {
+describe('hooks:pluralize-models', () => {
   before(done => {
     _.set(sailsLoc, 'config.blueprints.pluralize', true);
     done();

@@ -3,7 +3,7 @@ import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:hooks', () => {
-  describe('Should properly handle default configuration', () => {
+  describe('Should properly generate hooks', () => {
     before(done => test.run(path.join(__dirname, '../../src/hooks')).on('end', done));
 
     it('Should properly create api files', () => {
