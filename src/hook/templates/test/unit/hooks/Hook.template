@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import hook from '../../../../api/hooks/<%= name %>.js';
+import hook from '../../../api/hooks/<%= name %>.js';
 
 describe('hooks:<%= name %>', () => {
   it('Should be tested', () => {
