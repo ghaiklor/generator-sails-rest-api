@@ -15,12 +15,16 @@ describe('sails-rest-api:adapter', () => {
       assert.file([
         'api/adapters/MongoAdapter.js'
       ]);
+
+      assert.fileContent('api/adapters/MongoAdapter.js', /let connections = \{\};/);
     });
 
     it('Should properly create test files', () => {
       assert.file([
         'test/unit/adapters/MongoAdapter.test.js'
       ]);
+
+      assert.fileContent('test/unit/adapters/MongoAdapter.test.js', /describe\('adapters:Mongo'/);
     });
   });
 });
