@@ -1,6 +1,7 @@
 import { assert } from 'assert';
 import Promise from 'bluebird';
 import Users from '../../fixtures/Users';
+import controller from '../../../api/controllers/SearchController';
 
 let authToken = '';
 
@@ -27,7 +28,7 @@ describe('controllers:SearchController', () => {
 
   it('Should return user with username "test2"', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('post', '/v1/Search/')
+      sails.requestForTest('post', '/v1/search/')
         .send({q: "test2"})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
@@ -47,7 +48,7 @@ describe('controllers:SearchController', () => {
 
   it('Should return at least 2 users whose username contains \'test\'', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('post', '/v1/Search/')
+      sails.requestForTest('post', '/v1/search/')
         .send({q: "test"})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
@@ -66,7 +67,7 @@ describe('controllers:SearchController', () => {
 
   it('Should return user with email \'test@gmail.com\' (request with \'model\' parameter)', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('post', '/v1/Search/')
+      sails.requestForTest('post', '/v1/search/')
         .send({q: "test@gmail.com", model: 'User'})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(200)
@@ -86,7 +87,7 @@ describe('controllers:SearchController', () => {
 
   it('Should return badRequest error (\'q\' parameter doesn\'t exists)', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('get', '/v1/Search/')
+      sails.requestForTest('get', '/v1/search/')
         .set('Authorization', 'Bearer ' + authToken)
         .expect(400, done);
     })
@@ -96,7 +97,7 @@ describe('controllers:SearchController', () => {
 
   it('Should return badRequest error (\'model\' parameter contains an invalid model name)', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('post', '/v1/Search/')
+      sails.requestForTest('post', '/v1/search/')
         .send({q: 'someText', model: 'undefinedModel'})
         .set('Authorization', 'Bearer ' + authToken)
         .expect(400, done);

@@ -31,7 +31,9 @@ describe('sails-rest-api:controller', () => {
 
       assert.noFile([
         'test/unit/controllers/SearchController.test.js'
-      ])
+      ]);
+
+      assert.fileContent('test/unit/controllers/PingController.test.js', /import controller from '\.\.\/\.\.\/\.\.\/api\/controllers\/PingController';/);
     });
   });
 
@@ -39,7 +41,7 @@ describe('sails-rest-api:controller', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/controller'))
-        .withArguments(['ping', 'another,test'])
+        .withArguments(['ping', 'another', 'test'])
         .on('end', done)
     });
 
@@ -64,7 +66,9 @@ describe('sails-rest-api:controller', () => {
 
       assert.noFile([
         'test/unit/controllers/SearchController.test.js'
-      ])
+      ]);
+
+      assert.fileContent('test/unit/controllers/PingController.test.js', /import controller from '\.\.\/\.\.\/\.\.\/api\/controllers\/PingController';/);
     });
   });
 
@@ -100,6 +104,8 @@ describe('sails-rest-api:controller', () => {
         'test/unit/controllers/PingController.test.js',
         'test/unit/controllers/SearchController.test.js'
       ]);
+
+      assert.fileContent('test/unit/controllers/TicketController.test.js', /import controller from '\.\.\/\.\.\/\.\.\/api\/controllers\/TicketController';/);
     });
   });
 
@@ -107,7 +113,7 @@ describe('sails-rest-api:controller', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/controller'))
-        .withArguments(['ticket', 'another,test'])
+        .withArguments(['ticket', 'another', 'test'])
         .on('end', done)
     });
 
@@ -134,6 +140,8 @@ describe('sails-rest-api:controller', () => {
         'test/unit/controllers/PingController.test.js',
         'test/unit/controllers/SearchController.test.js'
       ]);
+
+      assert.fileContent('test/unit/controllers/TicketController.test.js', /import controller from '\.\.\/\.\.\/\.\.\/api\/controllers\/TicketController';/);
     });
   });
 });

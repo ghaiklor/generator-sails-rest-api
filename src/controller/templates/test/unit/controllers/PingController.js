@@ -1,10 +1,11 @@
 import { assert } from 'chai';
 import Promise from 'bluebird';
+import controller from '../../../api/controllers/PingController';
 
 describe('controllers:PingController', () => {
   it('Should return HTTP server is working', done => {
     new Promise((resolve, reject) => {
-      sails.requestForTest('get', '/v1/Ping')
+      sails.requestForTest('get', '/v1/ping')
         .expect(200)
         .end((error, data) => {
           if (error) return reject(error);
