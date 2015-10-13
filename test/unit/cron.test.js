@@ -3,7 +3,7 @@ import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:cron', () => {
-  describe('Should properly generate empty cron configuration file', () => {
+  describe('Should properly scaffold empty cron configuration file', () => {
     before(done => test.run(path.join(__dirname, '../../src/cron')).on('end', done));
 
     it('Should properly create configuration files', () => {
@@ -15,13 +15,11 @@ describe('sails-rest-api:cron', () => {
     });
   });
 
-  describe('Should properly generate cron configuration file with predefined jobs', () => {
+  describe('Should properly scaffold cron configuration file with predefined jobs', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/cron'))
-        .withOptions({
-          jobs: 'testJob,anotherJob'
-        })
+        .withArguments(['testJob', 'anotherJob'])
         .on('end', done)
     });
 
