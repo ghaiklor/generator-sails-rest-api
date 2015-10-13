@@ -25,7 +25,7 @@ export default {
   'controller-actions': {
     required: false,
     optional: true,
-    type: String,
-    defaults: 'index'
+    type: Array,
+    defaults: ['index']
   }
 };
