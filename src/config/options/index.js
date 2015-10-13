@@ -63,7 +63,7 @@ export default {
   },
 
   'enable-cors': {
-    desc: 'Enables CORS by default',
+    desc: 'Enable CORS by default',
     type: Boolean,
     defaults: false
   }
