@@ -6,11 +6,6 @@
 import fs from 'fs';
 import path from 'path';
 
-const GIT_KEEP_FILES = [
-  'api/blueprints/.gitkeep',
-  'test/unit/blueprints/.gitkeep'
-];
-
 const BLUEPRINTS_FILES = {
   add: ['api/blueprints/add.js', 'test/unit/blueprints/add.test.js'],
   create: ['api/blueprints/create.js', 'test/unit/blueprints/create.test.js'],
@@ -26,10 +21,8 @@ const removeFile = file => fs.existsSync(file) ? fs.unlinkSync(path.resolve(proc
 
 export default function () {
   if (this.options['use-default']) {
-    GIT_KEEP_FILES.forEach(file => this.copy(file, file));
     Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(removeFile));
   } else {
-    GIT_KEEP_FILES.forEach(removeFile);
     Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(file => this.copy(file, file)));
   }
 };

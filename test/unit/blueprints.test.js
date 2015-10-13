@@ -3,7 +3,7 @@ import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:blueprints', () => {
-  describe('Should properly handle default configuration', () => {
+  describe('Should properly scaffold our blueprints', () => {
     before(done => test.run(path.join(__dirname, '../../src/blueprints')).on('end', done));
 
     it('Should properly create api files', () => {
@@ -16,10 +16,6 @@ describe('sails-rest-api:blueprints', () => {
         'api/blueprints/populate.js',
         'api/blueprints/remove.js',
         'api/blueprints/update.js'
-      ]);
-
-      assert.noFile([
-        'api/blueprints/.gitkeep'
       ]);
     });
 
@@ -34,14 +30,10 @@ describe('sails-rest-api:blueprints', () => {
         'test/unit/blueprints/remove.test.js',
         'test/unit/blueprints/update.test.js'
       ]);
-
-      assert.noFile([
-        'test/unit/blueprints/.gitkeep'
-      ]);
     });
   });
 
-  describe('Should properly handle custom configuration', () => {
+  describe('Should properly scaffold default blueprints', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
@@ -52,10 +44,6 @@ describe('sails-rest-api:blueprints', () => {
     });
 
     it('Should properly create api files', () => {
-      assert.file([
-        'api/blueprints/.gitkeep'
-      ]);
-
       assert.noFile([
         'api/blueprints/add.js',
         'api/blueprints/create.js',
@@ -69,10 +57,6 @@ describe('sails-rest-api:blueprints', () => {
     });
 
     it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/.gitkeep'
-      ]);
-
       assert.noFile([
         'test/unit/blueprints/add.test.js',
         'test/unit/blueprints/create.test.js',
