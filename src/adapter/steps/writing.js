@@ -4,7 +4,7 @@
  */
 
 const GENERIC_ADAPTER_TEMPLATE = 'api/adapters/Adapter.js';
-const GENERIC_ADAPTER_TEST_TEMPLATE = 'test/unit/adapters/Adapter.js';
+const GENERIC_ADAPTER_TEST_TEMPLATE = 'test/unit/adapters/Adapter.test.js';
 
 export default function () {
   let name = (this['adapter-name'].charAt(0).toUpperCase() + this['adapter-name'].slice(1)).replace(/Adapter/, '');
