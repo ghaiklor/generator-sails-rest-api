@@ -20,7 +20,9 @@ const BLUEPRINTS_FILES = {
 const removeFile = file => fs.existsSync(file) ? fs.unlinkSync(path.resolve(process.cwd(), file)) : false;
 
 export default function () {
-  if (this.options['use-default']) {
+  let isDefault = this.options['default'];
+
+  if (isDefault) {
     Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(removeFile));
   } else {
     Object.keys(BLUEPRINTS_FILES).forEach(blueprint => BLUEPRINTS_FILES[blueprint].forEach(file => this.copy(file, file)));

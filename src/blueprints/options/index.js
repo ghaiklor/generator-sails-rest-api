@@ -14,10 +14,9 @@
  */
 
 export default {
-  'use-default': {
+  'default': {
     desc: 'Scaffolds default Sails blueprints',
     type: Boolean,
-    defaults: false,
     hide: false
   }
 };

@@ -9,7 +9,9 @@ const DEPENDENCIES = [
 ];
 
 export default function () {
-  if (!this.options['use-default']) {
+  let isDefault = this.options['default'];
+
+  if (!isDefault) {
     this.npmInstall(DEPENDENCIES, {save: true});
   }
 };

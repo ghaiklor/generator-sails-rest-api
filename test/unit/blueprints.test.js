@@ -38,7 +38,7 @@ describe('sails-rest-api:blueprints', () => {
       test
         .run(path.join(__dirname, '../../src/blueprints'))
         .withOptions({
-          'use-default': true
+          'default': true
         })
         .on('end', done);
     });
