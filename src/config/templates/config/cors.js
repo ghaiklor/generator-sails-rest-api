@@ -11,7 +11,7 @@ export default {
     /**
      * Allow CORS on all routes by default?
      */
-    allRoutes: <%= options["enable-cors"] %>,
+    allRoutes: <%= options["cors"] %>,
 
     /**
      * Which domains which are allowed CORS access?

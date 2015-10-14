@@ -62,7 +62,7 @@ export default {
     defaults: 'us-west-1'
   },
 
-  'enable-cors': {
+  'cors': {
     desc: 'Enable CORS by default',
     type: Boolean,
     defaults: false

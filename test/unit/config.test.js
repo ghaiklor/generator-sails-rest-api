@@ -52,7 +52,7 @@ describe('sails-rest-api:config', () => {
           'dynamo-access-key-id': 'access_key_id',
           'dynamo-secret-access-key': 'secret_access_key',
           'dynamo-region': 'amazon_region',
-          'enable-cors': true
+          'cors': true
         })
         .on('end', done);
     });
