@@ -6,7 +6,7 @@
 import fs from 'fs';
 
 const CONTROLLER_TEMPLATE = (name = '') => `api/controllers/${name}Controller.template`;
-const CONTROLLER_TEST_TEMPLATE = (name = '') => `test/unit/controllers/${name}Controller.js`;
+const CONTROLLER_TEST_TEMPLATE = (name = '') => `test/unit/controllers/${name}Controller.test.js`;
 
 export default function () {
   let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/Controller/, '');
