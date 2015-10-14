@@ -58,6 +58,8 @@ describe('sails-rest-api:hook', () => {
       assert.noFile([
         'test/unit/hooks/PluralizeHook.test.js'
       ]);
+
+      assert.fileContent('test/unit/hooks/TestHook.test.js', /import hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/TestHook';/);
     });
   });
 });
