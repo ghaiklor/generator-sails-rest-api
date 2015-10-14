@@ -39,4 +39,48 @@ describe('sails-rest-api:model', () => {
       assert.fileContent('test/unit/models/Test.test.js', /import Model from '\.\.\/\.\.\/\.\.\/api\/models\/Test'/);
     });
   });
+
+  describe('Should properly scaffold model without REST interface', () => {
+    before(done => {
+      test
+        .run(path.join(__dirname, '../../src/model'))
+        .withOptions({
+          'no-rest': true
+        })
+        .withArguments(['anotherModel'])
+        .on('end', done)
+    });
+
+    it('Should properly create api files', () => {
+      assert.file([
+        'api/models/Another.js'
+      ]);
+
+      assert.noFile([
+        'api/controllers/AnotherController.js'
+      ]);
+
+      assert.fileContent('api/models/Another.js', /beforeUpdate:/);
+    });
+
+    it('Should properly create fixtures files', () => {
+      assert.file([
+        'test/fixtures/Another.js'
+      ]);
+
+      assert.fileContent('test/fixtures/Another.js', /export default \{\}/);
+    });
+
+    it('Should properly create test files', () => {
+      assert.file([
+        'test/unit/models/Another.test.js'
+      ]);
+
+      assert.noFile([
+        'test/unit/controllers/AnotherController.test.js'
+      ]);
+
+      assert.fileContent('test/unit/models/Another.test.js', /import Model from '\.\.\/\.\.\/\.\.\/api\/models\/Another'/);
+    });
+  });
 });
