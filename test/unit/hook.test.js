@@ -7,25 +7,25 @@ describe('sails-rest-api:hook', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/hook'))
-        .withArguments(['pluralize'])
+        .withArguments(['pluralizeHook'])
         .on('end', done)
     });
 
     it('Should properly create api files', () => {
       assert.file([
-        'api/hooks/pluralize.js'
+        'api/hooks/PluralizeHook.js'
       ]);
 
       assert.noFile([
-        'api/hooks/test.js'
+        'api/hooks/TestHook.js'
       ]);
 
-      assert.fileContent('api/hooks/pluralize.js', /sails.on\('router:before'/);
+      assert.fileContent('api/hooks/PluralizeHook.js', /sails.on\('router:before'/);
     });
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/hooks/pluralize.test.js'
+        'test/unit/hooks/PluralizeHook.test.js'
       ]);
     });
   });
@@ -40,23 +40,23 @@ describe('sails-rest-api:hook', () => {
 
     it('Should properly create api files', () => {
       assert.file([
-        'api/hooks/test.js'
+        'api/hooks/TestHook.js'
       ]);
 
       assert.noFile([
-        'api/hooks/pluralize.js'
+        'api/hooks/PluralizeHook.js'
       ]);
 
-      assert.fileContent('api/hooks/test.js', /initialize: cb => cb\(\)/);
+      assert.fileContent('api/hooks/TestHook.js', /initialize: cb => cb\(\)/);
     });
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/unit/hooks/test.test.js'
+        'test/unit/hooks/TestHook.test.js'
       ]);
 
       assert.noFile([
-        'test/unit/hooks/pluralize.test.js'
+        'test/unit/hooks/PluralizeHook.test.js'
       ]);
     });
   });
