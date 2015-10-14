@@ -9,6 +9,8 @@ export default class PolicyGenerator extends Base {
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
+
+    this.description = 'Scaffolds a new policy';
   }
 
   get configuring() {

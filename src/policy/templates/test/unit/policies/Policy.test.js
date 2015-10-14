@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import <%= name %> from '../../../api/policies/<%= name %>';
+import policy from '../../../api/policies/<%= name %>';
 
 describe('policies:<%= name %>', () => {
   it('Should be tested', () => {

@@ -3,12 +3,12 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const DEFAULT_POLICY_TEMPLATE = 'api/policies/Policy.template';
-const DEFAULT_TEST_TEMPLATE = 'test/unit/policies/Policy.template';
+const GENERIC_POLICY_TEMPLATE = 'api/policies/Policy.js';
+const GENERIC_POLICY_TEST_TEMPLATE = 'test/unit/policies/Policy.test.js';
 
 export default function () {
-  let name = this['policy-name'].charAt(0).toLowerCase() + this['policy-name'].slice(1);
+  let name = (this['policy-name'].charAt(0).toLowerCase() + this['policy-name'].slice(1)).replace(/Policy/, '');
 
-  this.template(DEFAULT_POLICY_TEMPLATE, `api/policies/${name}.js`, {name});
-  this.template(DEFAULT_TEST_TEMPLATE, `test/unit/policies/${name}.test.js`, {name});
+  this.template(GENERIC_POLICY_TEMPLATE, `api/policies/${name}.js`, {name});
+  this.template(GENERIC_POLICY_TEST_TEMPLATE, `test/unit/policies/${name}.test.js`, {name});
 };
