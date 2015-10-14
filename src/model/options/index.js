@@ -16,7 +16,7 @@
 export default {
   'no-rest': {
     desc: 'Disables REST interface to this model',
-    type: 'Boolean',
+    type: Boolean,
     defaults: false,
     hide: false
   }
