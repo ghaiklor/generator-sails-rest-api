@@ -12,7 +12,7 @@ const GENERIC_MODEL_TEST_TEMPLATE = 'test/unit/models/Model.test.js';
 
 export default function () {
   let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model/, '');
-  let isREST = !this.options['no-rest'];
+  let isREST = this.options['rest'];
 
   if (isREST) {
     this.template(GENERIC_CONTROLLER_TEMPLATE, `api/controllers/${name}Controller.js`, {name});

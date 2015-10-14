@@ -45,7 +45,7 @@ describe('sails-rest-api:model', () => {
       test
         .run(path.join(__dirname, '../../src/model'))
         .withOptions({
-          'no-rest': true
+          'rest': false
         })
         .withArguments(['anotherModel'])
         .on('end', done)

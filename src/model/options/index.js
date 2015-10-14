@@ -14,10 +14,10 @@
  */
 
 export default {
-  'no-rest': {
-    desc: 'Disables REST interface to this model',
+  'rest': {
+    desc: 'Exposes REST interface to this model',
     type: Boolean,
-    defaults: false,
+    defaults: true,
     hide: false
   }
 };
