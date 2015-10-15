@@ -7,18 +7,18 @@ describe('sails-rest-api:app', () => {
     test
       .run(path.join(__dirname, '../../src/app'))
       .withGenerators([
-        [test.createDummyGenerator(), 'sails-rest-api:adapters'],
+        [test.createDummyGenerator(), 'sails-rest-api:adapter'],
         [test.createDummyGenerator(), 'sails-rest-api:authentication'],
         [test.createDummyGenerator(), 'sails-rest-api:blueprints'],
         [test.createDummyGenerator(), 'sails-rest-api:config'],
         [test.createDummyGenerator(), 'sails-rest-api:controller'],
         [test.createDummyGenerator(), 'sails-rest-api:cron'],
-        [test.createDummyGenerator(), 'sails-rest-api:hooks'],
+        [test.createDummyGenerator(), 'sails-rest-api:hook'],
         [test.createDummyGenerator(), 'sails-rest-api:logger'],
-        [test.createDummyGenerator(), 'sails-rest-api:models'],
-        [test.createDummyGenerator(), 'sails-rest-api:policies'],
-        [test.createDummyGenerator(), 'sails-rest-api:responses'],
-        [test.createDummyGenerator(), 'sails-rest-api:services']
+        [test.createDummyGenerator(), 'sails-rest-api:model'],
+        [test.createDummyGenerator(), 'sails-rest-api:policy'],
+        [test.createDummyGenerator(), 'sails-rest-api:response'],
+        [test.createDummyGenerator(), 'sails-rest-api:service']
       ])
       .on('end', done);
   });

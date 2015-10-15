@@ -12,7 +12,7 @@
     "logger/templates",
     "model/templates",
     "policy/templates",
-    "responses/templates",
-    "services/templates"
+    "response/templates",
+    "service/templates"
   ]
 }

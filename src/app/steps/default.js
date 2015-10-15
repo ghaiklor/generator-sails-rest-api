@@ -4,7 +4,7 @@
  */
 
 export default function () {
-  this.composeWith('sails-rest-api:adapters', {
+  this.composeWith('sails-rest-api:adapter', {
     options: {}
   });
 
@@ -39,7 +39,7 @@ export default function () {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:hooks', {
+  this.composeWith('sails-rest-api:hook', {
     options: {}
   });
 
@@ -47,19 +47,19 @@ export default function () {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:models', {
+  this.composeWith('sails-rest-api:model', {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:policies', {
+  this.composeWith('sails-rest-api:policy', {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:responses', {
+  this.composeWith('sails-rest-api:response', {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:services', {
+  this.composeWith('sails-rest-api:service', {
     options: {
       'services': this.answers['services:chosen'].join(','),
       'cipher-secret-key': this.answers['application:secret'],
