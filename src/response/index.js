@@ -3,12 +3,14 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class ResponsesGenerator extends Base {
+export default class ResponseGenerator extends Base {
   constructor(...args) {
     super(...args);
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
+
+    this.description = 'Scaffold a new response or predefined';
   }
 
   get configuring() {
