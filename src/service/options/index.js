@@ -16,12 +16,6 @@
 import crypto from 'crypto';
 
 export default {
-  'services': {
-    'desc': 'Specifies the services that you want to generate (comma-separated)',
-    'type': String,
-    'defaults': 'Cipher,Hash'
-  },
-
   'cipher-secret-key': {
     'desc': 'Specifies the secret key to use in CipherService',
     'type': String,

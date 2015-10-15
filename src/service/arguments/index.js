@@ -14,4 +14,10 @@
  * };
  */
 
-export default {};
+export default {
+  'service-name': {
+    required: true,
+    optional: false,
+    type: String
+  }
+};
