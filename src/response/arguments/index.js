@@ -14,4 +14,10 @@
  * };
  */
 
-export default {};
+export default {
+  'response-name': {
+    required: true,
+    optional: false,
+    type: String
+  }
+};
