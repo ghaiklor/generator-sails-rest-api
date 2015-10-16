@@ -6,8 +6,8 @@
 const SOURCE_ADAPTER = `Adapter.js`;
 const SOURCE_ADAPTER_TEST = `Adapter.test.js`;
 
-const DESTINATION_ADAPTER = (name) => `api/adapters/${name}Adapter.js`;
-const DESTINATION_ADAPTER_TEST = (name) => `test/unit/adapters/${name}Adapter.test.js`;
+const DESTINATION_ADAPTER = name => `api/adapters/${name}Adapter.js`;
+const DESTINATION_ADAPTER_TEST = name => `test/unit/adapters/${name}Adapter.test.js`;
 
 export default function () {
   let name = (this['adapter-name'].charAt(0).toUpperCase() + this['adapter-name'].slice(1)).replace(/Adapter/, '');
