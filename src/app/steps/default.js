@@ -44,7 +44,9 @@ export default function () {
   });
 
   this.composeWith('sails-rest-api:response', {
-    options: {}
+    options: {
+      'all': true
+    }
   });
 
   this.composeWith('sails-rest-api:service', {
