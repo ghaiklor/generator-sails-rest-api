@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import response from '../../../api/responses/<%= name %>';
+import Response from '../../../api/responses/<%= name %>';
 
 const context = {
   res: {

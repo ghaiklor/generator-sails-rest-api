@@ -14,7 +14,7 @@ const DESTINATION_RESPONSE_TEST = name => `test/unit/responses/${name}.test.js`;
 export default function () {
   let name = (this['response-name'].charAt(0).toLowerCase() + this['response-name'].slice(1)).replace(/Response/, '');
   let isNew = this.options['new'];
-  let isAll = this.options['all'];
+  let isAll = !name || this.options['all'];
 
   if (isAll) {
     this.directory(`api/responses`, `api/responses`);
