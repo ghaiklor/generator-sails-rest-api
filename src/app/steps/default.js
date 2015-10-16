@@ -4,10 +4,6 @@
  */
 
 export default function () {
-  this.composeWith('sails-rest-api:adapter', {
-    options: {}
-  });
-
   this.composeWith('sails-rest-api:authentication', {
     options: {}
   });
