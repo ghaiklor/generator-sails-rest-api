@@ -43,14 +43,6 @@ export default function () {
     options: {}
   });
 
-  this.composeWith('sails-rest-api:model', {
-    options: {}
-  });
-
-  this.composeWith('sails-rest-api:policy', {
-    options: {}
-  });
-
   this.composeWith('sails-rest-api:response', {
     options: {}
   });
