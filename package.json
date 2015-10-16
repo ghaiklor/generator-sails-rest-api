@@ -32,7 +32,7 @@
   "scripts": {
     "clean": "rm -rf ./generators",
     "compile": "npm run clean && cp -r src/ generators/ && babel src --out-dir generators",
-    "dev": "cp -r src/ generators/ && babel src --watch --out-dir generators",
+    "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
     "test": "istanbul cover _mocha"
   },
