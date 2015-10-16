@@ -17,7 +17,6 @@
 export default {
   'model-name': {
     required: true,
-    optional: false,
     type: String
   }
 };
