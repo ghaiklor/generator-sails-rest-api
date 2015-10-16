@@ -16,8 +16,7 @@
 
 export default {
   'response-name': {
-    required: true,
-    optional: false,
+    required: false,
     type: String
   }
 };
