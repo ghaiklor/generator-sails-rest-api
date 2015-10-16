@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import Model from '../../../api/models/<%= name %>';
-import Fixtures from '../../fixtures/<%= name %>';
+import Fixture from '../../fixtures/<%= name %>Fixture';
 
-describe('models:<%= name %>Model', () => {
+describe('models:<%= name %>', () => {
   it('Should be tested', () => {
     assert(false);
   });

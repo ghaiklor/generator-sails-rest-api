@@ -7,6 +7,8 @@ export default {
   schema: true,
 
   attributes: {
+    // Fill your attributes here
+
     toJSON: () => {
       return this.toObject();
     }

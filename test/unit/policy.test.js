@@ -24,7 +24,7 @@ describe('sails-rest-api:policy', () => {
         'test/unit/policies/isAdmin.test.js'
       ]);
 
-      assert.fileContent('test/unit/policies/isAdmin.test.js', /import policy from '\.\.\/\.\.\/\.\.\/api\/policies\/isAdmin'/);
+      assert.fileContent('test/unit/policies/isAdmin.test.js', /import Policy from '\.\.\/\.\.\/\.\.\/api\/policies\/isAdmin'/);
     });
   });
 });
