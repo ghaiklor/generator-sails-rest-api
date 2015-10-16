@@ -10,7 +10,7 @@ export default class AdapterGenerator extends Base {
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffolds a custom adapter';
+    this.description = 'Scaffolds a new adapter';
   }
 
   get configuring() {
