@@ -52,7 +52,7 @@ export default {
        * Output streams
        * @type {Array}
        */
-      streams: []
+      streams: null
     }
   }
 };
