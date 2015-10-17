@@ -23,9 +23,7 @@ describe('sails-rest-api:logger', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/logger'))
-        .withOptions({
-          'logger': 'bunyan'
-        })
+        .withArguments(['bunyan'])
         .on('end', done)
     });
 
@@ -42,9 +40,7 @@ describe('sails-rest-api:logger', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/logger'))
-        .withOptions({
-          'logger': 'default'
-        })
+        .withArguments(['default'])
         .on('end', done)
     });
 
@@ -61,9 +57,7 @@ describe('sails-rest-api:logger', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/logger'))
-        .withOptions({
-          'logger': 'winston'
-        })
+        .withArguments(['winston'])
         .on('end', done)
     });
 

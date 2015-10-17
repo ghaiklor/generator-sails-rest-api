@@ -14,4 +14,11 @@
  * };
  */
 
-export default {};
+export default {
+  'logger-name': {
+    desc: `Specifies the logger (bunyan, default, winston)`,
+    required: false,
+    type: String,
+    defaults: `bunyan`
+  }
+};

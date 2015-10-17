@@ -9,7 +9,7 @@ const DEPENDENCIES = {
 };
 
 export default function () {
-  let logger = this.options['logger'];
+  let logger = this['logger-name'];
 
   if (DEPENDENCIES[logger]) {
     this.npmInstall(DEPENDENCIES[logger], {save: true});

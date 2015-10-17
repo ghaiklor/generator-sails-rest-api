@@ -14,11 +14,10 @@
  */
 
 export default {
-  'logger': {
-    desc: `Specifies the logger (bunyan, default, winston)`,
-    alias: 'l',
-    type: String,
-    defaults: `bunyan`,
+  'file': {
+    desc: `Configures logging to file`,
+    type: Boolean,
+    defaults: false,
     hide: false
   }
 };
