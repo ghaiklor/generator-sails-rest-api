@@ -9,7 +9,7 @@ export default {
   attributes: {
     // Fill your attributes here
 
-    toJSON: () => {
+    toJSON() {
       return this.toObject();
     }
   },
