@@ -13,11 +13,4 @@
  * };
  */
 
-export default {
-  'file': {
-    desc: `Configures logging to file`,
-    type: Boolean,
-    defaults: false,
-    hide: false
-  }
-};
+export default {};
