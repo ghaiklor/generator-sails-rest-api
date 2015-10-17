@@ -45,7 +45,7 @@ export default {
       defaultsTo: {}
     },
 
-    toJSON: function () {
+    toJSON() {
       let obj = this.toObject();
 
       delete obj.password;
@@ -55,13 +55,13 @@ export default {
     }
   },
 
-  beforeUpdate: function (values, next) {
+  beforeUpdate(values, next) {
     if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
 
     values.password = HashService.bcrypt.hash(password).then(next).catch(next);
   },
 
-  beforeCreate: function (values, next) {
+  beforeCreate(values, next) {
     values.password = HashService.bcrypt.hash(values.password).then(next).catch(next);
   }
 };
