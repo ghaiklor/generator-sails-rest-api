@@ -3,11 +3,15 @@
  * Where installation are run (npm, bower)
  */
 
-const DEPENDENCIES = [
-  'winston',
-  'mkdirp'
-];
+const DEPENDENCIES = {
+  bunyan: ['sails-hook-bunyan'],
+  winston: ['sails-hook-winston']
+};
 
 export default function () {
-  this.npmInstall(DEPENDENCIES, {save: true});
+  let logger = this.options['logger'];
+
+  if (DEPENDENCIES[logger]) {
+    this.npmInstall(DEPENDENCIES[logger], {save: true});
+  }
 };

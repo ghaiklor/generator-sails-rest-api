@@ -3,6 +3,12 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+const SOURCE_CONFIG = name => `${name}Config.js`;
+
+const DESTINATION_CONFIG = `config/log.js`;
+
 export default function () {
-  this.copy('config/winstonLog.js', 'config/log.js');
+  let logger = this.options['logger'];
+
+  this.template(SOURCE_CONFIG(logger), DESTINATION_CONFIG, {logger});
 };
