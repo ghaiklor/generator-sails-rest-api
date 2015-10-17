@@ -14,6 +14,6 @@ export default {
      * silly, verbose, info, debug, warn, error, silent
      * @type {String}
      */
-    level: 'silly'
+    level: 'verbose'
   }
 }

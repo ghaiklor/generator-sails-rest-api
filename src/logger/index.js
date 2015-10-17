@@ -9,6 +9,8 @@ export default class LoggerGenerator extends Base {
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
+
+    this.description = `Scaffolds a new logger configuration`;
   }
 
   get configuring() {

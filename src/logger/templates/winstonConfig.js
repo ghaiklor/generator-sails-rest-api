@@ -11,26 +11,13 @@ export default {
      * Winston logging level for the console transport
      * @type {String}
      */
-    level: 'silly',
+    level: 'verbose',
 
     /**
      * Outputs the timestamp in the console transport
      * @type {Boolean}
      */
     timestamp: true,
-
-    /**
-     * DailyRotateFile Transport Configuration
-     * More information here - https://github.com/winstonjs/winston/blob/master/docs/transports.md#dailyrotatefile-transport
-     */
-    dailyRotate: {
-      dirname: path.resolve('logs'),
-      datePattern: '.yyyy-MM-dd.log',
-      filename: 'app',
-      prettyPrint: true,
-      timestamp: true,
-      level: 'silly'
-    },
 
     /**
      * Custom Winston transports

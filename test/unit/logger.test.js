@@ -4,11 +4,7 @@ import { assert, test } from 'yeoman-generator';
 
 describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold default configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/logger'))
-        .on('end', done)
-    });
+    before(done => test.run(path.join(__dirname, '../../src/logger')).on('end', done));
 
     it('Should properly create configuration files', () => {
       assert.file([
@@ -49,7 +45,7 @@ describe('sails-rest-api:logger', () => {
         'config/log.js'
       ]);
 
-      assert.fileContent('config/log.js', /level: 'silly'/);
+      assert.fileContent('config/log.js', /level: 'verbose'/);
     });
   });
 
@@ -66,7 +62,7 @@ describe('sails-rest-api:logger', () => {
         'config/log.js'
       ]);
 
-      assert.fileContent('config/log.js', /dailyRotate:/);
+      assert.fileContent('config/log.js', /timestamp: true/);
     });
   });
 });

@@ -3,15 +3,13 @@
  * For detailed documentation you can take a look here - https://github.com/building5/sails-hook-bunyan
  */
 
-import path from 'path';
-
 export default {
   log: {
     /**
      * Bunyan logging level
      * @type {String}
      */
-    level: 'silly',
+    level: 'verbose',
 
     /**
      * Injects child logger on each request
@@ -29,13 +27,13 @@ export default {
      * Signal to listen on for file rotation
      * @type {String}
      */
-    rotationSignal: 'SIGHUP',
+    rotationSignal: null,
 
     /**
      * Convenience setting to log to file
      * @type {String}
      */
-    filePath: path.resolve('logs'),
+    filePath: null,
 
     bunyan: {
       /**
