@@ -3,8 +3,6 @@
  * For detailed information take a look here - https://github.com/Kikobeats/sails-hook-winston
  */
 
-import path from 'path';
-
 export default {
   log: {
     /**
