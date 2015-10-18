@@ -11,7 +11,7 @@ describe('sails-rest-api:logger', () => {
         'config/log.js'
       ]);
 
-      assert.fileContent('config/log.js', /bunyan/);
+      assert.fileContent('config/log.js', /bunyan:/);
     });
   });
 
@@ -28,7 +28,7 @@ describe('sails-rest-api:logger', () => {
         'config/log.js'
       ]);
 
-      assert.fileContent('config/log.js', /bunyan/);
+      assert.fileContent('config/log.js', /bunyan:/);
     });
   });
 
