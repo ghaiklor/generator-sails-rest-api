@@ -12,7 +12,7 @@ let defaultCountBlueprint = (req, res) => {
 
   countQuery
     .then(count => {
-      res.ok({ count: count })
+      res.ok(null, {count});
     });
 };
 
