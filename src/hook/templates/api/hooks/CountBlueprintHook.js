@@ -18,12 +18,11 @@ let defaultCountBlueprint = (req, res) => {
 
 export default function (sails) {
   var config = sails.config.blueprints;
+  let countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
 
   return {
     initialize: cb => {
       sails.on('router:before', () => {
-        let countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
-
         _.forEach(sails.models, model => {
           var controller = sails.middleware.controllers[model.identity];
           if (!controller) return;
