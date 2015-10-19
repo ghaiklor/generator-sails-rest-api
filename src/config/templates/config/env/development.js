@@ -6,7 +6,7 @@
 export default {
   port: 3000,
   log: {
-    level: 'silly'
+    level: 'verbose'
   },
   models: {
     connection: 'disk'

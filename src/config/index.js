@@ -10,7 +10,7 @@ export default class ConfigGenerator extends Base {
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffolds configuration for REST API';
+    this.description = 'Scaffolds a new configuration';
   }
 
   get configuring() {
