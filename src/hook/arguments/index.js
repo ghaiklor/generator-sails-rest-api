@@ -16,8 +16,8 @@
 
 export default {
   'hook-name': {
-    required: true,
-    optional: false,
-    type: String
+    required: false,
+    type: String,
+    defaults: ''
   }
 };

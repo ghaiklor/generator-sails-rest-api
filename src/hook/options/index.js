@@ -13,4 +13,20 @@
  * };
  */
 
-export default {};
+export default {
+  'new': {
+    desc: 'Scaffolds a clean response (not predefined)',
+    alias: 'n',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  },
+
+  'all': {
+    desc: 'Copies all the overridden hooks at once',
+    alias: 'a',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  }
+};
