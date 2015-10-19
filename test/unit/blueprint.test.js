@@ -2,9 +2,9 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:blueprints', () => {
+describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold our blueprints', () => {
-    before(done => test.run(path.join(__dirname, '../../src/blueprints')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../src/blueprint')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -36,7 +36,7 @@ describe('sails-rest-api:blueprints', () => {
   describe('Should properly scaffold default blueprints', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/blueprints'))
+        .run(path.join(__dirname, '../../src/blueprint'))
         .withOptions({
           'default': true
         })
