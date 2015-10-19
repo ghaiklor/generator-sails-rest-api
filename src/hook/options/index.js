@@ -15,7 +15,7 @@
 
 export default {
   'new': {
-    desc: 'Scaffolds a clean response (not predefined)',
+    desc: 'Scaffolds a clean hook (not predefined)',
     alias: 'n',
     type: Boolean,
     defaults: false,

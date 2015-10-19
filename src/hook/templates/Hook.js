@@ -1,3 +1,8 @@
+/**
+ * <%= name %>Hook
+ * Hook that ...
+ */
+
 export default function (sails) {
   return {
     configure: () => true,

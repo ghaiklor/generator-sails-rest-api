@@ -26,6 +26,10 @@ describe('sails-rest-api:hook', () => {
         'test/unit/hooks/PluralizeHook.test.js'
       ]);
 
+      assert.noFile([
+        'test/unit/hooks/TestHook.test.js'
+      ]);
+
       assert.fileContent('test/unit/hooks/CountHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/CountHook';/);
       assert.fileContent('test/unit/hooks/PluralizeHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/PluralizeHook';/);
     });
