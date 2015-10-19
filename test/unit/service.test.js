@@ -46,7 +46,7 @@ describe('sails-rest-api:service', () => {
         'config/services/storage.js'
       ]);
 
-      assert.fileContent('config/services/cipher.js', /secretOrKey: "[a-z0-9]{64}"/);
+      assert.fileContent('config/services/cipher.js', /secretOrKey: "DEFAULT_SECRET_KEY"/);
     });
 
     it('Should properly create test files', () => {

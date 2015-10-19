@@ -13,13 +13,11 @@
  * };
  */
 
-import crypto from 'crypto';
-
 export default {
   'cipher-secret-key': {
     'desc': 'Specifies the secret key to use in CipherService',
     'type': String,
-    'defaults': crypto.randomBytes(32).toString('hex'),
+    'defaults': 'DEFAULT_SECRET_KEY',
     'hide': false
   },
 

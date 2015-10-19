@@ -5,18 +5,22 @@
 
 import fs from 'fs';
 
-const SERVICE_TEMPLATE = (name = '') => `api/services/${name}Service.js`;
-const SERVICE_CONFIG_TEMPLATE = (name = 'Service') => `config/services/${name}.js`;
-const SERVICE_TEST_TEMPLATE = (name = '') => `test/unit/services/${name}Service.test.js`;
+const SOURCE_SERVICE = name => name ? `api/services/${name}Service.js` : `Service.js`;
+const SOURCE_SERVICE_CONFIG = name => name ? `config/services/${name.toLowerCase()}.js` : `ServiceConfig.js`;
+const SOURCE_SERVICE_TEST = name => name ? `test/unit/services/${name}Service.test.js` : `Service.test.js`;
+
+const DESTINATION_SERVICE = name => `api/services/${name}Service.js`;
+const DESTINATION_SERVICE_CONFIG = name => `config/services/${name.toLowerCase()}.js`;
+const DESTINATION_SERVICE_TEST = name => `test/unit/services/${name}Service.test.js`;
 
 export default function () {
   let name = (this['service-name'].charAt(0).toUpperCase() + this['service-name'].slice(1)).replace(/Service/, '');
 
-  let serviceTemplate = fs.existsSync(this.templatePath(SERVICE_TEMPLATE(name))) ? SERVICE_TEMPLATE(name) : SERVICE_TEMPLATE();
-  let configTemplate = fs.existsSync(this.templatePath(SERVICE_CONFIG_TEMPLATE(name))) ? SERVICE_CONFIG_TEMPLATE(name) : SERVICE_CONFIG_TEMPLATE();
-  let testTemplate = fs.existsSync(this.templatePath(SERVICE_TEST_TEMPLATE(name))) ? SERVICE_TEST_TEMPLATE(name) : SERVICE_TEST_TEMPLATE();
+  let serviceTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE(name))) ? SOURCE_SERVICE(name) : SOURCE_SERVICE();
+  let configTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE_CONFIG(name))) ? SOURCE_SERVICE_CONFIG(name) : SOURCE_SERVICE_CONFIG();
+  let testTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE_TEST(name))) ? SOURCE_SERVICE_TEST(name) : SOURCE_SERVICE_TEST();
 
-  this.template(serviceTemplate, `api/services/${name}Service.js`, {name, options: this.options});
-  this.template(configTemplate, `config/services/${name.toLowerCase()}.js`, {name, options: this.options});
-  this.template(testTemplate, `test/unit/services/${name}Service.test.js`, {name, options: this.options});
+  this.template(serviceTemplate, DESTINATION_SERVICE(name), {name, options: this.options});
+  this.template(configTemplate, DESTINATION_SERVICE_CONFIG(name), {name, options: this.options});
+  this.template(testTemplate, DESTINATION_SERVICE_TEST(name), {name, options: this.options});
 };
