@@ -50,7 +50,11 @@
   "devDependencies": {
     "babel": "5.8.23",
     "chai": "3.3.0",
+    "cz-conventional-changelog": "1.1.4",
     "istanbul": "0.4.0",
     "mocha": "2.3.3"
+  },
+  "czConfig": {
+    "path": "./node_modules/cz-conventional-changelog"
   }
 }

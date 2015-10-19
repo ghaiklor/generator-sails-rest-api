@@ -6,6 +6,8 @@
 
 [![Onix-Systems](https://cloud.githubusercontent.com/assets/3625244/9819276/b40b6338-58b5-11e5-8800-c42f3ebe1242.png)](http://us.onix-systems.com/)
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features.
 
 ## Build Status
