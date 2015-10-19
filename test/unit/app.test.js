@@ -20,6 +20,9 @@ describe('sails-rest-api:app', () => {
         [test.createDummyGenerator(), 'sails-rest-api:response'],
         [test.createDummyGenerator(), 'sails-rest-api:service']
       ])
+      .withOptions({
+        'skip-update': true
+      })
       .on('end', done);
   });
 
