@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import Promise from 'bluebird';
-import controller from '../../../api/controllers/PingController';
+import Controller from '../../../api/controllers/PingController';
 
 describe('controllers:PingController', () => {
   it('Should return HTTP server is working', done => {

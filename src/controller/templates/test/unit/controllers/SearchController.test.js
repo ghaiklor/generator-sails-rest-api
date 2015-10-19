@@ -1,7 +1,7 @@
 import { assert } from 'assert';
 import Promise from 'bluebird';
 import Users from '../../fixtures/Users';
-import controller from '../../../api/controllers/SearchController';
+import Controller from '../../../api/controllers/SearchController';
 
 let authToken = '';
 

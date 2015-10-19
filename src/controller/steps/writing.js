@@ -5,16 +5,28 @@
 
 import fs from 'fs';
 
-const CONTROLLER_TEMPLATE = (name = '') => `api/controllers/${name}Controller.template`;
-const CONTROLLER_TEST_TEMPLATE = (name = '') => `test/unit/controllers/${name}Controller.test.js`;
+const SOURCE_CONTROLLER = name => name ? `api/controllers/${name}Controller.js` : `Controller.js`;
+const SOURCE_CONTROLLER_TEST = name => name ? `test/unit/controllers/${name}Controller.test.js` : `Controller.test.js`;
+
+const DESTINATION_CONTROLLER = name => `api/controllers/${name}Controller.js`;
+const DESTINATION_CONTROLLER_TEST = name => `test/unit/controllers/${name}Controller.test.js`;
 
 export default function () {
   let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/Controller/, '');
-  let actions = this['controller-actions'];
+  let isNew = this.options['new'];
+  let isAll = !name || this.options['all'];
 
-  let controllerTemplate = fs.existsSync(this.templatePath(CONTROLLER_TEMPLATE(name))) ? CONTROLLER_TEMPLATE(name) : CONTROLLER_TEMPLATE();
-  let testTemplate = fs.existsSync(this.templatePath(CONTROLLER_TEST_TEMPLATE(name))) ? CONTROLLER_TEST_TEMPLATE(name) : CONTROLLER_TEST_TEMPLATE();
+  if (isAll) {
+    this.directory(`api/controllers`, `api/controllers`);
+    this.directory(`test/unit/controllers`, `test/unit/controllers`);
+  } else if (isNew) {
+    this.template(SOURCE_CONTROLLER(), DESTINATION_CONTROLLER(name), {name});
+    this.template(SOURCE_CONTROLLER_TEST(), DESTINATION_CONTROLLER_TEST(name), {name});
+  } else {
+    let controllerTemplate = fs.existsSync(this.templatePath(SOURCE_CONTROLLER(name))) ? SOURCE_CONTROLLER(name) : SOURCE_CONTROLLER();
+    let testTemplate = fs.existsSync(this.templatePath(SOURCE_CONTROLLER_TEST(name))) ? SOURCE_CONTROLLER_TEST(name) : SOURCE_CONTROLLER_TEST();
 
-  this.template(controllerTemplate, `api/controllers/${name}Controller.js`, {name, actions});
-  this.template(testTemplate, `test/unit/controllers/${name}Controller.test.js`, {name, actions});
+    this.template(controllerTemplate, DESTINATION_CONTROLLER(name), {name});
+    this.template(testTemplate, DESTINATION_CONTROLLER_TEST(name), {name});
+  }
 };

@@ -13,4 +13,20 @@
  * };
  */
 
-export default {};
+export default {
+  'new': {
+    desc: 'Scaffolds a clean controller (not predefined)',
+    alias: 'n',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  },
+
+  'all': {
+    desc: 'Copies all the overridden controllers at once',
+    alias: 'a',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  }
+};

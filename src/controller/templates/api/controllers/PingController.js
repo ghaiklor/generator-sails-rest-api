@@ -6,8 +6,3 @@
 export function index(req, res) {
   res.ok(req.allParams(), {message: 'HTTP server is working'});
 }
-<% actions.filter(function(action) {return ['index'].indexOf(action) === -1}).forEach(function(action) { %>
-export function <%= action %>(req, res) {
-  res.ok();
-}
-<% }) %>

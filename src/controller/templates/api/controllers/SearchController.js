@@ -38,8 +38,3 @@ export function index(req, res) {
     .then(res.ok)
     .catch(res.negotiate);
 }
-<% actions.filter(function(action) {return ['index'].indexOf(action) === -1}).forEach(function(action) { %>
-export function <%= action %>(req, res) {
-  res.ok();
-}
-<% }) %>

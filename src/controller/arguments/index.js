@@ -16,16 +16,8 @@
 
 export default {
   'controller-name': {
-    required: true,
-    optional: false,
+    required: false,
     type: String,
     defaults: ''
-  },
-
-  'controller-actions': {
-    required: false,
-    optional: true,
-    type: Array,
-    defaults: ['index']
   }
 };

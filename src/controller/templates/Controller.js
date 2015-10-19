@@ -2,8 +2,7 @@
  * <%= name %>Controller
  * @description :: Server-side logic for ...
  */
-<% actions.forEach(function(action) { %>
-export function <%= action %>(req, res) {
+
+export function index(req, res) {
   res.ok();
 }
-<% }) %>
