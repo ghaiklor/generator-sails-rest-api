@@ -14,9 +14,19 @@
  */
 
 export default {
-  'default': {
-    desc: 'Scaffolds default Sails blueprints',
+  'new': {
+    desc: 'Scaffolds a clean blueprint (not predefined)',
+    alias: 'n',
     type: Boolean,
+    defaults: false,
+    hide: false
+  },
+
+  'all': {
+    desc: 'Copies all the overridden blueprints at once',
+    alias: 'a',
+    type: Boolean,
+    defaults: false,
     hide: false
   }
 };

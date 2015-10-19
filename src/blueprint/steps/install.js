@@ -4,14 +4,9 @@
  */
 
 const DEPENDENCIES = [
-  'lodash',
-  'bluebird'
+  'lodash'
 ];
 
 export default function () {
-  let isDefault = this.options['default'];
-
-  if (!isDefault) {
-    this.npmInstall(DEPENDENCIES, {save: true});
-  }
+  this.npmInstall(DEPENDENCIES, {save: true});
 };

@@ -3,14 +3,14 @@ import generatorArguments from './arguments';
 import generatorOptions from './options';
 import generatorSteps from './steps';
 
-export default class BlueprintsGenerator extends Base {
+export default class BlueprintGenerator extends Base {
   constructor(...args) {
     super(...args);
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffolds the optimized blueprints for REST API';
+    this.description = 'Scaffolds a new blueprint';
   }
 
   get configuring() {

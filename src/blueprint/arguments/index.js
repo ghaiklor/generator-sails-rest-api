@@ -14,4 +14,10 @@
  * };
  */
 
-export default {};
+export default {
+  'blueprint-name': {
+    required: false,
+    type: String,
+    defaults: ''
+  }
+};
