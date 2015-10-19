@@ -5,15 +5,28 @@
 
 import fs from 'fs';
 
-const HOOK_TEMPLATE = (name = '') => `api/hooks/${name}Hook.js`;
-const HOOK_TEST_TEMPLATE = (name = '') => `test/unit/hooks/${name}Hook.test.js`;
+const SOURCE_HOOK = name => name ? `api/hooks/${name}Hook.js` : `Hook.js`;
+const SOURCE_HOOK_TEST = name => name ? `test/unit/hooks/${name}Hook.js` : `Hook.test.js`;
+
+const DESTINATION_HOOK = name => `api/hooks/${name}Hook.js`;
+const DESTINATION_HOOK_TEST = name => `test/unit/hooks/${name}Hook.test.js`;
 
 export default function () {
   let name = (this['hook-name'].charAt(0).toUpperCase() + this['hook-name'].slice(1)).replace(/Hook/, '');
+  let isNew = this.options['new'];
+  let isAll = !name || this.options['all'];
 
-  let hookTemplate = fs.existsSync(this.templatePath(HOOK_TEMPLATE(name))) ? HOOK_TEMPLATE(name) : HOOK_TEMPLATE();
-  let testTemplate = fs.existsSync(this.templatePath(HOOK_TEST_TEMPLATE(name))) ? HOOK_TEST_TEMPLATE(name) : HOOK_TEST_TEMPLATE();
+  if (isAll) {
+    this.directory(`api/hooks`, `api/hooks`);
+    this.directory(`test/unit/hooks`, `test/unit/hooks`);
+  } else if (isNew) {
+    this.template(SOURCE_HOOK(), DESTINATION_HOOK(name), {name});
+    this.template(SOURCE_HOOK_TEST(), DESTINATION_HOOK_TEST(name), {name});
+  } else {
+    let hookTemplate = fs.existsSync(this.templatePath(SOURCE_HOOK(name))) ? SOURCE_HOOK(name) : SOURCE_HOOK();
+    let testTemplate = fs.existsSync(this.templatePath(SOURCE_HOOK_TEST(name))) ? SOURCE_HOOK_TEST(name) : SOURCE_HOOK_TEST();
 
-  this.template(hookTemplate, `api/hooks/${name}Hook.js`, {name});
-  this.template(testTemplate, `test/unit/hooks/${name}Hook.test.js`, {name});
+    this.template(hookTemplate, DESTINATION_HOOK(name), {name});
+    this.template(testTemplate, DESTINATION_HOOK_TEST(name), {name});
+  }
 };

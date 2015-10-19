@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 import _ from 'lodash';
-import hook from '../../../api/hooks/PluralizeHook';
+import Hook from '../../../api/hooks/PluralizeHook';
 
 const sailsLoc = {
   middleware: {

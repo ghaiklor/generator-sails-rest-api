@@ -6,33 +6,34 @@ import _ from 'lodash';
 import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
 import pluralize from 'pluralize';
 
-let defaultCountBlueprint = (req, res) => {
+const defaultCountBlueprint = (req, res) => {
   let Model = actionUtil.parseModel(req);
   let countQuery = Model.count();
 
-  countQuery
-    .then(count => {
-      res.ok(null, {count});
-    });
+  countQuery.then(count => res.ok(null, {count}));
 };
 
 export default function (sails) {
-  var config = sails.config.blueprints;
-  let countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
-
   return {
     initialize: cb => {
+      let config = sails.config.blueprints;
+      let countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
+
       sails.on('router:before', () => {
         _.forEach(sails.models, model => {
-          var controller = sails.middleware.controllers[model.identity];
+          let controller = sails.middleware.controllers[model.identity];
+
           if (!controller) return;
 
           let baseRoute = [config.prefix, model.identity].join('/');
+
           if (config.pluralize && _.get(controller, '_config.pluralize', true)) {
             baseRoute = pluralize(baseRoute);
           }
+
           let route = baseRoute + '/count';
-          sails.router.bind(route, countFn, null, { controller: model.identity });
+
+          sails.router.bind(route, countFn, null, {controller: model.identity});
         });
 
       });

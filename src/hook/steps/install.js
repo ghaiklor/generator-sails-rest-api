@@ -4,6 +4,7 @@
  */
 
 const DEPENDENCIES = {
+  count: ['lodash', 'pluralize'],
   pluralize: ['lodash']
 };
 

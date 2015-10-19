@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
 import _ from 'lodash';
-import hook from '../../../api/hooks/CountBlueprintHook';
+import Hook from '../../../api/hooks/CountHook';
 
 const sailsLoc = {
   middleware: {
