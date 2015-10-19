@@ -18,7 +18,6 @@ export default {
   'cron-jobs': {
     desc: `Jobs' names`,
     required: false,
-    optional: true,
     type: Array,
     defaults: []
   }

@@ -3,10 +3,12 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const CRON_TEMPLATE = 'config/cron.template';
+const SOURCE_CRON = `cron.template`;
+
+const DESTINATION_CRON = `config/cron.js`;
 
 export default function () {
   let jobs = this['cron-jobs'];
 
-  this.template(CRON_TEMPLATE, 'config/cron.js', {jobs});
+  this.template(SOURCE_CRON, DESTINATION_CRON, {jobs});
 };
