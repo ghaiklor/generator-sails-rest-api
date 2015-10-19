@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import Promise from 'bluebird'
 import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
 
 const takeAlias = _.partial(_.pluck, _, 'alias');
@@ -24,17 +23,15 @@ export default function (req, res) {
   let sort = actionUtil.parseSort(req);
   let query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
   let findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
-  let countQuery = Model.count(where);
 
-  Promise.all([findQuery, countQuery])
-    .spread((records, count) => [records, {
+  findQuery
+    .then(records => [records, {
       root: {
         criteria: where,
         limit: limit,
         start: skip,
         end: skip + limit,
-        page: Math.floor(skip / limit),
-        total: count
+        page: Math.floor(skip / limit)
       }
     }])
     .spread(res.ok)
