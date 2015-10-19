@@ -1,6 +1,6 @@
 {
   "name": "generator-sails-rest-api",
-  "version": "1.0.0-alpha.13",
+  "version": "0.0.0-semantic-release",
   "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features",
   "keywords": [
     "yeoman-generator",
@@ -32,9 +32,11 @@
   "scripts": {
     "clean": "rm -rf ./generators",
     "compile": "npm run clean && cp -r src/ generators/ && babel src --out-dir generators",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
-    "test": "istanbul cover _mocha"
+    "test": "istanbul cover _mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -50,11 +52,19 @@
   "devDependencies": {
     "babel": "5.8.23",
     "chai": "3.3.0",
+    "coveralls": "2.11.4",
     "cz-conventional-changelog": "1.1.4",
     "istanbul": "0.4.0",
-    "mocha": "2.3.3"
+    "mocha": "2.3.3",
+    "semantic-release": "4.3.5"
   },
   "czConfig": {
     "path": "./node_modules/cz-conventional-changelog"
+  },
+  "publishConfig": {
+    "tag": "alpha"
+  },
+  "release": {
+    "branch": "master"
   }
 }
