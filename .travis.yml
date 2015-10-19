@@ -11,7 +11,6 @@ node_js:
   - iojs-v2
   - iojs-v1
   - '0.12'
-  - '0.10'
 before_script:
   - npm prune
   - 'curl -Lo travis_after_all.py https://git.io/vLSON'
