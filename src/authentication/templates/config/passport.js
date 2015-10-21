@@ -41,7 +41,7 @@ const LOCAL_STRATEGY_CONFIG = {
  * @private
  */
 const JWT_STRATEGY_CONFIG = {
-  secretOrKey: "<%= options['application-secret'] %>",
+  secretOrKey: '<%= options["secret-key"] %>',
   tokenBodyField: 'access_token',
   tokenQueryParameterName: 'access_token',
   authScheme: 'Bearer',
@@ -146,7 +146,7 @@ const _onSocialStrategyAuth = (req, accessToken, refreshToken, profile, next) =>
  * @private
  */
 export const onPassportAuth = (req, res, error, user, info) => {
-  if (error || !user) return res.negotiate(_.assign(error || {}, info));
+  if (error || !user) return res.negotiate(error || info);
 
   return res.ok({
     token: CipherService.jwt.encodeSync({id: user.id}),

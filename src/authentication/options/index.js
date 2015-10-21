@@ -13,17 +13,10 @@
  * };
  */
 
-import crypto from 'crypto';
-
 export default {
   'secret-key': {
-    desc: 'Specifies a secret key for your application',
+    desc: 'Specifies a secret key',
     type: String,
-    defaults: crypto.randomBytes(32).toString('hex')
-  },
-  'social-networks': {
-    desc: 'Specifies a list of social networks that you need to support',
-    type: String,
-    defaults: ''
+    defaults: 'DEFAULT_SECRET_KEY'
   }
 };
