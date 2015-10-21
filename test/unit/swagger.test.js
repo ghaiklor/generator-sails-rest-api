@@ -7,7 +7,13 @@ describe('sails-rest-api:swagger', () => {
     before(done => test.run(path.join(__dirname, '../../src/swagger')).on('end', done));
 
     it('Should properly create api files', () => {
-      assert(false);
+      assert.file([
+        'api/controllers/DocsController.js',
+        'api/hooks/swagger/index.js',
+        'api/hooks/swagger/lib/spec.js',
+        'api/hooks/swagger/lib/xfmr.js',
+        'config/http.js'
+      ]);
     });
   });
 });
