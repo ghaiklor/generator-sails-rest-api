@@ -13,6 +13,7 @@
     "model/templates",
     "policy/templates",
     "response/templates",
-    "service/templates"
+    "service/templates",
+    "swagger/templates"
   ]
 }
