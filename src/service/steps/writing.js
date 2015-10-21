@@ -16,7 +16,7 @@ const DESTINATION_SERVICE_TEST = name => `test/unit/services/${name}Service.test
 export default function () {
   let name = (this['service-name'].charAt(0).toUpperCase() + this['service-name'].slice(1)).replace(/Service/, '');
   let isNew = this.options['new'];
-  let isAll = this.options['all'];
+  let isAll = !name || this.options['all'];
 
   if (isAll) {
     this.directory(`api/services`, `api/services`);

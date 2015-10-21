@@ -16,7 +16,8 @@
 
 export default {
   'service-name': {
-    required: true,
-    type: String
+    required: false,
+    type: String,
+    defaults: ''
   }
 };
