@@ -18,8 +18,17 @@ const DEPENDENCIES = {
 
 export default function () {
   let name = this['service-name'].replace(/Service/, '').toLowerCase();
+  let isNew = this.options['new'];
+  let isAll = !name || this.options['all'];
+  let deps = [];
 
-  if (DEPENDENCIES[name]) {
-    this.npmInstall(DEPENDENCIES[name], {save: true});
+  if (isNew) return;
+
+  if (isAll) {
+    deps = Object.keys(DEPENDENCIES).reduce((dependencies, service) => dependencies.concat(DEPENDENCIES[service]), []);
+  } else {
+    deps = DEPENDENCIES[name] ? DEPENDENCIES[name] : [];
   }
+
+  this.npmInstall(deps, {save: true});
 };
