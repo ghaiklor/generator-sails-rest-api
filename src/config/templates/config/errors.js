@@ -47,6 +47,12 @@ export default {
       code: 'E_UNAUTHORIZED',
       message: 'Missing or invalid authentication token',
       status: 401
+    },
+
+    USER_NOT_FOUND: {
+      code: 'E_USER_NOT_FOUND',
+      message: 'User with specified credentials is not found',
+      status: 401
     }
   }
 }
