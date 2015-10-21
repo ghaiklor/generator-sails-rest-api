@@ -14,22 +14,6 @@
  */
 
 export default {
-  'new': {
-    'desc': 'Scaffolds a clean service (not predefined)',
-    'alias': 'n',
-    'type': Boolean,
-    'defaults': false,
-    'hide': false
-  },
-
-  'all': {
-    'desc': 'Copies all the predefined services at once',
-    'alias': 'a',
-    'type': Boolean,
-    'defaults': false,
-    'hide': false
-  },
-
   'cipher-secret-key': {
     'desc': 'Specifies the secret key to use in CipherService',
     'type': String,
@@ -76,6 +60,22 @@ export default {
     'desc': 'Specifies the storage provider for StorageService',
     'type': String,
     'defaults': 'Amazon',
+    'hide': false
+  },
+
+  'new': {
+    'desc': 'Scaffolds a clean service (not predefined)',
+    'alias': 'n',
+    'type': Boolean,
+    'defaults': false,
+    'hide': false
+  },
+
+  'all': {
+    'desc': 'Copies all the predefined services at once',
+    'alias': 'a',
+    'type': Boolean,
+    'defaults': false,
     'hide': false
   }
 };
