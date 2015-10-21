@@ -240,7 +240,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CipherService.js', /import cipher from 'sails-service-hash'/);
+      assert.fileContent('api/services/CipherService.js', /import cipher from 'sails-service-cipher'/);
     });
 
     it('Should properly create config files', () => {
@@ -309,12 +309,12 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/ImageService.js', /image\("IM"/);
-      assert.fileContent('api/services/LocationService.js', /location\("FreeGeoIP"/);
-      assert.fileContent('api/services/MailerService.js', /mailer\("SMTP"/);
-      assert.fileContent('api/services/PaymentService.js', /payment\("BrainTree"/);
-      assert.fileContent('api/services/SmsService.js', /sms\("Twilio"/);
-      assert.fileContent('api/services/StorageService.js', /storage\("Local"/);
+      assert.fileContent('api/services/ImageService.js', /image\('IM'/);
+      assert.fileContent('api/services/LocationService.js', /location\('FreeGeoIP'/);
+      assert.fileContent('api/services/MailerService.js', /mailer\('SMTP'/);
+      assert.fileContent('api/services/PaymentService.js', /payment\('BrainTree'/);
+      assert.fileContent('api/services/SmsService.js', /sms\('Twilio'/);
+      assert.fileContent('api/services/StorageService.js', /storage\('Local'/);
     });
 
     it('Should properly create config files', () => {
