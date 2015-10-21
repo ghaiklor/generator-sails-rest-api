@@ -20,15 +20,12 @@ export default function () {
   let name = this['service-name'].replace(/Service/, '').toLowerCase();
   let isNew = this.options['new'];
   let isAll = !name || this.options['all'];
-  let deps = [];
 
   if (isNew) return;
 
   if (isAll) {
-    deps = Object.keys(DEPENDENCIES).reduce((dependencies, service) => dependencies.concat(DEPENDENCIES[service]), []);
+    return this.npmInstall(Object.keys(DEPENDENCIES).reduce((dependencies, service) => dependencies.concat(DEPENDENCIES[service]), []), {save: true});
   } else {
-    deps = DEPENDENCIES[name] ? DEPENDENCIES[name] : [];
+    return DEPENDENCIES[name] ? this.npmInstall(DEPENDENCIES[name], {save: true}) : true;
   }
-
-  this.npmInstall(deps, {save: true});
 };
