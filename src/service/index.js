@@ -10,7 +10,7 @@ export default class ServiceGenerator extends Base {
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffold a new service or predefined';
+    this.description = 'Scaffolds a new service';
   }
 
   get configuring() {
