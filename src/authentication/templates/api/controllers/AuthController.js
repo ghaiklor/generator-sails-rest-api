@@ -1,6 +1,6 @@
 /**
  * AuthController
- * @description :: Server-side logic for manage user's authorization
+ * @description :: Server-side logic for manage users' authorization
  */
 
 import _ from 'lodash';
@@ -8,6 +8,8 @@ import passport from 'passport';
 
 /**
  * Sign in by email\password
+ * @param req
+ * @param res
  */
 export function signin(req, res) {
   passport.authenticate('local', _.partial(sails.config.passport.onPassportAuth, req, res))(req, res);
@@ -15,6 +17,8 @@ export function signin(req, res) {
 
 /**
  * Sign up by email\password
+ * @param req
+ * @param res
  */
 export function signup(req, res) {
   let values = _.omit(req.allParams(), 'id');
@@ -30,6 +34,8 @@ export function signup(req, res) {
 
 /**
  * Authorization via social networks
+ * @param req
+ * @param res
  */
 export function social(req, res) {
   let type = req.param('type') ? req.param('type').toLowerCase() : '-';
@@ -47,6 +53,8 @@ export function social(req, res) {
 
 /**
  * Accept JSON Web Token and updates with new one
+ * @param req
+ * @param res
  */
 export function refresh_token(req, res) {
   if (!req.param('token')) return res.badRequest(null, {message: 'You must provide token parameter'});
