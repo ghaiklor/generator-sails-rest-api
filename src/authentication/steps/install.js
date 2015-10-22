@@ -23,8 +23,12 @@ const PASSPORT_DEPENDENCIES = {
   yahoo: ['passport-yahoo-token']
 };
 
+const DEPENDENCIES = [
+  'passport'
+];
+
 export default function () {
   let passportDependencies = Object.keys(PASSPORT_DEPENDENCIES).reduce((deps, strategy) => deps.concat(PASSPORT_DEPENDENCIES[strategy]), []);
 
-  this.npmInstall(passportDependencies, {save: true});
+  this.npmInstall(DEPENDENCIES.concat(passportDependencies), {save: true});
 };
