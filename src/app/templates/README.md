@@ -1,4 +1,4 @@
-# <%= answers['application:name'] %>
+# <%= answers['app:name'] %>
 
 ## Installation
 
