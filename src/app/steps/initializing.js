@@ -23,23 +23,14 @@ function _onUpdateNotifier(done, error, update) {
 }
 
 export default {
-  /**
-   * Load package.json
-   */
   loadPackageInfo: function () {
     this.pkg = require('../../../package.json');
   },
 
-  /**
-   * Say yeoman hello
-   */
   sayHello: function () {
     this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
   },
 
-  /**
-   * Notify about updates of generator-sails-rest-api
-   */
   checkUpdates: function () {
     if (!this.options['skip-update']) {
       this.log(chalk.yellow('Checking for updates...'));
