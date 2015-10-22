@@ -8,7 +8,7 @@ const SOURCE_CONFIG = name => `${name}Config.js`;
 const DESTINATION_CONFIG = `config/log.js`;
 
 export default function () {
-  let logger = this['logger-name'];
+  let logger = this['logger-name'].toLowerCase();
 
   this.template(SOURCE_CONFIG(logger), DESTINATION_CONFIG, {logger});
 };
