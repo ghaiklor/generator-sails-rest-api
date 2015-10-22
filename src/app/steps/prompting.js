@@ -6,74 +6,83 @@
 import chalk from 'chalk';
 import questions from '../questions';
 
-export default {
-  askAdapters: function () {
-    let done = this.async();
+function askQuestions(title, questions, done) {
+  this.log(chalk.yellow(`\n${title} questions:`));
 
-    this.log(chalk.yellow('\nAdapters questions:'));
-    this.prompt(questions.adapters, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
-  },
+  this.prompt(questions, answers => {
+    this.answers = Object.assign(this.answers || {}, answers);
+    done();
+  });
+}
+
+export default {
+  //askAdapter: function () {
+  //  let done = this.async();
+  //  askQuestions.call(this, 'Adapter', questions.adapter, done);
+  //},
 
   askApp: function () {
     let done = this.async();
-
-    this.log(chalk.yellow('\nApplication questions:'));
-    this.prompt(questions.app, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+    askQuestions.call(this, 'Application', questions.app, done);
   },
 
   askAuthentication: function () {
     let done = this.async();
-
-    this.log(chalk.yellow('\nAuthentication questions:'));
-    this.prompt(questions.authentication, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+    askQuestions.call(this, 'Authentication', questions.authentication, done);
   },
 
-  askBlueprints: function () {
+  askBlueprint: function () {
     let done = this.async();
-
-    this.log(chalk.yellow('\nBlueprints questions:'));
-    this.prompt(questions.blueprints, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+    askQuestions.call(this, 'Blueprint', questions.blueprint, done);
   },
 
   askConfig: function () {
     let done = this.async();
-
-    this.log(chalk.yellow('\nConfiguration questions:'));
-    this.prompt(questions.config, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+    askQuestions.call(this, 'Configuration', questions.config, done);
   },
 
-  askControllers: function () {
+  askController: function () {
     let done = this.async();
-
-    this.log(chalk.yellow('\nControllers questions:'));
-    this.prompt(questions.controllers, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+    askQuestions.call(this, 'Controller', questions.controller, done);
   },
 
-  askServices: function () {
+  askCron: function () {
     let done = this.async();
+    askQuestions.call(this, 'Cron', questions.cron, done);
+  },
 
-    this.log(chalk.yellow('\nService questions:'));
-    this.prompt(questions.services, answers => {
-      this.answers = Object.assign(this.answers || {}, answers);
-      done();
-    });
+  askHook: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Hook', questions.hook, done);
+  },
+
+  askLogger: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Logger', questions.logger, done);
+  },
+
+  //askModel: function () {
+  //  let done = this.async();
+  //  askQuestions.call(this, 'Model', questions.model, done);
+  //},
+
+  //askPolicy: function () {
+  //  let done = this.async();
+  //  askQuestions.call(this, 'Policy', questions.policy, done);
+  //},
+
+  //askResponse: function () {
+  //  let done = this.async();
+  //  askQuestions.call(this, 'Response', questions.response, done);
+  //},
+
+  askService: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Service', questions.service, done);
+  },
+
+  askSwagger: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Swagger', questions.swagger, done);
   }
 };

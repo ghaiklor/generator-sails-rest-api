@@ -71,4 +71,9 @@ export default [{
   message: 'DynamoDB region',
   default: 'us-west-1',
   when: whenDatabaseIsChosen(['DynamoDB'])
+}, {
+  type: 'confirm',
+  name: 'config:cors',
+  message: 'Enable CORS?',
+  default: false
 }];

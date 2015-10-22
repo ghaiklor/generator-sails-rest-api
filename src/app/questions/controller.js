@@ -12,18 +12,11 @@
 
 export default [{
   type: 'checkbox',
-  name: 'controllers:controllers',
-  message: 'Choose which controllers you want to copy',
+  name: 'controller:chosen',
+  message: 'Choose which predefined controllers you want to copy',
   default: ['PingController', 'SearchController'],
   choices: [
     'PingController',
-    'SearchController',
-    'CustomController...'
+    'SearchController'
   ]
-}, {
-  type: 'input',
-  name: 'controllers:custom-controllers',
-  message: 'Controllers\' name (comma-separated)',
-  default: '',
-  when: answers => answers['controllers:controllers'].indexOf('CustomController...') !== -1
 }];

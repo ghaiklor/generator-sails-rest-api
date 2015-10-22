@@ -10,4 +10,17 @@
  * }];
  */
 
-export default [];
+import crypto from 'crypto';
+
+export default [{
+  type: 'confirm',
+  name: 'authentication:enabled',
+  message: 'Do you need authentication layer?',
+  default: true
+}, {
+  type: 'input',
+  name: 'authentication:secret-key',
+  message: 'Secret key',
+  default: crypto.randomBytes(32).toString('hex'),
+  when: answers => answers['authentication:enabled']
+}];

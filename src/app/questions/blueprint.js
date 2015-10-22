@@ -11,8 +11,8 @@
  */
 
 export default [{
-  type: 'input',
-  name: 'app:name',
-  message: 'Application name',
-  default: 'sails-rest-api'
+  type: 'confirm',
+  name: 'blueprint:all',
+  message: 'Use overridden blueprints?',
+  default: true
 }];

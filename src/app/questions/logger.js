@@ -11,8 +11,13 @@
  */
 
 export default [{
-  type: 'confirm',
-  name: 'blueprints:use-default',
-  message: 'Use default blueprints?',
-  default: false
+  type: 'list',
+  name: 'logger:chosen',
+  message: 'Choose which logger you want to configure',
+  default: 'Winston',
+  choices: [
+    'Bunyan',
+    'Default',
+    'Winston'
+  ]
 }];

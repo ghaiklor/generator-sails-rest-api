@@ -11,8 +11,12 @@
  */
 
 export default [{
-  type: 'input',
-  name: 'app:name',
-  message: 'Application name',
-  default: 'sails-rest-api'
+  type: 'checkbox',
+  name: 'hook:chosen',
+  message: 'Choose which predefined hooks you want to copy',
+  default: ['CountHook', 'PluralizeHook'],
+  choices: [
+    'CountHook',
+    'PluralizeHook'
+  ]
 }];

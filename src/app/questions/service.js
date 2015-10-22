@@ -10,11 +10,11 @@
  * }];
  */
 
-const whenServiceIsChosen = serviceName => answers => answers['services:chosen'].indexOf(serviceName) !== -1;
+const whenServiceIsChosen = serviceName => answers => answers['service:chosen'].indexOf(serviceName) !== -1;
 
 export default [{
   type: 'checkbox',
-  name: 'services:chosen',
+  name: 'service:chosen',
   message: 'Select which services you want to use',
   default: ['CipherService', 'HashService'],
   choices: [
@@ -30,8 +30,14 @@ export default [{
     'StorageService'
   ]
 }, {
+  type: 'input',
+  name: 'service:cipher-secret-key',
+  message: 'Secret key',
+  default: 'DEFAULT_SECRET_KEY',
+  when: whenServiceIsChosen('CipherService')
+}, {
   type: 'list',
-  name: 'services:image:provider',
+  name: 'service:image-provider',
   message: 'Image provider',
   default: 'GM',
   choices: [
@@ -41,7 +47,7 @@ export default [{
   when: whenServiceIsChosen('ImageService')
 }, {
   type: 'list',
-  name: 'services:location:provider',
+  name: 'service:location-provider',
   message: 'Location provider',
   default: 'Google',
   choices: [
@@ -57,12 +63,14 @@ export default [{
     'OpenCage',
     'SmartyStreets',
     'GeoCodio',
-    'Yandex'
+    'Yandex',
+    'Here',
+    'Teleport'
   ],
   when: whenServiceIsChosen('LocationService')
 }, {
   type: 'list',
-  name: 'services:mailer:provider',
+  name: 'service:mailer-provider',
   message: 'Mailer provider',
   default: 'sendmail',
   choices: [
@@ -76,7 +84,7 @@ export default [{
   when: whenServiceIsChosen('MailerService')
 }, {
   type: 'list',
-  name: 'services:payment:provider',
+  name: 'service:payment-provider',
   message: 'Payment provider',
   default: 'Stripe',
   choices: [
@@ -86,7 +94,7 @@ export default [{
   when: whenServiceIsChosen('PaymentService')
 }, {
   type: 'list',
-  name: 'services:sms:provider',
+  name: 'service:sms-provider',
   message: 'SMS provider',
   default: 'Twilio',
   choices: [
@@ -95,7 +103,7 @@ export default [{
   when: whenServiceIsChosen('SmsService')
 }, {
   type: 'list',
-  name: 'services:storage:provider',
+  name: 'service:storage-provider',
   message: 'Storage provider',
   default: 'Amazon',
   choices: [

@@ -1,9 +1,31 @@
-import adapters from './adapters';
+import adapter from './adapter';
 import app from './app';
 import authentication from './authentication';
-import blueprints from './blueprints';
+import blueprint from './blueprint';
 import config from './config';
-import controllers from './controllers';
-import services from './services';
+import controller from './controller';
+import cron from './cron';
+import hook from './hook';
+import logger from './logger';
+import model from './model';
+import policy from './policy';
+import response from './response';
+import service from './service';
+import swagger from './swagger';
 
-export default {adapters, app, authentication, blueprints, config, controllers, services};
+export default {
+  adapter,
+  app,
+  authentication,
+  blueprint,
+  config,
+  controller,
+  cron,
+  hook,
+  logger,
+  model,
+  policy,
+  response,
+  service,
+  swagger
+};
