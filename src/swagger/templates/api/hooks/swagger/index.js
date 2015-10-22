@@ -6,9 +6,12 @@ import path from 'path'
 import _ from 'lodash'
 import Marlinspike from 'marlinspike'
 import xfmr from './lib/xfmr'
+import express from 'express';
 
 class Swagger extends Marlinspike {
   defaults(overrides) {
+    this.bindExplorerRoute();
+
     return {
       'swagger': {
         pkg: {
@@ -31,6 +34,17 @@ class Swagger extends Marlinspike {
     });
 
     next();
+  }
+
+  bindExplorerRoute() {
+    let originalCustomMiddleware = _.get(this.sails.config, 'http.customMiddleware');
+    let customMiddleware = app => {
+      app.use('/explorer', express.static(process.cwd() + '/explorer'));
+      if (_.isFunction(originalCustomMiddleware)) {
+        originalCustomMiddleware(app);
+      }
+    };
+    _.set(this.sails.config, 'http.customMiddleware', customMiddleware);
   }
 }
 
