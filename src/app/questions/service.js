@@ -30,12 +30,6 @@ export default [{
     'StorageService'
   ]
 }, {
-  type: 'input',
-  name: 'service:cipher-secret-key',
-  message: 'Secret key',
-  default: 'DEFAULT_SECRET_KEY',
-  when: whenServiceIsChosen('CipherService')
-}, {
   type: 'list',
   name: 'service:image-provider',
   message: 'Image provider',
