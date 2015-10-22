@@ -4,7 +4,7 @@
  */
 
 const DEPENDENCIES = [
-  'express', 'marlinspike'
+  'marlinspike', 'hoek'
 ];
 
 export default function () {
