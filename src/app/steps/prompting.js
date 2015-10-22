@@ -16,24 +16,9 @@ function askQuestions(title, questions, done) {
 }
 
 export default {
-  //askAdapter: function () {
-  //  let done = this.async();
-  //  askQuestions.call(this, 'Adapter', questions.adapter, done);
-  //},
-
   askApp: function () {
     let done = this.async();
     askQuestions.call(this, 'Application', questions.app, done);
-  },
-
-  askAuthentication: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Authentication', questions.authentication, done);
-  },
-
-  askBlueprint: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Blueprint', questions.blueprint, done);
   },
 
   askConfig: function () {
@@ -41,14 +26,19 @@ export default {
     askQuestions.call(this, 'Configuration', questions.config, done);
   },
 
+  askLogger: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Logger', questions.logger, done);
+  },
+
+  askBlueprint: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Blueprint', questions.blueprint, done);
+  },
+
   askController: function () {
     let done = this.async();
     askQuestions.call(this, 'Controller', questions.controller, done);
-  },
-
-  askCron: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Cron', questions.cron, done);
   },
 
   askHook: function () {
@@ -56,33 +46,23 @@ export default {
     askQuestions.call(this, 'Hook', questions.hook, done);
   },
 
-  askLogger: function () {
+  askCron: function () {
     let done = this.async();
-    askQuestions.call(this, 'Logger', questions.logger, done);
-  },
-
-  //askModel: function () {
-  //  let done = this.async();
-  //  askQuestions.call(this, 'Model', questions.model, done);
-  //},
-
-  //askPolicy: function () {
-  //  let done = this.async();
-  //  askQuestions.call(this, 'Policy', questions.policy, done);
-  //},
-
-  //askResponse: function () {
-  //  let done = this.async();
-  //  askQuestions.call(this, 'Response', questions.response, done);
-  //},
-
-  askService: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Service', questions.service, done);
+    askQuestions.call(this, 'Cron', questions.cron, done);
   },
 
   askSwagger: function () {
     let done = this.async();
     askQuestions.call(this, 'Swagger', questions.swagger, done);
+  },
+
+  askAuthentication: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Authentication', questions.authentication, done);
+  },
+
+  askService: function () {
+    let done = this.async();
+    askQuestions.call(this, 'Service', questions.service, done);
   }
 };
