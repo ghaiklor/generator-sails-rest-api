@@ -11,9 +11,14 @@ describe('sails-rest-api:swagger', () => {
         'api/controllers/DocsController.js',
         'api/hooks/swagger/index.js',
         'api/hooks/swagger/lib/spec.js',
-        'api/hooks/swagger/lib/xfmr.js',
-        'config/http.js'
+        'api/hooks/swagger/lib/xfmr.js'
       ]);
     });
+
+    it('Should properly create explorer folder', () => {
+      assert.file([
+        'explorer'
+      ]);
+    })
   });
 });
