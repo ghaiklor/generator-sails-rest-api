@@ -3,6 +3,8 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+import fs from 'fs';
+
 const SOURCE_CONTROLLER = `Controller.js`;
 const SOURCE_CONTROLLER_TEST = `Controller.test.js`;
 const SOURCE_MODEL = `Model.js`;
@@ -19,7 +21,7 @@ export default function () {
   let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model/, '');
   let isREST = this.options['rest'];
 
-  if (isREST) {
+  if (isREST && !fs.existsSync(this.destinationPath(DESTINATION_CONTROLLER(name)))) {
     this.template(SOURCE_CONTROLLER, DESTINATION_CONTROLLER(name), {name});
     this.template(SOURCE_CONTROLLER_TEST, DESTINATION_CONTROLLER_TEST(name), {name});
   }
