@@ -6,7 +6,7 @@
 import fs from 'fs';
 
 const SOURCE_HOOK = name => name ? `api/hooks/${name}Hook.js` : `Hook.js`;
-const SOURCE_HOOK_TEST = name => name ? `test/unit/hooks/${name}Hook.js` : `Hook.test.js`;
+const SOURCE_HOOK_TEST = name => name ? `test/unit/hooks/${name}Hook.test.js` : `Hook.test.js`;
 
 const DESTINATION_HOOK = name => `api/hooks/${name}Hook.js`;
 const DESTINATION_HOOK_TEST = name => `test/unit/hooks/${name}Hook.test.js`;
