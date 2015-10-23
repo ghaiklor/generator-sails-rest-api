@@ -14,5 +14,5 @@ export default [{
   type: 'confirm',
   name: 'cron:enabled',
   message: 'Do you need cron?',
-  default: false
+  default: true
 }];
