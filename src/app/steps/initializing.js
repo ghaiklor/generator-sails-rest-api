@@ -13,7 +13,9 @@ function _onUpdateNotifier(done, error, update) {
     printMessage([
       'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
       'Run ' + chalk.blue('npm update -g ' + update.name) + ' to update.'
-    ]);
+    ], {
+      printFn: this.log
+    });
 
     process.exit(0);
   } else {
