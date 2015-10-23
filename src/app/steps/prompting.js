@@ -17,52 +17,42 @@ function askQuestions(title, questions, done) {
 
 export default {
   askApp: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Application', questions.app, done);
+    askQuestions.call(this, 'Application', questions.app, this.async());
   },
 
   askConfig: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Configuration', questions.config, done);
+    askQuestions.call(this, 'Configuration', questions.config, this.async());
   },
 
   askLogger: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Logger', questions.logger, done);
+    askQuestions.call(this, 'Logger', questions.logger, this.async());
   },
 
   askBlueprint: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Blueprint', questions.blueprint, done);
+    askQuestions.call(this, 'Blueprint', questions.blueprint, this.async());
   },
 
   askController: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Controller', questions.controller, done);
+    askQuestions.call(this, 'Controller', questions.controller, this.async());
   },
 
   askHook: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Hook', questions.hook, done);
+    askQuestions.call(this, 'Hook', questions.hook, this.async());
   },
 
   askCron: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Cron', questions.cron, done);
+    askQuestions.call(this, 'Cron', questions.cron, this.async());
   },
 
   askSwagger: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Swagger', questions.swagger, done);
+    askQuestions.call(this, 'Swagger', questions.swagger, this.async());
   },
 
   askAuthentication: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Authentication', questions.authentication, done);
+    askQuestions.call(this, 'Authentication', questions.authentication, this.async());
   },
 
   askService: function () {
-    let done = this.async();
-    askQuestions.call(this, 'Service', questions.service, done);
+    askQuestions.call(this, 'Service', questions.service, this.async());
   }
 };
