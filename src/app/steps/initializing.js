@@ -16,12 +16,9 @@ function _onUpdateNotifier(done, error, update) {
     ], {
       printFn: this.log
     });
-
-    process.exit(0);
-  } else {
-    this.log(chalk.yellow('OK... You are using the latest version ' + chalk.green.bold(update.current)));
-    done();
   }
+
+  done();
 }
 
 export default {

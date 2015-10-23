@@ -21,9 +21,6 @@ describe('sails-rest-api:app', () => {
         [test.createDummyGenerator(), 'sails-rest-api:service'],
         [test.createDummyGenerator(), 'sails-rest-api:swagger']
       ])
-      .withOptions({
-        'skip-update': true
-      })
       .on('end', done);
   });
 
