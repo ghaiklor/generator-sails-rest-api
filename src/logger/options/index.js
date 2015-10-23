@@ -13,4 +13,11 @@
  * };
  */
 
-export default {};
+export default {
+  'skip-install': {
+    desc: 'Do not automatically install dependencies',
+    type: Boolean,
+    defaults: false,
+    hide: false
+  }
+};
