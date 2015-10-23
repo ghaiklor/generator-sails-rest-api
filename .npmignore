@@ -24,11 +24,13 @@
 
 work
 build
+/coverage
+/src
 /test
+/babelhook.js
 pids
 logs
 results
-/coverage
 lib-cov
 html-report
 xunit.xml
@@ -47,8 +49,3 @@ Thumbs.db
 .LSOverride
 .Spotlight-V100
 .Trashes
-
-# added by KAS
-/test/
-/src/
-/babelhook.js
