@@ -25,6 +25,9 @@ build/Release
 # Dependency directory
 node_modules
 
+# Babel compiled generators
+generators
+
 # Miscellaneous
 *~
 *#
@@ -33,6 +36,3 @@ node_modules
 nbproject
 .idea
 .node_history
-
-# Babel compiled generators
-generators
