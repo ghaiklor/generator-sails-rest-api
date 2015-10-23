@@ -14,10 +14,9 @@ const methodMap = {
   delete: 'Destroy Object(s)',
   options: 'Get Resource Options',
   head: 'Get Resource headers'
-}
+};
 
 const Transformer = {
-
   getSwagger (sails, pkg) {
     return {
       swagger: '2.0',
@@ -66,21 +65,21 @@ const Transformer = {
       definitions[model.identity] = {
         properties: Transformer.getDefinitionProperties(model.definition)
       }
-    })
+    });
 
-    delete definitions['undefined']
+    delete definitions['undefined'];
 
-    return definitions
+    return definitions;
   },
 
   getDefinitionProperties (definition) {
     return _.mapValues(definition, (def, attrName) => {
       let property = _.pick(def, [
         'type', 'description', 'format'
-      ])
+      ]);
 
-      return Spec.getPropertyType(property.type)
-    })
+      return Spec.getPropertyType(property.type);
+    });
   },
 
   /**
@@ -90,46 +89,46 @@ const Transformer = {
    * http://swagger.io/specification/#pathItemObject
    */
     getPaths (sails) {
-    let routes = sails.router._privateRouter.routes
+    let routes = sails.router._privateRouter.routes;
     let pathGroups = _.chain(routes)
       .values()
       .flatten()
       .unique(route => {
         return route.path + route.method + JSON.stringify(route.keys)
       })
-      .reject({ path: '/*' })
-      .reject({ path: '/__getcookie' })
-      .reject({ path: '/csrfToken' })
-      .reject({ path: '/csrftoken' })
+      .reject({path: '/*'})
+      .reject({path: '/__getcookie'})
+      .reject({path: '/csrfToken'})
+      .reject({path: '/csrftoken'})
       .groupBy('path')
       .mapKeys((_, path) => {
         return path.replace(/:(\w+)\??/g, '{$1}')
       })
-      .value()
+      .value();
 
     return _.mapValues(pathGroups, (pathGroup, key) => {
       return Transformer.getPathItem(sails, pathGroup, key)
-    })
+    });
   },
 
   getModelFromPath (sails, path) {
-    let split = path.split('/')
-    let [ $, parentModelName, parentId, childAttributeName, childId ] = path.split('/')
-    let parentModel = sails.models[parentModelName]
-    let childAttribute = _.get(parentModel, [ 'attributes', childAttributeName ])
-    let childModelName = _.get(childAttribute, 'collection') || _.get(childAttribute, 'model')
-    let childModel = sails.models[childModelName]
+    let split = path.split('/');
+    let [ $, parentModelName, parentId, childAttributeName, childId ] = path.split('/');
+    let parentModel = sails.models[parentModelName];
+    let childAttribute = _.get(parentModel, ['attributes', childAttributeName]);
+    let childModelName = _.get(childAttribute, 'collection') || _.get(childAttribute, 'model');
+    let childModel = sails.models[childModelName];
 
-    return childModel || parentModel
+    return childModel || parentModel;
   },
 
   /**
    * http://swagger.io/specification/#definitionsObject
    */
     getDefinitionReference (sails, path) {
-    let model = Transformer.getModelFromPath(sails, path)
+    let model = Transformer.getModelFromPath(sails, path);
     if (model) {
-      return '#/definitions/' + model.identity
+      return '#/definitions/' + model.identity;
     }
   },
 
@@ -142,11 +141,11 @@ const Transformer = {
       .pick([
         'get', 'post', 'put', 'head', 'options', 'patch', 'delete'
       ])
-      .value()
+      .value();
 
     return _.mapValues(methodGroups, (methodGroup, method) => {
-      return Transformer.getOperation(sails, methodGroup, method)
-    })
+      return Transformer.getOperation(sails, methodGroup, method);
+    });
   },
 
   /**
@@ -155,8 +154,8 @@ const Transformer = {
     getOperation (sails, methodGroup, method) {
     return {
       summary: methodMap[method],
-      consumes: [ 'application/json' ],
-      produces: [ 'application/json' ],
+      consumes: ['application/json'],
+      produces: ['application/json'],
       parameters: Transformer.getParameters(sails, methodGroup),
       responses: Transformer.getResponses(sails, methodGroup),
       tags: Transformer.getPathTags(sails, methodGroup)
@@ -176,36 +175,36 @@ const Transformer = {
   },
 
   getPathModelTag (sails, methodGroup) {
-    let model = Transformer.getModelFromPath(sails, methodGroup.path)
-    return model && model.globalId
+    let model = Transformer.getModelFromPath(sails, methodGroup.path);
+    return model && model.globalId;
   },
 
   getPathControllerTag (sails, methodGroup) {
-    let [ $, pathToken ] = methodGroup.path.split('/')
-    return _.get(sails.controllers, [ pathToken, 'globalId' ])
+    let [ $, pathToken ] = methodGroup.path.split('/');
+    return _.get(sails.controllers, [pathToken, 'globalId']);
   },
 
   getControllerFromRoute (sails, methodGroup) {
-    let route = sails.config.routes[`${methodGroup.method} ${methodGroup.path}`]
-    if (!route) return
+    let route = sails.config.routes[`${methodGroup.method} ${methodGroup.path}`];
+    if (!route) return;
 
-    let pattern = /(.+)Controller/
-    let controller = route.controller || (_.isString(route) && route.split('.')[0])
+    let pattern = /(.+)Controller/;
+    let controller = route.controller || (_.isString(route) && route.split('.')[0]);
 
-    if (!controller) return
+    if (!controller) return;
 
-    let [ $, name ] = /(.+)Controller/.exec(controller)
+    let [ $, name ] = /(.+)Controller/.exec(controller);
 
-    return name
+    return name;
   },
 
   /**
    * http://swagger.io/specification/#parameterObject
    */
     getParameters (sails, methodGroup) {
-    let routeParams = methodGroup.keys
+    let routeParams = methodGroup.keys;
 
-    if (!routeParams.length) return
+    if (!routeParams.length) return;
 
     return _.map(routeParams, param => {
       return {
@@ -221,19 +220,20 @@ const Transformer = {
    * http://swagger.io/specification/#responsesObject
    */
     getResponses (sails, methodGroup) {
-    let $ref = Transformer.getDefinitionReference(sails, methodGroup.path)
+    let $ref = Transformer.getDefinitionReference(sails, methodGroup.path);
     let ok = {
       description: 'The requested resource'
-    }
+    };
+
     if ($ref) {
-      ok.schema = { '$ref': $ref }
+      ok.schema = {'$ref': $ref}
     }
     return {
       '200': ok,
-      '404': { description: 'Resource not found' },
-      '500': { description: 'Internal server error' }
+      '404': {description: 'Resource not found'},
+      '500': {description: 'Internal server error'}
     }
   }
-}
+};
 
 export default Transformer
