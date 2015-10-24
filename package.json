@@ -62,9 +62,9 @@
     "path": "./node_modules/cz-conventional-changelog"
   },
   "publishConfig": {
-    "tag": "alpha"
+    "tag": "next"
   },
   "release": {
-    "branch": "master"
+    "branch": "dev"
   }
 }
