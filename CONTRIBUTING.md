@@ -172,12 +172,10 @@ git push -u origin --tags # And push tags to origin server
 ## Tests
 
 We are using Mocha for testing.
-All test cases located into `test` folder and split like source files split.
-For every file in `api/` folder we create appropriate in `test/` folder.
+All test cases located into `test` folder.
+For every generator we create appropriate test in `test/unit` folder.
 
 When you create new feature or fix some bug, you **MUST** write test case for it in `test` folder.
-For example, you add new feature to `api/services/cipher/BCryptCipher.js`.
-After that you need modify `test/services/cipher/BCryptCipher.js` for corresponds to new feature.
 
 For run tests just call `npm test`.
 
