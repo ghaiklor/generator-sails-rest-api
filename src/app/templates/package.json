@@ -1,0 +1,23 @@
+{
+  "name": "<%= answers['app:name'] %>",
+  "version": "0.1.0",
+  "main": "app.js",
+  "dependencies": {
+    "rc": "^1.1.2",
+    "sails": "^0.11.2"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "chai": "^3.3.0",
+    "istanbul": "^0.3.22",
+    "mocha": "^2.3.3",
+    "sails-memory": "^0.10.5",
+    "sinon": "^1.17.1"
+  },
+  "scripts": {
+    "start": "babel-node app.js",
+    "debug": "babel-node debug app.js",
+    "test": "istanbul cover _mocha",
+    "clean": "rm -rf ./.tmp"
+  }
+}

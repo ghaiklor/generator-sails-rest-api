@@ -1,0 +1,19 @@
+{
+  "stage": 0,
+  "ignore": [
+    "adapter/templates",
+    "app/templates",
+    "authentication/templates",
+    "blueprint/templates",
+    "config/templates",
+    "controller/templates",
+    "cron/templates",
+    "hook/templates",
+    "logger/templates",
+    "model/templates",
+    "policy/templates",
+    "response/templates",
+    "service/templates",
+    "swagger/templates"
+  ]
+}

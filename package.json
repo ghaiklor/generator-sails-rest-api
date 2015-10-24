@@ -1,6 +1,6 @@
 {
   "name": "generator-sails-rest-api",
-  "version": "0.10.7",
+  "version": "0.0.0-semantic-release",
   "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features",
   "keywords": [
     "yeoman-generator",
@@ -29,26 +29,42 @@
       "url": "https://github.com/IncoCode"
     }
   ],
-  "main": "generators/app/index.js",
   "scripts": {
-    "test": "istanbul cover _mocha"
+    "clean": "rm -rf ./generators",
+    "compile": "npm run clean && cp -r src/ generators/ && babel src --out-dir generators",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
+    "prepublish": "npm run compile",
+    "test": "istanbul cover _mocha",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
   },
   "dependencies": {
-    "chalk": "^1.1.0",
-    "dependency-check": "^2.5.0",
-    "print-message": "^1.4.0",
-    "recursive-readdir": "^1.2.1",
-    "update-notifier": "^0.5.0",
-    "yeoman-generator": "^0.20.2",
-    "yosay": "^1.0.5"
+    "chalk": "1.1.1",
+    "print-message": "1.4.0",
+    "update-notifier": "0.5.0",
+    "yeoman-generator": "0.21.1",
+    "yosay": "1.0.5"
   },
   "devDependencies": {
-    "chai": "^3.2.0",
-    "istanbul": "^0.3.13",
-    "mocha": "^2.3.1"
+    "babel": "5.8.23",
+    "chai": "3.4.0",
+    "coveralls": "2.11.4",
+    "cz-conventional-changelog": "1.1.4",
+    "istanbul": "0.4.0",
+    "mocha": "2.3.3",
+    "semantic-release": "4.3.5"
+  },
+  "czConfig": {
+    "path": "./node_modules/cz-conventional-changelog"
+  },
+  "publishConfig": {
+    "tag": "next"
+  },
+  "release": {
+    "branch": "master"
   }
 }

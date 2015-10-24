@@ -1,0 +1,40 @@
+/**
+ * SearchController
+ * @description :: Server-side logic for searching within records in database
+ */
+
+import _ from 'lodash';
+import Promise from 'bluebird';
+
+export function index(req, res) {
+  let q = req.param('q');
+  let models = [];
+
+  if (!q) return res.badRequest(null, null, 'You should specify a "q" parameter!');
+
+  if (req.param('model')) {
+    let modelStr = req.param('model').toString().toLowerCase();
+
+    if (!(modelStr in sails.models)) return res.badRequest(null, null, 'Cannot find model: ' + modelStr);
+
+    models.push({name: modelStr, model: sails.models[modelStr]});
+  } else {
+    _.forEach(sails.models, (model, modelStr) => models.push({name: modelStr, model: model}));
+  }
+
+  Promise.map(models, modelObj => {
+    let model = modelObj.model;
+    let modelStr = modelObj.name;
+    let where = _.transform(model.definition, (result, val, key) => result.or.push(_.set({}, key, {contains: q})), {or: []});
+
+    return model
+      .find(where)
+      .then(queryRes => {
+        let resObj = {};
+        resObj[modelStr] = queryRes;
+        return Promise.resolve(resObj)
+      });
+  }).then(searchRes => _.transform(searchRes, (result, val) => result = _.merge(result, val), {}))
+    .then(res.ok)
+    .catch(res.negotiate);
+}
