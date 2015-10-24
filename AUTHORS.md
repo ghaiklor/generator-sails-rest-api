@@ -6,11 +6,8 @@
 | Lead developer of this project                                                        |
 | Get in touch with me via [@ghaiklor](https://twitter.com/ghaiklor)                    |
 
-## Contributors
-
-+ [@IncoCode](https://github.com/IncoCode)
-
-## Special Thanks
-
-+ [@rizr](https://github.com/rizr) - for participating in testing and proposals to make it better;
-+ [@ashaman1991](https://github.com/ashaman1991) - for participating in testing and proposals to make it better;
+| Dmitry Akulich                                                                        |
+|:-------------------------------------------------------------------------------------:|
+|                                                                                       |
+| Maintainer                                                                            |
+| Get in touch with me via [@IncoCode](https://github.com/IncoCode)                     |
