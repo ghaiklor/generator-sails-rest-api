@@ -50,7 +50,7 @@
     "yosay": "1.0.5"
   },
   "devDependencies": {
-    "babel": "5.8.23",
+    "babel": "5.8.29",
     "chai": "3.4.0",
     "coveralls": "2.11.4",
     "cz-conventional-changelog": "1.1.4",
