@@ -58,10 +58,20 @@ export default {
   beforeUpdate(values, next) {
     if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
 
-    values.password = HashService.bcrypt.hash(password).then(next).catch(next);
+    return HashService.bcrypt.hash(values.password)
+      .then(hash => {
+        values.password = hash;
+        next();
+      })
+      .catch(next);
   },
 
   beforeCreate(values, next) {
-    values.password = HashService.bcrypt.hash(values.password).then(next).catch(next);
+    return HashService.bcrypt.hash(values.password)
+      .then(hash => {
+        values.password = hash;
+        next();
+      })
+      .catch(next);
   }
 };
