@@ -4,7 +4,8 @@
  */
 
 const DEPENDENCIES = [
-  'hoek'
+  'hoek',
+  'pluralize'
 ];
 
 export default function () {
