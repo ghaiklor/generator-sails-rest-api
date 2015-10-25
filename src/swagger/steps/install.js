@@ -4,7 +4,6 @@
  */
 
 const DEPENDENCIES = [
-  'marlinspike',
   'hoek'
 ];
 
