@@ -4,7 +4,10 @@
 
 import hoek from 'hoek'
 import _ from 'lodash'
+import pluralize from 'pluralize'
 import Spec from './spec'
+
+const singularize = _.partial(pluralize, _, 1);
 
 const methodMap = {
   post: 'Create Object(s)',
@@ -26,6 +29,11 @@ const Transformer = {
       definitions: Transformer.getDefinitions(sails),
       paths: Transformer.getPaths(sails)
     }
+  },
+
+  fixPath(sails, path) {
+    let prefix = sails.config.blueprints.prefix;
+    return path.replace(prefix, '');
   },
 
   /**
@@ -112,9 +120,8 @@ const Transformer = {
   },
 
   getModelFromPath (sails, path) {
-    let split = path.split('/');
-    let [ $, parentModelName, parentId, childAttributeName, childId ] = path.split('/');
-    let parentModel = sails.models[parentModelName];
+    let [ $, parentModelName, parentId, childAttributeName, childId ] = this.fixPath(sails, path).split('/');
+    let parentModel = sails.models[singularize(parentModelName)];
     let childAttribute = _.get(parentModel, ['attributes', childAttributeName]);
     let childModelName = _.get(childAttribute, 'collection') || _.get(childAttribute, 'model');
     let childModel = sails.models[childModelName];
@@ -180,12 +187,12 @@ const Transformer = {
   },
 
   getPathControllerTag (sails, methodGroup) {
-    let [ $, pathToken ] = methodGroup.path.split('/');
+    let [ $, pathToken ] = this.fixPath(sails, methodGroup.path).split('/');
     return _.get(sails.controllers, [pathToken, 'globalId']);
   },
 
   getControllerFromRoute (sails, methodGroup) {
-    let route = sails.config.routes[`${methodGroup.method} ${methodGroup.path}`];
+    let route = sails.config.routes[`${methodGroup.method} ${this.fixPath(sails, methodGroup.path)}`];
     if (!route) return;
 
     let pattern = /(.+)Controller/;
