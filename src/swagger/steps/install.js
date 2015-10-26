@@ -5,6 +5,7 @@
 
 const DEPENDENCIES = [
   'hoek',
+  'lodash',
   'pluralize'
 ];
 
