@@ -6,7 +6,6 @@
 export default function () {
   this.directory('test', 'test');
   this.copy('app.js', 'app.js');
-  this.copy('babelhook.js', 'babelhook.js');
   this.copy('Dockerfile', 'Dockerfile');
   this.copy('editorconfig', '.editorconfig');
   this.copy('gitignore', '.gitignore');

@@ -28,7 +28,6 @@ describe('sails-rest-api:app', () => {
     it('Should properly create root files', () => {
       assert.file([
         'app.js',
-        'babelhook.js',
         'Dockerfile',
         '.editorconfig',
         '.gitignore',
@@ -80,7 +79,6 @@ describe('sails-rest-api:app', () => {
     it('Should properly create root files', () => {
       assert.file([
         'app.js',
-        'babelhook.js',
         'Dockerfile',
         '.editorconfig',
         '.gitignore',
