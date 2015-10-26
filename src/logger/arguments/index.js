@@ -19,6 +19,6 @@ export default {
     desc: `Specifies the logger (bunyan, default, winston)`,
     required: false,
     type: String,
-    defaults: `bunyan`
+    defaults: `winston`
   }
 };
