@@ -27,12 +27,14 @@ describe('sails-rest-api:app', () => {
 
     it('Should properly create root files', () => {
       assert.file([
+        'app.js',
+        'babelhook.js',
+        'Dockerfile',
         '.editorconfig',
         '.gitignore',
-        '.sailsrc',
-        'app.js',
-        'Dockerfile',
-        'package.json'
+        'package.json',
+        'README.md',
+        '.sailsrc'
       ]);
     });
 
@@ -40,7 +42,7 @@ describe('sails-rest-api:app', () => {
       assert.file([
         'test/bootstrap.js',
         'test/mocha.opts'
-      ])
+      ]);
     });
   });
 
@@ -77,12 +79,14 @@ describe('sails-rest-api:app', () => {
 
     it('Should properly create root files', () => {
       assert.file([
+        'app.js',
+        'babelhook.js',
+        'Dockerfile',
         '.editorconfig',
         '.gitignore',
-        '.sailsrc',
-        'app.js',
-        'Dockerfile',
-        'package.json'
+        'package.json',
+        'README.md',
+        '.sailsrc'
       ]);
     });
 
@@ -90,7 +94,7 @@ describe('sails-rest-api:app', () => {
       assert.file([
         'test/bootstrap.js',
         'test/mocha.opts'
-      ])
+      ]);
     });
   });
 });
