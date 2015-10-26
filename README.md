@@ -43,15 +43,13 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 
 ## Getting Started
 
-Start using generator is very simple.
-
-First of all, you need install **yeoman** and **generator-sails-rest-api**:
+Install **yeoman** and **generator-sails-rest-api**:
 
 ```bash
 npm install -g yo generator-sails-rest-api
 ```
 
-Then create project directory and initiate the generator under the project directory:
+Create project directory and initiate the generator under the project directory:
 
 ```bash
 mkdir my-project
@@ -59,7 +57,7 @@ cd my-project
 yo sails-rest-api
 ```
 
-You will be prompted for questions. Answer to those questions that generator is asks and you will get configured Sails project.
+You will be prompted to answer to questions. Answer to those questions and you will get configured Sails project.
 
 After scaffolding the project you can use this project as before. Just run the `app.js` file or use npm scripts.
 
@@ -71,8 +69,8 @@ Congratulations, you just have setup your first Sails REST API :+1:
 
 ## Bundled Sails services
 
-|  Service Name  |               Implemented providers              |
-|:--------------:|:------------------------------------------------:|
+| Service Name    | Implemented providers                            |
+|:---------------:|:------------------------------------------------:|
 | CipherService   | JWT                                              |
 | HashService     | bcrypt                                           |
 | ImageService    | GraphicsMagick, ImageMagick                      |
