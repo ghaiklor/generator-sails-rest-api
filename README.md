@@ -1,6 +1,6 @@
 # generator-sails-rest-api
-
 [![Join the chat at https://gitter.im/ghaiklor/generator-sails-rest-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg)
 ![Downloads](https://img.shields.io/npm/dt/generator-sails-rest-api.svg)
 ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg)
