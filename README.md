@@ -1,4 +1,5 @@
 # generator-sails-rest-api
+
 [![Join the chat at https://gitter.im/ghaiklor/generator-sails-rest-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg)
@@ -24,23 +25,21 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 
 ## Features
 
-- Disabled hooks by default: *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *views*;
+- Generator is split in more smaller parts, so that you are able to scaffold models, policies, controllers, etc... separately;
+- Disabled hooks by default: *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *sockets*, *views*;
 - Flexible questions that allow to you quickly configure database connections, services that you want to use, etc...
-- Automatically parses the whole project AST for used dependencies and install them;
-- Overrides default `blueprints` which simplify CRUD operation in REST API and add new features like `fields` in requests;
-- Implemented `AuthController`, `PingController` and `UserController`;
-- `AuthController` allows to you make signin\signup via email\password;
-- `PingController` allows to you quickly check if server is alive and can respond;
-- Already declared `User` model with most used fields;
-- Integrated Passport with Facebook, Twitter, VKontakte, GitHub, Instagram, Google Plus and other social networks, JWT and Local authorization strategies;
-- Implemented policy `isAuthenticated` which inject user in `req` via JSON Web Token checking;
-- Custom responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
-- Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check table with detailed list of implemented services below;
+- Integrated ES6 (Babel) support right from the box;
+- Implemented authentication layer based on passport with JWT and Local strategies, Facebook, Twitter, VKontakte, GitHub, Instagram, Google Plus and other social networks;
+- Overrides defaults `blueprints` which simplify CRUD operation in REST API and adds new features like `fields` or `populate` in requests;
 - All configuration files cleaned up and optimized for REST API;
-- Implemented useful express middleware like `Connection: keep-alive` and GZip compression. In a nutshell, all what optimize HTTP performance;
-- Winston logger with logging to console and DailyRotateFile is enabled by default;
-- Simple declaring of cron tasks via `config/cron.js`;
-- Bunch of Sails adapters is already declared in `connections` configuration file so you can easily swap between them;
+- Some generators can scaffold predefined functionality;
+- Sub-generator that simplifies creating cron configuration;
+- Logger generator can scaffold logging configuration for `bunyan`, `winston` or use default Sails logger;
+- Overridden responses which respond with `code` (Status Code), `message` (Status Message) and `data` (Response Data) fields;
+- Bundle of ready-2-use services like `CipherService`, `PusherService` (Push Notifications), `SmsService` and so on... You can check the table with detailed list of implemented services below;
+- Bunch of Sails adapters is already declared in `connections.js` configuration file so you can easily swap between them;
+- Implemented useful express middleware like `Connection: keep-alive` and GZip compression. In a nutshell, all what optimizes HTTP performance;
+- Swagger generator can scaffold Swagger UI Explorer for you project;
 
 ## Getting Started
 
