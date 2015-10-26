@@ -1,16 +1,15 @@
 # generator-sails-rest-api
 
+[![Join the chat at https://gitter.im/ghaiklor/generator-sails-rest-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg)
 ![Downloads](https://img.shields.io/npm/dt/generator-sails-rest-api.svg)
 ![npm version](https://img.shields.io/npm/v/generator-sails-rest-api.svg)
 ![License](https://img.shields.io/npm/l/generator-sails-rest-api.svg)
 
-![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg)
-![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
-[![Join the chat at https://gitter.im/ghaiklor/generator-sails-rest-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+![dependencies](https://img.shields.io/david/ghaiklor/generator-sails-rest-api.svg)
+![dev dependencies](https://img.shields.io/david/dev/ghaiklor/generator-sails-rest-api.svg)
 
 [![Onix-Systems](https://cloud.githubusercontent.com/assets/3625244/9819276/b40b6338-58b5-11e5-8800-c42f3ebe1242.png)](http://us.onix-systems.com/)
 
