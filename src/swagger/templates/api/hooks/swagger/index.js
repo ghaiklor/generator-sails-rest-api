@@ -8,7 +8,6 @@ import express from 'express';
 
 export default function (sails) {
   return {
-
     defaults(overrides) {
       this.bindExplorerRoute();
 
@@ -25,6 +24,7 @@ export default function (sails) {
 
     initialize(cb) {
       let hook = sails.hooks.swagger;
+
       sails.after('lifted', () => {
         hook.doc = xfmr.getSwagger(sails, sails.config.swagger.pkg);
       });

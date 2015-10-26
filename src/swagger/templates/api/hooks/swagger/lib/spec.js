@@ -34,17 +34,17 @@ const types = {
     type: 'string',
     format: 'date-time'
   }
-}
+};
 
 const typeMap = {
   text: 'string',
   json: 'string'
-}
+};
 
 const Spec = {
   getPropertyType (wltype) {
-    return types[typeMap[wltype] || wltype]
+    return types[typeMap[wltype] || wltype];
   }
-}
+};
 
-export default Spec
+export default Spec;
