@@ -27,7 +27,6 @@ build
 /coverage
 /src
 /test
-/babelhook.js
 pids
 logs
 results
