@@ -2,22 +2,6 @@
 
 At this page we explain how you can contribute to our project.
 
-**Table of Contents**
-
-- [Contributing](#contributing)
-  - [Creating issue](#creating-issue)
-  - [Get the project](#get-the-project)
-    - [Clone repository](#clone-repository)
-    - [Install dependencies](#install-dependencies)
-    - [Run generator-sails-rest-api locally](#run-generator-sails-rest-api-locally)
-  - [Branch explanation](#branch-explanation)
-  - [Git workflow](#git-workflow)
-    - [Feature/bug branches](#featurebug-branches)
-    - [Release branches](#release-branches)
-    - [Hotfix branches](#hotfix-branches)
-  - [Tests](#tests)
-  - [Versions](#versions)
-
 ## Creating issue
 
 If you have any proposal or want to report about bug, feel free to create issue.
