@@ -10,7 +10,7 @@ export default class HookGenerator extends Base {
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffold a new hook';
+    this.description = 'Scaffolds a new hook';
   }
 
   get configuring() {
