@@ -69,18 +69,18 @@ Congratulations, you just have setup your first Sails REST API :+1:
 
 ## Bundled Sails services
 
-| Service Name    | Implemented providers                            |
-|:---------------:|:------------------------------------------------:|
-| CipherService   | JWT                                              |
-| HashService     | bcrypt                                           |
-| ImageService    | GraphicsMagick, ImageMagick                      |
-| LocationService | Google, Yandex, FreeGeoIP and a lot of others    |
-| MailerService   | direct, sendmail, SMTP, SES and a lot more       |
-| PaymentService  | BrainTreePayments, Stripe                        |
-| PusherService   | Apple Push Notifications, Google Cloud Messaging |
-| SmsService      | Twilio                                           |
-| SocialService   | Facebook                                         |
-| StorageService  | Amazon S3, Local                                 |
+| Service Name                                                          | Implemented providers                            |
+|:---------------------------------------------------------------------:|:------------------------------------------------:|
+| [CipherService](https://github.com/ghaiklor/sails-service-cipher)     | JWT                                              |
+| [HashService](https://github.com/ghaiklor/sails-service-hash)         | bcrypt                                           |
+| [ImageService](https://github.com/ghaiklor/sails-service-image)       | GraphicsMagick, ImageMagick                      |
+| [LocationService](https://github.com/ghaiklor/sails-service-location) | Google, Yandex, FreeGeoIP and a lot of others    |
+| [MailerService](https://github.com/ghaiklor/sails-service-mailer)     | direct, sendmail, SMTP, SES and a lot more       |
+| [PaymentService](https://github.com/ghaiklor/sails-service-payment)   | BrainTreePayments, Stripe                        |
+| [PusherService](https://github.com/ghaiklor/sails-service-pusher)     | Apple Push Notifications, Google Cloud Messaging |
+| [SmsService](https://github.com/ghaiklor/sails-service-sms)           | Twilio                                           |
+| [SocialService](https://github.com/ghaiklor/sails-service-social)     | Facebook                                         |
+| [StorageService](https://github.com/ghaiklor/sails-service-storage)   | Amazon S3, Local                                 |
 
 ## License
 
