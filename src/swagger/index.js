@@ -10,7 +10,7 @@ export default class SwaggerGenerator extends Base {
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
 
-    this.description = 'Scaffolds a Swagger UI';
+    this.description = 'Scaffolds the Swagger UI Explorer';
   }
 
   get configuring() {
