@@ -5,10 +5,11 @@
   "keywords": [
     "yeoman-generator",
     "sails",
-    "boilerplate",
-    "scaffolder",
     "rest",
     "api",
+    "boilerplate",
+    "scaffolder",
+    "scaffold",
     "yeoman",
     "generator"
   ],
@@ -35,7 +36,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
-    "test": "istanbul cover _mocha",
+    "test": "babel-node node_modules/.bin/isparta cover _mocha",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -54,7 +55,7 @@
     "chai": "3.4.0",
     "coveralls": "2.11.4",
     "cz-conventional-changelog": "1.1.4",
-    "istanbul": "0.4.0",
+    "isparta": "3.1.0",
     "mocha": "2.3.3",
     "semantic-release": "4.3.5"
   },
