@@ -1,3 +1,6 @@
 import social from 'sails-service-social';
+import config from '../../config/services/social';
 
-export const facebook = social('facebook', sails.config.services.social.facebook);
+export default {
+  facebook: social('facebook', config.services.social.facebook)
+}

@@ -1,3 +1,6 @@
 import hash from 'sails-service-hash';
+import config from '../../config/services/hash';
 
-export const bcrypt = hash('bcrypt', sails.config.services.hash.bcrypt);
+export default {
+  bcrypt: hash('bcrypt', config.services.hash.bcrypt)
+}

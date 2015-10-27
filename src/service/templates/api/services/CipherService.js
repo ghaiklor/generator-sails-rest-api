@@ -1,3 +1,6 @@
 import cipher from 'sails-service-cipher';
+import config from '../../config/services/cipher'
 
-export const jwt = cipher('jwt', sails.config.services.cipher.jwt);
+export default {
+  jwt: cipher('jwt', config.services.cipher.jwt)
+}
