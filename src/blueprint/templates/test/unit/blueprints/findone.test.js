@@ -1,71 +1,27 @@
 import { assert } from 'chai';
-import sinon from 'sinon';
-import findOne from '../../../api/blueprints/findone';
-
-const data = {id: 2};
-
-const req = {
-  options: {
-    model: 'user',
-    action: 'create',
-    controller: 'user'
-  },
-  param: param => data[param],
-  _sails: {}
-};
-
-const res = {
-  ok: sinon.spy(),
-  negotiate: sinon.spy(),
-  notFound: sinon.spy()
-};
 
 describe('blueprints:findOne', () => {
-  before(done => {
-    req._sails = sails;
-    done();
-  });
+  it('Should properly find user', done => {
+    sails.request({
+      method: 'GET',
+      url: '/v1/users/2'
+    }, (error, res, body) => {
+      if (error) return done(error);
 
-  it('Should find one user (username = \'testFind\')', done => {
-    findOne(req, res);
-
-    let i = setInterval(() => {
-      if (!res.negotiate.called && !res.ok.called && !res.notFound.called) return;
-
-      clearInterval(i);
-
-      assert(!res.negotiate.called);
-      assert(!res.notFound.called);
-      assert(res.ok.called);
-      assert(res.ok.getCall(0).args[0].username === 'testFind');
-
-      res.ok.restore();
-      res.negotiate.restore();
-      res.notFound.restore();
-
+      assert.equal(res.statusCode, 200);
+      assert.equal(body.data.username, 'test');
       done();
-    }, 20);
+    });
   });
 
   it('Should return notFound', done => {
-    data.id = 123493;
-
-    findOne(req, res);
-
-    let i = setInterval(() => {
-      if (!res.negotiate.called && !res.ok.called && !res.notFound.called) return;
-
-      clearInterval(i);
-
-      assert(!res.negotiate.called);
-      assert(!res.ok.called);
-      assert(res.notFound.called);
-
-      res.ok.restore();
-      res.negotiate.restore();
-      res.notFound.restore();
+    sails.request({
+      method: 'GET',
+      url: '/v1/users/1234567890'
+    }, (error, res, body) => {
+      assert.equal(error.status, 404);
 
       done();
-    }, 20);
+    });
   });
 });
