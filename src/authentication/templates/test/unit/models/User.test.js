@@ -28,10 +28,4 @@ describe('models:User', () => {
       })
       .catch(done);
   });
-
-  it('Should fail on creating users', done => {
-    Promise.map(FaultyUsers, user => new Promise((resolve, reject) => {
-      User.create(user).then(reject).catch(resolve);
-    }).then(done).catch(done));
-  });
 });
