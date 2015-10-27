@@ -26,8 +26,6 @@ describe('sails-rest-api:authentication', () => {
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/fixtures/FaultyUsers.js',
-        'test/fixtures/Users.js',
         'test/unit/controllers/AuthController.test.js',
         'test/unit/controllers/UserController.test.js',
         'test/unit/models/User.test.js',
@@ -66,8 +64,6 @@ describe('sails-rest-api:authentication', () => {
 
     it('Should properly create test files', () => {
       assert.file([
-        'test/fixtures/FaultyUsers.js',
-        'test/fixtures/Users.js',
         'test/unit/controllers/AuthController.test.js',
         'test/unit/controllers/UserController.test.js',
         'test/unit/models/User.test.js',

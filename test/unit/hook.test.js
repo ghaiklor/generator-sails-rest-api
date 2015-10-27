@@ -29,9 +29,6 @@ describe('sails-rest-api:hook', () => {
       assert.noFile([
         'test/unit/hooks/TestHook.test.js'
       ]);
-
-      assert.fileContent('test/unit/hooks/CountHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/CountHook';/);
-      assert.fileContent('test/unit/hooks/PluralizeHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/PluralizeHook';/);
     });
   });
 
@@ -63,8 +60,6 @@ describe('sails-rest-api:hook', () => {
       assert.noFile([
         'test/unit/hooks/CountHook.test.js'
       ]);
-
-      assert.fileContent('test/unit/hooks/PluralizeHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/PluralizeHook';/);
     });
   });
 
@@ -100,8 +95,6 @@ describe('sails-rest-api:hook', () => {
       assert.noFile([
         'test/unit/hooks/CountHook.test.js'
       ]);
-
-      assert.fileContent('test/unit/hooks/PluralizeHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/PluralizeHook';/);
     });
   });
 
@@ -138,9 +131,6 @@ describe('sails-rest-api:hook', () => {
       assert.noFile([
         'test/unit/hooks/TestHook.test.js'
       ]);
-
-      assert.fileContent('test/unit/hooks/CountHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/CountHook';/);
-      assert.fileContent('test/unit/hooks/PluralizeHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/PluralizeHook';/);
     });
   });
 
@@ -174,8 +164,6 @@ describe('sails-rest-api:hook', () => {
         'test/unit/hooks/CountHook.test.js',
         'test/unit/hooks/PluralizeHook.test.js'
       ]);
-
-      assert.fileContent('test/unit/hooks/TestHook.test.js', /import Hook from '\.\.\/\.\.\/\.\.\/api\/hooks\/TestHook';/);
     });
   });
 });

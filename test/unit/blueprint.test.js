@@ -83,8 +83,6 @@ describe('sails-rest-api:blueprint', () => {
         'test/unit/blueprints/update.test.js',
         'test/unit/blueprints/test.test.js'
       ]);
-
-      assert.fileContent('test/unit/blueprints/find.test.js', /import find from '\.\.\/\.\.\/\.\.\/api\/blueprints\/find';/);
     });
   });
 
@@ -134,8 +132,6 @@ describe('sails-rest-api:blueprint', () => {
         'test/unit/blueprints/update.test.js',
         'test/unit/blueprints/test.test.js'
       ]);
-
-      assert.fileContent('test/unit/blueprints/find.test.js', /import blueprint from '\.\.\/\.\.\/\.\.\/api\/blueprints\/find';/);
     });
   });
 
@@ -181,8 +177,6 @@ describe('sails-rest-api:blueprint', () => {
         'test/unit/blueprints/remove.test.js',
         'test/unit/blueprints/update.test.js'
       ]);
-
-      assert.fileContent('test/unit/blueprints/custom.test.js', /import blueprint from '\.\.\/\.\.\/\.\.\/api\/blueprints\/custom';/);
     });
   });
 
@@ -230,8 +224,6 @@ describe('sails-rest-api:blueprint', () => {
       assert.noFile([
         'test/unit/blueprints/custom.test.js'
       ]);
-
-      assert.fileContent('test/unit/blueprints/find.test.js', /import find from '\.\.\/\.\.\/\.\.\/api\/blueprints\/find';/);
     });
   });
 });

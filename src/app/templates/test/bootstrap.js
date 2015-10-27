@@ -8,9 +8,6 @@ before(done => {
     if (error) return done(error);
 
     sails = server;
-
-    // here you can load fixtures, etc.
-
     done();
   });
 });

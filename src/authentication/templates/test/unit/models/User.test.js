@@ -1,6 +1,4 @@
 import { assert } from 'chai';
-import UserModel from '../../../api/models/User';
-import FaultyUsers from '../../fixtures/FaultyUsers';
 
 const newUser = {
   username: 'modelTest',
@@ -21,7 +19,7 @@ describe('models:User', () => {
 
   it('Should remove user', done => {
     User
-      .destroy({'username': newUser.username})
+      .destroy({username: newUser.username})
       .then(users => {
         assert.equal(users[0].username, newUser.username);
         done();
