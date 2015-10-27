@@ -8,9 +8,6 @@ notifications:
 node_js:
   - 'stable'
   - '4'
-  - iojs-v3
-  - iojs-v2
-  - iojs-v1
   - '0.12'
 before_script:
   - npm prune
