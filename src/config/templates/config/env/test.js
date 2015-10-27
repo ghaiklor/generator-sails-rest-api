@@ -11,6 +11,9 @@ export default {
     connection: 'memory',
     migrate: 'drop'
   },
+  policies: {
+    '*': true
+  },
   hooks: {
     csrf: false,
     grunt: false,
