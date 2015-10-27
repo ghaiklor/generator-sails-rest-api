@@ -19,17 +19,6 @@ describe('sails-rest-api:hook', () => {
       assert.fileContent('api/hooks/CountHook.js', /sails.on\('router:before'/);
       assert.fileContent('api/hooks/PluralizeHook.js', /sails.on\('router:before'/);
     });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/hooks/CountHook.test.js',
-        'test/unit/hooks/PluralizeHook.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/hooks/TestHook.test.js'
-      ]);
-    });
   });
 
   describe('Should properly scaffold predefined hook', () => {
@@ -50,16 +39,6 @@ describe('sails-rest-api:hook', () => {
       ]);
 
       assert.fileContent('api/hooks/PluralizeHook.js', /sails.on\('router:before'/);
-    });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/hooks/PluralizeHook.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/hooks/CountHook.test.js'
-      ]);
     });
   });
 
@@ -86,16 +65,6 @@ describe('sails-rest-api:hook', () => {
       assert.fileContent('api/hooks/PluralizeHook.js', /initialize: cb => cb\(\)/);
       assert.noFileContent('api/hooks/PluralizeHook.js', /sails.on\('router:before'/);
     });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/hooks/PluralizeHook.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/hooks/CountHook.test.js'
-      ]);
-    });
   });
 
   describe('Should properly scaffold all predefined hooks at once', () => {
@@ -121,17 +90,6 @@ describe('sails-rest-api:hook', () => {
       assert.fileContent('api/hooks/CountHook.js', /sails.on\('router:before'/);
       assert.fileContent('api/hooks/PluralizeHook.js', /sails.on\('router:before'/);
     });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/hooks/CountHook.test.js',
-        'test/unit/hooks/PluralizeHook.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/hooks/TestHook.test.js'
-      ]);
-    });
   });
 
   describe('Should properly scaffold custom hook', () => {
@@ -153,17 +111,6 @@ describe('sails-rest-api:hook', () => {
       ]);
 
       assert.fileContent('api/hooks/TestHook.js', /initialize: cb => cb\(\)/);
-    });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/hooks/TestHook.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/hooks/CountHook.test.js',
-        'test/unit/hooks/PluralizeHook.test.js'
-      ]);
     });
   });
 });

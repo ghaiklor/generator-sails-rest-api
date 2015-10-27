@@ -22,23 +22,6 @@ describe('sails-rest-api:blueprint', () => {
         'api/blueprints/custom.js'
       ]);
     });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/add.test.js',
-        'test/unit/blueprints/create.test.js',
-        'test/unit/blueprints/destroy.test.js',
-        'test/unit/blueprints/find.test.js',
-        'test/unit/blueprints/findone.test.js',
-        'test/unit/blueprints/populate.test.js',
-        'test/unit/blueprints/remove.test.js',
-        'test/unit/blueprints/update.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/blueprints/custom.test.js'
-      ]);
-    });
   });
 
   describe('Should properly scaffold predefined blueprint', () => {
@@ -66,23 +49,6 @@ describe('sails-rest-api:blueprint', () => {
       ]);
 
       assert.fileContent('api/blueprints/find.js', /const populateAlias = \(model, alias\) => model.populate\(alias\);/);
-    });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/find.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/blueprints/add.test.js',
-        'test/unit/blueprints/create.test.js',
-        'test/unit/blueprints/destroy.test.js',
-        'test/unit/blueprints/findone.test.js',
-        'test/unit/blueprints/populate.test.js',
-        'test/unit/blueprints/remove.test.js',
-        'test/unit/blueprints/update.test.js',
-        'test/unit/blueprints/test.test.js'
-      ]);
     });
   });
 
@@ -116,23 +82,6 @@ describe('sails-rest-api:blueprint', () => {
       assert.fileContent('api/blueprints/find.js', /res.ok\(\)/);
       assert.noFileContent('api/blueprints/find.js', /const populateAlias = \(model, alias\) => model.populate\(alias\);/);
     });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/find.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/blueprints/add.test.js',
-        'test/unit/blueprints/create.test.js',
-        'test/unit/blueprints/destroy.test.js',
-        'test/unit/blueprints/findone.test.js',
-        'test/unit/blueprints/populate.test.js',
-        'test/unit/blueprints/remove.test.js',
-        'test/unit/blueprints/update.test.js',
-        'test/unit/blueprints/test.test.js'
-      ]);
-    });
   });
 
   describe('Should properly scaffold custom blueprint', () => {
@@ -160,23 +109,6 @@ describe('sails-rest-api:blueprint', () => {
       ]);
 
       assert.fileContent('api/blueprints/custom.js', /res.ok\(\)/);
-    });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/custom.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/blueprints/add.test.js',
-        'test/unit/blueprints/create.test.js',
-        'test/unit/blueprints/destroy.test.js',
-        'test/unit/blueprints/find.test.js',
-        'test/unit/blueprints/findone.test.js',
-        'test/unit/blueprints/populate.test.js',
-        'test/unit/blueprints/remove.test.js',
-        'test/unit/blueprints/update.test.js'
-      ]);
     });
   });
 
@@ -207,23 +139,6 @@ describe('sails-rest-api:blueprint', () => {
       ]);
 
       assert.fileContent('api/blueprints/find.js', /const populateAlias = \(model, alias\) => model.populate\(alias\);/);
-    });
-
-    it('Should properly create test files', () => {
-      assert.file([
-        'test/unit/blueprints/add.test.js',
-        'test/unit/blueprints/create.test.js',
-        'test/unit/blueprints/destroy.test.js',
-        'test/unit/blueprints/find.test.js',
-        'test/unit/blueprints/findone.test.js',
-        'test/unit/blueprints/populate.test.js',
-        'test/unit/blueprints/remove.test.js',
-        'test/unit/blueprints/update.test.js'
-      ]);
-
-      assert.noFile([
-        'test/unit/blueprints/custom.test.js'
-      ]);
     });
   });
 });
