@@ -12,28 +12,28 @@ const context = {
 describe('responses:notFound', () => {
   it('Should generate response with no params', () => {
     notFound.call(context);
-    assert.ok(context.status.calledWith(400));
-    assert.ok(context.jsonx.calledWith({
-      code: 'E_BAD_REQUEST',
-      message: 'The request cannot be fulfilled due to bad syntax',
+    assert.ok(context.res.status.calledWith(404));
+    assert.ok(context.res.jsonx.calledWith({
+      code: 'E_NOT_FOUND',
+      message: 'The requested resource could not be found but may be available again in the future',
       data: {}
     }));
   });
 
   it('Should generate response with data param', () => {
     notFound.call(context, 'MY_DATA');
-    assert.ok(context.status.calledWith(400));
-    assert.ok(context.jsonx.calledWith({
-      code: 'E_BAD_REQUEST',
-      message: 'The request cannot be fulfilled due to bad syntax',
+    assert.ok(context.res.status.calledWith(404));
+    assert.ok(context.res.jsonx.calledWith({
+      code: 'E_NOT_FOUND',
+      message: 'The requested resource could not be found but may be available again in the future',
       data: 'MY_DATA'
     }));
   });
 
   it('Should generate response with config param', () => {
     notFound.call(context, 'MY_DATA', {code: 'MY_CODE', message: 'MY_MESSAGE', root: {root: 'MY_ROOT'}});
-    assert.ok(context.status.calledWith(400));
-    assert.ok(context.jsonx.calledWith({
+    assert.ok(context.res.status.calledWith(404));
+    assert.ok(context.res.jsonx.calledWith({
       code: 'MY_CODE',
       message: 'MY_MESSAGE',
       data: 'MY_DATA',
