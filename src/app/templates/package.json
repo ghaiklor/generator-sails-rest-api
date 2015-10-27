@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "esdoc": "^0.4.1",
     "chai": "^3.3.0",
     "isparta": "3.1.0",
     "mocha": "^2.3.3",
@@ -18,6 +19,7 @@
     "start": "babel-node app.js",
     "debug": "babel-node debug app.js",
     "test": "babel-node node_modules/.bin/isparta cover _mocha",
-    "clean": "rm -rf ./.tmp"
+    "clean": "rm -rf ./.tmp",
+    "docs": "echo '=> creating documentation.' && ./node_modules/.bin/esdoc -c esdoc.json"
   }
 }

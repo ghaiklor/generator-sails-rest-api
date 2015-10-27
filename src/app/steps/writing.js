@@ -12,4 +12,5 @@ export default function () {
   this.copy('package.json', 'package.json');
   this.copy('README.md', 'README.md');
   this.copy('sailsrc', '.sailsrc');
+  this.copy('esdoc.json', 'esdoc.json');
 };

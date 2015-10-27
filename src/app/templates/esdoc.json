@@ -1,0 +1,10 @@
+{
+  "title": "<%= answers['app:name'] %>",
+  "source": "./api",
+  "destination": "./documentation",
+  "coverage": true,
+  "test": {
+    "type": "mocha",
+    "source": "./test"
+  }
+}
