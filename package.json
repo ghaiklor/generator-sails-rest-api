@@ -2,6 +2,7 @@
   "name": "generator-sails-rest-api",
   "version": "0.0.0-semantic-release",
   "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features",
+  "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
     "sails",
