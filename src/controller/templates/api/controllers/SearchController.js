@@ -19,11 +19,12 @@ export function index(req, res) {
     let model = sails.models[modelName];
 
     if (!model) {
-      return;
+      return res;
     }
     let where = _.transform(model.definition, (result, val, key) => result.or.push(_.set({}, key, {contains: q})), {or: []});
 
     return Promise.join(modelName, model.find(where), _.partial(_.set, res));
   }, {})
-    .then(res.ok);
+    .then(res.ok)
+    .catch(res.negotiate);
 }
