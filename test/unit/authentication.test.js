@@ -28,7 +28,8 @@ describe('sails-rest-api:authentication', () => {
       assert.file([
         'test/unit/controllers/AuthController.test.js',
         'test/unit/controllers/UserController.test.js',
-        'test/unit/models/User.test.js'
+        'test/unit/models/User.test.js',
+        'test/unit/policies/isAuthenticated.test.js'
       ]);
     });
   });
@@ -65,7 +66,8 @@ describe('sails-rest-api:authentication', () => {
       assert.file([
         'test/unit/controllers/AuthController.test.js',
         'test/unit/controllers/UserController.test.js',
-        'test/unit/models/User.test.js'
+        'test/unit/models/User.test.js',
+        'test/unit/policies/isAuthenticated.test.js'
       ]);
     });
   });

@@ -12,6 +12,4 @@ before(done => {
   });
 });
 
-after(done => {
-  sails.lower(done);
-});
+after(done => sails.lower(done));
