@@ -135,23 +135,27 @@ const _onSocialStrategyAuth = (req, accessToken, refreshToken, profile, next) =>
   }
 };
 
-/**
- * Triggers when all Passport steps is done and user profile is parsed
- * @param {Object} req Request object
- * @param {Object} res Response object
- * @param {Object} error Object with error info
- * @param {Object} user User object
- * @param {Object} info Information object
- * @returns {*}
- * @private
- */
-export const onPassportAuth = (req, res, error, user, info) => {
-  if (error || !user) return res.negotiate(error || info);
+export default {
+  passport: {
+    /**
+     * Triggers when all Passport steps is done and user profile is parsed
+     * @param {Object} req Request object
+     * @param {Object} res Response object
+     * @param {Object} error Object with error info
+     * @param {Object} user User object
+     * @param {Object} info Information object
+     * @returns {*}
+     * @private
+     */
+      onPassportAuth(req, res, error, user, info) {
+      if (error || !user) return res.negotiate(error || info);
 
-  return res.ok({
-    token: CipherService.jwt.encodeSync({id: user.id}),
-    user: user
-  });
+      return res.ok({
+        token: CipherService.jwt.encodeSync({id: user.id}),
+        user: user
+      });
+    }
+  }
 };
 
 passport.use(new LocalStrategy(_.assign({}, LOCAL_STRATEGY_CONFIG), _onLocalStrategyAuth));
