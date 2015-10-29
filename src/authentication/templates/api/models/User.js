@@ -56,7 +56,7 @@ export default {
   },
 
   beforeUpdate(values, next) {
-    if (false === values.hasOwnProperty('password')) return next()
+    if (false === values.hasOwnProperty('password')) return next();
     if (/^\$2[aby]\$[0-9]{2}\$.{53}$/.test(values.password)) return next();
 
     return HashService.bcrypt.hash(values.password)
@@ -68,7 +68,7 @@ export default {
   },
 
   beforeCreate(values, next) {
-    if (false === values.hasOwnProperty('password')) return next()
+    if (false === values.hasOwnProperty('password')) return next();
 
     return HashService.bcrypt.hash(values.password)
       .then(hash => {
