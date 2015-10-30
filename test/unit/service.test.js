@@ -37,7 +37,7 @@ describe('sails-rest-api:service', () => {
         'config/services/storage.js'
       ]);
 
-      assert.fileContent('config/services/cipher.js', /secretOrKey: 'DEFAULT_SECRET_KEY'/);
+      assert.fileContent('config/services/cipher.js', /secretKey: 'DEFAULT_SECRET_KEY'/);
     });
 
     it('Should properly create test files', () => {
@@ -103,7 +103,7 @@ describe('sails-rest-api:service', () => {
         'config/services/storage.js'
       ]);
 
-      assert.fileContent('config/services/cipher.js', /secretOrKey: 'DEFAULT_SECRET_KEY'/);
+      assert.fileContent('config/services/cipher.js', /secretKey: 'DEFAULT_SECRET_KEY'/);
     });
 
     it('Should properly create test files', () => {
@@ -312,7 +312,7 @@ describe('sails-rest-api:service', () => {
         'config/services/storage.js'
       ]);
 
-      assert.fileContent('config/services/cipher.js', /secretOrKey: 'DEFAULT_SECRET_KEY'/);
+      assert.fileContent('config/services/cipher.js', /secretKey: 'DEFAULT_SECRET_KEY'/);
     });
 
     it('Should properly create test files', () => {
@@ -386,7 +386,7 @@ describe('sails-rest-api:service', () => {
         'config/services/storage.js'
       ]);
 
-      assert.fileContent('config/services/cipher.js', /secretOrKey: '1234567890'/);
+      assert.fileContent('config/services/cipher.js', /secretKey: '1234567890'/);
     });
 
     it('Should properly create test files', () => {

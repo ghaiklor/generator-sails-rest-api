@@ -2,7 +2,7 @@ export default {
   services: {
     cipher: {
       jwt: {
-        secretOrKey: '<%= options["cipher-secret-key"] %>'
+        secretKey: '<%= options["cipher-secret-key"] %>'
       }
     }
   }
