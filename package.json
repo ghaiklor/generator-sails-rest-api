@@ -37,8 +37,8 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
-    "test": "babel-node node_modules/.bin/isparta cover _mocha",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "test": "babel-node node_modules/.bin/isparta cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -52,7 +52,7 @@
     "yosay": "1.0.5"
   },
   "devDependencies": {
-    "babel": "6.0.15",
+    "babel": "5.8.29",
     "chai": "3.4.0",
     "coveralls": "2.11.4",
     "cz-conventional-changelog": "1.1.4",
