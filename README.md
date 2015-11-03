@@ -43,6 +43,8 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 
 ## Getting Started
 
+### Console
+
 Install **yeoman** and **generator-sails-rest-api**:
 
 ```bash
@@ -64,6 +66,21 @@ After scaffolding the project you can use this project as before. Just run the `
 ```bash
 npm start
 ```
+
+### WebStorm 11
+
+Start creating new project and choose Yeoman type:
+
+![WebStorm 11 Create New Project](https://cloud.githubusercontent.com/assets/3625244/10912184/ed36dfa6-8250-11e5-8a0a-d64ae0a3a6fc.png)
+
+If you have installed sails-rest-api generator then just chose it and click Next.
+Otherwise, click Install generator and search for `sails`.
+
+![WebStorm 11 Search and Install generator](https://cloud.githubusercontent.com/assets/3625244/10912249/40dc99ca-8251-11e5-989d-f0be4efae9b8.png)
+
+When you click Next button after the generator was chosen, answer the questions that you'd been prompted.
+
+![WebStorm 11 Prompt and Answers](https://cloud.githubusercontent.com/assets/3625244/10912293/7b090b4c-8251-11e5-8ec7-2b70c3be197e.png)
 
 Congratulations, you just have setup your first Sails REST API :+1:
 
