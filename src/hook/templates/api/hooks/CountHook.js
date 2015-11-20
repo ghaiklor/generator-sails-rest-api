@@ -10,7 +10,7 @@ const defaultCountBlueprint = (req, res) => {
   let Model = actionUtil.parseModel(req);
   let countQuery = Model.count();
 
-  countQuery.then(count => res.ok(null, {count}));
+  countQuery.then(count => res.ok({count}));
 };
 
 export default function (sails) {
