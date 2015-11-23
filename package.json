@@ -52,7 +52,8 @@
     "yosay": "1.1.0"
   },
   "devDependencies": {
-    "babel": "5.8.34",
+    "babel-cli": "6.2.0",
+    "babel-preset-es2015-node4": "2.0.1",
     "chai": "3.4.1",
     "coveralls": "2.11.4",
     "cz-conventional-changelog": "1.1.4",
