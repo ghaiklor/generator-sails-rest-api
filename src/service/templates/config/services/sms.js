@@ -1,5 +1,10 @@
 export default {
   services: {
-    sms: {}
+    sms: {
+      provider: {
+        accountSid: '<ACCOUNT_SID>',
+        authToken: '<AUTH_TOKEN>'
+      }
+    }
   }
 }
