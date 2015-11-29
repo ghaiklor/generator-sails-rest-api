@@ -1,5 +1,5 @@
 {
-  "presets": ["es2015-node4"],
+  "presets": ["es2015-node4", "stage-0"],
   "plugins": ["add-module-exports"],
   "ignore": [
     "adapter/templates",
