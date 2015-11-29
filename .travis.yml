@@ -6,9 +6,8 @@ cache:
 notifications:
   email: true
 node_js:
-  - 'stable'
-  - '4'
-  - '0.12'
+  - stable
+  - 4
 before_script:
   - npm prune
   - 'curl -Lo travis_after_all.py https://git.io/vLSON'
