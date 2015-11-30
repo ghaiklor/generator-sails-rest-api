@@ -4,8 +4,8 @@ import generatorOptions from './options';
 import generatorSteps from './steps';
 
 export default class SwaggerGenerator extends Base {
-  constructor(...args) {
-    super(...args);
+  constructor(args, options) {
+    super(args, options);
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]));
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]));
