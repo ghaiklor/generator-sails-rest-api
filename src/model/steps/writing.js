@@ -3,30 +3,36 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-import fs from 'fs';
+import Util from '../../app/util'
 
-const SOURCE_CONTROLLER = `Controller.js`;
-const SOURCE_CONTROLLER_TEST = `Controller.test.js`;
 const SOURCE_MODEL = `Model.js`;
 const SOURCE_MODEL_TEST = `Model.test.js`;
-const SOURCE_MODEL_FIXTURE = `ModelFixture.js`;
 
-const DESTINATION_CONTROLLER = name => `api/controllers/${name}Controller.js`;
-const DESTINATION_CONTROLLER_TEST = name => `test/unit/controllers/${name}Controller.test.js`;
+const DESTINATION_INDEX = 'api/models/index.js'
 const DESTINATION_MODEL = name => `api/models/${name}.js`;
 const DESTINATION_MODEL_TEST = name => `test/unit/models/${name}.test.js`;
-const DESTINATION_MODEL_FIXTURE = name => `test/fixtures/${name}Fixture.js`;
 
 export default function () {
-  let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model/, '');
-  let isREST = this.options['rest'];
+  Util.patchConflicter()
 
-  if (isREST && !fs.existsSync(this.destinationPath(DESTINATION_CONTROLLER(name)))) {
-    this.template(SOURCE_CONTROLLER, DESTINATION_CONTROLLER(name), {name});
-    this.template(SOURCE_CONTROLLER_TEST, DESTINATION_CONTROLLER_TEST(name), {name});
-  }
+  let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model$/, '');
+  let fileName = `${name}`
+  let indexPath = this.destinationPath(DESTINATION_INDEX)
 
   this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name});
   this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name});
-  this.template(SOURCE_MODEL_FIXTURE, DESTINATION_MODEL_FIXTURE(name), {name});
+
+  if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
+    return this.fs.write(this.destinationPath(DESTINATION_INDEX), controllerIndexRequire(name))
+  }
+
+  if (Util.hasRequireStatement(fileName, this.fs.read(indexPath))) {
+    this.log.identical(DESTINATION_INDEX);
+    return
+  }
+
+  let indexContents = this.fs.read(indexPath)
+  let updatedIndexFile = Util.getUpdatedIndexFile(fileName, indexContents)
+
+  this.fs.write(indexPath, updatedIndexFile)
 };
