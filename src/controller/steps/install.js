@@ -8,7 +8,7 @@ const DEPENDENCIES = {
 };
 
 export default function () {
-  let name = this['controller-name'].replace(/Controller/, '').toLowerCase();
+  let name = this['controller-name'].replace(/Controller$/, '').toLowerCase();
 
   if (DEPENDENCIES[name]) {
     this.npmInstall(DEPENDENCIES[name], {save: true});
