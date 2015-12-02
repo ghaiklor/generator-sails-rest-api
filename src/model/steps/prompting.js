@@ -5,5 +5,11 @@
 
 import questions from '../questions';
 
-export default function () {
+export default {
+  askModel () {
+    this.prompt(questions, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  }
 };

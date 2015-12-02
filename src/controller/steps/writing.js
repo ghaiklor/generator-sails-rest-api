@@ -23,7 +23,7 @@ export default function () {
   this.template(SOURCE_CONTROLLER_TEST, DESTINATION_CONTROLLER_TEST(name), {name});
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
-    return this.fs.write(this.destinationPath(DESTINATION_INDEX), controllerIndexRequire(name))
+    return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))
   }
 
   if (Util.hasRequireStatement(fileName, this.fs.read(indexPath))) {

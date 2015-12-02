@@ -58,8 +58,12 @@ const Util = module.exports = {
     return exists
   },
 
+  getRequireStatement (fileName) {
+    return `exports.${fileName} = require('./${fileName}')`
+  },
+
   getUpdatedIndexFile (fileName, fileContents) {
-    let requireStatement = `exports.${fileName} = require('./${fileName}')`
+    let requireStatement = Util.getRequireStatement(fileName)
     let newFileContents = falafel(fileContents, node => {
       let src = node.source()
       if (node.type === 'Program' && !node.parent) {

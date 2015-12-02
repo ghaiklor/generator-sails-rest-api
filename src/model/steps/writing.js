@@ -16,15 +16,14 @@ export default function () {
   Util.patchConflicter()
 
   let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model$/, '');
-  this.log(this)
   let fileName = `${name}`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 
-  this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name});
-  this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name, desc});
+  this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name: name, answers: this.answers});
+  this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name: name, answers: this.answers});
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
-    return this.fs.write(this.destinationPath(DESTINATION_INDEX), controllerIndexRequire(name))
+    return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))
   }
 
   if (Util.hasRequireStatement(fileName, this.fs.read(indexPath))) {
