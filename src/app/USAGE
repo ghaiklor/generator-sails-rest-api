@@ -11,6 +11,3 @@ Generators:
 
   Create New Service
     yo trails:service <service-name>
-
-  Create New Config File
-    yo trails:config <config-name>
