@@ -1,6 +1,6 @@
 /**
  * @module <%= name %>
- * @description <%= answers['desc'] %>
+ * @description <%= answers.desc %>
  */
 module.exports = {
 
