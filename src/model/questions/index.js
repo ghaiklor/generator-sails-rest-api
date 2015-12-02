@@ -10,4 +10,10 @@
  * }];
  */
 
-export default [];
+export default [
+  {
+    type: 'input',
+    name: 'desc',
+    message: 'Model Description'
+  }
+];
