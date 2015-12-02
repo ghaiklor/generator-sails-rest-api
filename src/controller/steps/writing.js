@@ -6,36 +6,7 @@
 import falafel from 'falafel'
 import mkdirp from 'mkdirp'
 import path from 'path'
-
-import pathExists from 'yeoman-generator/node_modules/path-exists'
-import detectConflict from 'yeoman-generator/node_modules/detect-conflict'
-
-const collision = function (file, cb) {
-  var rfilepath = path.relative(process.cwd(), file.path);
-  if (!pathExists.sync(file.path)) {
-    this.adapter.log.create(rfilepath);
-    cb('create');
-    return;
-  }
-  else if (/index.js$/.test(file.path)) {
-    this.adapter.log.force(rfilepath);
-    cb('force');
-    return;
-  }
-
-  if (this.force) {
-    this.adapter.log.force(rfilepath);
-    cb('force');
-    return;
-  }
-  if (detectConflict(file.path, file.contents)) {
-    this.adapter.log.conflict(rfilepath);
-    this._ask(file, cb);
-  } else {
-    this.adapter.log.identical(rfilepath);
-    cb('identical');
-  }
-};
+import Util from '../../app/util'
 
 const SOURCE_CONTROLLER = 'Controller.js';
 const SOURCE_CONTROLLER_TEST = 'Controller.test.js';
@@ -55,10 +26,11 @@ const isRequire = node => {
 }
 
 export default function () {
-  let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/Controller$/, '');
-  let indexExists = false
+  Util.patchConflicter()
 
-  this.conflicter.collision = collision
+  let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/Controller$/, '');
+  let fileName = `${name}Controller`
+  let indexPath = this.destinationPath(DESTINATION_INDEX)
 
   mkdirp.sync(DESTINATION_DIR)
   mkdirp.sync(DESTINATION_TEST_DIR)
@@ -70,26 +42,13 @@ export default function () {
     return this.fs.write(this.destinationPath(DESTINATION_INDEX), controllerIndexRequire(name))
   }
 
-  let oldIndex = falafel(this.fs.read(this.destinationPath(DESTINATION_INDEX)), node => {
-    if (isRequire(node)) {
-      if (node.arguments[0].value == `./${name}Controller`) {
-        indexExists = true
-      }
-    }
-  })
+  if (Util.hasRequireStatement(fileName, this.fs.read(indexPath))) {
+    this.log.identical(DESTINATION_INDEX);
+    return
+  }
 
-  this.log('old src', oldIndex.toString())
+  let indexContents = this.fs.read(indexPath)
+  let updatedIndexFile = Util.getUpdatedIndexFile(fileName, indexContents)
 
-  if (indexExists) return
-
-  let updatedIndex = falafel(this.fs.read(this.destinationPath(DESTINATION_INDEX)), node => {
-    let src = node.source()
-    if (node.type === 'Program' && !node.parent) {
-      node.update(src + '\n' + controllerIndexRequire(name))
-    }
-  }).toString()
-
-  this.log('new src', updatedIndex)
-
-  this.fs.write(this.destinationPath(DESTINATION_INDEX), updatedIndex)
+  this.fs.write(indexPath, updatedIndexFile)
 };
