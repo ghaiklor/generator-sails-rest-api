@@ -15,7 +15,7 @@ const DESTINATION_CONTROLLER_TEST = name => `test/integration/controllers/${name
 export default function () {
   Util.patchConflicter()
 
-  let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/Controller$/, '');
+  let name = (this['controller-name'].charAt(0).toUpperCase() + this['controller-name'].slice(1)).replace(/(\w+)Controller$/, '$1');
   let fileName = `${name}Controller`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 

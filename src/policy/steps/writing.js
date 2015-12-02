@@ -15,12 +15,12 @@ const DESTINATION_POLICY_TEST = name => `test/integration/policies/${name}.test.
 export default function () {
   Util.patchConflicter()
 
-  let name = (this['policy-name'].charAt(0).toLowerCase() + this['policy-name'].slice(1)).replace(/Policy$/, '');
-  let fileName = `${name}Policy`
+  let name = (this['policy-name'].charAt(0).toUpperCase() + this['policy-name'].slice(1)).replace(/(\w+)Policy$/, '$1');
+  let fileName = `${name}`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 
-  this.template(SOURCE_POLICY, DESTINATION_POLICY(name), {name});
-  this.template(SOURCE_POLICY_TEST, DESTINATION_POLICY_TEST(name), {name});
+  this.template(SOURCE_POLICY, DESTINATION_POLICY(name), {name, fileName, answers: this.answers});
+  this.template(SOURCE_POLICY_TEST, DESTINATION_POLICY_TEST(name), {name, fileName});
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
     return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))

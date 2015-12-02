@@ -15,12 +15,12 @@ const DESTINATION_MODEL_TEST = name => `test/unit/models/${name}.test.js`;
 export default function () {
   Util.patchConflicter()
 
-  let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model$/, '');
+  let name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/(\w+)Model$/, '$1');
   let fileName = `${name}`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 
-  this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name: name, answers: this.answers});
-  this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name: name, answers: this.answers});
+  this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name, fileName, answers: this.answers});
+  this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name, fileName, answers: this.answers});
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
     return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))
