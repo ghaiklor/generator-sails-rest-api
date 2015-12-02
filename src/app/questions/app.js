@@ -14,5 +14,5 @@ export default [{
   type: 'input',
   name: 'app:name',
   message: 'Application name',
-  default: 'sails-rest-api'
+  default: 'my-trails-app'
 }];
