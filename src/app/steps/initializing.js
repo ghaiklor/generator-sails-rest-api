@@ -27,7 +27,9 @@ export default {
   },
 
   sayHello: function () {
-    this.log(yosay('Welcome to the laudable ' + chalk.red('Sails REST API') + ' generator!'));
+    this.log()
+    this.log('Get ready to blaze a new ' + chalk.green('Trails Application') + '!');
+    this.log()
   },
 
   checkUpdates: function () {
