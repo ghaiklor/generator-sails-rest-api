@@ -58,7 +58,7 @@
     "babel-preset-stage-0": "6.1.18",
     "chai": "3.4.1",
     "coveralls": "2.11.4",
-    "cz-conventional-changelog": "1.1.4",
+    "cz-conventional-changelog": "1.1.5",
     "isparta": "4.0.0",
     "mocha": "2.3.4",
     "semantic-release": "4.3.5"
