@@ -14,10 +14,4 @@
  */
 
 export default {
-  'rest': {
-    desc: 'Exposes REST interface to this model',
-    type: Boolean,
-    defaults: true,
-    hide: false
-  }
 };

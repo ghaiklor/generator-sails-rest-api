@@ -1,19 +1,10 @@
 /**
- * <%= name %>
- * @description :: Model for storing <%= name %> records
+ * @module <%= name %>
+ * @description <%= desc %>
  */
-
-export default {
-  schema: true,
+module.exports = {
 
   attributes: {
-    // Fill your attributes here
 
-    toJSON() {
-      return this.toObject();
-    }
-  },
-
-  beforeUpdate: (values, next) => next(),
-  beforeCreate: (values, next) => next()
-};
+  }
+}
