@@ -19,8 +19,8 @@ export default function () {
   let fileName = `${name}Service`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 
-  this.template(serviceTemplate, DESTINATION_SERVICE(name), {name, answers: this.answers, fileName});
-  this.template(testTemplate, DESTINATION_SERVICE_TEST(name), {name, answers: this.answers, fileName});
+  this.template(SOURCE_SERVICE, DESTINATION_SERVICE(name), {name, answers: this.answers, fileName});
+  this.template(SOURCE_SERVICE_TEST, DESTINATION_SERVICE_TEST(name), {name, answers: this.answers, fileName});
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
     return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))
