@@ -1,23 +1,22 @@
 {
-  "name": "generator-sails-rest-api",
-  "version": "0.0.0-semantic-release",
-  "description": "Yeoman generator that provides already configured and optimized Sails REST API with bundle of predefined features",
+  "name": "generator-trails",
+  "version": "0.0.0",
+  "description": "Trails Yeoman Generator",
   "main": "generators/app/index.js",
   "keywords": [
     "yeoman-generator",
-    "sails",
-    "rest",
-    "api",
+    "trails",
+    "trailsjs",
     "boilerplate",
     "scaffolder",
     "scaffold",
     "yeoman",
     "generator"
   ],
-  "homepage": "https://github.com/ghaiklor/generator-sails-rest-api",
+  "homepage": "https://github.com/trailsjs/generator-trails",
   "bugs": {
-    "url": "https://github.com/ghaiklor/generator-sails-rest-api/issues",
-    "email": "ghaiklor@gmail.com"
+    "url": "https://github.com/trailsjs/generator-trails/issues",
+    "email": "bugs@trailsjs.io"
   },
   "license": "MIT",
   "author": {
@@ -26,6 +25,10 @@
     "url": "http://ghaiklor.com/"
   },
   "contributors": [
+    {
+      "name": "Travis Webb",
+      "url": "https://github.com/tjwebb"
+    }
     {
       "name": "Dmitriy Akulich",
       "url": "https://github.com/IncoCode"
@@ -42,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ghaiklor/generator-sails-rest-api.git"
+    "url": "https://github.com/trailsjs/generator-trails.git"
   },
   "dependencies": {
     "chalk": "1.1.1",

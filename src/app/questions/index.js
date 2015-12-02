@@ -3,7 +3,6 @@ import app from './app';
 import authentication from './authentication';
 import blueprint from './blueprint';
 import config from './config';
-import controller from './controller';
 import cron from './cron';
 import hook from './hook';
 import logger from './logger';
@@ -19,7 +18,6 @@ export default {
   authentication,
   blueprint,
   config,
-  controller,
   cron,
   hook,
   logger,
