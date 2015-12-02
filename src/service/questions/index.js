@@ -10,4 +10,11 @@
  * }];
  */
 
-export default [];
+export default [
+  {
+    type: 'input',
+    name: 'desc',
+    message: 'Service Description',
+    default: 'TODO document Service'
+  }
+];
