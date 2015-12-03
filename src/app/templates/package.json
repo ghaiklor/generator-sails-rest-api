@@ -1,25 +1,23 @@
 {
-  "name": "<%= answers['app:name'] %>",
-  "version": "0.1.0",
-  "main": "app.js",
+  "version": "0.0.0",
   "dependencies": {
+    "lodash": "^3.10.1",
     "rc": "^1.1.2",
-    "sails": "^0.11.2"
+    "trailpack-core": "latest",
+    "trailpack-hapi": "latest",
+    "trailpack-repl": "latest",
+    "trailpack-router": "latest",
+    "trails": "latest",
+    "waterline-sqlite3": "^0.12.4",
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "esdoc": "^0.4.1",
-    "chai": "^3.3.0",
-    "isparta": "3.1.0",
-    "mocha": "^2.3.3",
-    "sails-memory": "^0.10.5",
-    "sinon": "^1.17.1"
+    "mocha": "^2.3.4",
+    "supertest": "^1.1.0"
   },
   "scripts": {
-    "clean": "rm -rf ./.tmp",
-    "debug": "node debug app.js",
-    "docs": "esdoc -c esdoc.json",
-    "start": "node app.js",
-    "test": "babel-node node_modules/.bin/isparta cover _mocha"
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
   }
 }

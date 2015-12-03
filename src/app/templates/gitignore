@@ -40,3 +40,4 @@ nbproject
 .idea
 .node_history
 .tmp
+*.sw*
