@@ -1,9 +1,7 @@
-import { assert } from 'chai';
-import Model from '../../../api/models/<%= name %>';
-import Fixture from '../../fixtures/<%= name %>Fixture';
+const assert = require('assert')
 
-describe('models:<%= name %>', () => {
-  it('Should be tested', () => {
-    assert(false);
-  });
-});
+describe('<%= name %> Model', () => {
+  it('should exist', () => {
+    assert(global.app.api.models.<%= fileName %>)
+  })
+})

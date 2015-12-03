@@ -16,8 +16,9 @@
 
 export default {
   'controller-name': {
-    required: false,
     type: String,
-    defaults: ''
+    required: true,
+    desc: 'Controller Name',
+    banner: 'Controller Name'
   }
 };

@@ -1,10 +1,7 @@
 /**
- * <%= name %>
- * @description :: Policy that ...
+ * @module <%= name %>
+ * @description <%= answers.desc %>
  */
+module.exports = {
 
-export default function (req, res, next) {
-  // Do your logic here...
-
-  next();
 }

@@ -1,8 +1,7 @@
-import { assert } from 'chai';
-import Service from '../../../api/services/<%= name %>Service';
+const assert = require('assert')
 
-describe('services:<%= name %>Service', () => {
-  it('Should properly export', () => {
-    assert.isObject(Service);
-  });
-});
+describe('<%= fileName %>', () => {
+  it('should exist', () => {
+    assert(global.app.api.services.<%= fileName %>)
+  })
+})

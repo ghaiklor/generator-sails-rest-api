@@ -5,5 +5,12 @@
 
 import questions from '../questions';
 
-export default function () {
+export default {
+  askModel () {
+    let done = this.async()
+    this.prompt(questions, answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
+  }
 };

@@ -1,8 +1,8 @@
 /**
- * <%= name %>Controller
- * @description :: Server-side logic for ...
+ * @module <%= name %>Controller
+ * @description Generated Trails.js Controller.
+ * @this TrailsApp
  */
+module.exports = {
 
-export function index(req, res) {
-  res.ok();
 }

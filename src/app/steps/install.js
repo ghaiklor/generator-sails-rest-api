@@ -4,5 +4,8 @@
  */
 
 export default function () {
-  this.npmInstall();
+  this.npmInstall(null, {
+    silent: true,
+    loglevel: 'silent'
+  });
 };

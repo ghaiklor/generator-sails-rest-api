@@ -1,8 +1,7 @@
-import { assert } from 'chai';
-import Controller from '../../../api/controllers/<%= name %>Controller';
+const assert = require('assert')
 
-describe('controllers:<%= name %>Controller', () => {
-  it('Should be tested', () => {
-    assert(false);
-  });
-});
+describe('<%= name %>Controller', () => {
+  it('should exist', () => {
+    assert(global.app.api.controllers.<%= name %>Controller)
+  })
+})

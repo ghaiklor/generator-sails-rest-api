@@ -1,0 +1,13 @@
+Generators:
+
+  Create New Model
+    yo trails:model <model-name>
+
+  Create New Controller
+    yo trails:controller <controller-name>
+
+  Create New Policy
+    yo trails:policy <policy-name>
+
+  Create New Service
+    yo trails:service <service-name>

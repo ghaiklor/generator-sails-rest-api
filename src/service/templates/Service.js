@@ -1,1 +1,7 @@
-export default {};
+/**
+ * @module <%= fileName %>
+ * @description <%= answers.desc %>
+ */
+module.exports = {
+
+}

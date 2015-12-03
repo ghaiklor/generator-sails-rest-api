@@ -10,4 +10,11 @@
  * }];
  */
 
-export default [];
+export default [
+  {
+    type: 'input',
+    name: 'desc',
+    message: 'Policy Description',
+    default: 'TODO document Policy'
+  }
+];
