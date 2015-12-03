@@ -50,6 +50,7 @@
   "dependencies": {
     "chalk": "1.1.1",
     "falafel": "^1.2.0",
+    "generator-node": "trailsjs/generator-node",
     "mkdirp": "^0.5.1",
     "print-message": "1.4.0",
     "update-notifier": "0.5.0",
