@@ -1,4 +1,0 @@
-./test/bootstrap.js
-./test/unit/**/*.test.js
---reporter nyan
---recursive
