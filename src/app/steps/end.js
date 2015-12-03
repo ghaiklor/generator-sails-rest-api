@@ -8,9 +8,9 @@ import printMessage from 'print-message';
 
 export default function () {
   printMessage([
-    `Enjoy your ${chalk.green('Trails')} project!`,
+    `Your ${chalk.green('Trails')} Application has been created!`,
     `---`,
-    `To start your application, run: ${chalk.blue('npm start')}`
+    `To start your application, run: ${chalk.red('npm start')}`
   ], {
     printFn: this.log
   });
