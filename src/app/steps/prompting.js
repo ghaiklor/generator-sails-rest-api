@@ -6,19 +6,12 @@
 import chalk from 'chalk';
 import questions from '../questions';
 
-function askQuestions(title, questions, done) {
-  this.log(chalk.yellow(`\n${title} questions:`));
-
-  this.prompt(questions, answers => {
-    this.answers = Object.assign(this.answers || {}, answers);
-    done();
-  });
-}
-
 export default {
-  /*
-  askApp: function () {
-    askQuestions.call(this, 'Application', questions.app, this.async());
+  askWebServer: function () {
+    let done = this.async()
+    this.prompt(questions, answers => {
+      this.answers = Object.assign(this.answers || { }, answers);
+      done();
+    });
   }
-  */
 };
