@@ -52,7 +52,7 @@
     "yosay": "1.1.0"
   },
   "devDependencies": {
-    "babel-cli": "6.2.0",
+    "babel-cli": "6.3.13",
     "babel-plugin-add-module-exports": "0.1.1",
     "babel-preset-es2015-node4": "2.0.2",
     "babel-preset-stage-0": "6.1.18",
