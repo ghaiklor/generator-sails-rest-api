@@ -8,6 +8,7 @@ describe('sails-rest-api:swagger', () => {
 
     it('Should properly create api files', () => {
       assert.file([
+        'config/swagger.js',
         'api/controllers/DocsController.js',
         'api/hooks/swagger/index.js',
         'api/hooks/swagger/lib/spec.js',
