@@ -53,7 +53,7 @@
     "generator-node": "trailsjs/generator-node",
     "mkdirp": "^0.5.1",
     "print-message": "1.4.0",
-    "trails": "0.0.2",
+    "trails": "latest",
     "update-notifier": "0.5.0",
     "yeoman-generator": "0.21.1",
     "yosay": "1.1.0"
