@@ -17,8 +17,9 @@ export default {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/controllers', server, '**'), this.destinationPath('api/controllers'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/policies', server, '**'), this.destinationPath('api/policies'))
   },
-  config () {
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
+  templateEngineConfig () {
+    let templateEngine = this.answers['template-engine']
+    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', templateEngine, '**'), this.destinationPath('config'))
   },
   root () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, '.trailsrc'), this.destinationPath('.trailsrc'))

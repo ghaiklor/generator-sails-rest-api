@@ -10,5 +10,15 @@ export default [
       'restify'
     ],
     defaults: 'hapi'
+  },
+  {
+    type: 'list',
+    name: 'template-engine',
+    message: 'Choose a Template Engine',
+    choices: [
+      'jade',
+      'handlebars'
+    ],
+    defaults: 'jade'
   }
 ]
