@@ -9,7 +9,7 @@ const Util = module.exports = {
   /**
    * Monkey-patch to support index.js file updating without confirmation
    */
-  patchConflicter () {
+    patchConflicter () {
     Conflicter.prototype.collision = function (file, cb) {
       var rfilepath = path.relative(process.cwd(), file.path);
       if (!pathExists.sync(file.path)) {
@@ -39,7 +39,7 @@ const Util = module.exports = {
   },
 
   isRequire (node) {
-    return node.type === 'CallExpression' && 
+    return node.type === 'CallExpression' &&
       node.callee.type === 'Identifier' &&
       node.callee.name === 'require'
   },

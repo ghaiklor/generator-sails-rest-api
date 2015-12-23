@@ -2,6 +2,4 @@
  * @module <%= fileName %>
  * @description <%= answers.desc %>
  */
-module.exports = {
-
-}
+module.exports = {}

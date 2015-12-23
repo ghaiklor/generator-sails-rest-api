@@ -1,5 +1,8 @@
 Generators:
 
+  Create New Api
+    yo trails:api <api-name>
+
   Create New Model
     yo trails:model <model-name>
 

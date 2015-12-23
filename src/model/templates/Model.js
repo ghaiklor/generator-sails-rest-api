@@ -4,7 +4,5 @@
  */
 module.exports = {
 
-  attributes: {
-
-  }
+  attributes: {}
 }

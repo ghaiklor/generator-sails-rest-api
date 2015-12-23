@@ -14,8 +14,8 @@ We don't moderate issues and will answer you as soon as possible.
 Clone repository to your computer.
 
 ```bash
-git clone https://github.com/ghaiklor/generator-sails-rest-api.git # via HTTPS
-git clone git@github.com:ghaiklor/generator-sails-rest-api.git # via SSH
+git clone https://github.com/trails/generator-trails.git # via HTTPS
+git clone git@github.com:trails/generator-trails.git # via SSH
 ```
 
 ### Install dependencies
@@ -24,30 +24,30 @@ We are using `npm` for manage dependencies.
 So all development dependencies is declared into `package.json` and you can install it simply call `npm install`.
 
 ```bash
-cd generator-sails-rest-api
+cd generator-trails
 npm install
 ```
 
-### Run generator-sails-rest-api locally
+### Run generator-trails locally
 
 When you clone the repository, you can link this repository as global npm module in your system.
 Then check if this linked up by executing `npm -g list --depth=0`.
 If everything is correct, you will see path to your cloned repository.
-After linking, you can call `yo sails-rest-api` and run generator locally.
+After linking, you can call `yo trails` and run generator locally.
 
 ```bash
-git clone https://github.com/ghaiklor/generator-sails-rest-api.git
-cd generator-sails-rest-api
+git clone https://github.com/trails/generator-trails.git
+cd generator-trails
 sudo npm link
-yo sails-rest-api
+yo trails
 ```
 
 ## Branch explanation
 
 Our repository has two main branches:
 
-1. [master](https://github.com/ghaiklor/generator-sails-rest-api/tree/master "Master Branch")
-2. [dev](https://github.com/ghaiklor/generator-sails-rest-api/tree/dev "Development Branch")
+1. [master](https://github.com/trails/generator-trails/tree/master "Master Branch")
+2. [dev](https://github.com/trails/generator-trails/tree/dev "Development Branch")
 
 All releases will merge into `master` branch.
 So if you want to get and use the latest release - use `master` branch.

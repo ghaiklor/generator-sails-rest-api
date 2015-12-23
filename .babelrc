@@ -1,19 +1,11 @@
 {
-  "stage": 0,
+  "presets": ["es2015", "stage-0"],
+  "plugins": ["add-module-exports"],
   "ignore": [
-    "adapter/templates",
     "app/templates",
-    "authentication/templates",
-    "blueprint/templates",
-    "config/templates",
-    "controller/templates",
-    "cron/templates",
-    "hook/templates",
-    "logger/templates",
     "model/templates",
+    "controller/templates",
     "policy/templates",
-    "response/templates",
-    "service/templates",
-    "swagger/templates"
+    "service/templates"
   ]
 }
