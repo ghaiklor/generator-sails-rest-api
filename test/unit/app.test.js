@@ -17,13 +17,33 @@ describe('trails:app', () => {
 
     it('Should properly create root files', () => {
       assert.file([
+        '.trailsrc',
+        '.editorconfig',
+        '.gitignore',
         'index.js',
         'server.js',
         'api/index.js',
+        'api/models/index.js',
+        'api/services/index.js',
         'config/index.js',
+        'config/database.js',
         'config/main.js',
+        'config/footprints.js',
+        'config/log.js',
+        'config/policies.js',
+        'config/routes.js',
+        'config/session.js',
+        'config/views.js',
+        'config/web.js',
+        'config/webpack.js',
+        'config/env/testing.js',
+        'config/env/staging.js',
+        'config/env/production.js',
+        'config/env/development.js',
+        'config/env/index.js',
         'package.json',
-        'README.md'
+        'README.md',
+        'LICENSE'
       ]);
     });
   });
