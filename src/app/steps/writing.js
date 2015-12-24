@@ -12,9 +12,21 @@ export default {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))
   },
   serverDependentApi () {
-    let server = this.answers['web-engine']
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/controllers', server, '**'), this.destinationPath('api/controllers'))
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/policies', server, '**'), this.destinationPath('api/policies'))
+    const server = this.answers['web-engine']
+    let SERVER_TEMPLATE = null;
+    try {
+      SERVER_TEMPLATE = path.dirname(require.resolve('trailpack-' + server));
+
+      // TODO: may be copy everything form `api` ?
+      this.fs.copy(path.resolve(SERVER_TEMPLATE, 'archetype', 'api/controllers', '**'), this.destinationPath('api/controllers'))
+      this.fs.copy(path.resolve(SERVER_TEMPLATE, 'archetype', 'api/policies', '**'), this.destinationPath('api/policies'))
+    } catch(e) {
+      // Nothing to copy need somehow to inform about this.
+      var message = '** `trailpack-' + server + '` Not supporting for now **';
+      this.log(Array(message.length + 1).join('*'))
+      this.log(message)
+      this.log(Array(message.length + 1).join('*'))
+    }
   },
   config () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
