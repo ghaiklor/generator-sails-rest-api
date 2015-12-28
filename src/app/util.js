@@ -1,7 +1,7 @@
 import path from 'path'
 import falafel from 'falafel'
-import pathExists from 'yeoman-generator/node_modules/path-exists'
-import detectConflict from 'yeoman-generator/node_modules/detect-conflict'
+import pathExists from 'path-exists'
+import detectConflict from 'detect-conflict'
 import Conflicter from 'yeoman-generator/lib/util/conflicter'
 
 const Util = module.exports = {
