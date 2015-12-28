@@ -71,11 +71,11 @@ const Util = module.exports = {
           node.update(requireStatement)
         }
         else {
-          node.update(src + '\n' + requireStatement)
+          node.update(src + requireStatement)
         }
       }
     })
 
-    return newFileContents.toString()
+    return newFileContents.toString() + '\n'
   }
 }
