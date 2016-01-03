@@ -8,7 +8,6 @@ const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
 export default {
   genericApi () {
-    this.log(this.answers)
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/services', '**'), this.destinationPath('api/services'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))
   },
