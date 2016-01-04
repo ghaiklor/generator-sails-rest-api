@@ -1,4 +1,9 @@
 ./test/unit/**/*.test.js
---reporter nyan
+--reporter spec
 --recursive
 --timeout 120000
+--check-leaks
+--full-trace
+--slow 50
+--no-exit
+--globals i
