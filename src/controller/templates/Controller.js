@@ -3,6 +3,4 @@
  * @description Generated Trails.js Controller.
  * @this TrailsApp
  */
-module.exports = {
-
-}
+module.exports = {}

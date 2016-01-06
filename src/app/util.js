@@ -1,7 +1,7 @@
 import path from 'path'
 import falafel from 'falafel'
-import pathExists from 'yeoman-generator/node_modules/path-exists'
-import detectConflict from 'yeoman-generator/node_modules/detect-conflict'
+import pathExists from 'path-exists'
+import detectConflict from 'detect-conflict'
 import Conflicter from 'yeoman-generator/lib/util/conflicter'
 
 const Util = module.exports = {
@@ -9,7 +9,7 @@ const Util = module.exports = {
   /**
    * Monkey-patch to support index.js file updating without confirmation
    */
-  patchConflicter () {
+    patchConflicter () {
     Conflicter.prototype.collision = function (file, cb) {
       var rfilepath = path.relative(process.cwd(), file.path);
       if (!pathExists.sync(file.path)) {
@@ -39,7 +39,7 @@ const Util = module.exports = {
   },
 
   isRequire (node) {
-    return node.type === 'CallExpression' && 
+    return node.type === 'CallExpression' &&
       node.callee.type === 'Identifier' &&
       node.callee.name === 'require'
   },
@@ -59,7 +59,7 @@ const Util = module.exports = {
   },
 
   getRequireStatement (fileName) {
-    return `exports.${fileName} = require('./${fileName}')`
+    return `exports.${fileName} = require('./${fileName}')\n`
   },
 
   getUpdatedIndexFile (fileName, fileContents) {
@@ -71,7 +71,7 @@ const Util = module.exports = {
           node.update(requireStatement)
         }
         else {
-          node.update(src + '\n' + requireStatement)
+          node.update(src + requireStatement)
         }
       }
     })

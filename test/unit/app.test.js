@@ -2,98 +2,48 @@ import path from 'path';
 import os from 'os';
 import { assert, test } from 'yeoman-generator';
 
-describe('sails-rest-api:app', () => {
-  describe('Should properly scaffold with default configuration', () => {
+describe('trails:app', () => {
+  describe('Should create trails from trails/archetype', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/app'))
-        .withGenerators([
-          [test.createDummyGenerator(), 'sails-rest-api:adapter'],
-          [test.createDummyGenerator(), 'sails-rest-api:authentication'],
-          [test.createDummyGenerator(), 'sails-rest-api:blueprint'],
-          [test.createDummyGenerator(), 'sails-rest-api:config'],
-          [test.createDummyGenerator(), 'sails-rest-api:controller'],
-          [test.createDummyGenerator(), 'sails-rest-api:cron'],
-          [test.createDummyGenerator(), 'sails-rest-api:hook'],
-          [test.createDummyGenerator(), 'sails-rest-api:logger'],
-          [test.createDummyGenerator(), 'sails-rest-api:model'],
-          [test.createDummyGenerator(), 'sails-rest-api:policy'],
-          [test.createDummyGenerator(), 'sails-rest-api:response'],
-          [test.createDummyGenerator(), 'sails-rest-api:service'],
-          [test.createDummyGenerator(), 'sails-rest-api:swagger']
-        ])
-        .on('end', done);
-    });
-
-    it('Should properly create root files', () => {
-      assert.file([
-        'app.js',
-        'Dockerfile',
-        '.editorconfig',
-        'esdoc.json',
-        '.gitignore',
-        'package.json',
-        'README.md',
-        '.sailsrc'
-      ]);
-    });
-
-    it('Should properly create mocha.opts and bootstrap', () => {
-      assert.file([
-        'test/bootstrap.js',
-        'test/mocha.opts'
-      ]);
-    });
-  });
-
-  describe('Should properly scaffold with custom configuration', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/app'))
-        .withGenerators([
-          [test.createDummyGenerator(), 'sails-rest-api:adapter'],
-          [test.createDummyGenerator(), 'sails-rest-api:authentication'],
-          [test.createDummyGenerator(), 'sails-rest-api:blueprint'],
-          [test.createDummyGenerator(), 'sails-rest-api:config'],
-          [test.createDummyGenerator(), 'sails-rest-api:controller'],
-          [test.createDummyGenerator(), 'sails-rest-api:cron'],
-          [test.createDummyGenerator(), 'sails-rest-api:hook'],
-          [test.createDummyGenerator(), 'sails-rest-api:logger'],
-          [test.createDummyGenerator(), 'sails-rest-api:model'],
-          [test.createDummyGenerator(), 'sails-rest-api:policy'],
-          [test.createDummyGenerator(), 'sails-rest-api:response'],
-          [test.createDummyGenerator(), 'sails-rest-api:service'],
-          [test.createDummyGenerator(), 'sails-rest-api:swagger']
-        ])
+        .withPrompts({'web-engine': 'hapi', authorName: 'trailsjs', authorEmail: 'hello@trailsjs.io', license: 'MIT'}) // Mock the prompt answers
         .withOptions({
-          'skip-update': true
+          'skip-update': true,
+          'skip-install': true
         })
-        .withPrompts({
-          'authentication:enabled': false,
-          'blueprint:all': false,
-          'cron:enabled': false,
-          'swagger:enabled': false
-        })
-        .on('end', done);
+        .on('end', done)
     });
 
     it('Should properly create root files', () => {
       assert.file([
-        'app.js',
-        'Dockerfile',
+        '.trailsrc',
         '.editorconfig',
-        'esdoc.json',
         '.gitignore',
+        'index.js',
+        'server.js',
+        'api/index.js',
+        'api/models/index.js',
+        'api/services/index.js',
+        'config/index.js',
+        'config/database.js',
+        'config/main.js',
+        'config/footprints.js',
+        'config/log.js',
+        'config/policies.js',
+        'config/routes.js',
+        'config/session.js',
+        'config/views.js',
+        'config/web.js',
+        'config/webpack.js',
+        'config/env/testing.js',
+        'config/env/staging.js',
+        'config/env/production.js',
+        'config/env/development.js',
+        'config/env/index.js',
         'package.json',
         'README.md',
-        '.sailsrc'
-      ]);
-    });
-
-    it('Should properly create mocha.opts and bootstrap', () => {
-      assert.file([
-        'test/bootstrap.js',
-        'test/mocha.opts'
+        'LICENSE'
       ]);
     });
   });
