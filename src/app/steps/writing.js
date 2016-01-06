@@ -20,22 +20,12 @@ export default {
       if (err)
         return
 
-      try {
-        const PROJECT_PATH = this.destinationRoot('node_modules/trailpack-' + server)
-        if (!this.fs.exists(PROJECT_PATH) || !this.fs.exists(path.resolve(PROJECT_PATH, 'archetype'))) {
-          throw new Error('No archetype exist')
-        }
-
-        // TODO: may be copy everything form `api` ?
-        this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', 'api/controllers', '**'), this.destinationPath('api/controllers'))
-        this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', 'api/policies', '**'), this.destinationPath('api/policies'))
-      } catch(e) {
-        // Nothing to copy need somehow to inform about this.
-        var message = '** `trailpack-' + server + '` Not supporting for now **';
-        this.log(Array(message.length + 1).join('*'))
-        this.log(message)
-        this.log(Array(message.length + 1).join('*'))
+      const PROJECT_PATH = this.destinationRoot('node_modules/trailpack-' + server)
+      if (!this.fs.exists(PROJECT_PATH) || !this.fs.exists(path.resolve(PROJECT_PATH, 'archetype'))) {
+        throw new Error('No archetype exist')
       }
+
+      this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', '**'), this.destinationPath('api/policies'))
     });
   },
   config () {
