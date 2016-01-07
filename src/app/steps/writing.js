@@ -12,9 +12,21 @@ export default {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))
   },
   serverDependentApi () {
-    let server = this.answers['web-engine']
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/controllers', server, '**'), this.destinationPath('api/controllers'))
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/policies', server, '**'), this.destinationPath('api/policies'))
+    const server = this.answers['web-engine']
+
+    this.npmInstall('trailpack-' + server, {
+      save: true
+    }, (err) => {
+      if (err)
+        return
+
+      const PROJECT_PATH = this.destinationRoot('node_modules/trailpack-' + server)
+      if (!this.fs.exists(PROJECT_PATH) || !this.fs.exists(path.resolve(PROJECT_PATH, 'archetype'))) {
+        throw new Error('No archetype exist')
+      }
+
+      this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', '**'), this.destinationPath('api/policies'))
+    });
   },
   config () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
