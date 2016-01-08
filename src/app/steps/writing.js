@@ -3,6 +3,7 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+const fs = require('fs')
 const path = require('path')
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
@@ -29,7 +30,6 @@ export default {
        */
       this.fs.copy(WEB_SERVER_ARCH, dest)
     });
-
   },
   config () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
