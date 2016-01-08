@@ -14,20 +14,22 @@ export default {
   },
   serverDependentApi () {
     const server = this.answers['web-engine']
+    const dest = this.destinationPath()
+    const PROJECT_PATH = this.destinationPath('node_modules/trailpack-' + server)
+    const WEB_SERVER_ARCH = path.resolve(PROJECT_PATH, 'archetype', '**')
 
     this.npmInstall('trailpack-' + server, {
       save: true
     }, (err) => {
       if (err)
         return
+      //FIXME: always fail
+      //fs.accessSync(PROJECT_PATH)
+      //fs.accessSync(path.resolve(PROJECT_PATH, 'archetype'))
 
-      const PROJECT_PATH = path.dirname(require.resolve('trailpack-' + server))
-
-      fs.accessSync(PROJECT_PATH)
-      fs.accessSync(path.resolve(PROJECT_PATH, 'archetype'))
-
-      this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', '**'), this.destinationPath('api/policies'))
+      this.fs.copy(WEB_SERVER_ARCH, dest)
     });
+
   },
   config () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
