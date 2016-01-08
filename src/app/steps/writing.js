@@ -3,6 +3,7 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
+const fs = require('fs')
 const path = require('path')
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
@@ -20,10 +21,10 @@ export default {
       if (err)
         return
 
-      const PROJECT_PATH = this.destinationRoot('node_modules/trailpack-' + server)
-      if (!this.fs.exists(PROJECT_PATH) || !this.fs.exists(path.resolve(PROJECT_PATH, 'archetype'))) {
-        throw new Error('No archetype exist')
-      }
+      const PROJECT_PATH = path.dirname(require.resolve('trailpack-' + server))
+
+      fs.accessSync(PROJECT_PATH)
+      fs.accessSync(path.resolve(PROJECT_PATH, 'archetype'))
 
       this.fs.copy(path.resolve(PROJECT_PATH, 'archetype', '**'), this.destinationPath('api/policies'))
     });
