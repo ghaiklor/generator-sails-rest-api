@@ -43,12 +43,17 @@ export default {
 
       trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 14, trailpackRequires)
       const mainConfigFile = dest + '/config/main.js'
-      this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
+
+      this.fs.delete(mainConfigFile)//Delete main.js to generate it from template
+      this.fs.commit(function(){
+        this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
+      }.bind(this))
+
     });
   },
   config()
   {
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'), {ignore: '**/*main.*'})
+    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
   },
   root()
   {
