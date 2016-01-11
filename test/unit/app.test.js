@@ -1,6 +1,6 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+import path from 'path'
+import os from 'os'
+import { assert, test } from 'yeoman-generator'
 
 describe('trails:app', () => {
   describe('Should create trails from trails/archetype', () => {
@@ -13,7 +13,7 @@ describe('trails:app', () => {
           'skip-install': true
         })
         .on('end', done)
-    });
+    })
 
     it('Should properly create root files', () => {
       assert.file([
@@ -44,7 +44,7 @@ describe('trails:app', () => {
         'package.json',
         'README.md',
         'LICENSE'
-      ]);
-    });
-  });
-});
+      ])
+    })
+  })
+})

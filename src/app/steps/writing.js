@@ -48,8 +48,7 @@ export default {
       this.fs.commit(function(){
         this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
       }.bind(this))
-
-    });
+    })
   },
   config()
   {
@@ -70,4 +69,4 @@ export default {
       this.fs.writeJSON(this.destinationPath('package.json'), trailsPackage)
     }
   }
-};
+}

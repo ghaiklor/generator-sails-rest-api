@@ -14,7 +14,7 @@ export default [
   },
   {
     when: function (responses) {
-      return responses['web-engine'] == 'other';
+      return responses['web-engine'] == 'other'
     },
     name: 'web-engine-other',
     message: 'What is the name of this web engine?'

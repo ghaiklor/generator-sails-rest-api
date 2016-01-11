@@ -11,7 +11,7 @@
  *     defaults: 'Default value for this argument',
  *     banner: 'String to show on usage notes'
  *   }
- * };
+ * }
  */
 
 export default {
@@ -20,4 +20,4 @@ export default {
     type: String,
     defaults: ''
   }
-};
+}

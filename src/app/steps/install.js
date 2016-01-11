@@ -9,5 +9,5 @@ export default function () {
   this.npmInstall(null, {
     silent: true,
     loglevel: 'silent'
-  });
-};
+  })
+}

@@ -59,9 +59,9 @@ All those changes and features will merge into `dev` branch.
 Other branches it's only helper branches which can close at any time.
 In general we have 3 types of branches:
 
-+ Feature branches;
-+ Release branches;
-+ Hotfix branches;
++ Feature branches
++ Release branches
++ Hotfix branches
 
 ## Git workflow
 

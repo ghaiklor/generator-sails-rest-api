@@ -3,8 +3,8 @@
  * Called last, cleanup, say good bye, etc
  */
 
-import chalk from 'chalk';
-import printMessage from 'print-message';
+import chalk from 'chalk'
+import printMessage from 'print-message'
 
 export default function () {
   printMessage([
@@ -13,5 +13,5 @@ export default function () {
     `To start your application, run: ${chalk.red('npm start')}`
   ], {
     printFn: this.log
-  });
-};
+  })
+}

@@ -10,7 +10,7 @@
  *     defaults: 'Default value',
  *     hide: false
  *   }
- * };
+ * }
  */
 
 export default {
@@ -26,4 +26,4 @@ export default {
     defaults: null,
     hide: false
   }
-};
+}

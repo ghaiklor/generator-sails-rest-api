@@ -11,7 +11,7 @@
  *     defaults: 'Default value for this argument',
  *     banner: 'String to show on usage notes'
  *   }
- * };
+ * }
  */
 
 export default {
@@ -19,4 +19,4 @@ export default {
     required: true,
     type: String
   }
-};
+}
