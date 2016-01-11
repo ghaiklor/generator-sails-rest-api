@@ -13,39 +13,56 @@ export default {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))
   },
   serverDependentApi () {
-    const server = this.answers['web-engine']
+    let trailpacks = this.options.trailpacks
+    const server = this.answers ? this.answers['web-engine'] : null
     const dest = this.destinationPath()
-    const PROJECT_PATH = this.destinationPath('node_modules/trailpack-' + server)
-    const WEB_SERVER_ARCH = path.resolve(PROJECT_PATH, 'archetype', '**')
 
-    this.npmInstall('trailpack-' + server, {
+    if (!trailpacks) {
+      trailpacks = server == 'other' ? this.answers['web-engine-other'] : 'trailpack-' + server
+    }
+
+    trailpacks = trailpacks.replace(/,/g, ' ')
+
+    const trailpackNames = trailpacks.split(' ')
+
+    const PROJECT_PATH = this.destinationPath('node_modules/')
+    this.npmInstall(trailpacks, {
       save: true
     }, (err) => {
-      if (err)
+      if (err) {
+        console.log(err)
         return
-      //FIXME: always fail
-      //fs.accessSync(PROJECT_PATH)
-      //fs.accessSync(path.resolve(PROJECT_PATH, 'archetype'))
+      }
+      let ARCH
+      let trailpackRequires = ''
+      trailpackNames.forEach(item => {
+        ARCH = path.resolve(PROJECT_PATH + item, 'archetype', '**')
+        trailpackRequires += item + '\'), \nrequire(\''
+        this.fs.copy(ARCH, dest)
+      })
 
-      this.fs.copy(WEB_SERVER_ARCH, dest)
+      trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 14, trailpackRequires)
+      const mainConfigFile = dest + '/config/main.js'
+      this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
     });
-
   },
-  config () {
-    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
+  config()
+  {
+    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'), {ignore: '**/*main.*'})
   },
-  root () {
+  root()
+  {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, '.trailsrc'), this.destinationPath('.trailsrc'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'index.js'), this.destinationPath('index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'server.js'), this.destinationPath('server.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/index.js'), this.destinationPath('api/index.js'))
   },
-  pkg () {
+  pkg()
+  {
     // node:app generator will merge into this
     if (!this.options['skip-install']) {
       let trailsPackage = require(path.resolve(TRAILS_TEMPLATE, 'package.json'))
       this.fs.writeJSON(this.destinationPath('package.json'), trailsPackage)
     }
-
   }
 };

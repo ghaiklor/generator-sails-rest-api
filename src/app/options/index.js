@@ -19,5 +19,11 @@ export default {
     type: Boolean,
     defaults: false,
     hide: false
+  },
+  'trailpacks': {
+    desc: `Trailpacks to install`,
+    type: String,
+    defaults: null,
+    hide: false
   }
 };
