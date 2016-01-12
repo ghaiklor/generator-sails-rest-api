@@ -1,5 +1,12 @@
+'use strict'
+
+const Policy = require('trails-policy')
+
 /**
- * @module <%= name %>
+ * @module <%= name %>Policy
  * @description <%= answers.desc %>
  */
-module.exports = {}
+module.exports = class <%= name %>Policy extends Policy {
+
+}
+

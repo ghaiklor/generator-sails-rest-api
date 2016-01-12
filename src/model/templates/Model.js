@@ -1,8 +1,17 @@
+'use strict'
+
+const Model = require('trails-model')
+
 /**
  * @module <%= name %>
  * @description <%= answers.desc %>
  */
-module.exports = {
+module.exports = class <%= name %> extends Model {
 
-  attributes: {}
+  static config () {
+  }
+
+  static schema () {
+
+  }
 }
