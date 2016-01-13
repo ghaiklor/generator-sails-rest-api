@@ -31,8 +31,7 @@ describe('trails:api', () => {
 
     it('Should properly create controller files', () => {
       assert.file([
-        'api/controllers/ApiTestController.js',
-        'api/controllers/fails.js'
+        'api/controllers/ApiTestController.js'
       ])
     })
 
