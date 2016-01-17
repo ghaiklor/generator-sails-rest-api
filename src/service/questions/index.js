@@ -7,7 +7,7 @@
  *   type: 'input',
  *   name: 'inputName',
  *   message: 'Message for the input'
- * }];
+ * }]
  */
 
 export default [
@@ -17,4 +17,4 @@ export default [
     message: 'Service Description',
     default: 'TODO document Service'
   }
-];
+]

@@ -11,29 +11,29 @@ const Util = module.exports = {
    */
     patchConflicter () {
     Conflicter.prototype.collision = function (file, cb) {
-      var rfilepath = path.relative(process.cwd(), file.path);
+      var rfilepath = path.relative(process.cwd(), file.path)
       if (!pathExists.sync(file.path)) {
-        this.adapter.log.create(rfilepath);
-        cb('create');
-        return;
+        this.adapter.log.create(rfilepath)
+        cb('create')
+        return
       }
       else if (/index.js$/.test(file.path)) {
-        this.adapter.log.force(rfilepath);
-        cb('force');
-        return;
+        this.adapter.log.force(rfilepath)
+        cb('force')
+        return
       }
 
       if (this.force) {
-        this.adapter.log.force(rfilepath);
-        cb('force');
-        return;
+        this.adapter.log.force(rfilepath)
+        cb('force')
+        return
       }
       if (detectConflict(file.path, file.contents)) {
-        this.adapter.log.conflict(rfilepath);
-        this._ask(file, cb);
+        this.adapter.log.conflict(rfilepath)
+        this._ask(file, cb)
       } else {
-        this.adapter.log.identical(rfilepath);
-        cb('identical');
+        this.adapter.log.identical(rfilepath)
+        cb('identical')
       }
     }
   },

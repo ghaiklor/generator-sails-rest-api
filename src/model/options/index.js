@@ -10,7 +10,7 @@
  *     defaults: 'Default value',
  *     hide: false
  *   }
- * };
+ * }
  */
 
-export default {};
+export default {}

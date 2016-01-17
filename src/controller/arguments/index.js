@@ -11,7 +11,7 @@
  *     defaults: 'Default value for this argument',
  *     banner: 'String to show on usage notes'
  *   }
- * };
+ * }
  */
 
 export default {
@@ -21,4 +21,4 @@ export default {
     desc: 'Controller Name',
     banner: 'Controller Name'
   }
-};
+}

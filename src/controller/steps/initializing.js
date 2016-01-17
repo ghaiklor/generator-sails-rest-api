@@ -3,4 +3,4 @@
  * Your initialization methods (checking current project state, getting configs, etc)
  */
 
-export default {};
+export default {}

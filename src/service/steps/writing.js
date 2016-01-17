@@ -9,25 +9,25 @@ const SOURCE_SERVICE = 'Service.js'
 const SOURCE_SERVICE_TEST = 'Service.test.js'
 
 const DESTINATION_INDEX = 'api/services/index.js'
-const DESTINATION_SERVICE = name => `api/services/${name}Service.js`;
-const DESTINATION_SERVICE_TEST = name => `test/unit/services/${name}Service.test.js`;
+const DESTINATION_SERVICE = name => `api/services/${name}Service.js`
+const DESTINATION_SERVICE_TEST = name => `test/unit/services/${name}Service.test.js`
 
 export default function () {
   Util.patchConflicter()
 
-  let name = (this['service-name'].charAt(0).toUpperCase() + this['service-name'].slice(1)).replace(/(\w+)Service/, '$1');
+  let name = (this['service-name'].charAt(0).toUpperCase() + this['service-name'].slice(1)).replace(/(\w+)Service/, '$1')
   let fileName = `${name}Service`
   let indexPath = this.destinationPath(DESTINATION_INDEX)
 
-  this.template(SOURCE_SERVICE, DESTINATION_SERVICE(name), {name, answers: this.answers, fileName});
-  this.template(SOURCE_SERVICE_TEST, DESTINATION_SERVICE_TEST(name), {name, answers: this.answers, fileName});
+  this.template(SOURCE_SERVICE, DESTINATION_SERVICE(name), {name, answers: this.answers, fileName})
+  this.template(SOURCE_SERVICE_TEST, DESTINATION_SERVICE_TEST(name), {name, answers: this.answers, fileName})
 
   if (!this.fs.exists(this.destinationPath(DESTINATION_INDEX))) {
     return this.fs.write(this.destinationPath(DESTINATION_INDEX), Util.getRequireStatement(fileName))
   }
 
   if (Util.hasRequireStatement(fileName, this.fs.read(indexPath))) {
-    this.log.identical(DESTINATION_INDEX);
+    this.log.identical(DESTINATION_INDEX)
     return
   }
 
@@ -35,4 +35,4 @@ export default function () {
   let updatedIndexFile = Util.getUpdatedIndexFile(fileName, indexContents)
 
   this.fs.write(indexPath, updatedIndexFile)
-};
+}

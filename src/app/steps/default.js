@@ -15,5 +15,5 @@ export default function () {
       }
     },
     {local: require.resolve('generator-node/generators/app')}
-  );
-};
+  )
+}
