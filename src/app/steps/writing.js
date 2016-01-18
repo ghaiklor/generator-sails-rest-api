@@ -16,6 +16,7 @@ export default {
     let trailpacks = this.options.trailpacks
     const server = this.answers ? this.answers['web-engine'] : null
     const dest = this.destinationPath()
+    const PROJECT_PATH = this.destinationPath('node_modules/')
 
     if (!trailpacks) {
       trailpacks = server == 'other' ? this.answers['web-engine-other'] : 'trailpack-' + server
@@ -25,37 +26,39 @@ export default {
 
     const trailpackNames = trailpacks.split(' ')
 
-    const PROJECT_PATH = this.destinationPath('node_modules/')
-    this.npmInstall(trailpacks, {
+    let trailpackRequires = ''
+    trailpackNames.forEach(item => {
+      trailpackRequires += item + '\'), \nrequire(\''
+    })
+
+    trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 14, trailpackRequires)
+    const mainConfigFile = dest + '/config/main.js'
+
+    this.fs.delete(mainConfigFile)//Delete main.js to generate it from template
+
+    this.fs.commit(function(){
+      this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
+    }.bind(this))
+
+    let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
+
+    this.npmInstall(npmTrailpacks, {
       save: true
     }, (err) => {
       if (err) {
         console.log(err)
         return
       }
-      let ARCH
-      let trailpackRequires = ''
       trailpackNames.forEach(item => {
-        ARCH = path.resolve(PROJECT_PATH + item, 'archetype', '**')
-        trailpackRequires += item + '\'), \nrequire(\''
+        let ARCH = path.resolve(PROJECT_PATH + item, 'archetype', '**')
         this.fs.copy(ARCH, dest)
       })
-
-      trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 14, trailpackRequires)
-      const mainConfigFile = dest + '/config/main.js'
-
-      this.fs.delete(mainConfigFile)//Delete main.js to generate it from template
-      this.fs.commit(function(){
-        this.fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
-      }.bind(this))
     })
   },
-  config()
-  {
+  config() {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'config', '**'), this.destinationPath('config'))
   },
-  root()
-  {
+  root() {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, '.trailsrc'), this.destinationPath('.trailsrc'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'index.js'), this.destinationPath('index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'server.js'), this.destinationPath('server.js'))
