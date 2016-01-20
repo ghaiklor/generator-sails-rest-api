@@ -6,6 +6,7 @@
 const path = require('path')
 
 export default function () {
+
   const dest = this.destinationPath()
   const PROJECT_PATH = this.destinationPath('node_modules/')
 
