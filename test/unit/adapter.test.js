@@ -1,12 +1,14 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:adapter', () => {
   describe('Should properly scaffold adapter', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/adapter'))
+        .run(path.join(__dirname, '../../generators/adapter'))
         .withArguments(['mongo'])
         .on('end', done)
     });

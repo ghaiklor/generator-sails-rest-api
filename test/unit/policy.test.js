@@ -1,12 +1,14 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:policy', () => {
   describe('Should properly scaffold policy', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/policy'))
+        .run(path.join(__dirname, '../../generators/policy'))
         .withArguments(['IsAdmin'])
         .on('end', done)
     });

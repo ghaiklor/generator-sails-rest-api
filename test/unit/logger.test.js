@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold default configuration', () => {
-    before(done => test.run(path.join(__dirname, '../../src/logger')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/logger')).on('end', done));
 
     it('Should properly create configuration files', () => {
       assert.file([
@@ -18,7 +20,7 @@ describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold bunyan configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/logger'))
+        .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['bunyan'])
         .on('end', done)
     });
@@ -35,7 +37,7 @@ describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold Sails default configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/logger'))
+        .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['default'])
         .on('end', done)
     });
@@ -52,7 +54,7 @@ describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold winston configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/logger'))
+        .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['winston'])
         .on('end', done)
     });

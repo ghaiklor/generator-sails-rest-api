@@ -1,12 +1,14 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:app', () => {
   describe('Should properly scaffold with default configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/app'))
+        .run(path.join(__dirname, '../../generators/app'))
         .withGenerators([
           [test.createDummyGenerator(), 'sails-rest-api:adapter'],
           [test.createDummyGenerator(), 'sails-rest-api:authentication'],
@@ -49,7 +51,7 @@ describe('sails-rest-api:app', () => {
   describe('Should properly scaffold with custom configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/app'))
+        .run(path.join(__dirname, '../../generators/app'))
         .withGenerators([
           [test.createDummyGenerator(), 'sails-rest-api:adapter'],
           [test.createDummyGenerator(), 'sails-rest-api:authentication'],

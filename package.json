@@ -32,13 +32,9 @@
     }
   ],
   "scripts": {
-    "clean": "rm -rf ./generators",
-    "compile": "npm run clean && cp -r src/ generators/ && babel src --out-dir generators",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
-    "prepublish": "npm run compile",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "babel-node node_modules/.bin/isparta cover _mocha"
+    "test": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -52,16 +48,14 @@
     "yosay": "1.1.0"
   },
   "devDependencies": {
-    "babel-cli": "6.4.5",
-    "babel-plugin-add-module-exports": "0.1.2",
-    "babel-preset-es2015-node4": "2.0.2",
-    "babel-preset-stage-0": "6.3.13",
     "chai": "3.4.1",
     "coveralls": "2.11.6",
     "cz-conventional-changelog": "1.1.5",
-    "isparta": "4.0.0",
+    "istanbul": "0.4.2",
     "mocha": "2.3.4",
-    "semantic-release": "4.3.5"
+    "semantic-release": "4.3.5",
+    "yeoman-assert": "2.1.1",
+    "yeoman-test": "1.0.0"
   },
   "config": {
     "commitizen": {

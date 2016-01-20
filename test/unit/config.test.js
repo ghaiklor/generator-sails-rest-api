@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:config', () => {
   describe('Should properly scaffold default configuration', () => {
-    before(done => test.run(path.join(__dirname, '../../src/config')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/config')).on('end', done));
 
     it('Should properly create environment configuration files', () => {
       assert.file([
@@ -42,7 +44,7 @@ describe('sails-rest-api:config', () => {
   describe('Should properly scaffold custom configuration', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/config'))
+        .run(path.join(__dirname, '../../generators/config'))
         .withOptions({
           'database-adapter': 'mysql',
           'database-host': '123.456.789.000',

@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:service', () => {
   describe('Should properly scaffold services without any options or arguments', () => {
-    before(done => test.run(path.join(__dirname, '../../src/service')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/service')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -61,7 +63,7 @@ describe('sails-rest-api:service', () => {
   describe('Should properly scaffold predefined service', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['cipher'])
         .on('end', done)
     });
@@ -130,7 +132,7 @@ describe('sails-rest-api:service', () => {
   describe('Should properly scaffold overridden predefined service', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['cipher'])
         .withOptions({
           'new': true
@@ -202,7 +204,7 @@ describe('sails-rest-api:service', () => {
   describe('Should properly scaffold custom service', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['CustomService'])
         .on('end', done)
     });
@@ -274,7 +276,7 @@ describe('sails-rest-api:service', () => {
   describe('Should properly scaffold all predefined services at once', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withOptions({
           'all': true
         })
@@ -336,7 +338,7 @@ describe('sails-rest-api:service', () => {
   describe('Should properly scaffolds all predefined services with custom options', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withOptions({
           'cipher-secret-key': '1234567890',
           'image-provider': 'IM',

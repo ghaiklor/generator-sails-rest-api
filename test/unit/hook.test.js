@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:hook', () => {
   describe('Should properly scaffold without arguments and options', () => {
-    before(done => test.run(path.join(__dirname, '../../src/hook')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/hook')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -35,7 +37,7 @@ describe('sails-rest-api:hook', () => {
   describe('Should properly scaffold predefined hook', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/hook'))
+        .run(path.join(__dirname, '../../generators/hook'))
         .withArguments(['pluralize'])
         .on('end', done)
     });
@@ -66,7 +68,7 @@ describe('sails-rest-api:hook', () => {
   describe('Should properly scaffold overridden predefined hook', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/hook'))
+        .run(path.join(__dirname, '../../generators/hook'))
         .withArguments(['pluralize'])
         .withOptions({
           'new': true
@@ -101,7 +103,7 @@ describe('sails-rest-api:hook', () => {
   describe('Should properly scaffold all predefined hooks at once', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/hook'))
+        .run(path.join(__dirname, '../../generators/hook'))
         .withOptions({
           'all': true
         })
@@ -137,7 +139,7 @@ describe('sails-rest-api:hook', () => {
   describe('Should properly scaffold custom hook', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/hook'))
+        .run(path.join(__dirname, '../../generators/hook'))
         .withArguments(['test'])
         .on('end', done)
     });

@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:cron', () => {
   describe('Should properly scaffold empty cron configuration file', () => {
-    before(done => test.run(path.join(__dirname, '../../src/cron')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/cron')).on('end', done));
 
     it('Should properly create configuration files', () => {
       assert.file([
@@ -18,7 +20,7 @@ describe('sails-rest-api:cron', () => {
   describe('Should properly scaffold cron configuration file with predefined jobs', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/cron'))
+        .run(path.join(__dirname, '../../generators/cron'))
         .withArguments(['testJob', 'anotherJob'])
         .on('end', done)
     });

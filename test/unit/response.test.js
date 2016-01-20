@@ -1,12 +1,14 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:response', () => {
   describe('Should properly scaffold predefined response', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/response'))
+        .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['ok'])
         .on('end', done)
     });
@@ -51,7 +53,7 @@ describe('sails-rest-api:response', () => {
   describe('Should properly scaffold overridden predefined response', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/response'))
+        .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['ok'])
         .withOptions({
           'new': true
@@ -100,7 +102,7 @@ describe('sails-rest-api:response', () => {
   describe('Should properly scaffold all the predefined responses', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/response'))
+        .run(path.join(__dirname, '../../generators/response'))
         .withOptions({
           'all': true
         })
@@ -141,7 +143,7 @@ describe('sails-rest-api:response', () => {
   describe('Should properly scaffold custom response', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/response'))
+        .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['custom'])
         .on('end', done)
     });

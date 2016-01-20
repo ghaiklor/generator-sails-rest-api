@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold blueprints without arguments and options', () => {
-    before(done => test.run(path.join(__dirname, '../../src/blueprint')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/blueprint')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -44,7 +46,7 @@ describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold predefined blueprint', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/blueprint'))
+        .run(path.join(__dirname, '../../generators/blueprint'))
         .withArguments(['find'])
         .on('end', done)
     });
@@ -89,7 +91,7 @@ describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold overridden predefined blueprint', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/blueprint'))
+        .run(path.join(__dirname, '../../generators/blueprint'))
         .withArguments(['find'])
         .withOptions({
           'new': true
@@ -138,7 +140,7 @@ describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold custom blueprint', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/blueprint'))
+        .run(path.join(__dirname, '../../generators/blueprint'))
         .withArguments(['custom'])
         .on('end', done)
     });
@@ -183,7 +185,7 @@ describe('sails-rest-api:blueprint', () => {
   describe('Should properly scaffold all predefined blueprints at once', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/blueprint'))
+        .run(path.join(__dirname, '../../generators/blueprint'))
         .withOptions({
           'all': true
         })

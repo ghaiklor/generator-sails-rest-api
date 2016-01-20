@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:authentication', () => {
   describe('Should properly scaffold default authentication layer', () => {
-    before(done => test.run(path.join(__dirname, '../../src/authentication')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/authentication')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -37,7 +39,7 @@ describe('sails-rest-api:authentication', () => {
   describe('Should properly scaffold authentication layer with custom secret key', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/authentication'))
+        .run(path.join(__dirname, '../../generators/authentication'))
         .withOptions({
           'secret-key': '1234567890'
         })

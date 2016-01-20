@@ -1,12 +1,14 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:model', () => {
   describe('Should properly scaffold model with REST interface', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/model'))
+        .run(path.join(__dirname, '../../generators/model'))
         .withArguments(['test'])
         .withOptions({
           'rest': true
@@ -46,7 +48,7 @@ describe('sails-rest-api:model', () => {
   describe('Should properly scaffold model without REST interface', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/model'))
+        .run(path.join(__dirname, '../../generators/model'))
         .withArguments(['anotherModel'])
         .withOptions({
           'rest': false

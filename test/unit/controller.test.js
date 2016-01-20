@@ -1,10 +1,12 @@
-import path from 'path';
-import os from 'os';
-import { assert, test } from 'yeoman-generator';
+"use strict";
+
+const path = require('path');
+const assert = require('yeoman-assert');
+const test = require('yeoman-test');
 
 describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold controllers without arguments and options', () => {
-    before(done => test.run(path.join(__dirname, '../../src/controller')).on('end', done));
+    before(done => test.run(path.join(__dirname, '../../generators/controller')).on('end', done));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -34,7 +36,7 @@ describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold predefined controller', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/controller'))
+        .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['ping'])
         .on('end', done)
     });
@@ -66,7 +68,7 @@ describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold overridden predefined controller', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/controller'))
+        .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['ping'])
         .withOptions({
           'new': true
@@ -101,7 +103,7 @@ describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold custom controller', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/controller'))
+        .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['TicketController'])
         .on('end', done)
     });
@@ -135,7 +137,7 @@ describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold all predefined controllers at once', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/controller'))
+        .run(path.join(__dirname, '../../generators/controller'))
         .withOptions({
           'all': true
         })
