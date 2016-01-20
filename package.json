@@ -48,7 +48,6 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "testIsparte": "babel-node node_modules/.bin/isparta cover _mocha",
     "test": "mocha --compilers js:babel-core/register"
   },
@@ -62,7 +61,6 @@
     "detect-conflict": "^1.0.0",
     "falafel": "^1.2.0",
     "generator-node": "trailsjs/generator-node",
-    "mkdirp": "^0.5.1",
     "print-message": "1.4.0",
     "trails": "latest",
     "update-notifier": "0.5.0",
@@ -76,17 +74,9 @@
     "babel-plugin-add-module-exports": "0.1.2",
     "babel-preset-es2015": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
-    "chai": "3.4.1",
     "coveralls": "2.11.4",
-    "cz-conventional-changelog": "1.1.4",
     "isparta": "4.0.0",
-    "mocha": "2.3.4",
-    "semantic-release": "4.3.5"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "mocha": "2.3.4"
   },
   "publishConfig": {
     "tag": "latest"
