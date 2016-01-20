@@ -2,7 +2,7 @@ import path from 'path'
 import os from 'os'
 import { assert, test } from 'yeoman-generator'
 
-describe('trailpack:service', () => {
+describe('trails:service', () => {
   describe('Should properly generate service interface', () => {
     before(done => {
       test
