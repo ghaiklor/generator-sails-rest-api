@@ -8,23 +8,13 @@ describe('trails:trailpack', () => {
     let genDir
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/app'))
-        .withPrompts({'web-engine': 'hapi', authorName: 'trailsjs', authorEmail: 'hello@trailsjs.io', license: 'MIT'}) // Mock the prompt answers
+        .run(path.join(__dirname, '../../src/trailpack'))
+        .withArguments(['trailpack-hapi'])
         .withOptions({
           'skip-update': true,
-          'skip-install': true
+          'skip-install': false
         })
-        .on('end', function () {
-          test
-            .run(path.join(__dirname, '../../src/trailpack'))
-            .withArguments(['trailpack-hapi'])
-            .withOptions({
-              'skip-update': true,
-              'skip-install': false
-            })
-            .on('end', done)
-        })
-
+        .on('end', done)
     })
 
     it('Should properly create trailpack files', () => {
