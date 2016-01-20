@@ -39,7 +39,7 @@ Generators:
     yo trails:service <service-name>
     
   Install New Trailpacks
-    yo trails:trailpack <trailpacks-name> (eg yo trails:trailpack trailpack-repl,trailpack-webpack)
+    yo trails:trailpack <trailpacks-name> (like yo trails:trailpack trailpack-repl,trailpack-webpack,...)
 ```
 
 ## Contributing
