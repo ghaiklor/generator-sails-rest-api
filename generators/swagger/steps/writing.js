@@ -5,5 +5,6 @@
 
 module.exports = function () {
   this.directory('api', 'api');
+  this.directory('config', 'config');
   this.directory('explorer', 'explorer');
 };
