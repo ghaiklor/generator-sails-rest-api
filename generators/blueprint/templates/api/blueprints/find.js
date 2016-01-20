@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
 
-const takeAlias = _.partial(_.pluck, _, 'alias');
+const takeAlias = _.partial(_.map, _, item => item.alias);
 const populateAlias = (model, alias) => model.populate(alias);
 
 /**
