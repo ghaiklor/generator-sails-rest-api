@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * User
  * @description :: Model for storing users
  */
 
-export default {
+module.exports = {
   schema: true,
 
   attributes: {

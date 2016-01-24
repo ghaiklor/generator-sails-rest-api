@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Policy Mappings
  *
@@ -9,7 +11,7 @@
  * below by its filename, minus the extension, (e.g. "authenticated")
  */
 
-export default {
+module.exports = {
   policies: {
     '*': ['isAuthenticated'],
 
@@ -17,4 +19,4 @@ export default {
       '*': true
     }
   }
-}
+};

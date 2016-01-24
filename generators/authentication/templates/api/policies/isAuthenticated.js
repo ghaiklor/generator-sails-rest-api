@@ -1,11 +1,13 @@
+"use strict";
+
 /**
  * isAuthenticated
  * @description :: Policy that inject user in `req` via JSON Web Token
  */
 
-import passport from 'passport';
+const passport = require('passport');
 
-export default function (req, res, next) {
+module.exports = function (req, res, next) {
   passport.authenticate('jwt', (error, user, info) => {
     if (error || !user) return res.negotiate(error || info);
 
@@ -13,4 +15,4 @@ export default function (req, res, next) {
 
     next();
   })(req, res);
-}
+};

@@ -1,27 +1,29 @@
+"use strict";
+
 /**
  * Passport configuration file where you should configure all your strategies
  * @description :: Configuration file where you configure your passport authentication
  */
 
-import _ from 'lodash';
-import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
-import { Strategy as JwtStrategy } from 'passport-jwt';
-import FacebookTokenStrategy from 'passport-facebook-token';
-import TwitterTokenStrategy from 'passport-twitter-token';
-import VKontakteTokenStrategy from 'passport-vkontakte-token';
-import FoursquareTokenStrategy from 'passport-foursquare-token';
-import GitHubTokenStrategy from 'passport-github-token';
-import InstagramTokenStrategy from 'passport-instagram-token';
-import PayPalTokenStrategy from 'passport-paypal-token';
-import RedditTokenStrategy from 'passport-reddit-token';
-import SoundCloudTokenStrategy from 'passport-soundcloud-token';
-import WindowsLiveTokenStrategy from 'passport-windows-live-token';
-import TwitchTokenStrategy from 'passport-twitch-token';
-import YandexTokenStrategy from 'passport-yandex-token';
-import AmazonTokenStrategy from 'passport-amazon-token';
-import GooglePlusTokenStrategy from 'passport-google-plus-token';
-import YahooTokenStrategy from 'passport-yahoo-token';
+const _ = require('lodash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const FacebookTokenStrategy = require('passport-facebook-token');
+const TwitterTokenStrategy = require('passport-twitter-token');
+const VKontakteTokenStrategy = require('passport-vkontakte-token');
+const FoursquareTokenStrategy = require('passport-foursquare-token');
+const GitHubTokenStrategy = require('passport-github-token');
+const InstagramTokenStrategy = require('passport-instagram-token');
+const PayPalTokenStrategy = require('passport-paypal-token');
+const RedditTokenStrategy = require('passport-reddit-token');
+const SoundCloudTokenStrategy = require('passport-soundcloud-token');
+const WindowsLiveTokenStrategy = require('passport-windows-live-token');
+const TwitchTokenStrategy = require('passport-twitch-token');
+const YandexTokenStrategy = require('passport-yandex-token');
+const AmazonTokenStrategy = require('passport-amazon-token');
+const GooglePlusTokenStrategy = require('passport-google-plus-token');
+const YahooTokenStrategy = require('passport-yahoo-token');
 
 /**
  * Configuration object for local strategy
@@ -135,7 +137,7 @@ const _onSocialStrategyAuth = (req, accessToken, refreshToken, profile, next) =>
   }
 };
 
-export default {
+module.exports = {
   passport: {
     /**
      * Triggers when all Passport steps is done and user profile is parsed
@@ -147,7 +149,7 @@ export default {
      * @returns {*}
      * @private
      */
-      onPassportAuth(req, res, error, user, info) {
+    onPassportAuth(req, res, error, user, info) {
       if (error || !user) return res.negotiate(error || info);
 
       return res.ok({
