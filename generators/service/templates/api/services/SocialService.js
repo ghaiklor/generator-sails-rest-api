@@ -1,6 +1,8 @@
-import social from 'sails-service-social';
-import config from '../../config/services/social';
+"use strict";
 
-export default {
+const social = require('sails-service-social');
+const config = require('../../config/services/social');
+
+module.exports = {
   facebook: social('facebook', config.services.social.facebook)
-}
+};

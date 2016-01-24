@@ -1,4 +1,6 @@
-import location from 'sails-service-location';
-import config from '../../config/services/location';
+"use strict";
 
-export default location('<%= options["location-provider"] %>', config.services.location);
+const location = require('sails-service-location');
+const config = require('../../config/services/location');
+
+module.exports = location('<%= options["location-provider"] %>', config.services.location);

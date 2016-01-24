@@ -1,5 +1,7 @@
-export default {
+"use strict";
+
+module.exports = {
   services: {
     sms: {}
   }
-}
+};

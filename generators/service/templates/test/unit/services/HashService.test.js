@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import HashService from '../../../api/services/HashService';
+"use strict";
+
+const assert = require('chai');
+const HashService = require('../../../api/services/HashService');
 
 describe('services:HashService', () => {
   it('Should properly export', () => {

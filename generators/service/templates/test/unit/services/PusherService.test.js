@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import PusherService from '../../../api/services/PusherService';
+"use strict";
+
+const assert = require('chai');
+const PusherService = require('../../../api/services/PusherService');
 
 describe('services:PusherService', () => {
   it('Should properly export', () => {

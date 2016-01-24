@@ -1,6 +1,8 @@
-import cipher from 'sails-service-cipher';
-import config from '../../config/services/cipher'
+"use strict";
 
-export default {
+const cipher = require('sails-service-cipher');
+const config = require('../../config/services/cipher');
+
+module.exports = {
   jwt: cipher('jwt', config.services.cipher.jwt)
-}
+};

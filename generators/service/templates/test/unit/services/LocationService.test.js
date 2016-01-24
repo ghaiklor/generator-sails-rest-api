@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import LocationService from '../../../api/services/LocationService';
+"use strict";
+
+const assert = require('chai');
+const LocationService = require('../../../api/services/LocationService');
 
 describe('services:LocationService', () => {
   it('Should properly export', () => {

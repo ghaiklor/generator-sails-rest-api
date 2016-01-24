@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import CipherService from '../../../api/services/CipherService';
+"use strict";
+
+const assert = require('chai').assert;
+const CipherService = require('../../../api/services/CipherService');
 
 describe('services:CipherService', () => {
   it('Should properly export', () => {

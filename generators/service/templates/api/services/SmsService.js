@@ -1,4 +1,6 @@
-import sms from 'sails-service-sms';
-import config from '../../config/services/sms';
+"use strict";
 
-export default sms('<%= options["sms-provider"] %>', config.services.sms);
+const sms = require('sails-service-sms');
+const config = require('../../config/services/sms');
+
+module.exports = sms('<%= options["sms-provider"] %>', config.services.sms);

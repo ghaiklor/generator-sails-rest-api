@@ -1,4 +1,6 @@
-import image from 'sails-service-image';
-import config from '../../config/services/image';
+"use strict";
 
-export default image('<%= options["image-provider"] %>', config.services.image);
+const image = require('sails-service-image');
+const config = require('../../config/services/image');
+
+module.exports = image('<%= options["image-provider"] %>', config.services.image);

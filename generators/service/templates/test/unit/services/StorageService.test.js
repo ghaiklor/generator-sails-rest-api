@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import StorageService from '../../../api/services/StorageService';
+"use strict";
+
+const assert = require('chai');
+const StorageService = require('../../../api/services/StorageService');
 
 describe('services:StorageService', () => {
   it('Should properly export', () => {

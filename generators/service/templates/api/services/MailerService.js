@@ -1,4 +1,6 @@
-import mailer from 'sails-service-mailer';
-import config from '../../config/services/mailer';
+"use strict";
 
-export default mailer('<%= options["mailer-provider"] %>', config.services.mailer);
+const mailer = require('sails-service-mailer');
+const config = require('../../config/services/mailer');
+
+module.exports = mailer('<%= options["mailer-provider"] %>', config.services.mailer);

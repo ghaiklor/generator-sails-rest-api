@@ -1,4 +1,6 @@
-import payment from 'sails-service-payment';
-import config from '../../config/services/payment';
+"use strict";
 
-export default payment('<%= options["payment-provider"] %>', config.services.payment);
+const payment = require('sails-service-payment');
+const config = require('../../config/services/payment');
+
+module.exports = payment('<%= options["payment-provider"] %>', config.services.payment);

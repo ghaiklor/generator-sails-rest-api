@@ -1,4 +1,6 @@
-export default {
+"use strict";
+
+module.exports = {
   services: {
     cipher: {
       jwt: {
@@ -6,4 +8,4 @@ export default {
       }
     }
   }
-}
+};

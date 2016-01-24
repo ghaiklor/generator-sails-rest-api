@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import PaymentService from '../../../api/services/PaymentService';
+"use strict";
+
+const assert = require('chai');
+const PaymentService = require('../../../api/services/PaymentService');
 
 describe('services:PaymentService', () => {
   it('Should properly export', () => {

@@ -1,1 +1,3 @@
-export default {};
+"use strict";
+
+module.exports = {};

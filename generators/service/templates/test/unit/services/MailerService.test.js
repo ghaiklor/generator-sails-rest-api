@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import MailerService from '../../../api/services/MailerService';
+"use strict";
+
+const assert = require('chai');
+const MailerService = require('../../../api/services/MailerService');
 
 describe('services:MailerService', () => {
   it('Should properly export', () => {

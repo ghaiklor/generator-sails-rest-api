@@ -1,4 +1,6 @@
-import storage from 'sails-service-storage';
-import config from '../../config/services/storage';
+"use strict";
 
-export default storage('<%= options["storage-provider"] %>', config.services.storage);
+const storage = require('sails-service-storage');
+const config = require('../../config/services/storage');
+
+module.exports = storage('<%= options["storage-provider"] %>', config.services.storage);

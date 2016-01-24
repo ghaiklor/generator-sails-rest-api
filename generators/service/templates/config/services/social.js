@@ -1,7 +1,9 @@
-export default {
+"use strict";
+
+module.exports = {
   services: {
     social: {
       facebook: {}
     }
   }
-}
+};

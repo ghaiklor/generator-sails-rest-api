@@ -1,7 +1,9 @@
-import pusher from 'sails-service-pusher';
-import config from '../../config/services/pusher';
+"use strict";
 
-export default {
+const pusher = require('sails-service-pusher');
+const config = require('../../config/services/pusher');
+
+module.exports = {
   android: pusher('android', config.services.pusher.android),
   ios: pusher('ios', config.services.pusher.ios)
-}
+};

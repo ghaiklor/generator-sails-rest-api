@@ -1,6 +1,8 @@
-import hash from 'sails-service-hash';
-import config from '../../config/services/hash';
+"use strict";
 
-export default {
+const hash = require('sails-service-hash');
+const config = require('../../config/services/hash');
+
+module.exports = {
   bcrypt: hash('bcrypt', config.services.hash.bcrypt)
-}
+};
