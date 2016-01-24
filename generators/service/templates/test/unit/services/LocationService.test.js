@@ -1,6 +1,6 @@
 "use strict";
 
-const assert = require('chai');
+const assert = require('chai').assert;
 const LocationService = require('../../../api/services/LocationService');
 
 describe('services:LocationService', () => {

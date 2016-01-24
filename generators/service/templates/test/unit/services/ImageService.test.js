@@ -1,6 +1,6 @@
 "use strict";
 
-const assert = require('chai');
+const assert = require('chai').assert;
 const ImageService = require('../../../api/services/ImageService');
 
 describe('services:ImageService', () => {
