@@ -1,8 +1,10 @@
-import _ from 'lodash';
-import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
+"use strict";
 
-export default function (req, res) {
-  let Model = actionUtil.parseModel(req);
+const _ = require('lodash');
+const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
+
+module.exports = function (req, res) {
+  const Model = actionUtil.parseModel(req);
 
   res.ok();
 };

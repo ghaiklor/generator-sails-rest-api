@@ -1,5 +1,7 @@
-import _ from 'lodash';
-import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
+"use strict";
+
+const _ = require('lodash');
+const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
  * Create Record
@@ -7,9 +9,9 @@ import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
  *
  * An API call to create and return a single model instance using the specified parameters.
  */
-export default function (req, res) {
-  let Model = actionUtil.parseModel(req);
-  let values = actionUtil.parseValues(req);
+module.exports = function (req, res) {
+  const Model = actionUtil.parseModel(req);
+  const values = actionUtil.parseValues(req);
 
   Model
     .create(_.omit(values, 'id'))

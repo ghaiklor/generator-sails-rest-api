@@ -1,5 +1,7 @@
-import _ from 'lodash';
-import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
+"use strict";
+
+const _ = require('lodash');
+const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 const takeAlias = _.partial(_.map, _, item => item.alias);
 const populateAlias = (model, alias) => model.populate(alias);
@@ -11,18 +13,18 @@ const populateAlias = (model, alias) => model.populate(alias);
  * An API call to find and return model instances from the data adapter using the specified criteria.
  * If an id was specified, just the instance with that unique id will be returned.
  */
-export default function (req, res) {
+module.exports = function (req, res) {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
-  let fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
-  let populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
-  let Model = actionUtil.parseModel(req);
-  let where = actionUtil.parseCriteria(req);
-  let limit = actionUtil.parseLimit(req);
-  let skip = req.param('page') * limit || actionUtil.parseSkip(req);
-  let sort = actionUtil.parseSort(req);
-  let query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
-  let findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
+  const fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];
+  const populate = req.param('populate') ? req.param('populate').replace(/ /g, '').split(',') : [];
+  const Model = actionUtil.parseModel(req);
+  const where = actionUtil.parseCriteria(req);
+  const limit = actionUtil.parseLimit(req);
+  const skip = req.param('page') * limit || actionUtil.parseSkip(req);
+  const sort = actionUtil.parseSort(req);
+  const query = Model.find(null, fields.length > 0 ? {select: fields} : null).where(where).limit(limit).skip(skip).sort(sort);
+  const findQuery = _.reduce(_.intersection(populate, takeAlias(Model.associations)), populateAlias, query);
 
   findQuery
     .then(records => [records, {

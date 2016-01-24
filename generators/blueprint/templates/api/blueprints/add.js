@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Add Record To Collection
  * POST /:model/:id/:collectionAttr/:childId
@@ -8,6 +10,4 @@
  * In either case, the association is bidirectional.
  */
 
-import add from 'sails/lib/hooks/blueprints/actions/add';
-
-export default add;
+module.exports = require('sails/lib/hooks/blueprints/actions/add');

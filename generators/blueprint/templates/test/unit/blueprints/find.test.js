@@ -1,4 +1,6 @@
-import { assert } from 'chai';
+"use strict";
+
+const assert = require('chai').assert;
 
 describe('blueprints:find', () => {
 });

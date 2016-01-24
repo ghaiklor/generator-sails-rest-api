@@ -1,5 +1,7 @@
-import _ from 'lodash';
-import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
+"use strict";
+
+const _ = require('lodash');
+const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
 
 /**
  * Update One Record
@@ -7,10 +9,10 @@ import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
  *
  * An API call to update a model instance with the specified `id`, treating the other unbound parameters as attributes.
  */
-export default function (req, res) {
-  let Model = actionUtil.parseModel(req);
-  let pk = actionUtil.requirePk(req);
-  let values = actionUtil.parseValues(req);
+module.exports = function (req, res) {
+  const Model = actionUtil.parseModel(req);
+  const pk = actionUtil.requirePk(req);
+  const values = actionUtil.parseValues(req);
 
   Model
     .update(pk, _.omit(values, 'id'))
