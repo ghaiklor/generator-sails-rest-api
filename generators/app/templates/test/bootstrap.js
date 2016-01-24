@@ -1,5 +1,7 @@
-import Sails from 'sails';
-import config from '../config/env/test';
+"use strict";
+
+const Sails = require('sails');
+const config = require('../config/env/test');
 
 let sails;
 

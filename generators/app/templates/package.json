@@ -3,23 +3,22 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
-    "rc": "^1.1.2",
-    "sails": "^0.11.2"
+    "rc": "1.1.6",
+    "sails": "0.11.4"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "esdoc": "^0.4.1",
-    "chai": "^3.3.0",
-    "isparta": "3.1.0",
-    "mocha": "^2.3.3",
-    "sails-memory": "^0.10.5",
-    "sinon": "^1.17.1"
+    "esdoc": "0.4.3",
+    "chai": "3.4.1",
+    "istanbul": "0.4.2",
+    "mocha": "2.3.4",
+    "sails-memory": "0.10.5",
+    "sinon": "1.17.2"
   },
   "scripts": {
     "clean": "rm -rf ./.tmp",
     "debug": "node debug app.js",
     "docs": "esdoc -c esdoc.json",
     "start": "node app.js",
-    "test": "babel-node node_modules/.bin/isparta cover _mocha"
+    "test": "istanbul cover _mocha"
   }
 }

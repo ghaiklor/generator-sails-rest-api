@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   adapter: require('./adapter'),
   app: require('./app'),
