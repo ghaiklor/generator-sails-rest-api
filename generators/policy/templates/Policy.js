@@ -1,10 +1,12 @@
+"use strict";
+
 /**
  * <%= name %>
  * @description :: Policy that ...
  */
 
-export default function (req, res, next) {
+module.exports = (req, res, next) => {
   // Do your logic here...
 
   next();
-}
+};

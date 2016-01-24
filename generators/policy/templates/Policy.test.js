@@ -1,6 +1,8 @@
-import { assert } from 'chai';
-import sinon from 'sinon';
-import Policy from '../../../api/policies/<%= name %>';
+"use strict";
+
+const assert = require('chai').assert;
+const sinon = require('sinon');
+const Policy = require('../../../api/policies/<%= name %>');
 
 describe('policies:<%= name %>', () => {
   it('Should be tested', () => {
