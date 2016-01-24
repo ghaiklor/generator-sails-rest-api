@@ -59,7 +59,7 @@ const Transformer = {
    * http://swagger.io/specification/#tagObject
    */
   getTags (sails) {
-    return _.map(_.pluck(sails.controllers, 'globalId'), tagName => {
+    return _.map(_.map(sails.controllers, item => item['globalId']), tagName => {
       return {
         name: tagName
         //description: `${tagName} Controller`
@@ -103,9 +103,6 @@ const Transformer = {
     let pathGroups = _.chain(routes)
       .values()
       .flatten()
-      .unique(route => {
-        return route.path + route.method + JSON.stringify(route.keys)
-      })
       .reject({path: '/*'})
       .reject({path: '/__getcookie'})
       .reject({path: '/csrfToken'})
@@ -122,7 +119,12 @@ const Transformer = {
   },
 
   getModelFromPath (sails, path) {
-    let [ $, parentModelName, parentId, childAttributeName, childId ] = this.fixPath(sails, path).split('/');
+    let fixed = this.fixPath(sails, path).split('/');
+    let $ = fixed[0];
+    let parentModelName = fixed[1];
+    let parentId = fixed[2];
+    let childAttributeName = fixed[3];
+    let childId = fixed[4];
     let parentModel = sails.models[singularize(parentModelName)];
     let childAttribute = _.get(parentModel, ['attributes', childAttributeName]);
     let childModelName = _.get(childAttribute, 'collection') || _.get(childAttribute, 'model');
@@ -146,7 +148,7 @@ const Transformer = {
    */
   getPathItem (sails, pathGroup, pathkey) {
     let methodGroups = _.chain(pathGroup)
-      .indexBy('method')
+      .sortedIndexBy('method')
       .pick([
         'get', 'post', 'put', 'head', 'options', 'patch', 'delete'
       ])
@@ -189,7 +191,9 @@ const Transformer = {
   },
 
   getPathControllerTag (sails, methodGroup) {
-    let [ $, pathToken ] = this.fixPath(sails, methodGroup.path).split('/');
+    let fixed = this.fixPath(sails, methodGroup.path).split('/');
+    let $ = fixed[0];
+    let pathToken = fixed[1];
     return _.get(sails.controllers, [pathToken, 'globalId']);
   },
 
@@ -202,9 +206,7 @@ const Transformer = {
 
     if (!controller) return;
 
-    let [ $, name ] = /(.+)Controller/.exec(controller);
-
-    return name;
+    return /(.+)Controller/.exec(controller)[1];
   },
 
   /**
