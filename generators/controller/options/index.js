@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Exports object that contains names of options as a key and their configuration objects as a value
  *

@@ -1,4 +1,6 @@
-import { assert } from 'chai';
+"use strict";
+
+const assert = require('chai');
 
 describe('controllers:PingController', () => {
   it('Should return message that HTTP server is working', done => {
