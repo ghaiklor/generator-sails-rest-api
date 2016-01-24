@@ -1,10 +1,12 @@
+"use strict";
+
 /**
  * Stores a reference to each connection that gets registered with this adapter
  * @type {Object}
  */
 let connections = {};
 
-export default {
+module.exports = {
   /**
    * Set to true if this adapter supports (or requires) things like data types, validations, keys, etc
    */
@@ -139,4 +141,4 @@ export default {
   destroy: (connection, collection, options, cb) => {
     return cb();
   }
-}
+};
