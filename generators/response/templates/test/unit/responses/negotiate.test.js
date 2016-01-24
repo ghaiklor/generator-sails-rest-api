@@ -2,7 +2,7 @@
 
 const assert = require('chai').assert;
 const sinon = require('sinon');
-const badRequest = require('../../../api/responses/badRequest');
+const negotiate = require('../../../api/responses/negotiate');
 
 const context = {
   res: {
@@ -41,7 +41,11 @@ describe('responses:negotiate', () => {
 
   it('Should handle error with unauthorized status', () => {
     negotiate.call(context, {code: 'E_UNAUTHORIZED', reason: 'ANY_REASON', invalidAttributes: [], status: 401});
-    assert.ok(context.res.unauthorized.calledWith([], {code: 'E_UNAUTHORIZED', message: 'ANY_REASON', root: undefined}));
+    assert.ok(context.res.unauthorized.calledWith([], {
+      code: 'E_UNAUTHORIZED',
+      message: 'ANY_REASON',
+      root: undefined
+    }));
   });
 
   it('Should handle error with forbidden status', () => {

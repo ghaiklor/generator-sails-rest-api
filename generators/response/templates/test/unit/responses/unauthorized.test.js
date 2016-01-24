@@ -2,7 +2,7 @@
 
 const assert = require('chai').assert;
 const sinon = require('sinon');
-const badRequest = require('../../../api/responses/badRequest');
+const unauthorized = require('../../../api/responses/unauthorized');
 
 const context = {
   res: {
