@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Blueprint API Configuration
  *
@@ -9,7 +11,7 @@
  * a configuration object with overrides for the settings in this file
  */
 
-export default {
+module.exports = {
   blueprints: {
     /**
      * When enabled, GET, POST, PUT and DELETE routes will be generated for everyone of a controller's actions
@@ -73,4 +75,4 @@ export default {
      */
     defaultLimit: 20
   }
-}
+};

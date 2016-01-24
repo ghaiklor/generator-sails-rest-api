@@ -1,10 +1,12 @@
+"use strict";
+
 /**
  * Default model configuration
  *
  * Unless you override them, the following properties will be included in each of your models.
  */
 
-export default {
+module.exports = {
   models: {
     /**
      * Your app's default connection
@@ -19,4 +21,4 @@ export default {
      */
     migrate: 'alter'
   }
-}
+};

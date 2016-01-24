@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * Global Variable Configuration
  * Configure which global variables which will be exposed automatically by Sails.
  */
 
-export default {
+module.exports = {
   globals: {
     /**
      * Expose the lodash installed in Sails core as a global variable
@@ -35,4 +37,4 @@ export default {
      */
     models: true
   }
-}
+};

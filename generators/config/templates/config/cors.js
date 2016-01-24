@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Cross-Origin Resource Sharing (CORS) Settings
  *
@@ -6,7 +8,7 @@
  * running on some other domain (e.g. google.com)
  */
 
-export default {
+module.exports = {
   cors: {
     /**
      * Allow CORS on all routes by default?
@@ -33,4 +35,4 @@ export default {
      */
     headers: 'content-type, authorization'
   }
-}
+};

@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * HTTP Server Settings
  * Configuration for the underlying HTTP server in Sails
  */
 
-export default {
+module.exports = {
   /**
    * Port where to run this app
    * @type {Number}

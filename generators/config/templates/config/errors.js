@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Configuration file where you can store error codes for responses
  *
@@ -5,7 +7,7 @@
  * You can call then in your action res.ok(data, sails.config.errors.USER_NOT_FOUND);
  */
 
-export default {
+module.exports = {
   errors: {
     BAD_REQUEST: {
       code: 'E_BAD_REQUEST',
@@ -55,4 +57,4 @@ export default {
       status: 401
     }
   }
-}
+};

@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Connections API Configuration
  *
@@ -10,7 +12,7 @@
  * in `config/local.js`, environment variables, or use another strategy.
  */
 
-export default {
+module.exports = {
   connections: {
     /**
      * MongoDB configuration
@@ -154,4 +156,4 @@ export default {
       adapter: 'sails-disk'
     }
   }
-}
+};
