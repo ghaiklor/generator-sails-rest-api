@@ -1,11 +1,13 @@
+"use strict";
+
 /**
  * Pluralize only routes that have controller and model pair.
  * If controller or model doesn't exist then applies default route.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (sails) {
+module.exports = sails => {
   return {
     initialize: cb => {
       sails.on('router:before', () => {

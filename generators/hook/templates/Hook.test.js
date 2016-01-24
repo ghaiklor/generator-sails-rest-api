@@ -1,5 +1,7 @@
-import { assert } from 'chai';
-import Hook from '../../../api/hooks/<%= name %>Hook';
+"use strict";
+
+const assert = require('chai').assert;
+const Hook = require('../../../api/hooks/<%= name %>Hook');
 
 describe('hooks:<%= name %>', () => {
   it('Should be tested', () => {

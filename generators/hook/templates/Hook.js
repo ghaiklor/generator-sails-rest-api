@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * <%= name %>Hook
  * Hook that ...
  */
 
-export default function (sails) {
+module.exports = sails => {
   return {
     configure: () => true,
 

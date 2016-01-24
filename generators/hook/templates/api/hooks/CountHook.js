@@ -1,27 +1,29 @@
+"use strict";
+
 /**
  * Adds support for count blueprint and binds :model/count route for each RESTful model.
  */
 
-import _ from 'lodash';
-import actionUtil from 'sails/lib/hooks/blueprints/actionUtil';
-import pluralize from 'pluralize';
+const _ = require('lodash');
+const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
+const pluralize = require('pluralize');
 
 const defaultCountBlueprint = (req, res) => {
-  let Model = actionUtil.parseModel(req);
-  let countQuery = Model.count();
+  const Model = actionUtil.parseModel(req);
+  const countQuery = Model.count();
 
   countQuery.then(count => res.ok({count}));
 };
 
-export default function (sails) {
+module.exports = sails => {
   return {
     initialize: cb => {
-      let config = sails.config.blueprints;
-      let countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
+      const config = sails.config.blueprints;
+      const countFn = _.get(sails.middleware, 'blueprints.count') || defaultCountBlueprint;
 
       sails.on('router:before', () => {
         _.forEach(sails.models, model => {
-          let controller = sails.middleware.controllers[model.identity];
+          const controller = sails.middleware.controllers[model.identity];
 
           if (!controller) return;
 
@@ -31,7 +33,7 @@ export default function (sails) {
             baseRoute = pluralize(baseRoute);
           }
 
-          let route = baseRoute + '/count';
+          const route = baseRoute + '/count';
 
           sails.router.bind(route, countFn, null, {controller: model.identity});
         });
