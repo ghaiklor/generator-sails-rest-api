@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * 403 (Forbidden) Response
  *
@@ -6,10 +8,10 @@
  * Error code for user not authorized to perform the operation or the resource is unavailable for some reason.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (data, config) {
-  let response = _.assign({
+module.exports = (data, config) => {
+  const response = _.assign({
     code: _.get(config, 'code', 'E_FORBIDDEN'),
     message: _.get(config, 'message', 'User not authorized to perform the operation'),
     data: data || {}
@@ -17,4 +19,4 @@ export default function (data, config) {
 
   this.res.status(403);
   this.res.jsonx(response);
-}
+};

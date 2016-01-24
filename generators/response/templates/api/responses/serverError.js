@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * 500 (Internal Server Error) Response
  *
@@ -5,10 +7,10 @@
  * The general catch-all error when the server-side throws an exception.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (data, config) {
-  let response = _.assign({
+module.exports = (data, config) => {
+  const response = _.assign({
     code: _.get(config, 'code', 'E_INTERNAL_SERVER_ERROR'),
     message: _.get(config, 'message', 'Something bad happened on the server'),
     data: data || {}

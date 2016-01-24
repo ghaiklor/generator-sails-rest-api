@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * 201 (Created) Response
  *
@@ -7,10 +9,10 @@
  * Response body content may or may not be present.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (data, config) {
-  let response = _.assign({
+module.exports = (data, config) => {
+  const response = _.assign({
     code: _.get(config, 'code', 'CREATED'),
     message: _.get(config, 'message', 'The request has been fulfilled and resulted in a new resource being created'),
     data: data || {}
@@ -18,4 +20,4 @@ export default function (data, config) {
 
   this.res.status(201);
   this.res.jsonx(response);
-}
+};

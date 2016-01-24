@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * 200 (OK) Response
  *
@@ -7,10 +9,10 @@
  * In a POST request the response will contain an entity describing or containing the result of the action.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (data, config) {
-  let response = _.assign({
+module.exports = (data, config) => {
+  const response = _.assign({
     code: _.get(config, 'code', 'OK'),
     message: _.get(config, 'message', 'Operation is successfully executed'),
     data: data || {}
@@ -18,4 +20,4 @@ export default function (data, config) {
 
   this.res.status(200);
   this.res.jsonx(response);
-}
+};

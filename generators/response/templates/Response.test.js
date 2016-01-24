@@ -1,6 +1,8 @@
-import { assert } from 'chai';
-import sinon from 'sinon';
-import Response from '../../../api/responses/<%= name %>';
+"use strict";
+
+const assert = require('chai').assert;
+const sinon = require('sinon');
+const Response = require('../../../api/responses/<%= name %>');
 
 const context = {
   res: {

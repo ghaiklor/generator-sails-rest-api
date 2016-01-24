@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * 400 (Bad Request) Response
  *
@@ -6,10 +8,10 @@
  * Domain validation errors, missing data, etc.
  */
 
-import _ from 'lodash';
+const _ = require('lodash');
 
-export default function (data, config) {
-  let response = _.assign({
+module.exports = (data, config) => {
+  const response = _.assign({
     code: _.get(config, 'code', 'E_BAD_REQUEST'),
     message: _.get(config, 'message', 'The request cannot be fulfilled due to bad syntax'),
     data: data || {}
@@ -17,4 +19,4 @@ export default function (data, config) {
 
   this.res.status(400);
   this.res.jsonx(response);
-}
+};

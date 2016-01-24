@@ -1,6 +1,8 @@
-import { assert } from 'chai';
-import sinon from 'sinon';
-import serverError from '../../../api/responses/serverError';
+"use strict";
+
+const assert = require('chai').assert;
+const sinon = require('sinon');
+const badRequest = require('../../../api/responses/badRequest');
 
 const context = {
   res: {
