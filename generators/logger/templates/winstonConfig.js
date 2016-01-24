@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * Winston Logger Configuration
  * For detailed information take a look here - https://github.com/Kikobeats/sails-hook-winston
  */
 
-export default {
+module.exports = {
   log: {
     /**
      * Winston logging level for the console transport

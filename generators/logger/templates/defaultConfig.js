@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Built-in Log Configuration
  * (sails.config.log)
@@ -7,7 +9,7 @@
  * allows for some pretty neat custom transports/adapters for log messages)
  */
 
-export default {
+module.exports = {
   log: {
     /**
      * The order of precedence for log levels from lowest to highest is:
@@ -16,4 +18,4 @@ export default {
      */
     level: 'verbose'
   }
-}
+};

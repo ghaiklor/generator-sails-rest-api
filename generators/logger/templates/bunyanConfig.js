@@ -1,9 +1,11 @@
+"use strict";
+
 /**
  * Bunyan Logger Configuration
  * For detailed documentation you can take a look here - https://github.com/building5/sails-hook-bunyan
  */
 
-export default {
+module.exports = {
   log: {
     /**
      * Bunyan logging level
