@@ -1,5 +1,7 @@
+"use strict";
+
 /**
  * Fixtures for <%= name %>
  */
 
-export default {};
+module.exports = {};

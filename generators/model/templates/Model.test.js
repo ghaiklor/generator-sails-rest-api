@@ -1,6 +1,8 @@
-import { assert } from 'chai';
-import Model from '../../../api/models/<%= name %>';
-import Fixture from '../../fixtures/<%= name %>Fixture';
+"use strict";
+
+const assert = require('chai');
+const Model = require('../../../api/models/<%= name %>');
+const Fixture = require('../../fixtures/<%= name %>Fixture');
 
 describe('models:<%= name %>', () => {
   it('Should be tested', () => {

@@ -1,6 +1,8 @@
+"use strict";
+
 /**
  * <%= name %>Controller
  * @description :: Server-side logic for ...
  */
 
-export default {};
+module.exports = {};
