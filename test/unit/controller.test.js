@@ -118,7 +118,7 @@ describe('sails-rest-api:controller', () => {
         'api/controllers/SearchController.js'
       ]);
 
-      assert.fileContent('api/controllers/TicketController.js', /export function index\(req, res\)/);
+      assert.fileContent('api/controllers/TicketController.js', /function index\(req, res\)/);
       assert.fileContent('api/controllers/TicketController.js', /res.ok\(\)/);
     });
 

@@ -22,7 +22,7 @@ describe('sails-rest-api:model', () => {
         'api/models/Test.js'
       ]);
 
-      assert.fileContent('api/controllers/TestController.js', /export default \{\}/);
+      assert.fileContent('api/controllers/TestController.js', /module.exports = \{\}/);
       assert.fileContent('api/models/Test.js', /beforeUpdate:/);
     });
 
@@ -32,8 +32,8 @@ describe('sails-rest-api:model', () => {
         'test/unit/models/Test.test.js'
       ]);
 
-      assert.fileContent('test/unit/controllers/TestController.test.js', /import Controller from '\.\.\/\.\.\/\.\.\/api\/controllers\/TestController'/);
-      assert.fileContent('test/unit/models/Test.test.js', /import Model from '\.\.\/\.\.\/\.\.\/api\/models\/Test'/);
+      assert.fileContent('test/unit/controllers/TestController.test.js', /const Controller = require\('\.\.\/\.\.\/\.\.\/api\/controllers\/TestController'\)/);
+      assert.fileContent('test/unit/models/Test.test.js', /const Model = require\('\.\.\/\.\.\/\.\.\/api\/models\/Test'\)/);
     });
 
     it('Should properly create fixtures files', () => {
@@ -41,7 +41,7 @@ describe('sails-rest-api:model', () => {
         'test/fixtures/TestFixture.js'
       ]);
 
-      assert.fileContent('test/fixtures/TestFixture.js', /export default \{\}/);
+      assert.fileContent('test/fixtures/TestFixture.js', /module.exports = \{\}/);
     });
   });
 
@@ -77,7 +77,7 @@ describe('sails-rest-api:model', () => {
         'test/unit/controllers/AnotherController.test.js'
       ]);
 
-      assert.fileContent('test/unit/models/Another.test.js', /import Model from '\.\.\/\.\.\/\.\.\/api\/models\/Another'/);
+      assert.fileContent('test/unit/models/Another.test.js', /const Model = require\('\.\.\/\.\.\/\.\.\/api\/models\/Another'\)/);
     });
 
     it('Should properly create fixtures files', () => {
@@ -85,7 +85,7 @@ describe('sails-rest-api:model', () => {
         'test/fixtures/AnotherFixture.js'
       ]);
 
-      assert.fileContent('test/fixtures/AnotherFixture.js', /export default \{\}/);
+      assert.fileContent('test/fixtures/AnotherFixture.js', /module.exports = \{\}/);
     });
   });
 });

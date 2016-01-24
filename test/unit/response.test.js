@@ -46,7 +46,7 @@ describe('sails-rest-api:response', () => {
         'test/unit/responses/unauthorized.test.js'
       ]);
 
-      assert.fileContent('test/unit/responses/ok.test.js', /import ok from '\.\.\/\.\.\/\.\.\/api\/responses\/ok';/);
+      assert.fileContent('test/unit/responses/ok.test.js', /const ok = require\('\.\.\/\.\.\/\.\.\/api\/responses\/ok'\);/);
     });
   });
 
@@ -76,7 +76,7 @@ describe('sails-rest-api:response', () => {
         'api/responses/unauthorized.js'
       ]);
 
-      assert.fileContent('api/responses/ok.js', /let response = \{data\};/);
+      assert.fileContent('api/responses/ok.js', /const response = \{data\};/);
       assert.noFileContent('api/responses/ok.js', /_\.get\(config, 'code', 'OK'\)/);
     });
 
@@ -95,7 +95,7 @@ describe('sails-rest-api:response', () => {
         'test/unit/responses/unauthorized.test.js'
       ]);
 
-      assert.fileContent('test/unit/responses/ok.test.js', /import Response from '\.\.\/\.\.\/\.\.\/api\/responses\/ok';/);
+      assert.fileContent('test/unit/responses/ok.test.js', /const Response = require\('\.\.\/\.\.\/\.\.\/api\/responses\/ok'\);/);
     });
   });
 
@@ -136,7 +136,7 @@ describe('sails-rest-api:response', () => {
         'test/unit/responses/unauthorized.test.js'
       ]);
 
-      assert.fileContent('test/unit/responses/ok.test.js', /import ok from '\.\.\/\.\.\/\.\.\/api\/responses\/ok';/);
+      assert.fileContent('test/unit/responses/ok.test.js', /const ok = require\('\.\.\/\.\.\/\.\.\/api\/responses\/ok'\);/);
     });
   });
 
@@ -164,7 +164,7 @@ describe('sails-rest-api:response', () => {
         'api/responses/unauthorized.js'
       ]);
 
-      assert.fileContent('api/responses/custom.js', /let response = \{data\}/);
+      assert.fileContent('api/responses/custom.js', /const response = \{data\}/);
     });
 
     it('Should properly create test files', () => {
@@ -183,7 +183,7 @@ describe('sails-rest-api:response', () => {
         'test/unit/responses/unauthorized.test.js'
       ]);
 
-      assert.fileContent('test/unit/responses/custom.test.js', /import Response from '\.\.\/\.\.\/\.\.\/api\/responses\/custom';/);
+      assert.fileContent('test/unit/responses/custom.test.js', /const Response = require\('\.\.\/\.\.\/\.\.\/api\/responses\/custom'\);/);
     });
   });
 });

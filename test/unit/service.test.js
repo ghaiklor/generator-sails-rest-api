@@ -22,7 +22,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CipherService.js', /import cipher from 'sails-service-cipher'/);
+      assert.fileContent('api/services/CipherService.js', /const cipher = require\('sails-service-cipher'\)/);
     });
 
     it('Should properly create config files', () => {
@@ -56,7 +56,7 @@ describe('sails-rest-api:service', () => {
         'test/unit/services/StorageService.test.js'
       ]);
 
-      assert.fileContent('test/unit/services/CipherService.test.js', /import CipherService from '\.\.\/\.\.\/\.\.\/api\/services\/CipherService';/)
+      assert.fileContent('test/unit/services/CipherService.test.js', /const CipherService = require\('\.\.\/\.\.\/\.\.\/api\/services\/CipherService'\);/)
     });
   });
 
@@ -85,7 +85,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CipherService.js', /import cipher from 'sails-service-cipher'/);
+      assert.fileContent('api/services/CipherService.js', /const cipher = require\('sails-service-cipher'\)/);
     });
 
     it('Should properly create config files', () => {
@@ -125,7 +125,7 @@ describe('sails-rest-api:service', () => {
         'test/unit/services/StorageService.test.js'
       ]);
 
-      assert.fileContent('test/unit/services/CipherService.test.js', /import CipherService from '\.\.\/\.\.\/\.\.\/api\/services\/CipherService';/)
+      assert.fileContent('test/unit/services/CipherService.test.js', /const CipherService = require\('\.\.\/\.\.\/\.\.\/api\/services\/CipherService'\);/)
     });
   });
 
@@ -157,7 +157,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CipherService.js', /export default \{\}/);
+      assert.fileContent('api/services/CipherService.js', /module.exports = \{\}/);
     });
 
     it('Should properly create config files', () => {
@@ -197,7 +197,7 @@ describe('sails-rest-api:service', () => {
         'test/unit/services/StorageService.test.js'
       ]);
 
-      assert.fileContent('test/unit/services/CipherService.test.js', /import Service from '\.\.\/\.\.\/\.\.\/api\/services\/CipherService';/)
+      assert.fileContent('test/unit/services/CipherService.test.js', /const Service = require\('\.\.\/\.\.\/\.\.\/api\/services\/CipherService'\);/)
     });
   });
 
@@ -227,7 +227,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CustomService.js', /export default \{\}/);
+      assert.fileContent('api/services/CustomService.js', /module.exports = \{\}/);
     });
 
     it('Should properly create config files', () => {
@@ -269,7 +269,7 @@ describe('sails-rest-api:service', () => {
         'test/unit/services/StorageService.test.js'
       ]);
 
-      assert.fileContent('test/unit/services/CustomService.test.js', /import Service from '\.\.\/\.\.\/\.\.\/api\/services\/CustomService';/)
+      assert.fileContent('test/unit/services/CustomService.test.js', /const Service = require\('\.\.\/\.\.\/\.\.\/api\/services\/CustomService'\);/)
     });
   });
 
@@ -297,7 +297,7 @@ describe('sails-rest-api:service', () => {
         'api/services/StorageService.js'
       ]);
 
-      assert.fileContent('api/services/CipherService.js', /import cipher from 'sails-service-cipher'/);
+      assert.fileContent('api/services/CipherService.js', /const cipher = require\('sails-service-cipher'\)/);
     });
 
     it('Should properly create config files', () => {
@@ -331,7 +331,7 @@ describe('sails-rest-api:service', () => {
         'test/unit/services/StorageService.test.js'
       ]);
 
-      assert.fileContent('test/unit/services/CipherService.test.js', /import CipherService from '\.\.\/\.\.\/\.\.\/api\/services\/CipherService';/)
+      assert.fileContent('test/unit/services/CipherService.test.js', /const CipherService = require\('\.\.\/\.\.\/\.\.\/api\/services\/CipherService'\);/)
     });
   });
 

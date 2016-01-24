@@ -18,7 +18,7 @@ describe('sails-rest-api:policy', () => {
         'api/policies/isAdmin.js'
       ]);
 
-      assert.fileContent('api/policies/isAdmin.js', /export default function \(req, res, next\)/);
+      assert.fileContent('api/policies/isAdmin.js', /module.exports = function \(req, res, next\)/);
     });
 
     it('Should properly create test files', () => {
@@ -26,7 +26,7 @@ describe('sails-rest-api:policy', () => {
         'test/unit/policies/isAdmin.test.js'
       ]);
 
-      assert.fileContent('test/unit/policies/isAdmin.test.js', /import Policy from '\.\.\/\.\.\/\.\.\/api\/policies\/isAdmin'/);
+      assert.fileContent('test/unit/policies/isAdmin.test.js', /const Policy = require\('\.\.\/\.\.\/\.\.\/api\/policies\/isAdmin'\)/);
     });
   });
 });

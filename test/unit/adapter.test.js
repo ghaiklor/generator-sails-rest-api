@@ -26,7 +26,7 @@ describe('sails-rest-api:adapter', () => {
         'test/unit/adapters/MongoAdapter.test.js'
       ]);
 
-      assert.fileContent('test/unit/adapters/MongoAdapter.test.js', /import Adapter from '\.\.\/\.\.\/\.\.\/api\/adapters\/MongoAdapter'/);
+      assert.fileContent('test/unit/adapters/MongoAdapter.test.js', /const Adapter = require\('\.\.\/\.\.\/\.\.\/api\/adapters\/MongoAdapter'\)/);
     });
   });
 });
