@@ -1,11 +1,13 @@
+"use strict";
+
 /**
  * https://github.com/tjwebb/sails-swagger
  */
 
-import hoek from 'hoek'
-import _ from 'lodash'
-import pluralize from 'pluralize'
-import Spec from './spec'
+const hoek = require('hoek');
+const _ = require('lodash');
+const pluralize = require('pluralize');
+const Spec = require('./spec');
 
 const singularize = _.partial(pluralize, _, 1);
 
@@ -40,7 +42,7 @@ const Transformer = {
    * Convert a package.json file into a Swagger Info Object
    * http://swagger.io/specification/#infoObject
    */
-    getInfo (pkg) {
+  getInfo (pkg) {
     return hoek.transform(pkg, {
       'title': 'name',
       'description': 'description',
@@ -56,7 +58,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#tagObject
    */
-    getTags (sails) {
+  getTags (sails) {
     return _.map(_.pluck(sails.controllers, 'globalId'), tagName => {
       return {
         name: tagName
@@ -68,7 +70,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#definitionsObject
    */
-    getDefinitions (sails) {
+  getDefinitions (sails) {
     let definitions = _.transform(sails.models, (definitions, model, modelName) => {
       definitions[model.identity] = {
         properties: Transformer.getDefinitionProperties(model.definition)
@@ -96,7 +98,7 @@ const Transformer = {
    * http://swagger.io/specification/#pathsObject
    * http://swagger.io/specification/#pathItemObject
    */
-    getPaths (sails) {
+  getPaths (sails) {
     let routes = sails.router._privateRouter.routes;
     let pathGroups = _.chain(routes)
       .values()
@@ -132,7 +134,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#definitionsObject
    */
-    getDefinitionReference (sails, path) {
+  getDefinitionReference (sails, path) {
     let model = Transformer.getModelFromPath(sails, path);
     if (model) {
       return '#/definitions/' + model.identity;
@@ -142,7 +144,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#pathItemObject
    */
-    getPathItem (sails, pathGroup, pathkey) {
+  getPathItem (sails, pathGroup, pathkey) {
     let methodGroups = _.chain(pathGroup)
       .indexBy('method')
       .pick([
@@ -158,7 +160,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#operationObject
    */
-    getOperation (sails, methodGroup, method) {
+  getOperation (sails, methodGroup, method) {
     return {
       summary: methodMap[method],
       consumes: ['application/json'],
@@ -173,7 +175,7 @@ const Transformer = {
    * A list of tags for API documentation control. Tags can be used for logical
    * grouping of operations by resources or any other qualifier.
    */
-    getPathTags (sails, methodGroup) {
+  getPathTags (sails, methodGroup) {
     return _.unique(_.compact([
       Transformer.getPathModelTag(sails, methodGroup),
       Transformer.getPathControllerTag(sails, methodGroup),
@@ -208,7 +210,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#parameterObject
    */
-    getParameters (sails, methodGroup) {
+  getParameters (sails, methodGroup) {
     let routeParams = methodGroup.keys;
 
     if (!routeParams.length) return;
@@ -226,7 +228,7 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#responsesObject
    */
-    getResponses (sails, methodGroup) {
+  getResponses (sails, methodGroup) {
     let $ref = Transformer.getDefinitionReference(sails, methodGroup.path);
     let ok = {
       description: 'The requested resource'
@@ -243,4 +245,4 @@ const Transformer = {
   }
 };
 
-export default Transformer
+module.exports = Transformer;

@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#dataTypeFormat
  */
@@ -47,4 +49,4 @@ const Spec = {
   }
 };
 
-export default Spec;
+module.exports = Spec;

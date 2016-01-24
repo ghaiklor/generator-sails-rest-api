@@ -1,4 +1,6 @@
-export default {
+"use strict";
+
+module.exports = {
   swagger: {
     pkg: {
       name: 'No package information',

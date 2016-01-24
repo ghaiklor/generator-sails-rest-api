@@ -1,12 +1,14 @@
+"use strict";
+
 /**
  * https://github.com/tjwebb/sails-swagger
  */
 
-import _ from 'lodash'
-import xfmr from './lib/xfmr'
-import express from 'express';
+const _ = require('lodash');
+const xfmr = require('./lib/xfmr');
+const express = require('express');
 
-export default function (sails) {
+module.exports = sails => {
   return {
     defaults(overrides) {
       this.bindExplorerRoute();
@@ -44,4 +46,4 @@ export default function (sails) {
     }
 
   }
-}
+};
