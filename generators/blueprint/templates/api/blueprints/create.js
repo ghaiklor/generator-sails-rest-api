@@ -9,7 +9,7 @@ const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  *
  * An API call to create and return a single model instance using the specified parameters.
  */
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   const Model = actionUtil.parseModel(req);
   const values = actionUtil.parseValues(req);
 

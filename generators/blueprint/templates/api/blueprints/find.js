@@ -13,7 +13,7 @@ const populateAlias = (model, alias) => model.populate(alias);
  * An API call to find and return model instances from the data adapter using the specified criteria.
  * If an id was specified, just the instance with that unique id will be returned.
  */
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   const fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];

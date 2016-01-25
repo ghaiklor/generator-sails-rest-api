@@ -1,6 +1,6 @@
 "use strict";
 
-const assert = require('chai');
+const assert = require('chai').assert;
 const Controller = require('../../../api/controllers/<%= name %>Controller');
 
 describe('controllers:<%= name %>Controller', () => {

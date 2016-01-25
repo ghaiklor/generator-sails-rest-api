@@ -1,6 +1,6 @@
 "use strict";
 
-const assert = require('chai');
+const assert = require('chai').assert;
 const Model = require('../../../api/models/<%= name %>');
 const Fixture = require('../../fixtures/<%= name %>Fixture');
 

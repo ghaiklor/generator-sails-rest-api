@@ -8,7 +8,7 @@ const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  *
  * Destroys the single model instance with the specified `id` from the data adapter for the given model if it exists.
  */
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   const Model = actionUtil.parseModel(req);
   const pk = actionUtil.requirePk(req);
 

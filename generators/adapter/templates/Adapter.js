@@ -24,7 +24,7 @@ module.exports = {
    * @param {Function} cb
    * @returns {*}
    */
-  registerConnection: (connection, collections, cb) => {
+  registerConnection(connection, collections, cb) {
     if (!connection.identity) return cb(new Error('Connection is missing an identity'));
     if (connections[connection.identity]) return cb(new Error('Connection is already registered'));
 
@@ -42,7 +42,7 @@ module.exports = {
    * @param _cb
    * @returns {*}
    */
-  teardown: (_connection, _cb) => {
+  teardown(_connection, _cb) {
     let connection = typeof _connection !== 'function' ? _connection : null;
     let cb = typeof _connection === 'function' ? _connection : _cb;
 
@@ -65,7 +65,7 @@ module.exports = {
    * @param {Function} cb
    * @returns {*}
    */
-  describe: (connection, collection, cb) => {
+  describe(connection, collection, cb) {
     return cb();
   },
 
@@ -77,7 +77,7 @@ module.exports = {
    * @param {Function} cb
    * @returns {*}
    */
-  define: (connection, collection, definition, cb) => {
+  define(connection, collection, definition, cb) {
     return cb();
   },
 
@@ -89,7 +89,7 @@ module.exports = {
    * @param {Function} cb
    * @returns {*}
    */
-  drop: (connection, collection, relations, cb) => {
+  drop(connection, collection, relations, cb) {
     return cb();
   },
 
@@ -101,7 +101,7 @@ module.exports = {
    * @param cb
    * @returns {*}
    */
-  find: (connection, collection, options, cb) => {
+  find(connection, collection, options, cb) {
     return cb();
   },
 
@@ -113,7 +113,7 @@ module.exports = {
    * @param cb
    * @returns {*}
    */
-  create: (connection, collection, values, cb) => {
+  create(connection, collection, values, cb) {
     return cb();
   },
 
@@ -126,7 +126,7 @@ module.exports = {
    * @param cb
    * @returns {*}
    */
-  update: (connection, collection, options, values, cb) => {
+  update(connection, collection, options, values, cb) {
     return cb();
   },
 
@@ -138,7 +138,7 @@ module.exports = {
    * @param cb
    * @returns {*}
    */
-  destroy: (connection, collection, options, cb) => {
+  destroy(connection, collection, options, cb) {
     return cb();
   }
 };

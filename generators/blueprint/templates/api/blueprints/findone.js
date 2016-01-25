@@ -12,7 +12,7 @@ const populateAliases = (model, alias) => model.populate(alias);
  *
  * An API call to find and return a single model instance from the data adapter using the specified id.
  */
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   _.set(req.options, 'criteria.blacklist', ['fields', 'populate', 'limit', 'skip', 'page', 'sort']);
 
   const fields = req.param('fields') ? req.param('fields').replace(/ /g, '').split(',') : [];

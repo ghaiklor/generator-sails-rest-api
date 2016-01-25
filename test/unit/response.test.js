@@ -76,7 +76,7 @@ describe('sails-rest-api:response', () => {
         'api/responses/unauthorized.js'
       ]);
 
-      assert.fileContent('api/responses/ok.js', /const response = \{data\};/);
+      assert.fileContent('api/responses/ok.js', /const response = data;/);
       assert.noFileContent('api/responses/ok.js', /_\.get\(config, 'code', 'OK'\)/);
     });
 
@@ -164,7 +164,7 @@ describe('sails-rest-api:response', () => {
         'api/responses/unauthorized.js'
       ]);
 
-      assert.fileContent('api/responses/custom.js', /const response = \{data\}/);
+      assert.fileContent('api/responses/custom.js', /const response = data/);
     });
 
     it('Should properly create test files', () => {

@@ -9,7 +9,7 @@ const actionUtil = require('sails/lib/hooks/blueprints/actionUtil');
  *
  * An API call to update a model instance with the specified `id`, treating the other unbound parameters as attributes.
  */
-module.exports = function (req, res) {
+module.exports = (req, res) => {
   const Model = actionUtil.parseModel(req);
   const pk = actionUtil.requirePk(req);
   const values = actionUtil.parseValues(req);

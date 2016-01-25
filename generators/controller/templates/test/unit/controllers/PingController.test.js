@@ -1,6 +1,6 @@
 "use strict";
 
-const assert = require('chai');
+const assert = require('chai').assert;
 
 describe('controllers:PingController', () => {
   it('Should return message that HTTP server is working', done => {
