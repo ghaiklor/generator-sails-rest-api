@@ -9,7 +9,7 @@
 
 const _ = require('lodash');
 
-module.exports = (data, config) => {
+module.exports = function (data, config) {
   const response = _.assign({
     code: _.get(config, 'code', 'E_INTERNAL_SERVER_ERROR'),
     message: _.get(config, 'message', 'Something bad happened on the server'),

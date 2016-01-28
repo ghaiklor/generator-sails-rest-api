@@ -11,7 +11,7 @@
 
 const _ = require('lodash');
 
-module.exports = (data, config) => {
+module.exports = function (data, config) {
   const response = _.assign({
     code: _.get(config, 'code', 'OK'),
     message: _.get(config, 'message', 'Operation is successfully executed'),

@@ -8,7 +8,7 @@
 
 const _ = require('lodash');
 
-module.exports = error => {
+module.exports = function (error) {
   const res = this.res;
   const code = _.get(error, 'code');
   const message = _.get(error, 'reason') || _.get(error, 'message');
