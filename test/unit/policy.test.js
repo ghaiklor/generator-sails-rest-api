@@ -2,7 +2,7 @@ import path from 'path'
 import os from 'os'
 import { assert, test } from 'yeoman-generator'
 
-describe('trailpack:policy', () => {
+describe('trails:policy', () => {
   describe('Should properly generate policy interface', () => {
     before(done => {
       test

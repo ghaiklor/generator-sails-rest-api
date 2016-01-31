@@ -42,7 +42,6 @@ describe('trails:app', () => {
         'config/env/development.js',
         'config/env/index.js',
         'package.json',
-        'README.md',
         'LICENSE'
       ])
     })

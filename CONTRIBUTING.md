@@ -69,11 +69,6 @@ We are using git workflow, which are nice described [here in Russian](http://hab
 
 In general, we are using `master` branch for stable releases (and ONLY stable releases) and `dev` branch for development purposes.
 
-## Publishing
-
-`semantic-release` is a package that allows to publish to npm after tests completed successfully right from the CI server.
-This flow is fully configured, so you can just contribute to the project, everything else `semantic-release` will do.
-
 ## Tests
 
 We are using Mocha for testing.
