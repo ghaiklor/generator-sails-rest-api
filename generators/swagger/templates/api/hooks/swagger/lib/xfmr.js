@@ -99,7 +99,7 @@ const Transformer = {
    * http://swagger.io/specification/#pathItemObject
    */
   getPaths (sails) {
-    let routes = sails.router._privateRouter.routes;
+    let routes = sails.router._privateRouter.routes
     let pathGroups = _.chain(routes)
       .values()
       .flatten()
@@ -113,9 +113,18 @@ const Transformer = {
       })
       .value();
 
-    return _.mapValues(pathGroups, (pathGroup, key) => {
-      return Transformer.getPathItem(sails, pathGroup, key)
-    });
+    pathGroups = _.reduce(pathGroups, function(result, routes, path) {
+      path = path.replace(/:(\w+)\??/g, '{$1}')
+      if (result[path])
+        result[path] = _.union(result[path], routes)
+      else
+        result[path] = routes
+      return result
+    }, [])
+
+    return _.mapValues(pathGroups, pathGroup => {
+      return Transformer.getPathItem(sails, pathGroup)
+    })
   },
 
   getModelFromPath (sails, path) {
@@ -146,9 +155,9 @@ const Transformer = {
   /**
    * http://swagger.io/specification/#pathItemObject
    */
-  getPathItem (sails, pathGroup, pathkey) {
+  getPathItem (sails, pathGroup) {
     let methodGroups = _.chain(pathGroup)
-      .sortedIndexBy('method')
+      .keyBy('method')
       .pick([
         'get', 'post', 'put', 'head', 'options', 'patch', 'delete'
       ])
@@ -178,7 +187,7 @@ const Transformer = {
    * grouping of operations by resources or any other qualifier.
    */
   getPathTags (sails, methodGroup) {
-    return _.unique(_.compact([
+    return _.uniq(_.compact([
       Transformer.getPathModelTag(sails, methodGroup),
       Transformer.getPathControllerTag(sails, methodGroup),
       Transformer.getControllerFromRoute(sails, methodGroup)
