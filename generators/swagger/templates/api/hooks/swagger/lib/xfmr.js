@@ -113,7 +113,7 @@ const Transformer = {
       })
       .value();
 
-    pathGroups = _.reduce(pathGroups, function(result, routes, path) {
+    pathGroups = _.reduce(pathGroups, function (result, routes, path) {
       path = path.replace(/:(\w+)\??/g, '{$1}')
       if (result[path])
         result[path] = _.union(result[path], routes)
