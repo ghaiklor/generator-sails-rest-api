@@ -9,6 +9,7 @@ const _ = require('lodash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 const FacebookTokenStrategy = require('passport-facebook-token');
 const TwitterTokenStrategy = require('passport-twitter-token');
 const VKontakteTokenStrategy = require('passport-vkontakte-token');
@@ -44,7 +45,7 @@ const LOCAL_STRATEGY_CONFIG = {
  */
 const JWT_STRATEGY_CONFIG = {
   secretOrKey: '<%= options["secret-key"] %>',
-  tokenBodyField: 'access_token',
+  jwtFromRequest: ExtractJwt.versionOneCompatibility({ tokenBodyField: 'access_token' }),
   tokenQueryParameterName: 'access_token',
   authScheme: 'Bearer',
   session: false,
