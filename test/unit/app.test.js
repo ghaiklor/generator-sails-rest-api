@@ -1,6 +1,5 @@
 import path from 'path'
 import os from 'os'
-const fs = require('fs')
 import { assert, test } from 'yeoman-generator'
 
 describe('trails:app', () => {
