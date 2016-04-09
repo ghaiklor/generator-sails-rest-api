@@ -15,11 +15,18 @@ export default {
   serverDependentApi () {
     let trailpacks = this.options.trailpacks
     const server = this.answers ? this.answers['web-engine'] : null
+    const orm = this.answers ? this.answers['orm-engine'] : null
     const dest = this.destinationPath()
     const PROJECT_PATH = this.destinationPath('node_modules/')
 
     if (!trailpacks) {
       trailpacks = server == 'other' ? this.answers['web-engine-other'] : 'trailpack-' + server
+      if(orm && orm != 'none') {
+        trailpacks += ',' + (orm == 'other' ? this.answers['orm-engine-other'] : 'trailpack-' + orm)
+        if(this.answers['footprints']) {
+          trailpacks += ',' + 'trailpack-footprints'
+        }
+      }
     }
 
     trailpacks = trailpacks.replace(/,/g, ' ')

@@ -7,7 +7,7 @@ describe('trails:app', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/app'))
-        .withPrompts({'web-engine': 'hapi', authorName: 'trailsjs', authorEmail: 'hello@trailsjs.io', license: 'MIT'}) // Mock the prompt answers
+        .withPrompts({'web-engine': 'hapi', 'orm-engine': 'waterline', authorName: 'trailsjs', authorEmail: 'hello@trailsjs.io', license: 'MIT'}) // Mock the prompt answers
         .withOptions({
           'skip-update': true,
           'skip-install': true
