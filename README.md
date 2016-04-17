@@ -43,15 +43,13 @@ Generators:
 ```
 
 ## Contributing
-We love contributions! In order to be able to review your code efficiently,
-please keep the following in mind:
-
-1. Pull Requests (PRs) must include new and/or updated tests, and all tests [must pass](https://travis-ci.org/trailsjs/generator-trails).
-2. Use `eslint`! See the `eslintConfig` in [package.json](./package.json).
-3. Please [reference the relevant issue](https://github.com/blog/1506-closing-issues-via-pull-requests) in your Pull Request.
+We love contributions! Please see our [Contribution Guide](https://github.com/trailsjs/trails/blob/master/.github/CONTRIBUTING.md)
+for more information.
 
 ## License
-[MIT](./LICENSE)
+[MIT](https://github.com/trailsjs/trails/blob/master/LICENSE)
+
+<img src="http://i.imgur.com/dCjNisP.png">
 
 [trails-image]: http://i.imgur.com/amwaQQI.png
 [trails-url]: http://trailsjs.io
