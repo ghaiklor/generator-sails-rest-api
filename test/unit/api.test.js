@@ -1,32 +1,17 @@
 import path from 'path'
 import os from 'os'
-import { assert, test } from 'yeoman-generator'
+import assert from 'yeoman-assert'
+import test from 'yeoman-test'
 
 describe('trails:api', () => {
   describe('Should properly generate api interface', () => {
     before(done => {
-      //FIXME: really test api call, currently not working cause api run model and controller
-      var controller = false
-      var model = false
       test
-        .run(path.join(__dirname, '../../src/model'))
+        .run(path.join(__dirname, '../../src/api'))
         .withArguments(['apiTest'])
         .on('end', function (err) {
-          model = true
-          if (controller == true && model == true) {
-            done(err)
-          }
+          done(err)
         })
-      test
-        .run(path.join(__dirname, '../../src/controller'))
-        .withArguments(['apiTest'])
-        .on('end', function (err) {
-          controller = true
-          if (controller == true && model == true) {
-            done(err)
-          }
-        })
-
     })
 
     it('Should properly create controller files', () => {
