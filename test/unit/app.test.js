@@ -1,6 +1,7 @@
 import path from 'path'
 import os from 'os'
-import { assert, test } from 'yeoman-generator'
+import assert from 'yeoman-assert'
+import test from 'yeoman-test'
 
 describe('trails:app', () => {
   describe('Should create trails from trails/archetype', () => {

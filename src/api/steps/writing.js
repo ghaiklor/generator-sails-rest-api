@@ -3,14 +3,12 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-var yeoman = require('yeoman-environment')
-
 export default function () {
-  var env = yeoman.createEnv()
+  const env = this.env
 
-  env.lookup(function () {
-    env.run('trailpack:model ' + this['api-name'])
-    env.run('trailpack:controller ' + this['api-name'])
-  }.bind(this))
+  env.lookup(() => {
+    env.run('trails:model ' + this['api-name'])
+    env.run('trails:controller ' + this['api-name'])
+  })
 
 }

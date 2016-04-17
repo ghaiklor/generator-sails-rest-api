@@ -1,6 +1,7 @@
 import path from 'path'
 import os from 'os'
-import { assert, test } from 'yeoman-generator'
+import assert from 'yeoman-assert'
+import test from 'yeoman-test'
 
 describe('trails:controller', () => {
   describe('Should properly generate controller interface', () => {
