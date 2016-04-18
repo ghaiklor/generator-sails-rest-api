@@ -1,3 +1,4 @@
+import fs from 'fs'
 import path from 'path'
 import falafel from 'falafel'
 import pathExists from 'path-exists'
@@ -77,5 +78,22 @@ const Util = module.exports = {
     })
 
     return newFileContents.toString()
+  },
+
+  updatedIndexesFolder (indexPath, folder) {
+    fs.readdir(folder, (err, files) => {
+      if (err) {
+        return console.log('Unable to scan dir ' + folder, err)
+      }
+      let content = ''
+      files.forEach(function (file) {
+        // Do something with the file.
+        const ext = path.extname(file)
+        if (file != 'locales' && file != 'index.js' && (ext == '' || ext == '.js')) {
+          content += Util.getRequireStatement(path.basename(file, ext))
+        }
+      })
+      fs.writeFileSync(indexPath, content)
+    })
   }
 }
