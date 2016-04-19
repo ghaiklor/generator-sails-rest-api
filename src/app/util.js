@@ -80,16 +80,16 @@ const Util = module.exports = {
     return newFileContents.toString()
   },
 
-  updatedIndexesFolder (indexPath, folder) {
+  updatedIndexesFolder (indexPath, folder, ignored) {
+    ignored = ignored || []
     fs.readdir(folder, (err, files) => {
       if (err) {
         return console.log('Unable to scan dir ' + folder, err)
       }
       let content = ''
       files.forEach(function (file) {
-        // Do something with the file.
         const ext = path.extname(file)
-        if (file != 'locales' && file != 'index.js' && (ext == '' || ext == '.js')) {
+        if (ignored.indexOf(file) == -1 && file != 'index.js' && (ext == '' || ext == '.js')) {
           content += Util.getRequireStatement(path.basename(file, ext))
         }
       })
