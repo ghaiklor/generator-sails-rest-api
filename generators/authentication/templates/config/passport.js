@@ -68,14 +68,14 @@ const SOCIAL_STRATEGY_CONFIG = {
 /**
  * Triggers when user authenticates via local strategy
  * @param {Object} req Request object
- * @param {String} email Email from body field in request
+ * @param {String} username Username from body field in request
  * @param {String} password Password from body field in request
  * @param {Function} next Callback
  * @private
  */
-const _onLocalStrategyAuth = (req, email, password, next) => {
+const _onLocalStrategyAuth = (req, username, password, next) => {
   User
-    .findOne({email: email})
+    .findOne({[LOCAL_STRATEGY_CONFIG.usernameField]: username})
     .then(user => {
       if (!user) return next(null, null, sails.config.errors.USER_NOT_FOUND);
       if (!HashService.bcrypt.compareSync(password, user.password)) return next(null, null, sails.config.errors.USER_NOT_FOUND);
