@@ -8,17 +8,22 @@ describe('trails:app', () => {
     before(done => {
       test
         .run(path.join(__dirname, '../../src/app'))
-        .withPrompts({'web-engine': 'hapi', 'orm-engine': 'waterline', authorName: 'trailsjs', authorEmail: 'hello@trailsjs.io', license: 'MIT'}) // Mock the prompt answers
+        .withPrompts({
+          'web-engine': 'hapi',
+          'orm-engine': 'waterline',
+          authorName: 'trailsjs',
+          authorEmail: 'hello@trailsjs.io',
+          license: 'MIT'
+        }) // Mock the prompt answers
         .withOptions({
           'skip-update': true,
-          'skip-install': true
+          'skip-install': false
         })
         .on('end', done)
     })
 
     it('Should properly create root files', () => {
       assert.file([
-        '.trailsrc',
         '.editorconfig',
         '.gitignore',
         'index.js',
@@ -28,15 +33,14 @@ describe('trails:app', () => {
         'api/services/index.js',
         'config/index.js',
         'config/database.js',
-        'config/main.js',
         'config/footprints.js',
+        'config/main.js',
         'config/log.js',
         'config/policies.js',
         'config/routes.js',
         'config/session.js',
         'config/views.js',
         'config/web.js',
-        'config/webpack.js',
         'config/env/testing.js',
         'config/env/staging.js',
         'config/env/production.js',
