@@ -58,7 +58,9 @@ describe('trails:app', () => {
     it('Should properly start', done => {
       const trailsApp = new TrailsApp(require(tmpDir))
       const stop = () => {
-        return trailsApp.stop().then(done).catch(done)
+        return trailsApp.stop().then(_ => {
+          done()
+        }).catch(done)
       }
       trailsApp.start().then(stop).catch(stop)
     })
@@ -116,7 +118,9 @@ describe('trails:app', () => {
       it('Should properly start', done => {
         const trailsApp = new TrailsApp(require(tmpDir))
         const stop = () => {
-          return trailsApp.stop().then(done).catch(done)
+          return trailsApp.stop().then(_ => {
+            done()
+          }).catch(done)
         }
         trailsApp.start().then(stop).catch(stop)
       })
