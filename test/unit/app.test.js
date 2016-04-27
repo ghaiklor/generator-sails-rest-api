@@ -75,7 +75,7 @@ describe('trails:app', () => {
           tmpDir = dir
         })
         .withPrompts({
-          'web-engine': 'express4',
+          'web-engine': 'express',
           'orm-engine': 'waterline',
           authorName: 'trailsjs',
           authorEmail: 'hello@trailsjs.io',

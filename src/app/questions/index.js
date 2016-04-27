@@ -5,7 +5,7 @@ export default [
     message: 'Choose a Web Server',
     choices: [
       'hapi',
-      'express4',
+      'express',
       'koa (not supported yet)',
       'restify (not supported yet)',
       'other'
