@@ -1,23 +1,2 @@
 {
-  "version": "0.0.0",
-  "dependencies": {
-    "lodash": "^3.10.1",
-    "rc": "^1.1.2",
-    "trailpack-core": "latest",
-    "trailpack-hapi": "latest",
-    "trailpack-repl": "latest",
-    "trailpack-router": "latest",
-    "trails": "latest",
-    "waterline-sqlite3": "latest",
-  },
-  "devDependencies": {
-    "mocha": "^2.3.4",
-    "supertest": "^1.1.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "engines": {
-    "node": ">= 4.0.0"
-  }
 }
