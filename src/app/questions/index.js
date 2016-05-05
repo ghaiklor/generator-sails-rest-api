@@ -26,6 +26,7 @@ export default [
     choices: [
       'waterline',
       'mongoose',
+      'knex',
       'bookshelf (not supported yet)',
       'sequelize (not supported yet)',
       'none',

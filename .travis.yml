@@ -1,7 +1,11 @@
 language: node_js
 node_js:
 - '4'
-- stable
+- '5'
+
+os:
+- linux
+- osx
 
 notifications:
   email: false
@@ -19,4 +23,4 @@ deploy:
   on:
     tags: true
     repo: trailsjs/generator-trails
-    node: stable
+    node: '5'
