@@ -1,14 +1,10 @@
-# Test against this version of Node.js
 environment:
   matrix:
   - nodejs_version: "lts"
   - nodejs_version: "stable"
 
-# Install scripts. (runs after repo cloning)
 install:
-  # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  # install modules
   - npm install
 
 platform:
