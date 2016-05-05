@@ -56,7 +56,7 @@ for more information.
 [trails-url]: http://trailsjs.io
 [npm-image]: https://img.shields.io/npm/v/generator-trails.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/generator-trails
-[ci-image]: https://img.shields.io/travis/trailsjs/generator-trails/master.svg?style=flat-square
+[ci-image]: https://img.shields.io/travis/trailsjs/generator-trails.svg?style=flat-square&label=Linux%20/%20OSX
 [ci-url]: https://travis-ci.org/trailsjs/generator-trails
 [appveyor-image]: https://img.shields.io/appveyor/ci/trailsjs/generator-trails/master.svg?style=flat-square&label=Windows
 [appveyor-url]: https://ci.appveyor.com/project/trailsjs/generator-trails
