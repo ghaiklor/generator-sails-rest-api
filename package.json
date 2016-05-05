@@ -60,7 +60,7 @@
     "path-exists": "^2.1.0",
     "detect-conflict": "^1.0.0",
     "falafel": "^1.2.0",
-    "generator-node": "trailsjs/generator-node",
+    "@trails/generator-node": "^1.10",
     "print-message": "2.1.0",
     "trails": "latest",
     "update-notifier": "0.6.3",
@@ -79,6 +79,16 @@
     "yeoman-assert": "^2.1.2",
     "yeoman-test": "^1.1.0"
   },
+  "bundledDependencies": [
+    "chalk",
+    "path-exists",
+    "detect-conflict",
+    "falafel",
+    "print-message",
+    "update-notifier",
+    "yeoman-generator",
+    "yosay"
+  ],
   "publishConfig": {
     "tag": "latest"
   },
