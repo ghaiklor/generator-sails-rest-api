@@ -5,11 +5,11 @@ import test from 'yeoman-test'
 
 describe('trails:policy', () => {
   describe('Should properly generate policy interface', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../src/policy'))
         .withArguments(['test'])
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create policy files', () => {

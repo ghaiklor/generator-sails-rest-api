@@ -35,11 +35,11 @@ describe('trails:api', () => {
 
     })
     describe('Should properly generate controller interface', () => {
-      before(done => {
-        test
+      before(() => {
+        return test
           .run(path.join(__dirname, '../../src/controller'))
           .withArguments(['apiTest'])
-          .on('end', done)
+          .toPromise()
 
       })
 

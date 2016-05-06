@@ -5,11 +5,11 @@ import test from 'yeoman-test'
 
 describe('trails:controller', () => {
   describe('Should properly generate controller interface', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../src/controller'))
         .withArguments(['test'])
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create controller files', () => {

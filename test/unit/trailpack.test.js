@@ -5,15 +5,15 @@ import test from 'yeoman-test'
 
 describe('trails:trailpack', () => {
   describe('Should properly install trailpack and his archetype', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '..', '..', 'src', 'trailpack'))
         .withArguments(['trailpack-hapi'])
         .withOptions({
           'skip-update': true,
           'skip-install': false
         })
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create trailpack files', () => {
