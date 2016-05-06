@@ -5,9 +5,9 @@ import test from 'yeoman-test'
 
 describe('trails:app', () => {
   describe('Should create trails from trails/archetype', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/app'))
+    before(() => {
+      return test
+        .run(path.join(__dirname, '..', '..', 'src', 'app'))
         .withPrompts({
           'web-engine': 'hapi',
           'orm-engine': 'waterline',
@@ -19,7 +19,7 @@ describe('trails:app', () => {
           'skip-update': true,
           'skip-install': false
         })
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create root files', () => {

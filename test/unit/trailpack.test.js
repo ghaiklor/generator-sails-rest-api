@@ -7,7 +7,7 @@ describe('trails:trailpack', () => {
   describe('Should properly install trailpack and his archetype', () => {
     before(done => {
       test
-        .run(path.join(__dirname, '../../src/trailpack'))
+        .run(path.join(__dirname, '..', '..', 'src', 'trailpack'))
         .withArguments(['trailpack-hapi'])
         .withOptions({
           'skip-update': true,
