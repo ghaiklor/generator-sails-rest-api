@@ -14,6 +14,6 @@ export default function () {
         coveralls: false
       }
     },
-    {local: require.resolve('generator-node/generators/app')}
+    {local: require.resolve('@trails/generator-node/generators/app')}
   )
 }

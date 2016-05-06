@@ -4,6 +4,10 @@ node_js:
 - 5
 - 6
 
+os:
+- linux
+- osx
+
 notifications:
   email: false
   webhooks:
@@ -21,4 +25,4 @@ deploy:
   on:
     tags: true
     repo: trailsjs/generator-trails
-    node: 6
+    node: 5

@@ -7,9 +7,9 @@ import TrailsApp from 'trails'
 describe('trails:app', () => {
   describe('Should create trails based on Hapi/Waterline from trails/archetype', () => {
     let tmpDir
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/app'))
+    before(() => {
+      return test
+        .run(path.join(__dirname, '..', '..', 'src', 'app'))
         .inTmpDir(dir => {
           tmpDir = dir
         })
@@ -24,7 +24,7 @@ describe('trails:app', () => {
           'skip-update': true,
           'skip-install': false
         })
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create root files', () => {
@@ -68,9 +68,9 @@ describe('trails:app', () => {
 
   describe('Should create trails based on Express/Waterline from trails/archetype', () => {
     let tmpDir
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../src/app'))
+    before(() => {
+      return test
+        .run(path.join(__dirname, '..', '..', 'src', 'app'))
         .inTmpDir(dir => {
           tmpDir = dir
         })
@@ -85,7 +85,7 @@ describe('trails:app', () => {
           'skip-update': true,
           'skip-install': false
         })
-        .on('end', done)
+        .toPromise()
     })
 
     it('Should properly create root files', () => {
