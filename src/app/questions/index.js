@@ -13,11 +13,31 @@ export default [
     defaults: 'hapi'
   },
   {
-    when: function (responses) {
+    when: responses => {
       return responses['web-engine'] == 'other'
     },
     name: 'web-engine-other',
     message: 'What is the name of this web engine?'
+  },
+  {
+    type: 'list',
+    when: responses => {
+      return responses['web-engine'] == 'express'
+    },
+    name: 'express-version',
+    message: 'What express version do you want to use ?',
+    choices: [
+      '4',
+      '5',
+      'other'
+    ],
+  },
+  {
+    when: responses => {
+      return responses['express-version'] == 'other'
+    },
+    name: 'express-version-other',
+    message: 'What express version do you want to use (example 4.13.3) ?'
   },
   {
     type: 'list',
@@ -35,7 +55,7 @@ export default [
     defaults: 'waterline'
   },
   {
-    when: function (responses) {
+    when: responses => {
       return responses['orm-engine'] == 'other'
     },
     name: 'orm-engine-other',
@@ -43,7 +63,7 @@ export default [
   },
   {
     type: 'confirm',
-    when: function (responses) {
+    when: responses => {
       return responses['orm-engine'] != 'none'
     },
     name: 'footprints',

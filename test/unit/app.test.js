@@ -76,6 +76,7 @@ describe('trails:app', () => {
         })
         .withPrompts({
           'web-engine': 'express',
+          'express-version': '4',
           'orm-engine': 'waterline',
           authorName: 'trailsjs',
           authorEmail: 'hello@trailsjs.io',
