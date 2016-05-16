@@ -47,8 +47,8 @@ export default [
       'waterline',
       'mongoose',
       'knex',
+      'sequelize',
       'bookshelf (not supported yet)',
-      'sequelize (not supported yet)',
       'none',
       'other'
     ],
