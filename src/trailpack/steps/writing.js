@@ -16,7 +16,9 @@ export default function () {
   let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
 
   this.npmInstall(npmTrailpacks, {
-    save: true
+    save: true,
+    silent: true,
+    loglevel: 'silent'
   }, (err) => {
     if (err) {
       console.log(err)

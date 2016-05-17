@@ -53,8 +53,22 @@ export default {
 
     let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
 
+    if (server == 'express') {
+      if (this.answers['express-version'] == '4') {
+        npmTrailpacks.push('express@4')
+      }
+      else if (this.answers['express-version'] == '5') {
+        npmTrailpacks.push('express@5.0.0-alpha.2') //Replace by express@5 when is out of alpha
+      }
+      else {
+        npmTrailpacks.push(`express@${this.answers['express-version-other']}`)
+      }
+    }
+
     this.npmInstall(npmTrailpacks, {
-      save: true
+      save: true,
+      silent: true,
+      loglevel: 'silent'
     }, (err) => {
       if (err) {
         console.log(err)
@@ -66,7 +80,7 @@ export default {
       })
 
       //FIXME is there a better way for doing this ???
-      fs.commit(function(){
+      fs.commit(function () {
         Util.updatedIndexesFolder(indexPath, path.resolve(dest, 'config'), ['locales'])
       }.bind(this))
     })
