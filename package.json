@@ -1,6 +1,6 @@
 {
   "name": "generator-trails",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Trails Yeoman Generator",
   "main": "generators/app/index.js",
   "keywords": [
@@ -60,7 +60,7 @@
     "path-exists": "^2.1.0",
     "detect-conflict": "^1.0.0",
     "falafel": "^1.2.0",
-    "@trails/generator-node": "^1.10",
+    "@trails/generator-node": "1.10.14",
     "print-message": "2.1.0",
     "trails": "latest",
     "update-notifier": "0.6.3",
