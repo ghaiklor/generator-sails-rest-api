@@ -1,6 +1,6 @@
 {
   "name": "generator-trails",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Trails Yeoman Generator",
   "main": "generators/app/index.js",
   "keywords": [
