@@ -79,16 +79,6 @@
     "yeoman-assert": "^2.1.2",
     "yeoman-test": "^1.4.0"
   },
-  "bundledDependencies": [
-    "chalk",
-    "path-exists",
-    "detect-conflict",
-    "falafel",
-    "print-message",
-    "update-notifier",
-    "yeoman-generator",
-    "yosay"
-  ],
   "publishConfig": {
     "tag": "latest"
   },
