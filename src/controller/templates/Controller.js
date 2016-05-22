@@ -4,7 +4,7 @@ const Controller = require('trails-controller')
 
 /**
  * @module <%= name %>Controller
- * @description Generated Trails.js Controller.
+ * @description <%= answers.desc %>.
  */
 module.exports = class <%= name %>Controller extends Controller{
 

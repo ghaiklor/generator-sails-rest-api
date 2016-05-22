@@ -61,6 +61,7 @@
     "detect-conflict": "^1.0.0",
     "falafel": "^1.2.0",
     "@trails/generator-node": "^1.11",
+    "@trails/generator-util": "^0.0.1",
     "print-message": "2.1.0",
     "trails": "^1.0.0",
     "update-notifier": "0.6.3",

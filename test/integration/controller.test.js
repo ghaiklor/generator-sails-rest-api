@@ -1,5 +1,4 @@
 import path from 'path'
-import os from 'os'
 import assert from 'yeoman-assert'
 import test from 'yeoman-test'
 

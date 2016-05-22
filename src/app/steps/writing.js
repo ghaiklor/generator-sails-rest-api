@@ -3,9 +3,9 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const fs = require('fs')
-const path = require('path')
-import Util from '../util'
+import fs from 'fs'
+import path from 'path'
+import {util as Util} from '@trails/generator-util'
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
 export default {
