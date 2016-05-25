@@ -51,6 +51,10 @@ describe('trails:app', () => {
         'config/env/production.js',
         'config/env/development.js',
         'config/env/index.js',
+        'test/integration/TrailsApp.test.js',
+        'test/setup.js',
+        'test/mocha.opts',
+        'test/.eslintrc.json',
         'package.json',
         'LICENSE'
       ])
@@ -113,6 +117,10 @@ describe('trails:app', () => {
         'config/env/production.js',
         'config/env/development.js',
         'config/env/index.js',
+        'test/integration/TrailsApp.test.js',
+        'test/setup.js',
+        'test/mocha.opts',
+        'test/.eslintrc.json',
         'package.json',
         'LICENSE'
       ])
