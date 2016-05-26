@@ -48,7 +48,7 @@ export default [
       'mongoose',
       'knex',
       'sequelize',
-      'bookshelf (not supported yet)',
+      'bookshelf',
       'none',
       'other'
     ],
