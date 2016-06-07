@@ -4,7 +4,7 @@
  */
 
 const path = require('path')
-import Util from '../../app/util'
+import {util as Util} from '@trails/generator-util'
 
 export default function () {
 
@@ -29,7 +29,7 @@ export default function () {
       this.fs.copy(ARCH, dest)
     })
     //FIXME is there a better way for doing this ???
-    this.fs.commit(function(){
+    this.fs.commit(function () {
       Util.updatedIndexesFolder(indexPath, path.resolve(dest, 'config'), ['locales'])
     }.bind(this))
   })

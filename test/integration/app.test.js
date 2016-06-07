@@ -1,5 +1,4 @@
 import path from 'path'
-import os from 'os'
 import assert from 'yeoman-assert'
 import test from 'yeoman-test'
 import TrailsApp from 'trails'
@@ -116,15 +115,15 @@ describe('trails:app', () => {
         'package.json',
         'LICENSE'
       ])
-      it('Should properly start', done => {
-        const trailsApp = new TrailsApp(require(tmpDir))
-        const stop = () => {
-          return trailsApp.stop().then(_ => {
-            done()
-          }).catch(done)
-        }
-        trailsApp.start().then(stop).catch(stop)
-      })
+    })
+    it('Should properly start', done => {
+      const trailsApp = new TrailsApp(require(tmpDir))
+      const stop = () => {
+        return trailsApp.stop().then(_ => {
+          done()
+        }).catch(done)
+      }
+      trailsApp.start().then(stop).catch(stop)
     })
   })
 })
