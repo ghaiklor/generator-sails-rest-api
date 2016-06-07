@@ -3,9 +3,9 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const fs = require('fs')
-const path = require('path')
-import Util from '../util'
+import fs from 'fs'
+import path from 'path'
+import {util as Util} from '@trails/generator-util'
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
 export default {
@@ -41,10 +41,10 @@ export default {
 
     let trailpackRequires = ''
     trailpackNames.forEach(item => {
-      trailpackRequires += item + '\'), \nrequire(\''
+      trailpackRequires += item + '\'), \n    require(\''
     })
 
-    trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 14, trailpackRequires)
+    trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 18, trailpackRequires)
     const mainConfigFile = path.resolve(dest, 'config', 'main.js')
 
     fs.delete(mainConfigFile)//Delete main.js to generate it from template
