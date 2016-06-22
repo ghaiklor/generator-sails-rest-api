@@ -28,7 +28,6 @@ Yeoman generator that provides already configured and optimized Sails REST API w
 - Generator is split in more smaller parts, so that you are able to scaffold models, policies, controllers, etc... separately;
 - Disabled hooks by default: *csrf*, *grunt*, *i18n*, *pubsub*, *session*, *sockets*, *views*;
 - Flexible questions that allow to you quickly configure database connections, services that you want to use, etc...
-- Integrated ES6 (Babel) support right from the box;
 - Implemented authentication layer based on passport with JWT and Local strategies, Facebook, Twitter, VKontakte, GitHub, Instagram, Google Plus and other social networks;
 - Overrides defaults `blueprints` which simplify CRUD operation in REST API and adds new features like `fields` or `populate` in requests;
 - All configuration files cleaned up and optimized for REST API;
