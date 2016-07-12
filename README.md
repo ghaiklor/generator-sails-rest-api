@@ -10,6 +10,9 @@
 Trails Yeoman Generator.
 
 ## Usage
+
+Make sure you are using a recent version of yeoman (>=1.8). You can install the latest Yeoman with `npm i -g yo`
+
 ```sh
 $ yo trails --help
 
