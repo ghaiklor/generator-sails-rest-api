@@ -51,7 +51,7 @@
     "chai": "3.5.0",
     "coveralls": "2.11.12",
     "cz-conventional-changelog": "1.2.0",
-    "istanbul": "0.4.4",
+    "istanbul": "0.4.5",
     "mocha": "3.0.1",
     "semantic-release": "4.3.5",
     "yeoman-assert": "2.2.1",
