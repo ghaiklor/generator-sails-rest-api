@@ -45,9 +45,8 @@ const LOCAL_STRATEGY_CONFIG = {
  */
 const JWT_STRATEGY_CONFIG = {
   secretOrKey: '<%= options["secret-key"] %>',
-  jwtFromRequest: ExtractJwt.versionOneCompatibility({tokenBodyField: 'access_token'}),
+  jwtFromRequest: ExtractJwt.versionOneCompatibility({authScheme: 'Bearer', tokenBodyField: 'access_token'}),
   tokenQueryParameterName: 'access_token',
-  authScheme: 'Bearer',
   session: false,
   passReqToCallback: true
 };
