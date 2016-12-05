@@ -1,7 +1,7 @@
 ./test/integration/**/*.test.js
 --reporter spec
 --recursive
---timeout 300000
+--timeout 60000
 --check-leaks
 --full-trace
 --slow 50

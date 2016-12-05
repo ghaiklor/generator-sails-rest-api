@@ -1,14 +1,16 @@
+'use strict'
+
 /**
  * Step 5
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-import fs from 'fs'
-import path from 'path'
-import {util as Util} from '@trails/generator-util'
+const fs = require('fs')
+const path = require('path')
+const Util = require('@trails/generator-util').util
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
 
-export default {
+module.exports = {
   genericApi () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/services', '**'), this.destinationPath('api/services'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))

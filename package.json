@@ -49,7 +49,8 @@
     "dev": "npm run clean && cp -r src/ generators/ && babel src --watch --out-dir generators",
     "prepublish": "npm run compile",
     "testIsparte": "babel-node node_modules/.bin/isparta cover _mocha",
-    "test": "mocha --compilers js:babel-core/register"
+    "pretest": "npm run compile",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -63,7 +64,7 @@
     "@trails/generator-node": "^1.11",
     "@trails/generator-util": "^0.0.2",
     "print-message": "^2.1.0",
-    "trails": "^1.0.4",
+    "trails": "v2-latest",
     "update-notifier": "^0.7.0",
     "yeoman-generator": "^0.22.6",
     "yosay": "^1.1.1"

@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     type: 'list',
     name: 'web-engine',

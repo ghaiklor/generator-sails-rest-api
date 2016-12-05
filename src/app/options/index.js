@@ -13,7 +13,7 @@
  * }
  */
 
-export default {
+module.exports = {
   'skip-update': {
     desc: `Do not check for generator\'s updates`,
     type: Boolean,

@@ -1,12 +1,14 @@
+'use strict'
+
 /**
  * Step 1
  * Your initialization methods (checking current project state, getting configs, etc)
  */
 
-import chalk from 'chalk'
-import updateNotifier from 'update-notifier'
-import printMessage from 'print-message'
-import yosay from 'yosay'
+const chalk = require('chalk')
+const updateNotifier = require('update-notifier')
+const printMessage = require('print-message')
+const yosay = require('yosay')
 
 function _onUpdateNotifier(done, error, update) {
   if (update && update.type !== 'latest') {
@@ -21,7 +23,7 @@ function _onUpdateNotifier(done, error, update) {
   done()
 }
 
-export default {
+module.exports = {
   loadPackageInfo: function () {
     this.pkg = require('../../../package.json')
   },

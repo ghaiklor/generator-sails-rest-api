@@ -1,6 +1,6 @@
 'use strict'
 
-const Model = require('trails-model')
+const Model = require('trails/model')
 
 /**
  * @module <%= name %>
@@ -9,6 +9,7 @@ const Model = require('trails-model')
 module.exports = class <%= name %> extends Model {
 
   static config () {
+
   }
 
   static schema () {

@@ -3,7 +3,7 @@
  * Where installation are run (npm, bower)
  */
 
-export default function () {
+module.exports = function () {
 
   // Installing all deps in project
   this.npmInstall(null, {

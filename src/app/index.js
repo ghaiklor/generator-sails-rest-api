@@ -1,11 +1,13 @@
-import { Base } from 'yeoman-generator'
-import generatorArguments from './arguments'
-import generatorOptions from './options'
-import generatorSteps from './steps'
+'use strict'
 
-export default class AppGenerator extends Base {
-  constructor(...args) {
-    super(...args)
+const Base = require('yeoman-generator').Base
+const generatorArguments = require('./arguments')
+const generatorOptions = require('./options')
+const generatorSteps = require('./steps')
+
+module.exports = class AppGenerator extends Base {
+  constructor(args, options) {
+    super(args, options)
 
     Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]))
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]))

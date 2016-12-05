@@ -1,7 +1,9 @@
-import path from 'path'
-import assert from 'yeoman-assert'
-import test from 'yeoman-test'
-import TrailsApp from 'trails'
+'use strict'
+
+const path = require('path')
+const assert = require('yeoman-assert')
+const test = require('yeoman-test')
+const TrailsApp = require('trails')
 
 describe('trails:app', () => {
   describe('Should create trails based on Hapi/Waterline from trails/archetype', () => {

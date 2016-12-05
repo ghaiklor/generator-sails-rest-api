@@ -3,7 +3,7 @@
  * Default priority in run loop
  */
 
-export default function () {
+module.exports = function () {
   this.composeWith('node:app', {
       options: {
         travis: false,

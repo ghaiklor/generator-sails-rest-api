@@ -1,12 +1,14 @@
+'use strict'
+
 /**
  * Step 2
  * Where you prompt users for options (where you'd call this.prompt()).
  */
 
-import chalk from 'chalk'
-import questions from '../questions'
+const chalk = require('chalk')
+const questions = require('../questions')
 
-export default {
+module.exports = {
   askWebServer: function () {
     let done = this.async()
     if (this.options.trailpacks) {

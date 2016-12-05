@@ -1,6 +1,8 @@
-import path from 'path'
-import assert from 'yeoman-assert'
-import test from 'yeoman-test'
+'use strict'
+
+const path = require('path')
+const assert = require('yeoman-assert')
+const test = require('yeoman-test')
 
 describe('trails:policy', () => {
   describe('Should properly generate policy interface', () => {

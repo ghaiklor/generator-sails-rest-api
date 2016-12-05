@@ -1,17 +1,19 @@
+'use strict'
+
 /**
  * Exports object that contains each of priority steps of yeoman run loop
  */
 
-import configuringSteps from './configuring'
-import conflictsSteps from './conflicts'
-import defaultSteps from './default'
-import endSteps from './end'
-import initializingSteps from './initializing'
-import installSteps from './install'
-import promptingSteps from './prompting'
-import writingSteps from './writing'
+const configuringSteps = require('./configuring')
+const conflictsSteps = require('./conflicts')
+const defaultSteps = require('./default')
+const endSteps = require('./end')
+const initializingSteps = require('./initializing')
+const installSteps = require('./install')
+const promptingSteps = require('./prompting')
+const writingSteps = require('./writing')
 
-export default {
+module.exports = {
   configuring: configuringSteps,
   conflicts: conflictsSteps,
   default: defaultSteps,

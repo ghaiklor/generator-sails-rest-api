@@ -1,2 +1,1 @@
-
-export default require('@trails/generator-util').service
+module.exports = require('@trails/generator-util').service
