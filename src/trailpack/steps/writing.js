@@ -1,18 +1,20 @@
+'use strict'
+
 /**
  * Step 5
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
 const path = require('path')
-import {util as Util} from '@trails/generator-util'
+const Util = require('@trails/generator-util').util
 
-export default function () {
+module.exports = function () {
 
   const dest = this.destinationPath()
   const PROJECT_PATH = this.destinationPath('node_modules/')
   const indexPath = path.resolve(dest, 'config', 'index.js')
 
-  let trailpackNames = this['trailpacks-name'].split(',')
+  let trailpackNames = this['trailpacks'].split(',')
   let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
 
   this.npmInstall(npmTrailpacks, {

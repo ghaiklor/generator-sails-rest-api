@@ -3,5 +3,5 @@
  * Where installation are run (npm, bower)
  */
 
-export default function () {
+module.exports = function () {
 }

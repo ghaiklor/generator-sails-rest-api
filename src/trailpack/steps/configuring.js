@@ -3,5 +3,5 @@
  * Saving configurations and configure the project
  */
 
-export default function () {
+module.exports = function () {
 }

@@ -1,11 +1,13 @@
+'use strict'
+
 /**
  * Step 2
  * Where you prompt users for options (where you'd call this.prompt()).
  */
 
-import questions from '../questions'
+const questions = require('../questions')
 
-export default {
+module.exports = {
   askTrailpacks () {
     let done = this.async()
     this.prompt(questions, answers => {

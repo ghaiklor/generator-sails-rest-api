@@ -9,6 +9,8 @@ const fs = require('fs')
 const path = require('path')
 const Util = require('@trails/generator-util').util
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
+const trailsPackage = require(path.resolve(TRAILS_TEMPLATE, 'package.json'))
+const trailsSeries = trailsPackage.dependencies.trails
 
 module.exports = {
   genericApi () {
@@ -43,17 +45,17 @@ module.exports = {
 
     let trailpackRequires = ''
     trailpackNames.forEach(item => {
-      trailpackRequires += item + '\'), \n    require(\''
+      trailpackRequires += item + '\'),\n    require(\''
     })
 
-    trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 18, trailpackRequires)
+    trailpackRequires = trailpackRequires.substring(trailpackRequires.length - 17, trailpackRequires)
     const mainConfigFile = path.resolve(dest, 'config', 'main.js')
 
     fs.delete(mainConfigFile)//Delete main.js to generate it from template
 
     fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
 
-    let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
+    let npmTrailpacks = trailpackNames.map(name => `${name}@${trailsSeries}`)
 
     if (server == 'express') {
       if (this.answers['express-version'] == '4') {
@@ -70,7 +72,7 @@ module.exports = {
     this.npmInstall(npmTrailpacks, {
       save: true,
       silent: true,
-      loglevel: 'silent'
+      loglevel: 'error'
     }, (err) => {
       if (err) {
         console.log(err)
@@ -98,7 +100,6 @@ module.exports = {
   {
     // node:app generator will merge into this
     if (!this.options['skip-install']) {
-      let trailsPackage = require(path.resolve(TRAILS_TEMPLATE, 'package.json'))
       this.fs.writeJSON(this.destinationPath('package.json'), trailsPackage)
     }
   }

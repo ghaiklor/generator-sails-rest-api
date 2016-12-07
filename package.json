@@ -82,7 +82,7 @@
     "yeoman-test": "^1.4.0"
   },
   "publishConfig": {
-    "tag": "latest"
+    "tag": "next"
   },
   "release": {
     "branch": "master"
