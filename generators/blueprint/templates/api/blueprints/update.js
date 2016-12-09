@@ -13,10 +13,13 @@ module.exports = (req, res) => {
   const Model = actionUtil.parseModel(req);
   const pk = actionUtil.requirePk(req);
   const values = actionUtil.parseValues(req);
+  const where = actionUtil.parseCriteria(req);
   const pkName = Model.primaryKey;
-
+  const criteria = {};
+  criteria[pkName] = pk;
+  
   Model
-    .update({pkName: pk}, _.omit(values, pkName))
+    .update(criteria, _.omit(values, pkName))
     .then(records => records[0] ? res.ok(records[0]) : res.notFound())
     .catch(res.negotiate);
 };
