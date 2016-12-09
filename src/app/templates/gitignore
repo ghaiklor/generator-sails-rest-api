@@ -1,3 +1,6 @@
+.trails
+.tmp
+
 # Local
 config/local.js
 
