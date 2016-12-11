@@ -151,11 +151,7 @@ module.exports = {
      */
     onPassportAuth(req, res, error, user, info) {
       if (error || !user) return res.negotiate(error || info);
-
-      if (info.name === 'TokenExpiredError') {
-        info.status = 401
-        return res.negotiate(info)
-      }
+      if (info.name === 'TokenExpiredError') info.status = 401; return res.negotiate(info)
 
       return res.ok({
         token: CipherService.jwt.encodeSync({id: user.id}),
