@@ -8,9 +8,8 @@
 const chalk = require('chalk')
 const updateNotifier = require('update-notifier')
 const printMessage = require('print-message')
-const yosay = require('yosay')
 
-function _onUpdateNotifier(done, error, update) {
+function onUpdateNotifier(done, error, update) {
   if (update && update.type !== 'latest') {
     printMessage([
       'Update available: ' + chalk.green.bold(update.latest) + chalk.dim(' (current: ' + update.current + ')'),
@@ -39,7 +38,7 @@ module.exports = {
       this.log(chalk.yellow('Checking for updates...'))
       updateNotifier({
         pkg: this.pkg,
-        callback: _onUpdateNotifier.bind(this, this.async())
+        callback: onUpdateNotifier.bind(this, this.async())
       })
     }
   }

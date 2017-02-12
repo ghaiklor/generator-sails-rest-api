@@ -14,8 +14,8 @@ module.exports = function () {
   const PROJECT_PATH = this.destinationPath('node_modules/')
   const indexPath = path.resolve(dest, 'config', 'index.js')
 
-  let trailpackNames = this.options.trailpacks.split(',')
-  let npmTrailpacks = trailpackNames.map(name => name.indexOf('@') == -1 ? `${name}@latest` : name)
+  const trailpackNames = this.options.trailpacks.split(',')
+  const npmTrailpacks = trailpackNames.map(name => name.indexOf('@') == -1 ? `${name}@latest` : name)
 
   this.npmInstall(npmTrailpacks, {
     save: true,
@@ -23,11 +23,10 @@ module.exports = function () {
     loglevel: 'silent'
   }, (err) => {
     if (err) {
-      console.log(err)
-      return
+      throw err
     }
     trailpackNames.forEach(item => {
-      let ARCH = path.resolve(PROJECT_PATH + item, 'archetype', '**')
+      const ARCH = path.resolve(PROJECT_PATH + item, 'archetype', '**')
       this.fs.copy(ARCH, dest)
     })
     //FIXME is there a better way for doing this ???
