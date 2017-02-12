@@ -4,6 +4,7 @@
  */
 
 module.exports = function () {
+  /*
   this.composeWith('node:app', {
       options: {
         travis: false,
@@ -15,5 +16,5 @@ module.exports = function () {
       }
     },
     {local: require.resolve('@trails/generator-node/generators/app')}
-  )
+   )*/
 }

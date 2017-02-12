@@ -23,7 +23,7 @@ module.exports = {
   'trailpacks': {
     desc: `Trailpacks to install`,
     type: String,
-    defaults: null,
+    defaults: '',
     hide: false
   }
 }

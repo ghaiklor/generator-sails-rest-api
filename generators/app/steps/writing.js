@@ -62,7 +62,7 @@ module.exports = {
         npmTrailpacks.push('express@4')
       }
       else if (this.answers['express-version'] == '5') {
-        npmTrailpacks.push('express@5.0.0-alpha.2') //Replace by express@5 when is out of alpha
+        npmTrailpacks.push('express@5.0.0-alpha.3') //Replace by express@5 when is out of alpha
       }
       else {
         npmTrailpacks.push(`express@${this.answers['express-version-other']}`)
@@ -95,6 +95,14 @@ module.exports = {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/index.js'), this.destinationPath('api/index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '**'), this.destinationPath('test'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '.*'), this.destinationPath('test'))
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore')
+    )
+    this.fs.copy(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md')
+    )
   },
   pkg()
   {

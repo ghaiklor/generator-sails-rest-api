@@ -14,8 +14,8 @@ module.exports = function () {
   const PROJECT_PATH = this.destinationPath('node_modules/')
   const indexPath = path.resolve(dest, 'config', 'index.js')
 
-  let trailpackNames = this['trailpacks'].split(',')
-  let npmTrailpacks = trailpackNames.map(name => `${name}@latest`)
+  let trailpackNames = this.options.trailpacks.split(',')
+  let npmTrailpacks = trailpackNames.map(name => name.indexOf('@') == -1 ? `${name}@latest` : name)
 
   this.npmInstall(npmTrailpacks, {
     save: true,
