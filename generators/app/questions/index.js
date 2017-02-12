@@ -6,9 +6,8 @@ module.exports = [
     choices: [
       'hapi',
       'express',
-      'toto',
-      'koa (not supported yet)',
-      'restify (not supported yet)',
+      //'koa (not supported yet)',
+      //'restify (not supported yet)',
       'other'
     ],
     defaults: 'hapi'
