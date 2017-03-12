@@ -8,7 +8,7 @@ describe('trails:controller', () => {
   describe('Should properly generate controller interface', () => {
     before(() => {
       return test
-        .run(path.join(__dirname, '../../src/controller'))
+        .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['test'])
         .toPromise()
     })

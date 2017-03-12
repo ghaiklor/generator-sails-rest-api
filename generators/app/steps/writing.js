@@ -5,7 +5,6 @@
  * Where you write the generator specific files (routes, controllers, etc)
  */
 
-const fs = require('fs')
 const path = require('path')
 const Util = require('@trails/generator-util').util
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
@@ -55,14 +54,14 @@ module.exports = {
 
     fs.copyTpl(path.resolve(TRAILS_TEMPLATE, 'config', 'main.js'), mainConfigFile, {trailpacks: trailpackRequires})
 
-    let npmTrailpacks = trailpackNames.map(name => `${name}@${trailsSeries}`)
+    const npmTrailpacks = trailpackNames.map(name => `${name}@${trailsSeries}`)
 
     if (server == 'express') {
       if (this.answers['express-version'] == '4') {
         npmTrailpacks.push('express@4')
       }
       else if (this.answers['express-version'] == '5') {
-        npmTrailpacks.push('express@5.0.0-alpha.2') //Replace by express@5 when is out of alpha
+        npmTrailpacks.push('express@5.0.0-alpha.3') //Replace by express@5 when is out of alpha
       }
       else {
         npmTrailpacks.push(`express@${this.answers['express-version-other']}`)
@@ -75,11 +74,10 @@ module.exports = {
       loglevel: 'error'
     }, (err) => {
       if (err) {
-        console.log(err)
-        return
+        throw err
       }
       trailpackNames.forEach(item => {
-        let ARCH = path.resolve(PROJECT_PATH, item, 'archetype', '**')
+        const ARCH = path.resolve(PROJECT_PATH, item, 'archetype', '**')
         fs.copy(ARCH, dest)
       })
 
@@ -95,9 +93,16 @@ module.exports = {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/index.js'), this.destinationPath('api/index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '**'), this.destinationPath('test'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '.*'), this.destinationPath('test'))
+    this.fs.copy(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore')
+    )
+    this.fs.copy(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md')
+    )
   },
-  pkg()
-  {
+  pkg()  {
     // node:app generator will merge into this
     if (!this.options['skip-install']) {
       this.fs.writeJSON(this.destinationPath('package.json'), trailsPackage)

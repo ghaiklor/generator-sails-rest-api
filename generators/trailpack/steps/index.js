@@ -18,7 +18,9 @@ module.exports = {
   conflicts: conflictsSteps,
   default: defaultSteps,
   end: endSteps,
-  initializing: initializingSteps,
+  initializing: function () {
+    Object.keys(initializingSteps).forEach(key => initializingSteps[key].bind(this)())
+  },
   install: installSteps,
   prompting: promptingSteps,
   writing: writingSteps

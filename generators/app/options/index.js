@@ -15,15 +15,15 @@
 
 module.exports = {
   'skip-update': {
-    desc: `Do not check for generator\'s updates`,
+    desc: 'Do not check for generator\'s updates',
     type: Boolean,
     defaults: false,
     hide: false
   },
   'trailpacks': {
-    desc: `Trailpacks to install`,
+    desc: 'Trailpacks to install',
     type: String,
-    defaults: null,
+    defaults: '',
     hide: false
   }
 }

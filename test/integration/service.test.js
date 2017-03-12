@@ -8,7 +8,7 @@ describe('trails:service', () => {
   describe('Should properly generate service interface', () => {
     before(() => {
       return test
-        .run(path.join(__dirname, '../../src/service'))
+        .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['test'])
         .toPromise()
     })

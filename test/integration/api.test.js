@@ -10,13 +10,13 @@ describe('trails:api', () => {
       before(done => {
         /*
          test
-         .run(path.join(__dirname, '../../src/api'))
+         .run(path.join(__dirname, '../../generators/api'))
          .withArguments(['apiTest'])
          .on('end', done)
          */
         //FIXME: really test api call, currently not working cause api run model and controller
         test
-          .run(path.join(__dirname, '../../src/model'))
+          .run(path.join(__dirname, '../../generators/model'))
           .withArguments(['apiTest'])
           .on('end', done)
       })
@@ -38,7 +38,7 @@ describe('trails:api', () => {
     describe('Should properly generate controller interface', () => {
       before(() => {
         return test
-          .run(path.join(__dirname, '../../src/controller'))
+          .run(path.join(__dirname, '../../generators/controller'))
           .withArguments(['apiTest'])
           .toPromise()
 
