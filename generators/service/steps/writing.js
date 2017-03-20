@@ -16,25 +16,25 @@ const DESTINATION_SERVICE_CONFIG = name => `config/services/${name.toLowerCase()
 const DESTINATION_SERVICE_TEST = name => `test/unit/services/${name}Service.test.js`;
 
 module.exports = function () {
-  const name = (this['service-name'].charAt(0).toUpperCase() + this['service-name'].slice(1)).replace(/Service/, '');
+  const name = (this.options['service-name'].charAt(0).toUpperCase() + this.options['service-name'].slice(1)).replace(/Service/, '');
   const isNew = this.options['new'];
   const isAll = !name || this.options['all'];
 
   if (isAll) {
-    this.directory(`api/services`, `api/services`);
-    this.directory(`config/services`, `config/services`);
-    this.directory(`test/unit/services`, `test/unit/services`);
+    this.fs.copyTpl(this.templatePath(`api/services/**/*`), this.destinationPath(`api/services`), {options: this.options});
+    this.fs.copyTpl(this.templatePath(`config/services/**/*`), this.destinationPath(`config/services`), {options: this.options});
+    this.fs.copyTpl(this.templatePath(`test/unit/services/**/*`), this.destinationPath(`test/unit/services`), {options: this.options});
   } else if (isNew) {
-    this.template(SOURCE_SERVICE(), DESTINATION_SERVICE(name), {name, options: this.options});
-    this.template(SOURCE_SERVICE_CONFIG(), DESTINATION_SERVICE_CONFIG(name), {name, options: this.options});
-    this.template(SOURCE_SERVICE_TEST(), DESTINATION_SERVICE_TEST(name), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(SOURCE_SERVICE()), this.destinationPath(DESTINATION_SERVICE(name)), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(SOURCE_SERVICE_CONFIG()), this.destinationPath(DESTINATION_SERVICE_CONFIG(name)), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(SOURCE_SERVICE_TEST()), this.destinationPath(DESTINATION_SERVICE_TEST(name)), {name, options: this.options});
   } else {
     const serviceTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE(name))) ? SOURCE_SERVICE(name) : SOURCE_SERVICE();
     const configTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE_CONFIG(name))) ? SOURCE_SERVICE_CONFIG(name) : SOURCE_SERVICE_CONFIG();
     const testTemplate = fs.existsSync(this.templatePath(SOURCE_SERVICE_TEST(name))) ? SOURCE_SERVICE_TEST(name) : SOURCE_SERVICE_TEST();
 
-    this.template(serviceTemplate, DESTINATION_SERVICE(name), {name, options: this.options});
-    this.template(configTemplate, DESTINATION_SERVICE_CONFIG(name), {name, options: this.options});
-    this.template(testTemplate, DESTINATION_SERVICE_TEST(name), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(serviceTemplate), this.destinationPath(DESTINATION_SERVICE(name)), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(configTemplate), this.destinationPath(DESTINATION_SERVICE_CONFIG(name)), {name, options: this.options});
+    this.fs.copyTpl(this.templatePath(testTemplate), this.destinationPath(DESTINATION_SERVICE_TEST(name)), {name, options: this.options});
   }
 };

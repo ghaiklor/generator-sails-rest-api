@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:service', () => {
   describe('Should properly scaffold services without any options or arguments', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/service')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/service')));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -61,11 +61,10 @@ describe('sails-rest-api:service', () => {
   });
 
   describe('Should properly scaffold predefined service', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['cipher'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -130,14 +129,13 @@ describe('sails-rest-api:service', () => {
   });
 
   describe('Should properly scaffold overridden predefined service', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['cipher'])
         .withOptions({
           'new': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -202,11 +200,10 @@ describe('sails-rest-api:service', () => {
   });
 
   describe('Should properly scaffold custom service', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/service'))
         .withArguments(['CustomService'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -274,13 +271,12 @@ describe('sails-rest-api:service', () => {
   });
 
   describe('Should properly scaffold all predefined services at once', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/service'))
         .withOptions({
           'all': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -336,8 +332,8 @@ describe('sails-rest-api:service', () => {
   });
 
   describe('Should properly scaffolds all predefined services with custom options', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/service'))
         .withOptions({
           'cipher-secret-key': '1234567890',
@@ -349,7 +345,6 @@ describe('sails-rest-api:service', () => {
           'storage-provider': 'Local',
           'all': true
         })
-        .on('end', done);
     });
 
     it('Should properly create api files', () => {

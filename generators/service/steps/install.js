@@ -19,7 +19,7 @@ const DEPENDENCIES = {
 };
 
 module.exports = function () {
-  const name = this['service-name'].replace(/Service/, '').toLowerCase();
+  const name = this.options['service-name'].replace(/Service/, '').toLowerCase();
   const isNew = this.options['new'];
   const isAll = !name || this.options['all'];
 
