@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:swagger', () => {
   describe('Should properly scaffold swagger support with default configuration', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/swagger')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/swagger')));
 
     it('Should properly create api files', () => {
       assert.file([
