@@ -8,7 +8,7 @@
 module.exports = function () {
   if (this.answers['authentication:enabled']) {
     this.composeWith('sails-rest-api:authentication', {
-      args: [],
+      arguments: [],
       options: {
         'secret-key': this.answers['authentication:secret-key']
       }
@@ -17,7 +17,7 @@ module.exports = function () {
 
   if (this.answers['blueprint:all']) {
     this.composeWith('sails-rest-api:blueprint', {
-      args: [],
+      arguments: [],
       options: {
         'all': true
       }
@@ -25,7 +25,7 @@ module.exports = function () {
   }
 
   this.composeWith('sails-rest-api:config', {
-    args: [],
+    arguments: [],
     options: {
       'database-adapter': this.answers['config:database-adapter'],
       'database-host': this.answers['config:database-host'],
@@ -41,32 +41,32 @@ module.exports = function () {
 
   this.answers['controller:chosen'].forEach(controller => {
     this.composeWith('sails-rest-api:controller', {
-      args: [controller],
+      arguments: [controller],
       options: {}
     });
   });
 
   if (this.answers['cron:enabled']) {
     this.composeWith('sails-rest-api:cron', {
-      args: [],
+      arguments: [],
       options: {}
     });
   }
 
   this.answers['hook:chosen'].forEach(hook => {
     this.composeWith('sails-rest-api:hook', {
-      args: [hook],
+      arguments: [hook],
       options: {}
     });
   });
 
   this.composeWith('sails-rest-api:logger', {
-    args: [this.answers['logger:chosen']],
+    arguments: [this.answers['logger:chosen']],
     options: {}
   });
 
   this.composeWith('sails-rest-api:response', {
-    args: [],
+    arguments: [],
     options: {
       'all': true
     }
@@ -74,7 +74,7 @@ module.exports = function () {
 
   this.answers['service:chosen'].forEach(service => {
     this.composeWith('sails-rest-api:service', {
-      args: [service],
+      arguments: [service],
       options: {
         'cipher-secret-key': this.answers['authentication:secret-key'],
         'image-provider': this.answers['service:image-provider'],
@@ -89,7 +89,7 @@ module.exports = function () {
 
   if (this.answers['swagger:enabled']) {
     this.composeWith('sails-rest-api:swagger', {
-      args: [],
+      arguments: [],
       options: {}
     });
   }
