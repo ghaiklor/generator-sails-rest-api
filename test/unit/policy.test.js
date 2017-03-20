@@ -6,11 +6,10 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:policy', () => {
   describe('Should properly scaffold policy', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/policy'))
         .withArguments(['IsAdmin'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {

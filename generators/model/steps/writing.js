@@ -20,15 +20,15 @@ const DESTINATION_MODEL_TEST = name => `test/unit/models/${name}.test.js`;
 const DESTINATION_MODEL_FIXTURE = name => `test/fixtures/${name}Fixture.js`;
 
 module.exports = function () {
-  const name = (this['model-name'].charAt(0).toUpperCase() + this['model-name'].slice(1)).replace(/Model/, '');
+  const name = (this.options['model-name'].charAt(0).toUpperCase() + this.options['model-name'].slice(1)).replace(/Model/, '');
   const isREST = this.options['rest'];
 
   if (isREST && !fs.existsSync(this.destinationPath(DESTINATION_CONTROLLER(name)))) {
-    this.template(SOURCE_CONTROLLER, DESTINATION_CONTROLLER(name), {name});
-    this.template(SOURCE_CONTROLLER_TEST, DESTINATION_CONTROLLER_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_CONTROLLER), this.destinationPath(DESTINATION_CONTROLLER(name)), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_CONTROLLER_TEST), this.destinationPath(DESTINATION_CONTROLLER_TEST(name)), {name});
   }
 
-  this.template(SOURCE_MODEL, DESTINATION_MODEL(name), {name});
-  this.template(SOURCE_MODEL_TEST, DESTINATION_MODEL_TEST(name), {name});
-  this.template(SOURCE_MODEL_FIXTURE, DESTINATION_MODEL_FIXTURE(name), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_MODEL), this.destinationPath(DESTINATION_MODEL(name)), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_MODEL_TEST), this.destinationPath(DESTINATION_MODEL_TEST(name)), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_MODEL_FIXTURE), this.destinationPath(DESTINATION_MODEL_FIXTURE(name)), {name});
 };

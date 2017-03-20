@@ -14,21 +14,21 @@ const DESTINATION_HOOK = name => `api/hooks/${name}Hook.js`;
 const DESTINATION_HOOK_TEST = name => `test/unit/hooks/${name}Hook.test.js`;
 
 module.exports = function () {
-  const name = (this['hook-name'].charAt(0).toUpperCase() + this['hook-name'].slice(1)).replace(/Hook/, '');
+  const name = (this.options['hook-name'].charAt(0).toUpperCase() + this.options['hook-name'].slice(1)).replace(/Hook/, '');
   const isNew = this.options['new'];
   const isAll = !name || this.options['all'];
 
   if (isAll) {
-    this.directory(`api/hooks`, `api/hooks`);
-    this.directory(`test/unit/hooks`, `test/unit/hooks`);
+    this.fs.copyTpl(this.templatePath(`api/hooks/**/*`), this.destinationPath(`api/hooks`));
+    this.fs.copyTpl(this.templatePath(`test/unit/hooks/**/*`), this.destinationPath(`test/unit/hooks`));
   } else if (isNew) {
-    this.template(SOURCE_HOOK(), DESTINATION_HOOK(name), {name});
-    this.template(SOURCE_HOOK_TEST(), DESTINATION_HOOK_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_HOOK()), this.destinationPath(DESTINATION_HOOK(name)), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_HOOK_TEST()), this.destinationPath(DESTINATION_HOOK_TEST(name)), {name});
   } else {
     const hookTemplate = fs.existsSync(this.templatePath(SOURCE_HOOK(name))) ? SOURCE_HOOK(name) : SOURCE_HOOK();
     const testTemplate = fs.existsSync(this.templatePath(SOURCE_HOOK_TEST(name))) ? SOURCE_HOOK_TEST(name) : SOURCE_HOOK_TEST();
 
-    this.template(hookTemplate, DESTINATION_HOOK(name), {name});
-    this.template(testTemplate, DESTINATION_HOOK_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(hookTemplate), this.destinationPath(DESTINATION_HOOK(name)), {name});
+    this.fs.copyTpl(this.templatePath(testTemplate), this.destinationPath(DESTINATION_HOOK_TEST(name)), {name});
   }
 };

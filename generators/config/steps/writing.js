@@ -6,5 +6,5 @@
  */
 
 module.exports = function () {
-  this.directory(`config`, `config`);
+  this.fs.copyTpl(this.templatePath(`config/**/*`), this.destinationPath(`config`), {options: this.options});
 };

@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:config', () => {
   describe('Should properly scaffold default configuration', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/config')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/config')));
 
     it('Should properly create environment configuration files', () => {
       assert.file([
@@ -42,8 +42,8 @@ describe('sails-rest-api:config', () => {
   });
 
   describe('Should properly scaffold custom configuration', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/config'))
         .withOptions({
           'database-adapter': 'mysql',
@@ -56,7 +56,6 @@ describe('sails-rest-api:config', () => {
           'dynamo-region': 'amazon_region',
           'cors': true
         })
-        .on('end', done);
     });
 
     it('Should properly create environment configuration files', () => {

@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:controller', () => {
   describe('Should properly scaffold controllers without arguments and options', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/controller')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/controller')));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -34,11 +34,10 @@ describe('sails-rest-api:controller', () => {
   });
 
   describe('Should properly scaffold predefined controller', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['ping'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -66,14 +65,13 @@ describe('sails-rest-api:controller', () => {
   });
 
   describe('Should properly scaffold overridden predefined controller', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['ping'])
         .withOptions({
           'new': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -101,11 +99,10 @@ describe('sails-rest-api:controller', () => {
   });
 
   describe('Should properly scaffold custom controller', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/controller'))
         .withArguments(['TicketController'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -135,13 +132,12 @@ describe('sails-rest-api:controller', () => {
   });
 
   describe('Should properly scaffold all predefined controllers at once', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/controller'))
         .withOptions({
           'all': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {

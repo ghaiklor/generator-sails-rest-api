@@ -6,13 +6,13 @@
  */
 
 module.exports = function () {
-  this.directory('test', 'test');
-  this.copy('app.js', 'app.js');
-  this.copy('Dockerfile', 'Dockerfile');
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('esdoc.json', 'esdoc.json');
-  this.copy('gitignore', '.gitignore');
-  this.copy('package.json', 'package.json');
-  this.copy('README.md', 'README.md');
-  this.copy('sailsrc', '.sailsrc');
+  this.fs.copyTpl(this.templatePath('test/**/*'), this.destinationPath('test'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('app.js'), this.destinationPath('app.js'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('Dockerfile'), this.destinationPath('Dockerfile'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('esdoc.json'), this.destinationPath('esdoc.json'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('gitignore'), this.destinationPath('.gitignore'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), {answers: this.answers});
+  this.fs.copyTpl(this.templatePath('sailsrc'), this.destinationPath('.sailsrc'), {answers: this.answers});
 };

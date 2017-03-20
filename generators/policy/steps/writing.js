@@ -12,8 +12,8 @@ const DESTINATION_POLICY = name => `api/policies/${name}.js`;
 const DESTINATION_POLICY_TEST = name => `test/unit/policies/${name}.test.js`;
 
 module.exports = function () {
-  const name = (this['policy-name'].charAt(0).toLowerCase() + this['policy-name'].slice(1)).replace(/Policy/, '');
+  const name = (this.options['policy-name'].charAt(0).toLowerCase() + this.options['policy-name'].slice(1)).replace(/Policy/, '');
 
-  this.template(SOURCE_POLICY, DESTINATION_POLICY(name), {name});
-  this.template(SOURCE_POLICY_TEST, DESTINATION_POLICY_TEST(name), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_POLICY), this.destinationPath(DESTINATION_POLICY(name)), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_POLICY_TEST), this.destinationPath(DESTINATION_POLICY_TEST(name)), {name});
 };

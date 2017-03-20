@@ -10,7 +10,7 @@ const SOURCE_CRON = `cron.template`;
 const DESTINATION_CRON = `config/cron.js`;
 
 module.exports = function () {
-  const jobs = this['cron-jobs'];
+  const jobs = this.options['cron-jobs'];
 
-  this.template(SOURCE_CRON, DESTINATION_CRON, {jobs});
+  this.fs.copyTpl(this.templatePath(SOURCE_CRON), this.destinationPath(DESTINATION_CRON), {jobs});
 };

@@ -6,11 +6,10 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:response', () => {
   describe('Should properly scaffold predefined response', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['ok'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -51,14 +50,13 @@ describe('sails-rest-api:response', () => {
   });
 
   describe('Should properly scaffold overridden predefined response', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['ok'])
         .withOptions({
           'new': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -100,13 +98,12 @@ describe('sails-rest-api:response', () => {
   });
 
   describe('Should properly scaffold all the predefined responses', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/response'))
         .withOptions({
           'all': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -141,11 +138,10 @@ describe('sails-rest-api:response', () => {
   });
 
   describe('Should properly scaffold custom response', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/response'))
         .withArguments(['custom'])
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {

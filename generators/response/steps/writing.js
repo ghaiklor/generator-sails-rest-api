@@ -14,21 +14,21 @@ const DESTINATION_RESPONSE = name => `api/responses/${name}.js`;
 const DESTINATION_RESPONSE_TEST = name => `test/unit/responses/${name}.test.js`;
 
 module.exports = function () {
-  const name = (this['response-name'].charAt(0).toLowerCase() + this['response-name'].slice(1)).replace(/Response/, '');
+  const name = (this.options['response-name'].charAt(0).toLowerCase() + this.options['response-name'].slice(1)).replace(/Response/, '');
   const isNew = this.options['new'];
   const isAll = !name || this.options['all'];
 
   if (isAll) {
-    this.directory(`api/responses`, `api/responses`);
-    this.directory(`test/unit/responses`, `test/unit/responses`);
+    this.fs.copyTpl(this.templatePath(`api/responses/**/*`), this.destinationPath(`api/responses`));
+    this.fs.copyTpl(this.templatePath(`test/unit/responses/**/*`), this.destinationPath(`test/unit/responses`));
   } else if (isNew) {
-    this.template(SOURCE_RESPONSE(), DESTINATION_RESPONSE(name), {name});
-    this.template(SOURCE_RESPONSE_TEST(), DESTINATION_RESPONSE_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_RESPONSE()), this.destinationPath(DESTINATION_RESPONSE(name)), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_RESPONSE_TEST()), this.destinationPath(DESTINATION_RESPONSE_TEST(name)), {name});
   } else {
     const responseTemplate = fs.existsSync(this.templatePath(SOURCE_RESPONSE(name))) ? SOURCE_RESPONSE(name) : SOURCE_RESPONSE();
     const testTemplate = fs.existsSync(this.templatePath(SOURCE_RESPONSE_TEST(name))) ? SOURCE_RESPONSE_TEST(name) : SOURCE_RESPONSE_TEST();
 
-    this.template(responseTemplate, DESTINATION_RESPONSE(name), {name});
-    this.template(testTemplate, DESTINATION_RESPONSE_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(responseTemplate), this.destinationPath(DESTINATION_RESPONSE(name)), {name});
+    this.fs.copyTpl(this.templatePath(testTemplate), this.destinationPath(DESTINATION_RESPONSE_TEST(name)), {name});
   }
 };

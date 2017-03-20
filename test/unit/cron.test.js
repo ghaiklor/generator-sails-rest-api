@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:cron', () => {
   describe('Should properly scaffold empty cron configuration file', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/cron')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/cron')));
 
     it('Should properly create configuration files', () => {
       assert.file([
@@ -18,11 +18,10 @@ describe('sails-rest-api:cron', () => {
   });
 
   describe('Should properly scaffold cron configuration file with predefined jobs', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/cron'))
         .withArguments(['testJob', 'anotherJob'])
-        .on('end', done)
     });
 
     it('Should properly create configuration files', () => {

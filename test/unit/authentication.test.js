@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:authentication', () => {
   describe('Should properly scaffold default authentication layer', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/authentication')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/authentication')));
 
     it('Should properly create api files', () => {
       assert.file([
@@ -37,13 +37,12 @@ describe('sails-rest-api:authentication', () => {
   });
 
   describe('Should properly scaffold authentication layer with custom secret key', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/authentication'))
         .withOptions({
           'secret-key': '1234567890'
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {

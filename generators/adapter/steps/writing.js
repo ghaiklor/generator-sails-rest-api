@@ -12,8 +12,8 @@ const DESTINATION_ADAPTER = name => `api/adapters/${name}Adapter.js`;
 const DESTINATION_ADAPTER_TEST = name => `test/unit/adapters/${name}Adapter.test.js`;
 
 module.exports = function () {
-  const name = (this['adapter-name'].charAt(0).toUpperCase() + this['adapter-name'].slice(1)).replace(/Adapter/, '');
+  const name = (this.options['adapter-name'].charAt(0).toUpperCase() + this.options['adapter-name'].slice(1)).replace(/Adapter/, '');
 
-  this.template(SOURCE_ADAPTER, DESTINATION_ADAPTER(name), {name});
-  this.template(SOURCE_ADAPTER_TEST, DESTINATION_ADAPTER_TEST(name), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_ADAPTER), this.destinationPath(DESTINATION_ADAPTER(name)), {name});
+  this.fs.copyTpl(this.templatePath(SOURCE_ADAPTER_TEST), this.destinationPath(DESTINATION_ADAPTER_TEST(name)), {name});
 };

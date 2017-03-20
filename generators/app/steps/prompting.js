@@ -11,10 +11,12 @@ const questions = require('../questions');
 function askQuestions(title, questions, done) {
   this.log(chalk.yellow(`\n${title} questions:`));
 
-  this.prompt(questions, answers => {
-    this.answers = Object.assign(this.answers || {}, answers);
-    done();
-  });
+  return this
+    .prompt(questions)
+    .then(answers => {
+      this.answers = Object.assign(this.answers || {}, answers);
+      done();
+    });
 }
 
 module.exports = {

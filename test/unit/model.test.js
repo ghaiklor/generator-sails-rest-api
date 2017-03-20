@@ -6,14 +6,13 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:model', () => {
   describe('Should properly scaffold model with REST interface', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/model'))
         .withArguments(['test'])
         .withOptions({
           'rest': true
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {
@@ -46,14 +45,13 @@ describe('sails-rest-api:model', () => {
   });
 
   describe('Should properly scaffold model without REST interface', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/model'))
         .withArguments(['anotherModel'])
         .withOptions({
           'rest': false
         })
-        .on('end', done)
     });
 
     it('Should properly create api files', () => {

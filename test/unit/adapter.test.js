@@ -6,12 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:adapter', () => {
   describe('Should properly scaffold adapter', () => {
-    before(done => {
-      test
-        .run(path.join(__dirname, '../../generators/adapter'))
-        .withArguments(['mongo'])
-        .on('end', done)
-    });
+    before(() => test.run(path.join(__dirname, '../../generators/adapter')).withArguments(['mongo']));
 
     it('Should properly create api files', () => {
       assert.file([

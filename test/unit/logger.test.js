@@ -6,7 +6,7 @@ const test = require('yeoman-test');
 
 describe('sails-rest-api:logger', () => {
   describe('Should properly scaffold default configuration', () => {
-    before(done => test.run(path.join(__dirname, '../../generators/logger')).on('end', done));
+    before(() => test.run(path.join(__dirname, '../../generators/logger')));
 
     it('Should properly create configuration files', () => {
       assert.file([
@@ -18,11 +18,10 @@ describe('sails-rest-api:logger', () => {
   });
 
   describe('Should properly scaffold bunyan configuration', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['bunyan'])
-        .on('end', done)
     });
 
     it('Should properly create configuration files', () => {
@@ -35,11 +34,10 @@ describe('sails-rest-api:logger', () => {
   });
 
   describe('Should properly scaffold Sails default configuration', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['default'])
-        .on('end', done)
     });
 
     it('Should properly create configuration files', () => {
@@ -52,11 +50,10 @@ describe('sails-rest-api:logger', () => {
   });
 
   describe('Should properly scaffold winston configuration', () => {
-    before(done => {
-      test
+    before(() => {
+      return test
         .run(path.join(__dirname, '../../generators/logger'))
         .withArguments(['winston'])
-        .on('end', done)
     });
 
     it('Should properly create configuration files', () => {

@@ -6,7 +6,7 @@
  */
 
 module.exports = function () {
-  this.directory('api', 'api');
-  this.directory('config', 'config');
-  this.directory('test', 'test');
+  this.fs.copyTpl(this.templatePath('api/**/*'), this.destinationPath('api'), {options: this.options});
+  this.fs.copyTpl(this.templatePath('config/**/*'), this.destinationPath('config'), {options: this.options});
+  this.fs.copyTpl(this.templatePath('test/**/*'), this.destinationPath('test'), {options: this.options});
 };

@@ -10,7 +10,7 @@ const DEPENDENCIES = {
 };
 
 module.exports = function () {
-  const name = this['controller-name'].replace(/Controller/, '').toLowerCase();
+  const name = this.options['controller-name'].replace(/Controller/, '').toLowerCase();
 
   if (DEPENDENCIES[name]) {
     this.npmInstall(DEPENDENCIES[name], {save: true});

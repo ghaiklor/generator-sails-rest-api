@@ -14,21 +14,21 @@ const DESTINATION_BLUEPRINT = name => `api/blueprints/${name}.js`;
 const DESTINATION_BLUEPRINT_TEST = name => `test/unit/blueprints/${name}.test.js`;
 
 module.exports = function () {
-  const name = this['blueprint-name'].replace(/Blueprint/, '').toLowerCase();
+  const name = this.options['blueprint-name'].replace(/Blueprint/, '').toLowerCase();
   const isNew = this.options['new'];
   const isAll = !name || this.options['all'];
 
   if (isAll) {
-    this.directory(`api/blueprints`, `api/blueprints`);
-    this.directory(`test/unit/blueprints`, `test/unit/blueprints`);
+    this.fs.copyTpl(this.templatePath(`api/blueprints/**/*`), this.destinationPath(`api/blueprints`));
+    this.fs.copyTpl(this.templatePath(`test/unit/blueprints/**/*`), this.destinationPath(`test/unit/blueprints`));
   } else if (isNew) {
-    this.template(SOURCE_BLUEPRINT(), DESTINATION_BLUEPRINT(name), {name});
-    this.template(SOURCE_BLUEPRINT_TEST(), DESTINATION_BLUEPRINT_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_BLUEPRINT()), this.destinationPath(DESTINATION_BLUEPRINT(name)), {name});
+    this.fs.copyTpl(this.templatePath(SOURCE_BLUEPRINT_TEST()), this.destinationPath(DESTINATION_BLUEPRINT_TEST(name)), {name});
   } else {
     const blueprintTemplate = fs.existsSync(this.templatePath(SOURCE_BLUEPRINT(name))) ? SOURCE_BLUEPRINT(name) : SOURCE_BLUEPRINT();
     const testTemplate = fs.existsSync(this.templatePath(SOURCE_BLUEPRINT_TEST(name))) ? SOURCE_BLUEPRINT_TEST(name) : SOURCE_BLUEPRINT_TEST();
 
-    this.template(blueprintTemplate, DESTINATION_BLUEPRINT(name), {name});
-    this.template(testTemplate, DESTINATION_BLUEPRINT_TEST(name), {name});
+    this.fs.copyTpl(this.templatePath(blueprintTemplate), this.destinationPath(DESTINATION_BLUEPRINT(name)), {name});
+    this.fs.copyTpl(this.templatePath(testTemplate), this.destinationPath(DESTINATION_BLUEPRINT_TEST(name)), {name});
   }
 };

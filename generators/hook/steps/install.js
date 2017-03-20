@@ -11,7 +11,7 @@ const DEPENDENCIES = {
 };
 
 module.exports = function () {
-  const name = this['hook-name'].replace(/Hook/, '').toLowerCase();
+  const name = this.options['hook-name'].replace(/Hook/, '').toLowerCase();
 
   if (DEPENDENCIES[name]) {
     this.npmInstall(DEPENDENCIES[name], {save: true});

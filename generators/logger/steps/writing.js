@@ -10,7 +10,7 @@ const SOURCE_CONFIG = name => `${name}Config.js`;
 const DESTINATION_CONFIG = `config/log.js`;
 
 module.exports = function () {
-  const logger = this['logger-name'].toLowerCase();
+  const logger = this.options['logger-name'].toLowerCase();
 
-  this.template(SOURCE_CONFIG(logger), DESTINATION_CONFIG, {logger});
+  this.fs.copyTpl(this.templatePath(SOURCE_CONFIG(logger)), this.destinationPath(DESTINATION_CONFIG), {logger});
 };
