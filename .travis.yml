@@ -1,8 +1,5 @@
 language: node_js
 node_js:
-- 4
-- 5
-- 6
 - 7
 
 os:
@@ -26,4 +23,4 @@ deploy:
   on:
     tags: true
     repo: trailsjs/generator-trails
-    node: 6
+    node: 7
