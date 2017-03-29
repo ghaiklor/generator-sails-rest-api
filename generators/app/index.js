@@ -1,7 +1,4 @@
-'use strict'
-
 const Generator = require('yeoman-generator')
-const generatorArguments = require('./arguments')
 const generatorOptions = require('./options')
 const generatorSteps = require('./steps')
 
@@ -9,39 +6,30 @@ module.exports = class AppGenerator extends Generator {
   constructor(args, options) {
     super(args, options)
 
-    Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]))
     Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]))
   }
 
-  configuring() {
-    return generatorSteps.configuring.bind(this)()
+  get initializing () {
+    return generatorSteps.initializing
   }
 
-  conflicts() {
-    return generatorSteps.conflicts.bind(this)()
+  get configuring () {
+    return generatorSteps.configuring
   }
 
-  default() {
-    return generatorSteps.default.bind(this)()
+  get prompting () {
+    return generatorSteps.prompting
   }
 
-  end() {
-    return generatorSteps.end.bind(this)()
+  get writing () {
+    return generatorSteps.writing
   }
 
-  initializing() {
-    return generatorSteps.initializing.bind(this)()
+  get install () {
+    return generatorSteps.install
   }
 
-  install() {
-    return generatorSteps.install.bind(this)()
-  }
-
-  prompting() {
-    return generatorSteps.prompting.bind(this)()
-  }
-
-  writing() {
-    return generatorSteps.writing.bind(this)()
+  get end () {
+    return generatorSteps.end
   }
 }

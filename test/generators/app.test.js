@@ -1,12 +1,10 @@
-'use strict'
-
 const path = require('path')
 const assert = require('yeoman-assert')
 const test = require('yeoman-test')
 const TrailsApp = require('trails')
 
 describe('trails:app', () => {
-  describe('Should create trails based on Hapi/Waterline from trails/archetype', () => {
+  describe('Should create trails application based on hapi and waterline selections', () => {
     let tmpDir
     before(() => {
       return test
@@ -31,8 +29,6 @@ describe('trails:app', () => {
 
     it('Should properly create root files', () => {
       assert.file([
-        //'.editorconfig',
-        //'.gitignore',
         'index.js',
         'server.js',
         'api/index.js',
@@ -54,7 +50,6 @@ describe('trails:app', () => {
         'test/mocha.opts',
         'test/.eslintrc.json',
         'package.json',
-        //'LICENSE'
       ])
     })
     it('Should properly start', done => {
@@ -93,8 +88,6 @@ describe('trails:app', () => {
 
     it('Should properly create root files', () => {
       assert.file([
-        //'.editorconfig',
-        //'.gitignore',
         'index.js',
         'server.js',
         'api/index.js',
@@ -116,7 +109,6 @@ describe('trails:app', () => {
         'test/mocha.opts',
         'test/.eslintrc.json',
         'package.json',
-        //'LICENSE'
       ])
     })
     it('Should properly start', done => {

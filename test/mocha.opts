@@ -1,4 +1,5 @@
-./test/integration/**/*.test.js
+./test/generators/**/*.test.js
+
 --reporter spec
 --recursive
 --timeout 300000

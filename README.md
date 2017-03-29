@@ -7,13 +7,14 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Follow @trailsjs on Twitter][twitter-image]][twitter-url]
 
-Trails Yeoman Generator.
+[**Trails**](http://trailsjs.io) Yeoman Generator.
 
 ## Usage
 
 Make sure you are using a recent version of yeoman (>=1.8). You can install the latest Yeoman with `npm i -g yo`
 
 ```sh
+$ npm install -g yo
 $ yo trails --help
 
 Usage:
@@ -27,9 +28,6 @@ Options:
 
 Generators:
 
-  Create New Api
-    yo trails:api <api-name>
-
   Create New Model
     yo trails:model <model-name>
 
@@ -41,22 +39,25 @@ Generators:
 
   Create New Service
     yo trails:service <service-name>
+
+  Create New Trailpack
+    yo trails:trailpack --new
     
-  Install New Trailpacks
-    yo trails:trailpack <trailpacks-name> (like yo trails:trailpack trailpack-repl,trailpack-webpack,...)
+  Install Trailpacks into a Trails Application
+    yo trails:trailpack --install <trailpacks-name> (like yo trails:trailpack trailpack-repl,trailpack-webpack,...)
 ```
 
 ## Contributing
+
 We love contributions! Please see our [Contribution Guide](https://github.com/trailsjs/trails/blob/master/.github/CONTRIBUTING.md)
 for more information.
 
 ## License
+
 [MIT](https://github.com/trailsjs/trails/blob/master/LICENSE)
 
-<img src="http://i.imgur.com/dCjNisP.png">
+<img src="http://cdn.trailsjs.io/art/backgrounds/trails-day.png">
 
-[trails-image]: http://i.imgur.com/amwaQQI.png
-[trails-url]: http://trailsjs.io
 [npm-image]: https://img.shields.io/npm/v/generator-trails.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/generator-trails
 [ci-image]: https://img.shields.io/travis/trailsjs/generator-trails.svg?style=flat-square&label=Linux%20/%20OSX

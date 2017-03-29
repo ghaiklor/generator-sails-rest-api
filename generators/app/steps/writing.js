@@ -1,10 +1,3 @@
-'use strict'
-
-/**
- * Step 5
- * Where you write the generator specific files (routes, controllers, etc)
- */
-
 const path = require('path')
 const Util = require('@trails/generator-util').util
 const TRAILS_TEMPLATE = path.dirname(require.resolve('trails/archetype'))
@@ -12,10 +5,12 @@ const trailsPackage = require(path.resolve(TRAILS_TEMPLATE, 'package.json'))
 const trailsSeries = trailsPackage.dependencies.trails
 
 module.exports = {
+
   genericApi () {
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/services', '**'), this.destinationPath('api/services'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/models', '**'), this.destinationPath('api/models'))
   },
+
   serverDependentApi () {
     const fs = this.fs
     //copy config files
@@ -87,21 +82,17 @@ module.exports = {
       }.bind(this))
     })
   },
+
   root() {
+    this.fs.copy(path.resolve(TRAILS_TEMPLATE, '.gitignore'), this.destinationPath('.gitignore'))
+    this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'README.md'), this.destinationPath('README.md'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'index.js'), this.destinationPath('index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'server.js'), this.destinationPath('server.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'api/index.js'), this.destinationPath('api/index.js'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '**'), this.destinationPath('test'))
     this.fs.copy(path.resolve(TRAILS_TEMPLATE, 'test', '.*'), this.destinationPath('test'))
-    this.fs.copy(
-      this.templatePath('gitignore'),
-      this.destinationPath('.gitignore')
-    )
-    this.fs.copy(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md')
-    )
   },
+
   pkg()  {
     // node:app generator will merge into this
     if (!this.options['skip-install']) {
