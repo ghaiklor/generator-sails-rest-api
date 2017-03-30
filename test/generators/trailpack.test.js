@@ -2,7 +2,7 @@ const path = require('path')
 const assert = require('yeoman-assert')
 const test = require('yeoman-test')
 
-describe.only('trails:trailpack', () => {
+describe('trails:trailpack', () => {
   describe('--install', () => {
     describe('should install an existing trailpack', () => {
       before(() => {

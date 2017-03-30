@@ -1,9 +1,9 @@
-'use strict'
-
 const assert = require('assert')
 
-describe('<%= name %>Controller', () => {
-  it('should exist', () => {
-    assert(global.app.controllers.<%= name %>Controller)
+describe('<%= controllerName %>Controller', () => {
+  let <%= controllerName %>
+  before(() => {
+    <%= controllerName %> = global.app.controllers.<%= controllerName %>
+    assert(controllerName)
   })
 })

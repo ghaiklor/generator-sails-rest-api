@@ -1,10 +1,8 @@
-'use strict'
-
 const path = require('path')
 const assert = require('yeoman-assert')
 const test = require('yeoman-test')
 
-describe('trails:controller', () => {
+describe.only('trails:controller', () => {
   describe('Should properly generate controller interface', () => {
     before(() => {
       return test
@@ -13,18 +11,21 @@ describe('trails:controller', () => {
         .toPromise()
     })
 
-    it('Should properly create controller files', () => {
+    it('should create controller class file', () => {
       assert.file([
         'api/controllers/TestController.js'
       ])
-
     })
-
-    it('Should properly create test files', () => {
+    it('should correctly set Controller class name', () => {
+      assert.fileContent('api/controllers/TestController.js', /class TestController/)
+    })
+    it('should create test suite file', () => {
       assert.file([
         'test/integration/controllers/TestController.test.js'
       ])
-
+    })
+    it('should correctly set test suite name', () => {
+      assert.fileContent('test/integration/controllers/TestController.test.js', /describe\('TestController/)
     })
   })
 })
