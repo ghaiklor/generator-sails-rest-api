@@ -78,7 +78,7 @@ module.exports = {
 
       //FIXME is there a better way for doing this ???
       fs.commit(function () {
-        Util.updatedIndexesFolder(indexPath, path.resolve(dest, 'config'), ['locales'])
+        Util.updateIndexesFolder(indexPath, path.resolve(dest, 'config'), ['locales'])
       }.bind(this))
     })
   },

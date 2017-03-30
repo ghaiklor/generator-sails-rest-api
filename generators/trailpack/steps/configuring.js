@@ -1,7 +1,3 @@
-/**
- * Step 3
- * Saving configurations and configure the project
- */
-
 module.exports = function () {
+  this.options.packArray = this.options.packName.split(',')
 }

@@ -47,8 +47,10 @@
     "url": "https://github.com/trailsjs/generator-trails.git"
   },
   "dependencies": {
-    "@trails/generator-util": "0.0.4",
     "chalk": "^1.1",
+    "detect-conflicts": "^0.1.1",
+    "falafel": "^2.1.0",
+    "path-exists": "^3.0.0",
     "print-message": "^2.1.0",
     "trails": "next",
     "update-notifier": "^1.0.3",

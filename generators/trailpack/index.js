@@ -1,49 +1,40 @@
-'use strict'
-
 const Generator = require('yeoman-generator')
-const generatorArguments = require('./arguments')
-const generatorOptions = require('./options')
 const generatorSteps = require('./steps')
+const generatorArguments = require('./arguments')
 
-module.exports = class ControllerGenerator extends Generator {
+module.exports = class TrailpackGenerator extends Generator {
   constructor(args, options) {
     super(args, options)
 
-    Object.keys(generatorArguments).forEach(key => this.argument(key, generatorArguments[key]))
-    Object.keys(generatorOptions).forEach(key => this.option(key, generatorOptions[key]))
-
-    this.description = 'Install new Trailpacks and copy default files'
+    this.option('new')
+    Object.entries(generatorArguments).forEach(([ arg, desc ]) => this.argument(arg, desc))
   }
 
-  configuring() {
-    return generatorSteps.configuring.bind(this)()
+  get configuring () {
+    return generatorSteps.configuring
   }
 
-  conflicts() {
-    return generatorSteps.conflicts.bind(this)()
+  get conflicts () {
+    return generatorSteps.conflicts
   }
 
-  default() {
-    return generatorSteps.default.bind(this)()
+  get end () {
+    return generatorSteps.end
   }
 
-  end() {
-    return generatorSteps.end.bind(this)()
+  get initializing () {
+    return generatorSteps.initializing
   }
 
-  initializing() {
-    return generatorSteps.initializing.bind(this)()
+  get install () {
+    return generatorSteps.install
   }
 
-  install() {
-    return generatorSteps.install.bind(this)()
+  get prompting () {
+    return generatorSteps.prompting
   }
 
-  prompting() {
-    return generatorSteps.prompting.bind(this)()
-  }
-
-  writing() {
-    return generatorSteps.writing.bind(this)()
+  get writing () {
+    return generatorSteps.writing
   }
 }

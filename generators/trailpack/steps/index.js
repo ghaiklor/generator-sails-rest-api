@@ -1,9 +1,3 @@
-'use strict'
-
-/**
- * Exports object that contains each of priority steps of yeoman run loop
- */
-
 const configuringSteps = require('./configuring')
 const conflictsSteps = require('./conflicts')
 const defaultSteps = require('./default')
