@@ -1,9 +1,11 @@
-'use strict'
-
 const assert = require('assert')
 
-describe('<%= fileName %>', () => {
-  it('should exist', () => {
-    assert(global.app.services.<%= fileName %>)
+describe('<%= serviceClass %>', () => {
+  let <%= serviceClass %>
+
+  before(() => {
+    <%= serviceClass %> = global.app.services.<%= serviceClass %>
+    assert(<%= serviceClass %>)
   })
 })
+

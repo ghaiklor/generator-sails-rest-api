@@ -1,12 +1,7 @@
-'use strict'
-
-const Service = require('trails/service')
-
 /**
- * @module <%= fileName %>
- * @description <%= answers.desc %>
+ * @module <%= serviceRoot %>
+ * @description <%= serviceDesc %>
  */
-module.exports = class <%= fileName %> extends Service {
+module.exports = class <%= serviceRoot %>Service extends Service {
 
 }
-

@@ -1,9 +1,11 @@
-'use strict'
-
 const assert = require('assert')
 
-describe('<%= name %> Model', () => {
-  it('should exist', () => {
-    assert(global.app.models.<%= fileName %>)
+describe('<%= modelName %>', () => {
+  let <%= modelName %>
+
+  before(() => {
+    <%= modelName %> = global.app.models.<%= modelName %>
+    assert(<%= modelName %>)
   })
 })
+

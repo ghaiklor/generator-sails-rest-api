@@ -1,5 +1,3 @@
-'use strict'
-
 const path = require('path')
 const assert = require('yeoman-assert')
 const test = require('yeoman-test')
@@ -13,11 +11,15 @@ describe('trails:model', () => {
         .toPromise()
     })
 
-    it('Should properly create model files', () => {
+    it('Should properly create Model class file', () => {
       assert.file([
         'api/models/Test.js'
       ])
-
+    })
+    it('Should properly create Resolver class file', () => {
+      assert.file([
+        'api/resolvers/Test.js'
+      ])
     })
 
     it('Should properly create test files', () => {

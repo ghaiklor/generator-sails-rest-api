@@ -1,18 +1,20 @@
-'use strict'
-
-const Model = require('trails/model')
+const <%= modelName %>Resolver = require('../resolvers/<%= modelName %>') 
 
 /**
- * @module <%= name %>
- * @description <%= answers.desc %>
+ * 
+ * @module <%= modelName %>
+ * @description <%= modelDesc %>
  */
-module.exports = class <%= name %> extends Model {
+module.exports = class <%= modelName %> extends Model {
 
   static config () {
-
+    return {
+      resolver: <%= modelName %>Resolver
+    }
   }
 
   static schema () {
 
   }
 }
+

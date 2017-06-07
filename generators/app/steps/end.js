@@ -1,11 +1,6 @@
-'use strict'
-
-/**
- * Step 8
- * Called last, cleanup, say good bye, etc
- */
 const chalk = require('chalk')
 const printMessage = require('print-message')
+
 module.exports = function () {
   printMessage([
     `Your ${chalk.green('Trails')} Application has been created!`,

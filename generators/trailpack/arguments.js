@@ -1,7 +1,8 @@
 module.exports = {
-  'packName': {
+  packName: {
     type: String,
-    required: true,
-    desc: 'Name of Trailpack(s)'
+    required: false,
+    desc: 'Name of Trailpack(s)',
+    defaults: this.appname
   }
 }

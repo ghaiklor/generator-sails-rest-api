@@ -2,7 +2,7 @@ const path = require('path')
 const assert = require('yeoman-assert')
 const test = require('yeoman-test')
 
-describe.only('trails:controller', () => {
+describe('trails:controller', () => {
   describe('Should properly generate controller interface', () => {
     before(() => {
       return test

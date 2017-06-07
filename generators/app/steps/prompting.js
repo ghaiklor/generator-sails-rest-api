@@ -1,14 +1,9 @@
-/**
- * Step 2
- * Where you prompt users for options (where you'd call this.prompt()).
- */
-
 module.exports = function () {
   return this.prompt([
     {
       type: 'list',
       name: 'web-engine',
-      message: 'Choose a Web Server',
+      message: 'Which Web Server will your Application use?',
       choices: [
         'hapi',
         'express',
@@ -19,7 +14,7 @@ module.exports = function () {
     {
       type: 'list',
       when: responses => {
-        return responses['web-engine'] == 'express'
+        return responses['web-engine'] === 'express'
       },
       name: 'express-version',
       message: 'What express version do you want to use ?',
@@ -31,15 +26,25 @@ module.exports = function () {
     },
     {
       when: responses => {
-        return responses['express-version'] == 'other'
+        return responses['express-version'] === 'other'
       },
       name: 'express-version-other',
       message: 'What express version do you want to use (example 4.13.3) ?'
     },
     {
       type: 'list',
+      name: 'logger',
+      message: 'Choose a Logging Library',
+      choices: [
+        'winston',
+        'other'
+      ],
+      defaults: 'winston'
+    },
+    {
+      type: 'list',
       name: 'orm-engine',
-      message: 'Choose an ORM',
+      message: 'Which ORM will your Application use?',
       choices: [
         'none',
         'knex',
@@ -52,16 +57,9 @@ module.exports = function () {
       defaults: 'none'
     },
     {
-      when: responses => {
-        return responses['orm-engine'] == 'other'
-      },
-      name: 'orm-engine-other',
-      message: 'What is the name of this ORM ?'
-    },
-    {
       type: 'confirm',
       when: responses => {
-        return responses['orm-engine'] != 'none'
+        return responses['orm-engine'] !== 'none'
       },
       name: 'footprints',
       message: 'Do you want to use Footprints (automatic REST API from models) ?'

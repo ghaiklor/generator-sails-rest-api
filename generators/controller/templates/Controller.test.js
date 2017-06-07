@@ -1,11 +1,11 @@
 const assert = require('assert')
 
-describe('<%= controllerName %>Controller', () => {
-  let <%= controllerName %>
+describe('<%= controllerClass %>', () => {
+  let <%= controllerClass %>
 
   before(() => {
-    <%= controllerName %> = global.app.controllers.<%= controllerName %>
-    assert(<%= controllerName %>)
+    <%= controllerClass %> = global.app.controllers.<%= controllerClass %>
+    assert(<%= controllerClass %>)
   })
 })
 

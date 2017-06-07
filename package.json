@@ -52,6 +52,7 @@
     "falafel": "^2.1.0",
     "path-exists": "^3.0.0",
     "print-message": "^2.1.0",
+    "trailpack": "next",
     "trails": "next",
     "update-notifier": "^1.0.3",
     "yeoman-generator": "^1.1",

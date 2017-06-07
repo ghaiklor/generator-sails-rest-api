@@ -80,10 +80,10 @@ describe('trails:trailpack', () => {
         assert.fileContent('index.js', /class GentestTrailpack/)
       })
       it('should correctly set "name" property in package.json', () => {
-        assert.fileContent('package.json', /"name": "gentest"/)
+        assert.fileContent('package.json', /"name": "trailpack-gentest"/)
       })
       it('should set repo name in README', () => {
-        assert.fileContent('README.md', /^# gentest/)
+        assert.fileContent('README.md', /^# trailpack-gentest/)
       })
 
     })

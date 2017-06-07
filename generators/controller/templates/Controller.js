@@ -1,8 +1,7 @@
 /**
- * @module <%= controllerName %>Controller
+ * @module <%= controllerClass %>
  * @description <%= controllerDesc %>.
  */
-module.exports = class <%= controllerName %>Controller extends Controller {
+module.exports = class <%= controllerClass %> extends Controller {
 
 }
-

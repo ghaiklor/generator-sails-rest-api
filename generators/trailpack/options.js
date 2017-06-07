@@ -4,7 +4,7 @@ module.exports = {
     required: false,
     desc: 'Generate a new Trailpack module',
     banner: 'New Trailpack Module',
-    default: false
+    defaults: null
   }
 }
 

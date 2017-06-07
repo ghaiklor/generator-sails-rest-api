@@ -1,7 +1,6 @@
-/**
- * Step 3
- * Saving configurations and configure the project
- */
-
 module.exports = function () {
+  this.options.packArray = [ ]
+  const loggerTrailpack = `trailpack-${this.options.logger}`
+
+  this.options.packArray.push(loggerTrailpack)
 }
