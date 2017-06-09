@@ -1,8 +1,11 @@
-'use strict'
-
 const assert = require('assert')
 
-describe('<%= name %>', () => {
-  it('should exist', () => {
-    assert(global.app.policies.<%= fileName %>) })
+describe('<%= policyClass %>', () => {
+  let <%= policyClass %>
+
+  before(() => {
+    <%= policyClass %> = global.app.policies.<%= policyClass %>
+    assert(<%= policyClass %>)
+  })
 })
+

@@ -1,5 +1,4 @@
 const path = require('path')
-//const Util = require('../../../lib/util')
 const trailsArchetype = path.dirname(require.resolve('trails/archetype'))
 const trailsPackage = require(path.resolve(trailsArchetype, 'package.json'))
 const trailsSeries = trailsPackage.dependencies.trails
@@ -78,7 +77,7 @@ module.exports = {
   },
 
   root() {
-    this.fs.copy(path.resolve(trailsArchetype, '.gitignore'), this.destinationPath('.gitignore'))
+    //this.fs.copy(path.resolve(trailsArchetype, '.gitignore'), this.destinationPath('.gitignore'))
     this.fs.copy(path.resolve(trailsArchetype, 'README.md'), this.destinationPath('README.md'))
     this.fs.copy(path.resolve(trailsArchetype, 'index.js'), this.destinationPath('index.js'))
     this.fs.copy(path.resolve(trailsArchetype, 'server.js'), this.destinationPath('server.js'))

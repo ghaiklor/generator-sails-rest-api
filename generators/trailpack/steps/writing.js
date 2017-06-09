@@ -12,10 +12,12 @@ module.exports = {
       path.resolve(trailpackArchetype, 'test', '.eslintrc.json'),
       path.resolve(this.destinationPath(), 'test', '.eslintrc.json')
     )
+    /*
     this.fs.copy(
       path.resolve(trailpackArchetype, '.gitignore'),
       path.resolve(this.destinationPath(), '.gitignore')
     )
+    */
 
     const archetypePkg = this.fs.readJSON(this.destinationPath('package.json'))
     const newPkg = Object.assign({ name: this.options.packName }, archetypePkg)
