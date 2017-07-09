@@ -55,7 +55,7 @@
     "mocha": "3.4.2",
     "semantic-release": "6.3.6",
     "yeoman-assert": "3.0.0",
-    "yeoman-test": "1.6.0"
+    "yeoman-test": "1.7.0"
   },
   "config": {
     "commitizen": {
