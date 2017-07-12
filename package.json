@@ -48,7 +48,7 @@
     "yosay": "2.0.0"
   },
   "devDependencies": {
-    "chai": "4.0.1",
+    "chai": "4.1.0",
     "coveralls": "2.13.1",
     "cz-conventional-changelog": "2.0.0",
     "istanbul": "0.4.5",
