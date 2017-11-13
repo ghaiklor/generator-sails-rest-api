@@ -3,14 +3,11 @@
 const Sails = require('sails');
 const config = require('../config/env/test');
 
-let sails;
-
 before(done => {
-  Sails.load(config, (error) => {
+  Sails.load(config, (server, error) => {
     if (error) return done(error);
-
     done();
   });
 });
 
-after(done => sails.lower(done));
+after(done => Sails.lower(done));
