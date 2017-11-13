@@ -6,10 +6,9 @@ const config = require('../config/env/test');
 let sails;
 
 before(done => {
-  Sails.lift(config, (error, server) => {
+  Sails.load(config, (error) => {
     if (error) return done(error);
 
-    sails = server;
     done();
   });
 });
