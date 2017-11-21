@@ -63,7 +63,7 @@ describe('trails:app', () => {
     })
   })
 
-  describe('Should create trails based on Express/Waterline from trails/archetype', () => {
+  describe.skip('Should create trails based on Express/Waterline from trails/archetype', () => {
     let tmpDir
     before(() => {
       return test

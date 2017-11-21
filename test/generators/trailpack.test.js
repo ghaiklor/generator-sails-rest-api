@@ -18,7 +18,6 @@ describe('trails:trailpack', () => {
 
       it('should properly create trailpack files', () => {
         assert.file([
-          'api/controllers/DefaultController.js',
           'api/controllers/index.js'
         ])
       })

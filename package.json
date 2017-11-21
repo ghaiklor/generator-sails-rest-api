@@ -52,8 +52,9 @@
     "falafel": "^2.1.0",
     "path-exists": "^3.0.0",
     "print-message": "^2.1.0",
-    "trailpack": "next",
-    "trails": "next",
+    "trailpack": "^3",
+    "trailpack-hapi": "^3.0.3",
+    "trails": "^3.0.2",
     "update-notifier": "^1.0.3",
     "yeoman-generator": "^1.1",
     "yo": "^1.8.5",
@@ -62,8 +63,8 @@
   "devDependencies": {
     "eslint": "^3",
     "eslint-config-trails": "^3",
-    "mocha": "^3.2.0",
-    "smokesignals": "^2.1.0",
+    "mocha": "^4",
+    "smokesignals": "^3",
     "yeoman-assert": "^3",
     "yeoman-test": "^1.6"
   },
@@ -75,8 +76,5 @@
     "env": {
       "mocha": true
     }
-  },
-  "publishConfig": {
-    "tag": "next"
   }
 }
