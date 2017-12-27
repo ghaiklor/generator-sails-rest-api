@@ -50,7 +50,7 @@
   "devDependencies": {
     "chai": "4.1.0",
     "coveralls": "2.13.1",
-    "cz-conventional-changelog": "2.0.0",
+    "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
     "semantic-release": "7.0.1",
