@@ -53,7 +53,7 @@
     "cz-conventional-changelog": "2.0.0",
     "istanbul": "0.4.5",
     "mocha": "3.4.2",
-    "semantic-release": "6.3.6",
+    "semantic-release": "7.0.1",
     "yeoman-assert": "3.0.0",
     "yeoman-test": "1.7.0"
   },
