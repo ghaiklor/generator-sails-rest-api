@@ -45,17 +45,17 @@
     "print-message": "2.1.0",
     "update-notifier": "2.3.0",
     "yeoman-generator": "2.0.0",
-    "yosay": "2.0.1"
+    "yosay": "2.0.2"
   },
   "devDependencies": {
     "chai": "4.1.1",
-    "coveralls": "2.13.2",
+    "coveralls": "3.0.1",
     "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
     "mocha": "3.5.0",
-    "semantic-release": "7.0.1",
+    "semantic-release": "12.2.2",
     "yeoman-assert": "3.1.1",
-    "yeoman-test": "1.7.0"
+    "yeoman-test": "1.7.1"
   },
   "config": {
     "commitizen": {
