@@ -45,7 +45,7 @@
     "print-message": "2.1.0",
     "update-notifier": "2.3.0",
     "yeoman-generator": "2.0.0",
-    "yosay": "2.0.1"
+    "yosay": "2.0.2"
   },
   "devDependencies": {
     "chai": "4.1.1",
