@@ -43,7 +43,7 @@
   "dependencies": {
     "chalk": "2.4.2",
     "print-message": "2.1.0",
-    "update-notifier": "2.4.0",
+    "update-notifier": "2.6.0",
     "yeoman-generator": "3.2.0",
     "yosay": "2.0.2"
   },
