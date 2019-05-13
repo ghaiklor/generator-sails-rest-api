@@ -44,7 +44,7 @@
     "chalk": "2.4.2",
     "print-message": "2.1.0",
     "update-notifier": "2.4.0",
-    "yeoman-generator": "3.2.0",
+    "yeoman-generator": "4.0.0",
     "yosay": "2.0.2"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "coveralls": "3.0.3",
     "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
-    "mocha": "6.0.0",
+    "mocha": "6.0.2",
     "semantic-release": "15.13.12",
     "yeoman-assert": "3.1.1",
     "yeoman-test": "1.7.1"
