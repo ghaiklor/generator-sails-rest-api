@@ -52,7 +52,7 @@
     "coveralls": "3.0.5",
     "cz-conventional-changelog": "2.1.0",
     "istanbul": "0.4.5",
-    "mocha": "6.0.2",
+    "mocha": "6.2.0",
     "semantic-release": "15.13.16",
     "yeoman-assert": "3.1.1",
     "yeoman-test": "1.7.1"
