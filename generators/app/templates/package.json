@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
-    "rc": "1.1.6",
+    "rc": "1.2.8",
     "sails": "0.12.14"
   },
   "devDependencies": {
