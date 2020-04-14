@@ -44,7 +44,7 @@
     "chalk": "3.0.0",
     "print-message": "3.0.1",
     "update-notifier": "2.6.0",
-    "yeoman-generator": "4.6.0",
+    "yeoman-generator": "4.7.0",
     "yosay": "2.0.2"
   },
   "devDependencies": {
