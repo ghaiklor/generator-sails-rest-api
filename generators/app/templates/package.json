@@ -4,7 +4,8 @@
   "main": "app.js",
   "dependencies": {
     "rc": "1.2.8",
-    "sails": "0.12.14"
+    "sails": "0.12.14",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "esdoc": "0.4.3",
@@ -19,6 +20,9 @@
     "debug": "node debug app.js",
     "docs": "esdoc -c esdoc.json",
     "start": "node app.js",
-    "test": "istanbul cover _mocha"
-  }
+    "test": "istanbul cover _mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
