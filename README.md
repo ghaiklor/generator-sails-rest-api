@@ -1,5 +1,7 @@
 # generator-sails-rest-api
 
+_This project is no longer supported. The only author and contributor who was using Sails and wrote the tool to simplify his regular work quit working with Node.js REST APIs and Sails. Though, if you are interested in take an ownership and became a full-plegded contributor, send a note to ghaiklor@gmail.com._
+
 [![Join the chat at https://gitter.im/ghaiklor/generator-sails-rest-api](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ghaiklor/generator-sails-rest-api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![Downloads](https://img.shields.io/npm/dm/generator-sails-rest-api.svg)
