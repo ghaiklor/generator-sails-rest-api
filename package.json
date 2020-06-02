@@ -34,7 +34,9 @@
   "scripts": {
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "istanbul cover _mocha"
+    "test": "istanbul cover _mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -67,5 +69,6 @@
   },
   "release": {
     "branch": "master"
-  }
+  },
+  "snyk": true
 }
