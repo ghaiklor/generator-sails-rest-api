@@ -4,7 +4,7 @@
   "main": "app.js",
   "dependencies": {
     "rc": "1.2.8",
-    "sails": "0.12.14",
+    "sails": "1.0.0",
     "snyk": "^1.316.1"
   },
   "devDependencies": {
