@@ -4,8 +4,8 @@
   "main": "app.js",
   "dependencies": {
     "rc": "1.2.8",
-    "sails": "1.0.0",
-    "snyk": "^1.316.1"
+    "sails": "1.2.4",
+    "snyk": "^1.362.0"
   },
   "devDependencies": {
     "esdoc": "0.4.3",
